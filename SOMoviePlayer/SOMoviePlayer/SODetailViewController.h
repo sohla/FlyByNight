@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface SODetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (retain, nonatomic) NSString *movieFilePath;
+- (void)configureView;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

@@ -9,37 +9,66 @@
 #import "SODetailViewController.h"
 
 @interface SODetailViewController ()
-- (void)configureView;
+
+@property (retain,nonatomic) MPMoviePlayerController *player;
+
 @end
 
 @implementation SODetailViewController
 
+
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+- (void)configureView{
+
+    NSURL *url  = [NSURL fileURLWithPath:self.movieFilePath];
+    self.player = [[MPMoviePlayerController alloc] initWithContentURL: url];
+    [self.player setControlStyle:MPMovieControlStyleNone];
+    [self.player setScalingMode:MPMovieScalingModeAspectFit];
+    [self.player prepareToPlay];
+    [self.player setFullscreen:YES animated:YES];
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:self.player];
+    // flip it to landscape ratio
+    self.player.view.frame = CGRectMake(0.0, 0.0,
+                                        self.view.bounds.size.height,
+                                        self.view.bounds.size.width);
+    
+    [self.view addSubview:self.player.view];
+
+
+    [self.player play];
+}
+
+- (void) moviePlayBackDidFinish:(NSNotification*)notification{
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)setMovieFilePath:(NSString *)movieFilePath{
+    
+    
+    if (_movieFilePath != movieFilePath) {
+        _movieFilePath = movieFilePath
+        ;
         
         // Update the view.
         [self configureView];
     }
 }
 
-- (void)configureView
-{
-    // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,3 +78,4 @@
 }
 
 @end
+
