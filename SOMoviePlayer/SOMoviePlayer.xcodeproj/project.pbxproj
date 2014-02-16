@@ -22,9 +22,10 @@
 		F0AECCEA18B171DC00263C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC918B171DB00263C32 /* UIKit.framework */; };
 		F0AECCF218B171DC00263C32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCF018B171DC00263C32 /* InfoPlist.strings */; };
 		F0AECCF418B171DC00263C32 /* SOMoviePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */; };
-		F0AECCFF18B172CE00263C32 /* Movie.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCFE18B172CE00263C32 /* Movie.m4v */; };
 		F0AECD0218B1785500263C32 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0118B1785500263C32 /* MediaPlayer.framework */; };
 		F0AECD0418B181FA00263C32 /* steph1.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0AECD0318B181FA00263C32 /* steph1.mov */; };
+		F0AECD0B18B1854200263C32 /* steph2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0AECD0918B1854200263C32 /* steph2.mov */; };
+		F0AECD0C18B1854200263C32 /* steph3.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0AECD0A18B1854200263C32 /* steph3.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +60,10 @@
 		F0AECCEF18B171DC00263C32 /* SOMoviePlayerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOMoviePlayerTests-Info.plist"; sourceTree = "<group>"; };
 		F0AECCF118B171DC00263C32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOMoviePlayerTests.m; sourceTree = "<group>"; };
-		F0AECCFE18B172CE00263C32 /* Movie.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Movie.m4v; sourceTree = "<group>"; };
 		F0AECD0118B1785500263C32 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F0AECD0318B181FA00263C32 /* steph1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = steph1.mov; path = MovieFiles/steph1.mov; sourceTree = SOURCE_ROOT; };
+		F0AECD0918B1854200263C32 /* steph2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = steph2.mov; sourceTree = "<group>"; };
+		F0AECD0A18B1854200263C32 /* steph3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = steph3.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +171,9 @@
 		F0AECCFD18B172CE00263C32 /* MovieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F0AECD0918B1854200263C32 /* steph2.mov */,
+				F0AECD0A18B1854200263C32 /* steph3.mov */,
 				F0AECD0318B181FA00263C32 /* steph1.mov */,
-				F0AECCFE18B172CE00263C32 /* Movie.m4v */,
 			);
 			path = MovieFiles;
 			sourceTree = "<group>";
@@ -253,9 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AECCE118B171DC00263C32 /* Images.xcassets in Resources */,
+				F0AECD0C18B1854200263C32 /* steph3.mov in Resources */,
 				F0AECCD018B171DB00263C32 /* InfoPlist.strings in Resources */,
-				F0AECCFF18B172CE00263C32 /* Movie.m4v in Resources */,
 				F0AECCD918B171DB00263C32 /* Main.storyboard in Resources */,
+				F0AECD0B18B1854200263C32 /* steph2.mov in Resources */,
 				F0AECD0418B181FA00263C32 /* steph1.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

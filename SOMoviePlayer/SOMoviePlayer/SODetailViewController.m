@@ -28,11 +28,8 @@
     [self.player prepareToPlay];
     [self.player setFullscreen:YES animated:YES];
 
+    [self addObservers];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moviePlayBackDidFinish:)
-                                                 name:MPMoviePlayerPlaybackDidFinishNotification
-                                               object:self.player];
     // flip it to landscape ratio
     self.player.view.frame = CGRectMake(0.0, 0.0,
                                         self.view.bounds.size.height,
@@ -44,26 +41,33 @@
     [self.player play];
 }
 
-- (void) moviePlayBackDidFinish:(NSNotification*)notification{
+-(void)addObservers{
 
-    [self.navigationController popViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:self.player];
+
+}
+-(void)removeObservers{
+
+    MPMoviePlayerController *player = self.player;
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:player];
+
+
+
 }
 -(void)setMovieFilePath:(NSString *)movieFilePath{
     
-    
     if (_movieFilePath != movieFilePath) {
-        _movieFilePath = movieFilePath
-        ;
+        _movieFilePath = movieFilePath;
         
         // Update the view.
         [self configureView];
     }
-}
-
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
 }
 
 - (void)viewDidLoad{
@@ -71,10 +75,22 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)viewDidUnload
+{
+    [self removeObservers];
+    [super viewDidUnload];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark Notifications
+
+- (void) moviePlayBackDidFinish:(NSNotification*)notification{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
