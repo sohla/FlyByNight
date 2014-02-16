@@ -22,6 +22,7 @@
 		F0AECCEA18B171DC00263C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC918B171DB00263C32 /* UIKit.framework */; };
 		F0AECCF218B171DC00263C32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCF018B171DC00263C32 /* InfoPlist.strings */; };
 		F0AECCF418B171DC00263C32 /* SOMoviePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */; };
+		F0AECCFF18B172CE00263C32 /* Movie.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCFE18B172CE00263C32 /* Movie.m4v */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		F0AECCEF18B171DC00263C32 /* SOMoviePlayerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOMoviePlayerTests-Info.plist"; sourceTree = "<group>"; };
 		F0AECCF118B171DC00263C32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOMoviePlayerTests.m; sourceTree = "<group>"; };
+		F0AECCFE18B172CE00263C32 /* Movie.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Movie.m4v; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		F0AECCCC18B171DB00263C32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F0AECCFD18B172CE00263C32 /* MovieFiles */,
 				F0AECCCD18B171DB00263C32 /* SOMoviePlayer-Info.plist */,
 				F0AECCCE18B171DB00263C32 /* InfoPlist.strings */,
 				F0AECCD118B171DB00263C32 /* main.m */,
@@ -155,6 +158,14 @@
 				F0AECCF018B171DC00263C32 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0AECCFD18B172CE00263C32 /* MovieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F0AECCFE18B172CE00263C32 /* Movie.m4v */,
+			);
+			path = MovieFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +247,7 @@
 			files = (
 				F0AECCE118B171DC00263C32 /* Images.xcassets in Resources */,
 				F0AECCD018B171DB00263C32 /* InfoPlist.strings in Resources */,
+				F0AECCFF18B172CE00263C32 /* Movie.m4v in Resources */,
 				F0AECCD918B171DB00263C32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
