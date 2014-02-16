@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>072A37EB-8F62-44C8-91B0-F95522180932</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SOMoviePlayer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A1957901-08FE-4885-A17F-AA0CA6619B71</key>
+		<string>ssh://github.com/sohla/SOMoviePlayer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SOMoviePlayer/SOMoviePlayer.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A1957901-08FE-4885-A17F-AA0CA6619B71</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/sohla/SOMoviePlayer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A1957901-08FE-4885-A17F-AA0CA6619B71</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A1957901-08FE-4885-A17F-AA0CA6619B71</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SOMoviePlayer</string>
+		</dict>
+	</array>
+</dict>
+</plist>
