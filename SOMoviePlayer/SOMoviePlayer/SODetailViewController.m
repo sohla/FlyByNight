@@ -24,7 +24,7 @@
 
     NSURL *url  = [NSURL fileURLWithPath:self.movieFilePath];
     self.player = [[MPMoviePlayerController alloc] initWithContentURL: url];
-    [self.player setControlStyle:MPMovieControlStyleNone];
+//    [self.player setControlStyle:MPMovieControlStyleNone];
     [self.player setScalingMode:MPMovieScalingModeAspectFit];
     [self.player prepareToPlay];
     [self.player setFullscreen:YES animated:YES];
@@ -38,10 +38,19 @@
     
     [self.view addSubview:self.player.view];
 
-
     [self.player play];
-}
 
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
+                                              initWithTarget:self
+                                              action:@selector(onSwipeRight:)];
+    [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
+    [[self view] addGestureRecognizer: swipeGesture];
+
+}
+- (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)addObservers{
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -81,6 +90,8 @@
 - (void)viewDidUnload
 {
     [self removeObservers];
+    
+    
     [super viewDidUnload];
 }
 
