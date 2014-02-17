@@ -26,6 +26,7 @@
 		F0AECD0418B181FA00263C32 /* steph1.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0AECD0318B181FA00263C32 /* steph1.mov */; };
 		F0AECD0B18B1854200263C32 /* steph2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0AECD0918B1854200263C32 /* steph2.mov */; };
 		F0AECD0C18B1854200263C32 /* steph3.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0AECD0A18B1854200263C32 /* steph3.mov */; };
+		F0AECD0E18B1882B00263C32 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0D18B1882B00263C32 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		F0AECD0318B181FA00263C32 /* steph1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = steph1.mov; path = MovieFiles/steph1.mov; sourceTree = SOURCE_ROOT; };
 		F0AECD0918B1854200263C32 /* steph2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = steph2.mov; sourceTree = "<group>"; };
 		F0AECD0A18B1854200263C32 /* steph3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = steph3.mov; sourceTree = "<group>"; };
+		F0AECD0D18B1882B00263C32 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0AECD0E18B1882B00263C32 /* CoreMotion.framework in Frameworks */,
 				F0AECD0218B1785500263C32 /* MediaPlayer.framework in Frameworks */,
 				F0AECCC818B171DB00263C32 /* CoreGraphics.framework in Frameworks */,
 				F0AECCCA18B171DB00263C32 /* UIKit.framework in Frameworks */,
@@ -113,6 +116,7 @@
 		F0AECCC418B171DB00263C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0AECD0D18B1882B00263C32 /* CoreMotion.framework */,
 				F0AECD0118B1785500263C32 /* MediaPlayer.framework */,
 				F0AECCC518B171DB00263C32 /* Foundation.framework */,
 				F0AECCC718B171DB00263C32 /* CoreGraphics.framework */,
