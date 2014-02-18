@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <CoreMotion/CoreMotion.h>
 
 @interface SODetailViewController : UIViewController
 

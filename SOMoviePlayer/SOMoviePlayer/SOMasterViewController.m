@@ -30,7 +30,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 
     self.movieFilePaths = [self getAllBundleFilesForTypes:@[@"m4v",@"mov"]];
     
