@@ -15,7 +15,9 @@
 @property (retain, nonatomic) CMMotionManager *motionManager;
 @property (retain, nonatomic) CADisplayLink *motionDisplayLink;
 
-@property double motionLastYaw;
+@property (retain, nonatomic) UIScrollView *scrollView;
+
+
 
 
 @end
@@ -35,13 +37,22 @@
     
     if ([self.motionManager isDeviceMotionAvailable]) {
         // to avoid using more CPU than necessary we use `CMAttitudeReferenceFrameXArbitraryZVertical`
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+        
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
     }
     
 }
 
 - (void)configureView{
 
+    CGRect aspectFrame = CGRectMake(0.0, 0.0,
+                                  self.view.bounds.size.height,
+                                  self.view.bounds.size.width);
+
+    self.scrollView = [[UIScrollView alloc] initWithFrame:aspectFrame];
+    
+    
+    
     NSURL *url  = [NSURL fileURLWithPath:self.movieFilePath];
     self.player = [[MPMoviePlayerController alloc] initWithContentURL: url];
 //    [self.player setControlStyle:MPMovieControlStyleNone];
@@ -50,32 +61,49 @@
     [self.player setFullscreen:YES animated:YES];
     [self addObservers];
     
-    // flip it to landscape ratio
-    self.player.view.frame = CGRectMake(0.0, 0.0,
-                                        self.view.bounds.size.height,
-                                        self.view.bounds.size.width);
     
-    [self.view addSubview:self.player.view];
-    [self.view sendSubviewToBack:self.player.view];
+    CGRect fullFrame = CGRectMake(0.0, 0.0,
+                                   self.view.bounds.size.height * 2,
+                                   self.view.bounds.size.width * 2);
+
+    self.scrollView.contentSize = fullFrame.size;
+    [self.scrollView setContentOffset:(CGPoint){0,0} animated:NO];
+    [self.scrollView setBackgroundColor:[UIColor blackColor]];
+    [self.scrollView setScrollEnabled:NO];
+    
+    self.player.view.frame = fullFrame;
+    
+    [self.scrollView addSubview:self.player.view];
+    [self.view addSubview:self.scrollView];
+    
+    [self.view sendSubviewToBack:self.scrollView];
     
     [self.player play];
-    [self.player setCurrentPlaybackRate:0.5];
+    [self.player setCurrentPlaybackRate:1.0];
 
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
     [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
     [[self view] addGestureRecognizer: swipeGesture];
+    
+    [self.attitudeLabel setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.1]];
+    [self.attitudeLabel setTextColor:[UIColor whiteColor]];
+    [self.view bringSubviewToFront:self.attitudeLabel];
 
 }
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
-    [self.navigationController popViewControllerAnimated:YES];
     [self removeObservers];
-    
+
+    [self.player stop];
+    self.player = nil;
+
     [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     self.motionDisplayLink = nil;
     self.motionManager = nil;
+
+    [self.navigationController popViewControllerAnimated:YES];
 
 }
 -(void)addObservers{
@@ -108,10 +136,12 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self tabBarController].tabBar setHidden:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [[self tabBarController].tabBar setHidden:NO];
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -127,6 +157,9 @@
 {
     [self removeObservers];
     
+    [self.player stop];
+    self.player = nil;
+    
     [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     self.motionDisplayLink = nil;
     self.motionManager = nil;
@@ -138,50 +171,41 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
 
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
+}
 
 #pragma mark Motion Refresher
 
 - (void)motionRefresh:(id)sender {
     
-    // found at : http://www.dulaccc.me/2013/03/computing-the-ios-device-tilt.html
+    float roll = self.motionManager.deviceMotion.attitude.roll;
+    float pitch = self.motionManager.deviceMotion.attitude.pitch;
+    float yawf = self.motionManager.deviceMotion.attitude.yaw;
     
-    CMQuaternion quat = self.motionManager.deviceMotion.attitude.quaternion;
-    double yaw = asin(2*(quat.x*quat.z - quat.w*quat.y));
+    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f",roll,pitch,yawf];
     
-    if (self.motionLastYaw == 0) {
-        self.motionLastYaw = yaw;
+    float xpers = 340;
+    float ypers = 220;
+    
+    if(roll > 0){
+        roll = -roll;
     }
     
-    // kalman filtering
-    static float q = 0.1;   // process noise
-    static float r = 0.1;   // sensor noise
-    static float p = 0.1;   // estimated error
-    static float k = 0.5;   // kalman filter gain
+    CGPoint pnt = CGPointMake((-yawf * xpers) + 240, 160 -(-roll - 1.5) * ypers);
     
-    float x = self.motionLastYaw;
-    p = p + q;
-    k = p / (p + r);
-    x = x + k*(yaw - x);
-    p = (1 - k)*p;
-    self.motionLastYaw = x;
-    
-    float speed = (-x / 1.5) * 2.0;
-    
-    if(speed < 0.1) speed = 0.1;
-    if(speed > 2.0) speed = 2.0;
-
-    self.attitudeLabel.text = [NSString stringWithFormat:@"%.2f",speed];
-    
-    //[self.player setCurrentPlaybackRate:speed];
-
-    float max = 5.0;
-    float yaxis = ((-x / 1.5) - 0.5) * max;
-    
-    if(yaxis < -max) yaxis = -max;
-    if(yaxis > max) yaxis = max;
-    self.player.view.frame = CGRectOffset(self.player.view.frame, 0.0, yaxis);
-    
+    [self.scrollView setContentOffset:pnt animated:NO];
     
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if(orientation == UIInterfaceOrientationLandscapeLeft){
