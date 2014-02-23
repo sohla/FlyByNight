@@ -46,9 +46,9 @@
 
 - (IBAction)onCloseUp:(id)sender {
 
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:0.2
                          delay :0.0f
-                        options: UIViewAnimationOptionCurveEaseOut
+                        options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.view.transform = CGAffineTransformMakeTranslation(0.0,320.0f);
                      }
