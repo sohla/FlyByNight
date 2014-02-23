@@ -10,4 +10,8 @@
 
 @interface SOSettingsViewController : UIViewController
 
+
+@property (strong) void (^onCloseUpBlock) (void) ;
+
+
 @end

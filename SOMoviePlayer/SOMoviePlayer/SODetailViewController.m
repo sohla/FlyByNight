@@ -9,6 +9,8 @@
 #import "SODetailViewController.h"
 #import "SONotifications.h"
 
+#import "SOSettingsViewController.h"
+
 @interface SODetailViewController ()
 
 @property (retain, nonatomic) CMMotionManager           *motionManager;
@@ -88,6 +90,7 @@
     [self.scrollView setScrollEnabled:NO];
     
     self.player.view.frame = fullFrame;
+    [self.player.view setUserInteractionEnabled:NO];
     
     [self.scrollView addSubview:self.player.view];
     [self.view addSubview:self.scrollView];
@@ -97,6 +100,13 @@
     [self.player play];
     [self.player setCurrentPlaybackRate:1.0];
 
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(onDoubleTap:)];
+    [tapGesture setNumberOfTapsRequired:2];
+    [[self view] addGestureRecognizer:tapGesture];
+    
+    
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
@@ -106,6 +116,7 @@
     [self.attitudeLabel setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.1]];
     [self.attitudeLabel setTextColor:[UIColor whiteColor]];
     [self.view bringSubviewToFront:self.attitudeLabel];
+    [self.attitudeLabel setHidden:YES];
 
     // set view port to middle
     CGPoint pnt = CGPointMake(240, 160);
@@ -113,17 +124,42 @@
 
 
 }
+- (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
+    
+    [self.player pause];
+    
+    [self.attitudeLabel setHidden:NO];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    SOSettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"settingsVCID"];
+    [self addChildViewController:settingsVC];
+    [settingsVC.view setFrame:self.view.frame];
+    [self.view addSubview:settingsVC.view];
+    [settingsVC.view setTransform:CGAffineTransformMakeTranslation(0.0,320.0f)];
+    
+    __block SODetailViewController *blockSelf = self;
+    [settingsVC setOnCloseUpBlock:^(){
+        [blockSelf.player play];
+        [blockSelf.attitudeLabel setHidden:YES];
+
+    }];
+    
+    [UIView animateWithDuration:0.3
+                         delay :0.0f
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         settingsVC.view.transform = CGAffineTransformMakeTranslation(0.0,0.0f);
+                     }
+                     completion:^(BOOL  complete){
+                     }
+     ];
+    
+}
+
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
-    [self removeObservers];
-
-    [self.player stop];
-    self.player = nil;
-
-    [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    self.motionDisplayLink = nil;
-    self.motionManager = nil;
-
+    [self cleanup];
     [self.navigationController popViewControllerAnimated:YES];
 
 }
@@ -176,14 +212,16 @@
         [self configureView];
     }
 }
+
+#pragma mark Views
 -(void)viewWillAppear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-//    [[self tabBarController].tabBar setHidden:YES];
+    [[self tabBarController].tabBar setHidden:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-//    [[self tabBarController].tabBar setHidden:NO];
+    [[self tabBarController].tabBar setHidden:NO];
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -195,15 +233,22 @@
     
 }
 
-- (void)viewDidUnload
-{
+-(void)cleanup{
+ 
     [self removeObservers];
     
     [self.player stop];
     self.player = nil;
-
+    
     [self closeMotionManager];
     
+    
+}
+
+- (void)viewDidUnload
+{
+    
+    [self cleanup];
     [super viewDidUnload];
 }
 
@@ -212,6 +257,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark Orientation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
@@ -264,6 +311,7 @@
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification{
     
+    [self cleanup];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

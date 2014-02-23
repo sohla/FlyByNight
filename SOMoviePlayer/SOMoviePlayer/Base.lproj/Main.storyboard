@@ -45,7 +45,7 @@
         <!--Settings View Controller - Settings-->
         <scene sceneID="1tM-Og-mH4">
             <objects>
-                <viewController id="paH-C1-ziH" customClass="SOSettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="paH-C1-ziH" customClass="SOSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hMu-YJ-6AG"/>
                         <viewControllerLayoutGuide type="bottom" id="aU7-SZ-hRa"/>
@@ -66,15 +66,25 @@
                                     <action selector="onResetUp:" destination="paH-C1-ziH" eventType="touchUpInside" id="8dz-YY-Vuv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqT-B1-ENn">
+                                <rect key="frame" x="508" y="0.0" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCloseUp:" destination="paH-C1-ziH" eventType="touchUpInside" id="qSQ-Uo-abz"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="cIc-Oh-Th4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EA9-iE-tL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-293" y="702"/>
+            <point key="canvasLocation" x="-240" y="707"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="VgW-fR-Quf">

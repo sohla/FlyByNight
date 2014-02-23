@@ -11,6 +11,7 @@
 
 @interface SOSettingsViewController ()
 - (IBAction)onResetUp:(id)sender;
+- (IBAction)onCloseUp:(id)sender;
 
 @end
 
@@ -29,7 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSLog(@"R");
+    self.view.alpha = 0.7;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +41,23 @@
 
 - (IBAction)onResetUp:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+
+}
+
+- (IBAction)onCloseUp:(id)sender {
+
+    [UIView animateWithDuration:0.3
+                         delay :0.0f
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.view.transform = CGAffineTransformMakeTranslation(0.0,320.0f);
+                     }
+                     completion:^(BOOL  complete){
+                         
+                         self.onCloseUpBlock();
+                         [self removeFromParentViewController];
+                     }
+     ];
 
 }
 @end
