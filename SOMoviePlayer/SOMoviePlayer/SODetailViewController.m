@@ -7,16 +7,20 @@
 //
 
 #import "SODetailViewController.h"
+#import "SONotifications.h"
 
 @interface SODetailViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *attitudeLabel;
-@property (retain,nonatomic) MPMoviePlayerController *player;
-@property (retain, nonatomic) CMMotionManager *motionManager;
-@property (retain, nonatomic) CADisplayLink *motionDisplayLink;
+@property (retain, nonatomic) CMMotionManager           *motionManager;
+@property (retain, nonatomic) CADisplayLink             *motionDisplayLink;
 
-@property (retain, nonatomic) UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UILabel            *attitudeLabel;
 
+@property (retain,nonatomic) MPMoviePlayerController    *player;
+@property (retain, nonatomic) UIScrollView              *scrollView;
+
+
+-(void)onMotionManagerReset:(NSNotification *)notification;
 
 
 
@@ -36,12 +40,24 @@
     [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     if ([self.motionManager isDeviceMotionAvailable]) {
-        // to avoid using more CPU than necessary we use `CMAttitudeReferenceFrameXArbitraryZVertical`
-        
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
     }
     
+
 }
+
+-(void)closeMotionManager{
+
+    [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    if(self.motionDisplayLink!=nil)
+        self.motionDisplayLink = nil;
+    
+    if(self.motionManager!=nil)
+        self.motionManager = nil;
+
+}
+
 
 - (void)configureView{
 
@@ -91,6 +107,11 @@
     [self.attitudeLabel setTextColor:[UIColor whiteColor]];
     [self.view bringSubviewToFront:self.attitudeLabel];
 
+    // set view port to middle
+    CGPoint pnt = CGPointMake(240, 160);
+    [self.scrollView setContentOffset:pnt animated:NO];
+
+
 }
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
@@ -112,6 +133,12 @@
                                              selector:@selector(moviePlayBackDidFinish:)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
                                                object:self.player];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onMotionManagerReset:)
+												 name:kMotionManagerReset
+											   object:nil];
+
 
 }
 -(void)removeObservers{
@@ -121,10 +148,25 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:MPMoviePlayerPlaybackDidFinishNotification
                                                   object:player];
+    
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kMotionManagerReset
+                                                  object:nil];
 
 
 
 }
+
+
+-(void)onMotionManagerReset:(NSNotification *)notification{
+    
+    
+    [self closeMotionManager];
+    [self setupMotionManager];
+}
+
+
 -(void)setMovieFilePath:(NSString *)movieFilePath{
     
     if (_movieFilePath != movieFilePath) {
@@ -136,12 +178,12 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    [[self tabBarController].tabBar setHidden:YES];
+//    [[self tabBarController].tabBar setHidden:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [[self tabBarController].tabBar setHidden:NO];
+//    [[self tabBarController].tabBar setHidden:NO];
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -159,10 +201,9 @@
     
     [self.player stop];
     self.player = nil;
+
+    [self closeMotionManager];
     
-    [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    self.motionDisplayLink = nil;
-    self.motionManager = nil;
     [super viewDidUnload];
 }
 
@@ -193,8 +234,9 @@
     float roll = self.motionManager.deviceMotion.attitude.roll;
     float pitch = self.motionManager.deviceMotion.attitude.pitch;
     float yawf = self.motionManager.deviceMotion.attitude.yaw;
+    float heading = self.motionManager.deviceMotion.magneticField.field.y;
     
-    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f",roll,pitch,yawf];
+    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
     
     float xpers = 340;
     float ypers = 220;
