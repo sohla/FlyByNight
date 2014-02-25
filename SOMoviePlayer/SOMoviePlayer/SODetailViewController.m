@@ -37,7 +37,7 @@
 @implementation SODetailViewController
 
 
-#pragma mark - Managing the detail item
+#pragma mark - Motion Manager
 
 -(void)setupMotionManager{
     
@@ -66,6 +66,23 @@
 
 }
 
+#pragma mark - Setup
+
+-(void)setMovieFilePathA:(NSURL *)pathA pathB:(NSURL*)pathB{
+    
+    if (_movieFilePath != pathA) {
+        _movieFilePath = pathA;
+        
+    }
+    
+    if (_movieFilePathB != pathB) {
+        _movieFilePathB = pathB;
+        
+    }
+    // Update the view.
+    [self configureView];
+    
+}
 
 - (void)configureView{
 
@@ -100,8 +117,7 @@
 
     // setup avplayers
     
-    NSURL *url  = [NSURL fileURLWithPath:self.movieFilePath];
-    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.movieFilePath options:nil];
 
     _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
     AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
@@ -109,8 +125,7 @@
     [self.aView.layer addSublayer:frontLayer];
     
     
-    url  = [NSURL fileURLWithPath:self.movieFilePathB];
-    asset = [AVURLAsset URLAssetWithURL:url options:nil];
+    asset = [AVURLAsset URLAssetWithURL:self.movieFilePathB options:nil];
 
     _avBackPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
     AVPlayerLayer *backLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
@@ -134,10 +149,6 @@
     CGPoint pnt = CGPointMake(self.view.bounds.size.height, self.view.bounds.size.width/4.0);
     [self.scrollView setContentOffset:pnt animated:NO];
 
-    
-
-    
-    
     // gestures
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
@@ -164,6 +175,38 @@
     [self.attitudeLabel setHidden:YES];
 
 }
+
+-(void)addObservers{
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:[self.avFrontPlayer currentItem]];
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onMotionManagerReset:)
+												 name:kMotionManagerReset
+											   object:nil];
+
+
+}
+-(void)removeObservers{
+
+    AVPlayer *avFrontPlayer = self.avFrontPlayer;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:AVPlayerItemDidPlayToEndTimeNotification
+                                                  object:avFrontPlayer];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kMotionManagerReset
+                                                  object:nil];
+
+}
+
+#pragma mark - Gestures & Notifications
+
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
     
     [self.avFrontPlayer pause];
@@ -184,7 +227,7 @@
         [blockSelf.avFrontPlayer play];
         [blockSelf.avBackPlayer play];
         [blockSelf.attitudeLabel setHidden:YES];
-
+        
     }];
     
     [UIView animateWithDuration:0.2
@@ -203,51 +246,8 @@
     
     [self cleanup];
     [self.navigationController popViewControllerAnimated:YES];
-
+    
 }
--(void)addObservers{
-
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(moviePlayBackDidFinish:)
-//                                                 name:MPMoviePlayerPlaybackDidFinishNotification
-//                                               object:self.player];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moviePlayBackDidFinish:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self.avFrontPlayer currentItem]];
-
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(onMotionManagerReset:)
-												 name:kMotionManagerReset
-											   object:nil];
-
-
-}
--(void)removeObservers{
-
-//    MPMoviePlayerController *player = self.player;
-//
-//    [[NSNotificationCenter defaultCenter] removeObserver:self
-//                                                    name:MPMoviePlayerPlaybackDidFinishNotification
-//                                                  object:player];
-    
-    
-    AVPlayer *avFrontPlayer = self.avFrontPlayer;
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:AVPlayerItemDidPlayToEndTimeNotification
-                                                  object:avFrontPlayer];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kMotionManagerReset
-                                                  object:nil];
-
-
-
-}
-
 
 -(void)onMotionManagerReset:(NSNotification *)notification{
     
@@ -256,60 +256,37 @@
     [self setupMotionManager];
 }
 
--(void)setMovieFilePathA:(NSString *)pathA pathB:(NSString*)pathB{
-  
-    if (_movieFilePath != pathA) {
-        _movieFilePath = pathA;
-        
-    }
-
-    if (_movieFilePathB != pathB) {
-        _movieFilePathB = pathB;
-        
-    }
-    // Update the view.
-    [self configureView];
-
-}
-
--(void)setMovieFilePath:(NSString *)movieFilePath{
+- (void) moviePlayBackDidFinish:(NSNotification*)notification{
     
-    if (_movieFilePath != movieFilePath) {
-        _movieFilePath = movieFilePath;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
 
--(void)setMovieFilePathB:(NSString *)movieFilePathB{
+    [self.avFrontPlayer seekToTime:kCMTimeZero];
+    [self.avBackPlayer seekToTime:kCMTimeZero];
+    [self.avFrontPlayer play];
+    [self.avBackPlayer play];
     
-    if (_movieFilePathB != movieFilePathB) {
-        _movieFilePathB = movieFilePathB;
-        
-        // Update the view.
-        [self configureView];
-    }
 }
 
-#pragma mark Views
+#pragma mark - Views
+
+- (void)viewDidLoad{
+    
+    [super viewDidLoad];
+
+    [self.view setBackgroundColor:[UIColor blackColor]];
+    [self setupMotionManager];
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated{
+    
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [[self tabBarController].tabBar setHidden:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [[self tabBarController].tabBar setHidden:NO];
-}
-- (void)viewDidLoad{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
- 
-
-    [self.view setBackgroundColor:[UIColor blackColor]];
-    [self setupMotionManager];
-    
 }
 
 -(void)cleanup{
@@ -339,7 +316,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark Orientation
+#pragma mark - Orientation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
@@ -355,7 +332,7 @@
     return UIInterfaceOrientationMaskLandscape;
 }
 
-#pragma mark Motion Refresher
+#pragma mark - Motion Refresher
 
 - (void)motionRefresh:(id)sender {
     
@@ -376,7 +353,6 @@
     }
     
 //    CGPoint pnt = CGPointMake((-yawf * xpers) + 240, 160 -(-roll - 1.5) * ypers);
-
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
                                   self.view.bounds.size.height * 2,
@@ -418,13 +394,6 @@
     
 }
 
-#pragma mark Notifications
-
-- (void) moviePlayBackDidFinish:(NSNotification*)notification{
-    
-    [self cleanup];
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 @end
 

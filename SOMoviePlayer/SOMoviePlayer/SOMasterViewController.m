@@ -12,9 +12,10 @@
 
 @interface SOMasterViewController ()
     
-@property (retain, nonatomic) NSArray *movieFilePaths;
-    
+@property (retain, nonatomic) NSMutableArray *movieFilePaths;
+@property (retain, nonatomic) NSMutableArray *thumbNails;
 
+@property (retain, nonatomic) ALAssetsLibrary           *library;
 @end
 
 
@@ -29,9 +30,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.movieFilePaths = [self getAllBundleFilesForTypes:@[@"m4v",@"mov"]];
+
+    _thumbNails = [NSMutableArray array];
     
+    [self.tableView setRowHeight:88.0];
+    
+    self.movieFilePaths = [NSMutableArray arrayWithArray:[self getAllBundleFilesForTypes:@[@"m4v",@"mov"]]];
+
+    __block NSMutableArray *paths = self.movieFilePaths;
+    __block NSMutableArray *thumbs = self.thumbNails;
+
+    [self collectAssetsWithCompletionBlock:^(NSArray *assets){
+    
+        [assets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+            
+            NSURL *url = (NSURL*)obj;
+            [paths addObject:url];
+            
+        }];
+
+        // now lets get all the images
+        
+//        [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+//        
+//            NSURL *url = (NSURL*)obj;
+//            
+//            AVAsset *asset = [AVAsset assetWithURL:url];
+//            AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
+//            CMTime time = CMTimeMake(1, 1);
+//            CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
+//            [thumbs addObject:[UIImage imageWithCGImage:imageRef]];
+//
+//        }];
+//        
+        [self.tableView reloadData];
+
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,7 +93,8 @@
     
     // get all files with correct extensions
     for(NSString *title in [rc pathsMatchingExtensions:types]){
-        [collect addObject:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:title]];
+        NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:title];
+        [collect addObject:[NSURL fileURLWithPath:path]];
     }
     
     return collect;
@@ -81,8 +117,17 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSString *title = [[self.movieFilePaths[indexPath.row] lastPathComponent] stringByDeletingPathExtension];
+    NSURL *url = self.movieFilePaths[indexPath.row] ;
+    NSString *title = [[url relativeString] lastPathComponent];
     cell.textLabel.text = title;
+    
+    
+    if(self.thumbNails.count){
+        cell.imageView.image = self.thumbNails[indexPath.row];
+    }else{
+        cell.imageView.image = [UIImage imageNamed:@"default.png"];
+        
+    }
     return cell;
 }
 /*
@@ -105,8 +150,8 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSString *pathA = self.movieFilePaths[indexPath.row];
-        NSString *pathB = self.movieFilePaths[indexPath.row];
+        NSURL *pathA = self.movieFilePaths[indexPath.row];
+        NSURL *pathB = self.movieFilePaths[indexPath.row];
 
         if(indexPath.row < self.movieFilePaths.count - 1){
             pathB = self.movieFilePaths[indexPath.row + 1];
@@ -118,5 +163,36 @@
         
     }
 }
+
+-(void)collectAssetsWithCompletionBlock:(void(^)(NSArray*))completionBlock{
+    
+    _library = [[ALAssetsLibrary alloc] init];
+    __block NSMutableArray *assets = [NSMutableArray array];
+    
+    [self.library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
+                                usingBlock:^(ALAssetsGroup *group, BOOL *stop){
+                                    
+                                    ALAssetsFilter *allVideosFilter = [ALAssetsFilter allVideos];
+                                    [group setAssetsFilter:allVideosFilter];
+                                    
+                                    [group enumerateAssetsUsingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
+                                        
+                                        
+                                        if (alAsset){
+                                            ALAssetRepresentation *representation =[alAsset defaultRepresentation];
+                                            NSURL *url = [representation url];
+                                            [assets addObject:url];
+                                        }else{
+                                            completionBlock(assets);
+                                        }
+                                    }];
+                                }
+                              failureBlock:^(NSError *error){
+                                  
+                              }];
+    
+    
+}
+
 
 @end

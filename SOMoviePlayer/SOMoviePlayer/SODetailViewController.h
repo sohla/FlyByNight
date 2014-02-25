@@ -11,15 +11,14 @@
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
 
-
 @interface SODetailViewController : UIViewController
 
-@property (retain, nonatomic) NSString *movieFilePath;
-@property (retain, nonatomic) NSString *movieFilePathB;
+@property (retain, nonatomic) NSURL *movieFilePath;
+@property (retain, nonatomic) NSURL *movieFilePathB;
 - (void)configureView;
 
 
--(void)setMovieFilePathA:(NSString *)pathA pathB:(NSString*)pathB;
+-(void)setMovieFilePathA:(NSURL *)pathA pathB:(NSURL*)pathB;
 
 
 @end
