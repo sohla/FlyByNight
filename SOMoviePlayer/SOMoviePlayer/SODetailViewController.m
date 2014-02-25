@@ -23,6 +23,11 @@
 @property (retain,nonatomic) AVPlayer *avFrontPlayer;
 @property (retain,nonatomic) AVPlayer *avBackPlayer;
 
+
+@property (retain, nonatomic) UIView *aView;
+@property (retain, nonatomic) UIView *bView;
+
+
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
 
@@ -76,7 +81,7 @@
     
     CGRect doubleFrame = CGRectMake(0.0, 0.0,
                                   self.view.bounds.size.height * 2,
-                                  self.view.bounds.size.width * 8);
+                                  self.view.bounds.size.width * 2);
 
     
     // setup scroll view
@@ -88,28 +93,45 @@
     [self.view addSubview:self.scrollView];
     
     
+    // our 2 views
+    _aView  = [[UIView alloc] initWithFrame:fullFrame];
+    _bView  = [[UIView alloc] initWithFrame:CGRectOffset(fullFrame,fullFrame.size.width,0.0)];
+    
+
     // setup avplayers
     
     NSURL *url  = [NSURL fileURLWithPath:self.movieFilePath];
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
 
     _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
-    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
-    [playerLayer setFrame:fullFrame];
-    [self.scrollView.layer addSublayer:playerLayer];
+    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
+    [frontLayer setFrame:fullFrame];
+    [self.aView.layer addSublayer:frontLayer];
     
+    
+    url  = [NSURL fileURLWithPath:self.movieFilePathB];
+    asset = [AVURLAsset URLAssetWithURL:url options:nil];
+
     _avBackPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
-    playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
-    [playerLayer setFrame:CGRectOffset(fullFrame, fullFrame.size.width, 0.0)    ];
-    [self.scrollView.layer addSublayer:playerLayer];
+    AVPlayerLayer *backLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
+    [backLayer setFrame:fullFrame];
+    [self.bView.layer addSublayer:backLayer];
 
     [self.avFrontPlayer play];
     [self.avBackPlayer play];
 
     
+    [self.scrollView addSubview:self.aView];
+    [self.scrollView addSubview:self.bView];
+    
+    [self.aView setBackgroundColor:[UIColor blackColor]];
+    [self.bView setBackgroundColor:[UIColor blackColor]];
+
+    [self.scrollView setBackgroundColor:[UIColor blackColor]];
+    
     
     // set view port to middle
-    CGPoint pnt = CGPointMake(240, 160);
+    CGPoint pnt = CGPointMake(self.view.bounds.size.height, self.view.bounds.size.width/4.0);
     [self.scrollView setContentOffset:pnt animated:NO];
 
     
@@ -234,11 +256,36 @@
     [self setupMotionManager];
 }
 
+-(void)setMovieFilePathA:(NSString *)pathA pathB:(NSString*)pathB{
+  
+    if (_movieFilePath != pathA) {
+        _movieFilePath = pathA;
+        
+    }
+
+    if (_movieFilePathB != pathB) {
+        _movieFilePathB = pathB;
+        
+    }
+    // Update the view.
+    [self configureView];
+
+}
 
 -(void)setMovieFilePath:(NSString *)movieFilePath{
     
     if (_movieFilePath != movieFilePath) {
         _movieFilePath = movieFilePath;
+        
+        // Update the view.
+        [self configureView];
+    }
+}
+
+-(void)setMovieFilePathB:(NSString *)movieFilePathB{
+    
+    if (_movieFilePathB != movieFilePathB) {
+        _movieFilePathB = movieFilePathB;
         
         // Update the view.
         [self configureView];
@@ -317,16 +364,46 @@
     float yawf = self.motionManager.deviceMotion.attitude.yaw;
     float heading = self.motionManager.deviceMotion.magneticField.field.y;
     
-    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
+    float pi = 3.141;
+
+    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,1.0 + (-yawf/pi),heading];
     
-    float xpers = 340;
+    float xpers = self.view.frame.size.width * 2;
     float ypers = 220;
     
     if(roll > 0){
         roll = -roll;
     }
     
-    CGPoint pnt = CGPointMake((-yawf * xpers) + 240, 160 -(-roll - 1.5) * ypers);
+//    CGPoint pnt = CGPointMake((-yawf * xpers) + 240, 160 -(-roll - 1.5) * ypers);
+
+    
+    CGRect fullFrame = CGRectMake(0.0, 0.0,
+                                  self.view.bounds.size.height * 2,
+                                  self.view.bounds.size.width * 2);
+
+    yawf = -(yawf/pi);
+    
+    if(yawf <= 0){
+        
+        yawf += 1.0;
+        
+        [self.aView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * 2, 0.0)];
+        [self.bView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
+        
+    }else{
+
+        [self.aView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
+        [self.bView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * 2, 0.0)];
+
+        
+    }
+    
+    xpers = self.view.bounds.size.height + (yawf * xpers);
+    ypers = (self.view.bounds.size.width/4.0) -(-roll - 1.5) * ypers;
+    
+    CGPoint pnt = CGPointMake(xpers, ypers);
+    
     
     [self.scrollView setContentOffset:pnt animated:NO];
     
