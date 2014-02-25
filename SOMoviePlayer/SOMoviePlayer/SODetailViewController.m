@@ -20,7 +20,8 @@
 
 @property (retain, nonatomic) UIScrollView              *scrollView;
 
-@property (retain,nonatomic) AVPlayer *avPlayer;
+@property (retain,nonatomic) AVPlayer *avFrontPlayer;
+@property (retain,nonatomic) AVPlayer *avBackPlayer;
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
@@ -75,7 +76,7 @@
     
     CGRect doubleFrame = CGRectMake(0.0, 0.0,
                                   self.view.bounds.size.height * 2,
-                                  self.view.bounds.size.width * 4);
+                                  self.view.bounds.size.width * 8);
 
     
     // setup scroll view
@@ -86,30 +87,34 @@
     [self.scrollView setScrollEnabled:NO];
     [self.view addSubview:self.scrollView];
     
-    UIView *secondView = [[UIView alloc] initWithFrame:fullFrame];
-    [secondView setFrame:CGRectOffset(secondView.frame, fullFrame.size.width, 0.0)];
-    [secondView setBackgroundColor:[UIColor greenColor]];
-    [self.scrollView addSubview:secondView];
     
-    
-    
-    // setup avplayer
+    // setup avplayers
     
     NSURL *url  = [NSURL fileURLWithPath:self.movieFilePath];
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
-    _avPlayer = [AVPlayer playerWithPlayerItem:playerItem];
-    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
 
+    _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
+    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
     [playerLayer setFrame:fullFrame];
     [self.scrollView.layer addSublayer:playerLayer];
     
-    [self.avPlayer play];
-   
+    _avBackPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
+    playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
+    [playerLayer setFrame:CGRectOffset(fullFrame, fullFrame.size.width, 0.0)    ];
+    [self.scrollView.layer addSublayer:playerLayer];
+
+    [self.avFrontPlayer play];
+    [self.avBackPlayer play];
+
+    
+    
     // set view port to middle
     CGPoint pnt = CGPointMake(240, 160);
     [self.scrollView setContentOffset:pnt animated:NO];
 
+    
+
+    
     
     // gestures
     
@@ -131,12 +136,16 @@
     [self addObservers];
     
     
-  
+    
+    // attitude label
+    [self.view bringSubviewToFront:self.attitudeLabel];
+    [self.attitudeLabel setHidden:YES];
 
 }
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
     
-    [self.avPlayer pause];
+    [self.avFrontPlayer pause];
+    [self.avBackPlayer pause];
     
     [self.attitudeLabel setHidden:NO];
     
@@ -150,7 +159,8 @@
     
     __block SODetailViewController *blockSelf = self;
     [settingsVC setOnCloseUpBlock:^(){
-        [blockSelf.avPlayer play];
+        [blockSelf.avFrontPlayer play];
+        [blockSelf.avBackPlayer play];
         [blockSelf.attitudeLabel setHidden:YES];
 
     }];
@@ -183,7 +193,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayBackDidFinish:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self.avPlayer currentItem]];
+                                               object:[self.avFrontPlayer currentItem]];
 
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -202,11 +212,11 @@
 //                                                  object:player];
     
     
-    AVPlayer *avPlayer = self.avPlayer;
+    AVPlayer *avFrontPlayer = self.avFrontPlayer;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:AVPlayerItemDidPlayToEndTimeNotification
-                                                  object:avPlayer];
+                                                  object:avFrontPlayer];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMotionManagerReset
@@ -259,8 +269,10 @@
  
     [self removeObservers];
     
-    [self.avPlayer pause];
-    self.avPlayer = nil;
+    [self.avFrontPlayer pause];
+    self.avFrontPlayer = nil;
+    [self.avBackPlayer pause];
+    self.avBackPlayer = nil;
     
     [self closeMotionManager];
     
