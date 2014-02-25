@@ -96,6 +96,7 @@
 		F044179C18B6E38800572780 /* Test FCP edit 01_1_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F044177318B6E38800572780 /* Test FCP edit 01_1_converted.m4v */; };
 		F04417A018BA099300572780 /* SOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F044179F18BA099300572780 /* SOSettingsViewController.m */; };
 		F04417A318BA0C2400572780 /* SONotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F04417A218BA0C2400572780 /* SONotifications.m */; };
+		F04417BC18BC2FA400572780 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417BB18BC2FA400572780 /* AVFoundation.framework */; };
 		F0AECCC618B171DB00263C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
 		F0AECCC818B171DB00263C32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC718B171DB00263C32 /* CoreGraphics.framework */; };
 		F0AECCCA18B171DB00263C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC918B171DB00263C32 /* UIKit.framework */; };
@@ -217,6 +218,7 @@
 		F044179F18BA099300572780 /* SOSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSettingsViewController.m; sourceTree = "<group>"; };
 		F04417A118BA0C2400572780 /* SONotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SONotifications.h; sourceTree = "<group>"; };
 		F04417A218BA0C2400572780 /* SONotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SONotifications.m; sourceTree = "<group>"; };
+		F04417BB18BC2FA400572780 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F0AECCC218B171DB00263C32 /* SOMoviePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOMoviePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCC518B171DB00263C32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0AECCC718B171DB00263C32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -247,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04417BC18BC2FA400572780 /* AVFoundation.framework in Frameworks */,
 				F0AECD0E18B1882B00263C32 /* CoreMotion.framework in Frameworks */,
 				F0AECD0218B1785500263C32 /* MediaPlayer.framework in Frameworks */,
 				F0AECCC818B171DB00263C32 /* CoreGraphics.framework in Frameworks */,
@@ -391,6 +394,7 @@
 		F0AECCC418B171DB00263C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F04417BB18BC2FA400572780 /* AVFoundation.framework */,
 				F0AECD0D18B1882B00263C32 /* CoreMotion.framework */,
 				F0AECD0118B1785500263C32 /* MediaPlayer.framework */,
 				F0AECCC518B171DB00263C32 /* Foundation.framework */,
