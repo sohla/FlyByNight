@@ -27,6 +27,7 @@
 @property (retain, nonatomic) UIView *aView;
 @property (retain, nonatomic) UIView *bView;
 
+@property float zoomLevel;
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
@@ -86,33 +87,29 @@
 
 - (void)configureView{
 
+    self.zoomLevel = 2.0f;
+    
     CGRect aspectFrame = CGRectMake(0.0, 0.0,
                                   self.view.bounds.size.height,
                                   self.view.bounds.size.width);
 
 
     CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * 2,
-                                  self.view.bounds.size.width * 2);
+                                  self.view.bounds.size.height * self.zoomLevel,
+                                  self.view.bounds.size.width * self.zoomLevel);
 
     
-    CGRect doubleFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * 2,
-                                  self.view.bounds.size.width * 2);
-
     
     // setup scroll view
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:aspectFrame];
-    [self.scrollView setContentSize:doubleFrame.size];
-    [self.scrollView setContentOffset:(CGPoint){0,0} animated:NO];
-    [self.scrollView setScrollEnabled:NO];
+    [self resetScrollView];
     [self.view addSubview:self.scrollView];
     
     
     // our 2 views
-    _aView  = [[UIView alloc] initWithFrame:fullFrame];
-    _bView  = [[UIView alloc] initWithFrame:CGRectOffset(fullFrame,fullFrame.size.width,0.0)];
+    self.aView  = [[UIView alloc] initWithFrame:fullFrame];
+    self.bView  = [[UIView alloc] initWithFrame:CGRectOffset(fullFrame,fullFrame.size.width,0.0)];
     
 
     // setup avplayers
@@ -146,7 +143,7 @@
     
     
     // set view port to middle
-    CGPoint pnt = CGPointMake(self.view.bounds.size.height, self.view.bounds.size.width/4.0);
+    CGPoint pnt = CGPointMake(self.view.bounds.size.height, 0);
     [self.scrollView setContentOffset:pnt animated:NO];
 
     // gestures
@@ -175,7 +172,32 @@
     [self.attitudeLabel setHidden:YES];
 
 }
+-(void)resetScrollView{
 
+    CGRect doubleFrame = CGRectMake(0.0, 0.0,
+                                    self.view.bounds.size.height * self.zoomLevel,
+                                    self.view.bounds.size.width * self.zoomLevel);
+    
+    [self.scrollView setContentSize:doubleFrame.size];
+    [self.scrollView setContentOffset:(CGPoint){0,0} animated:NO];
+    [self.scrollView setScrollEnabled:NO];
+    
+    CGRect fullFrame = CGRectMake(0.0, 0.0,
+                                  self.view.bounds.size.height * self.zoomLevel,
+                                  self.view.bounds.size.width * self.zoomLevel);
+
+    self.aView.frame = fullFrame;
+    self.bView.frame = fullFrame;
+    
+    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
+    [frontLayer setFrame:fullFrame];
+//    self.aView.layer.frame = fullFrame;
+    
+    AVPlayerLayer *backLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
+    [backLayer setFrame:fullFrame];
+//    self.bView.layer.frame = fullFrame;
+
+}
 -(void)addObservers{
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -187,6 +209,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onMotionManagerReset:)
 												 name:kMotionManagerReset
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onZoomReset:)
+												 name:kZoomReset
 											   object:nil];
 
 
@@ -201,6 +228,10 @@
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMotionManagerReset
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kZoomReset
                                                   object:nil];
 
 }
@@ -248,7 +279,30 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
-
+-(void)onZoomReset:(NSNotification *)notification{
+//
+//    UISwitch *swch = (UISwitch*)[notification object];
+//    
+//    if([swch isOn]){
+//        
+//        self.zoomLevel = 2.0f;
+//        [self resetScrollView];
+//        
+//        self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
+//        [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+//
+//    }else{
+//     
+//        [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+//        
+//        if(self.motionDisplayLink!=nil)
+//            self.motionDisplayLink = nil;
+//
+//        self.zoomLevel = 1.0f;
+//        [self resetScrollView];
+//  
+//    }
+}
 -(void)onMotionManagerReset:(NSNotification *)notification{
     
     
@@ -345,7 +399,7 @@
 
     self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,1.0 + (-yawf/pi),heading];
     
-    float xpers = self.view.frame.size.width * 2;
+    float xpers = self.view.frame.size.width * self.zoomLevel;
     float ypers = 220;
     
     if(roll > 0){
@@ -355,8 +409,8 @@
 //    CGPoint pnt = CGPointMake((-yawf * xpers) + 240, 160 -(-roll - 1.5) * ypers);
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * 2,
-                                  self.view.bounds.size.width * 2);
+                                  self.view.bounds.size.height * self.zoomLevel,
+                                  self.view.bounds.size.width * self.zoomLevel);
 
     yawf = -(yawf/pi);
     
@@ -364,13 +418,13 @@
         
         yawf += 1.0;
         
-        [self.aView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * 2, 0.0)];
+        [self.aView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * self.zoomLevel, 0.0)];
         [self.bView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
         
     }else{
 
         [self.aView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
-        [self.bView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * 2, 0.0)];
+        [self.bView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * self.zoomLevel, 0.0)];
 
         
     }

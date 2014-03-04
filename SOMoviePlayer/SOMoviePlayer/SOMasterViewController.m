@@ -39,7 +39,8 @@
 
     __block NSMutableArray *paths = self.movieFilePaths;
     __block NSMutableArray *thumbs = self.thumbNails;
-
+    __block SOMasterViewController *blockSelf = self;
+    
     [self collectAssetsWithCompletionBlock:^(NSArray *assets){
     
         [assets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
@@ -48,23 +49,24 @@
             [paths addObject:url];
             
         }];
-
-        // now lets get all the images
         
-//        [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-//        
-//            NSURL *url = (NSURL*)obj;
-//            
-//            AVAsset *asset = [AVAsset assetWithURL:url];
-//            AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
-//            CMTime time = CMTimeMake(1, 1);
-//            CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-//            [thumbs addObject:[UIImage imageWithCGImage:imageRef]];
-//
-//        }];
-//        
-        [self.tableView reloadData];
+        
+        // now lets get all the images
 
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+        dispatch_async(queue, ^{
+            [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+                NSURL *url = (NSURL*)obj;
+                AVAsset *asset = [AVAsset assetWithURL:url];
+                AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
+                CMTime time = CMTimeMake(1, 1);
+                CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
+                [thumbs addObject:[UIImage imageWithCGImage:imageRef]];
+            }];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [blockSelf.tableView reloadData];
+            });
+        });
     }];
 
 }
@@ -115,18 +117,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSURL *url = self.movieFilePaths[indexPath.row] ;
+    __block NSURL *url = self.movieFilePaths[indexPath.row] ;
     NSString *title = [[url relativeString] lastPathComponent];
     cell.textLabel.text = title;
     
-    
-    if(self.thumbNails.count){
+    if(indexPath.row < self.thumbNails.count){
         cell.imageView.image = self.thumbNails[indexPath.row];
     }else{
         cell.imageView.image = [UIImage imageNamed:@"default.png"];
-        
     }
     return cell;
 }

@@ -11,5 +11,6 @@
 @implementation SONotifications
 
 NSString* const kMotionManagerReset = @"kMotionManagerReset";
+NSString* const kZoomReset = @"kZoomReset";
 
 @end

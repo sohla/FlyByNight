@@ -11,5 +11,6 @@
 @interface SONotifications : NSObject
 
 extern NSString* const kMotionManagerReset;
+extern NSString* const kZoomReset;
 
 @end

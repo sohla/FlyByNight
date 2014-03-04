@@ -12,6 +12,7 @@
 @interface SOSettingsViewController ()
 - (IBAction)onResetUp:(id)sender;
 - (IBAction)onCloseUp:(id)sender;
+- (IBAction)onZoom:(UISwitch *)sender;
 
 @end
 
@@ -59,5 +60,9 @@
                      }
      ];
 
+}
+
+- (IBAction)onZoom:(UISwitch *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZoomReset object:sender];
 }
 @end

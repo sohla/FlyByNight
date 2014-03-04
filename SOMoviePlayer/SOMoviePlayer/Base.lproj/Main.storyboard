@@ -56,6 +56,13 @@
                                     <action selector="onCloseUp:" destination="paH-C1-ziH" eventType="touchUpInside" id="qSQ-Uo-abz"/>
                                 </connections>
                             </button>
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zek-tE-SoR">
+                                <rect key="frame" x="20" y="263" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onZoom:" destination="paH-C1-ziH" eventType="valueChanged" id="bdB-Yd-RZT"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
