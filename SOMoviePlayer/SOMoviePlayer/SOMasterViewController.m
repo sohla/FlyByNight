@@ -10,12 +10,18 @@
 
 #import "SODetailViewController.h"
 
+
+#define kMaxAssetImages 5
+
 @interface SOMasterViewController ()
     
 @property (retain, nonatomic) NSMutableArray *movieFilePaths;
 @property (retain, nonatomic) NSMutableArray *thumbNails;
 
 @property (retain, nonatomic) ALAssetsLibrary           *library;
+
+//-(void)collectAssetsWithCompletionBlock:(void(^)(NSArray *assets))completionBlock;
+
 @end
 
 
@@ -30,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     _thumbNails = [[NSMutableArray alloc] init];
     
     [self.tableView setRowHeight:88.0];
@@ -41,30 +47,37 @@
     __block NSMutableArray *thumbs = self.thumbNails;
     __block SOMasterViewController *blockSelf = self;
     
-    [self collectAssetsWithCompletionBlock:^(NSArray *assets){
     
+    [self collectAssetsWithCompletionBlock:^(NSArray *assets){
         [assets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-            
-            NSURL *url = (NSURL*)obj;
-            [paths addObject:url];
-            
-            
+            // limit assets count : device could have hundreds of movies!
+            if(idx > kMaxAssetImages){
+                *stop = YES;
+            }else{
+                NSURL *url = (NSURL*)obj;
+                [paths addObject:url];
+            }
         }];
     }];
-     
+    
     // now lets get all the images
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
+        
+        
         [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
             NSURL *url = (NSURL*)obj;
             AVAsset *asset = [AVAsset assetWithURL:url];
             AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
+            [imageGenerator setMaximumSize:(CGSize){90.0,60.0}];
+            
             CMTime time = CMTimeMake(1, 1);
             CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
             UIImage *image = [UIImage imageWithCGImage:imageRef];
             
+            
             // need to check if image has been generated
-if(image){
+            if(image){
                 [thumbs addObject:[UIImage imageWithCGImage:imageRef]];
             }
             dispatch_sync(dispatch_get_main_queue(), ^{

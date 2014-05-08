@@ -45,7 +45,7 @@
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
     
-    self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
+//    self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
     [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     if ([self.motionManager isDeviceMotionAvailable]) {
@@ -129,9 +129,48 @@
     [backLayer setFrame:fullFrame];
     [self.bView.layer addSublayer:backLayer];
 
+    // fade in example
+    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    flash.fromValue = [NSNumber numberWithFloat:0.0];
+    flash.toValue = [NSNumber numberWithFloat:1.0];
+    flash.duration = 5.0;        // 1 second
+    flash.autoreverses = NO;    // Back
+    flash.repeatCount = 0;       // Or whatever
+    
+    [frontLayer addAnimation:flash forKey:@"fadeIn"];
+
+    
+    CMTime duration = self.avFrontPlayer.currentItem.asset.duration;
+    
+    Float64 durationInSeconds = CMTimeGetSeconds(duration);
+    
+    
+    
+    // add boundry observer
+    NSArray *times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(5.0f, self.avFrontPlayer.currentTime.timescale)]];
+//    __weak SODetailViewController *weakSelf = self;
+    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
+        NSLog(@"%f",durationInSeconds);
+        //[weakSelf.avFrontPlayer pause];
+    }];
+    
+    times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(durationInSeconds - 5.0f, self.avFrontPlayer.currentTime.timescale)]];
+    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
+        NSLog(@"fadeOut");
+        CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        flash.fromValue = [NSNumber numberWithFloat:1.0];
+        flash.toValue = [NSNumber numberWithFloat:0.0];
+        flash.duration = 5.0;
+        flash.autoreverses = NO;
+        flash.repeatCount = 0;      
+        
+        [frontLayer addAnimation:flash forKey:@"fadeOut"];
+    }];
+
+    
     [self.avFrontPlayer play];
     [self.avBackPlayer play];
-
+    
     
     [self.scrollView addSubview:self.aView];
     [self.scrollView addSubview:self.bView];
@@ -313,10 +352,10 @@
 - (void) moviePlayBackDidFinish:(NSNotification*)notification{
     
 
-    [self.avFrontPlayer seekToTime:kCMTimeZero];
-    [self.avBackPlayer seekToTime:kCMTimeZero];
-    [self.avFrontPlayer play];
-    [self.avBackPlayer play];
+//    [self.avFrontPlayer seekToTime:kCMTimeZero];
+//    [self.avBackPlayer seekToTime:kCMTimeZero];
+//    [self.avFrontPlayer play];
+//    [self.avBackPlayer play];
     
 }
 
@@ -400,7 +439,7 @@
     self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,1.0 + (-yawf/pi),heading];
     
     float xpers = self.view.frame.size.width * self.zoomLevel;
-    float ypers = 220;
+    float ypers = 0;
     
     if(roll > 0){
         roll = -roll;
