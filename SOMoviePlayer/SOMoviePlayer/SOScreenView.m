@@ -30,6 +30,21 @@
 
 - (void)drawRect:(CGRect)rect{
     
+    CGContextRef    context = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(context, 3.0f);
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+
+    CGPoint topLeft = {0.0f, 0.0f};
+    CGPoint bottomRight = {self.bounds.size.width, self.bounds.size.height};
+    
+    CGContextMoveToPoint(context, topLeft.x, topLeft.y);
+    CGContextAddLineToPoint(context, bottomRight.x, bottomRight.y);
+    
+    CGContextMoveToPoint(context, topLeft.x, bottomRight.y);
+    CGContextAddLineToPoint(context, bottomRight.x, topLeft.y);
+    
+    CGContextStrokePath(context);
+
 }
 
 -(UIColor*)randomColor{

@@ -81,7 +81,7 @@
 
 - (void)configureView{
 
-    self.zoomLevel = 2.0f;
+    self.zoomLevel = 1.2f;
     
     CGRect aspectFrame = CGRectMake(0.0, 0.0,
                                   self.view.bounds.size.height,
@@ -94,27 +94,26 @@
 
     
     
-    // setup scroll view
-    
+    // setup views
     self.scrollView = [[UIScrollView alloc] initWithFrame:aspectFrame];
     [self resetScrollView];
+
     [self.view addSubview:self.scrollView];
-    
-    
+    [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
+
     self.aView  = [[SOScreenView alloc] initWithFrame:fullFrame];
+    [self.scrollView addSubview:self.aView];
     
 
     // setup avplayers
-    
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.movieFilePath options:nil];
 
     _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
     AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
     [frontLayer setFrame:fullFrame];
-//    [self.aView.layer addSublayer:frontLayer];
+    frontLayer.opacity = 0.1f;  
+    [self.aView.layer addSublayer:frontLayer];
     
-    
-
     // fade in example
     CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
     flash.fromValue = [NSNumber numberWithFloat:0.0];
@@ -126,13 +125,10 @@
     [frontLayer addAnimation:flash forKey:@"fadeIn"];
 
     
+    // add boundry observer
     CMTime duration = self.avFrontPlayer.currentItem.asset.duration;
-    
     Float64 durationInSeconds = CMTimeGetSeconds(duration);
     
-    
-    
-    // add boundry observer
     NSArray *times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(5.0f, self.avFrontPlayer.currentTime.timescale)]];
 //    __weak SODetailViewController *weakSelf = self;
     [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
@@ -157,16 +153,9 @@
     [self.avFrontPlayer play];
     
     
-    [self.scrollView addSubview:self.aView];
-    [self.scrollView setBackgroundColor:[UIColor blackColor]];
     
     
-    // set view port to middle
-    CGPoint pnt = CGPointMake(self.view.bounds.size.height, 0);
-    [self.scrollView setContentOffset:pnt animated:NO];
-
     // gestures
-    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
                                           action:@selector(onDoubleTap:)];
@@ -178,13 +167,10 @@
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
     [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
-    [[self view] addGestureRecognizer: swipeGesture];
+//    [[self view] addGestureRecognizer: swipeGesture];
 
-
-    //
+    // observe stuff
     [self addObservers];
-    
-    
     
     // attitude label
     [self.view bringSubviewToFront:self.attitudeLabel];
@@ -198,18 +184,8 @@
                                     self.view.bounds.size.width * self.zoomLevel);
     
     [self.scrollView setContentSize:doubleFrame.size];
-    [self.scrollView setContentOffset:(CGPoint){0,0} animated:NO];
+    //[self.scrollView setContentOffset:(CGPoint){0,0} animated:NO];
     [self.scrollView setScrollEnabled:NO];
-    
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * self.zoomLevel,
-                                  self.view.bounds.size.width * self.zoomLevel);
-
-    self.aView.frame = fullFrame;
-    
-    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
-    [frontLayer setFrame:fullFrame];
-//    self.aView.layer.frame = fullFrame;
 
 }
 -(void)addObservers{
@@ -395,7 +371,9 @@
 {
     return UIInterfaceOrientationMaskLandscape;
 }
-
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+}
 #pragma mark - Motion Refresher
 
 - (void)motionRefresh:(id)sender {
@@ -405,43 +383,8 @@
     float yawf = self.motionManager.deviceMotion.attitude.yaw;
     float heading = self.motionManager.deviceMotion.magneticField.field.y;
     
-    float pi = 3.141;
-
-    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,1.0 + (-yawf/pi),heading];
+    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
     
-    float xpers = self.view.frame.size.width * self.zoomLevel;
-    float ypers = 220;
-    
-    if(roll > 0){
-        roll = -roll;
-    }
-    
-//    CGPoint pnt = CGPointMake((-yawf * xpers) + 240, 160 -(-roll - 1.5) * ypers);
-    
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * self.zoomLevel,
-                                  self.view.bounds.size.width * self.zoomLevel);
-
-    yawf = -(yawf/pi);
-    
-    if(yawf <= 0){
-        
-        yawf += 1.0;
-        
-        [self.aView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * self.zoomLevel, 0.0)];
-        
-    }else{
-
-        [self.aView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
-    }
-    
-    xpers = self.view.bounds.size.height + (yawf * xpers);
-    ypers = (self.view.bounds.size.width/4.0) -(-roll - 1.5) * ypers;
-    
-    CGPoint pnt = CGPointMake(xpers, ypers);
-    
-    
-    [self.scrollView setContentOffset:pnt animated:NO];
     
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if(orientation == UIInterfaceOrientationLandscapeLeft){
@@ -449,8 +392,29 @@
         
     }else if (orientation == UIInterfaceOrientationLandscapeRight){
         
-        
     }
+
+    
+    float xpers = self.view.frame.size.width;
+    float ypers = self.view.frame.size.height;
+    float xs = 3.0f;
+    float ys = 3.0f;
+    
+    (roll < 0.0f) ? roll *= -1.0f : roll;
+    
+    yawf = yawf / (2.0 * M_PI) * xs;
+    roll = -roll / (2.0 * M_PI) * ys;
+    
+    float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
+    float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));
+    xpers = offsetx - (yawf * xpers);
+    ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
+    
+    CGPoint pnt = CGPointMake(xpers, ypers);
+    
+    
+    [self.scrollView setContentOffset:pnt animated:NO];
+    
     
 }
 
