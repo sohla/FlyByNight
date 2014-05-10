@@ -14,11 +14,10 @@
 @interface SODetailViewController : UIViewController
 
 @property (retain, nonatomic) NSURL *movieFilePath;
-@property (retain, nonatomic) NSURL *movieFilePathB;
 - (void)configureView;
 
 
--(void)setMovieFilePathA:(NSURL *)pathA pathB:(NSURL*)pathB;
+-(void)setMovieFilePathA:(NSURL *)pathA;
 
 
 @end

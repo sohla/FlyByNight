@@ -21,11 +21,9 @@
 @property (retain, nonatomic) UIScrollView              *scrollView;
 
 @property (retain,nonatomic) AVPlayer *avFrontPlayer;
-@property (retain,nonatomic) AVPlayer *avBackPlayer;
 
 
 @property (retain, nonatomic) UIView *aView;
-@property (retain, nonatomic) UIView *bView;
 
 @property float zoomLevel;
 
@@ -69,17 +67,13 @@
 
 #pragma mark - Setup
 
--(void)setMovieFilePathA:(NSURL *)pathA pathB:(NSURL*)pathB{
+-(void)setMovieFilePathA:(NSURL *)pathA{
     
     if (_movieFilePath != pathA) {
         _movieFilePath = pathA;
         
     }
     
-    if (_movieFilePathB != pathB) {
-        _movieFilePathB = pathB;
-        
-    }
     // Update the view.
     [self configureView];
     
@@ -107,9 +101,7 @@
     [self.view addSubview:self.scrollView];
     
     
-    // our 2 views
     self.aView  = [[UIView alloc] initWithFrame:fullFrame];
-    self.bView  = [[UIView alloc] initWithFrame:CGRectOffset(fullFrame,fullFrame.size.width,0.0)];
     
 
     // setup avplayers
@@ -122,12 +114,6 @@
     [self.aView.layer addSublayer:frontLayer];
     
     
-    asset = [AVURLAsset URLAssetWithURL:self.movieFilePathB options:nil];
-
-    _avBackPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
-    AVPlayerLayer *backLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
-    [backLayer setFrame:fullFrame];
-    [self.bView.layer addSublayer:backLayer];
 
     // fade in example
     CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -169,14 +155,11 @@
 
     
     [self.avFrontPlayer play];
-    [self.avBackPlayer play];
     
     
     [self.scrollView addSubview:self.aView];
-    [self.scrollView addSubview:self.bView];
     
     [self.aView setBackgroundColor:[UIColor blackColor]];
-    [self.bView setBackgroundColor:[UIColor blackColor]];
 
     [self.scrollView setBackgroundColor:[UIColor blackColor]];
     
@@ -226,15 +209,10 @@
                                   self.view.bounds.size.width * self.zoomLevel);
 
     self.aView.frame = fullFrame;
-    self.bView.frame = fullFrame;
     
     AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
     [frontLayer setFrame:fullFrame];
 //    self.aView.layer.frame = fullFrame;
-    
-    AVPlayerLayer *backLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
-    [backLayer setFrame:fullFrame];
-//    self.bView.layer.frame = fullFrame;
 
 }
 -(void)addObservers{
@@ -280,7 +258,6 @@
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
     
     [self.avFrontPlayer pause];
-    [self.avBackPlayer pause];
     
     [self.attitudeLabel setHidden:NO];
     
@@ -295,7 +272,6 @@
     __block SODetailViewController *blockSelf = self;
     [settingsVC setOnCloseUpBlock:^(){
         [blockSelf.avFrontPlayer play];
-        [blockSelf.avBackPlayer play];
         [blockSelf.attitudeLabel setHidden:YES];
         
     }];
@@ -388,8 +364,6 @@
     
     [self.avFrontPlayer pause];
     self.avFrontPlayer = nil;
-    [self.avBackPlayer pause];
-    self.avBackPlayer = nil;
     
     [self closeMotionManager];
     
@@ -458,14 +432,10 @@
         yawf += 1.0;
         
         [self.aView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * self.zoomLevel, 0.0)];
-        [self.bView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
         
     }else{
 
         [self.aView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
-        [self.bView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * self.zoomLevel, 0.0)];
-
-        
     }
     
     xpers = self.view.bounds.size.height + (yawf * xpers);

@@ -168,14 +168,9 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSURL *pathA = self.movieFilePaths[indexPath.row];
-        NSURL *pathB = self.movieFilePaths[indexPath.row];
-
-        if(indexPath.row < self.movieFilePaths.count - 1){
-            pathB = self.movieFilePaths[indexPath.row + 1];
-        }
         
         
-        [[segue destinationViewController] setMovieFilePathA:pathA pathB:pathB];
+        [[segue destinationViewController] setMovieFilePathA:pathA];
         
         
     }
