@@ -88,6 +88,15 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+//    NSInteger index = arc4random() % self.movieFilePaths.count;
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+//    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"showDetail" sender:self];
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

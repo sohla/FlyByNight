@@ -8,8 +8,8 @@
 
 #import "SODetailViewController.h"
 #import "SONotifications.h"
-
 #import "SOSettingsViewController.h"
+#import "SOScreenView.h"
 
 @interface SODetailViewController ()
 
@@ -43,7 +43,7 @@
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
     
-//    self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
+    self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
     [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     if ([self.motionManager isDeviceMotionAvailable]) {
@@ -101,7 +101,7 @@
     [self.view addSubview:self.scrollView];
     
     
-    self.aView  = [[UIView alloc] initWithFrame:fullFrame];
+    self.aView  = [[SOScreenView alloc] initWithFrame:fullFrame];
     
 
     // setup avplayers
@@ -111,7 +111,7 @@
     _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
     AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
     [frontLayer setFrame:fullFrame];
-    [self.aView.layer addSublayer:frontLayer];
+//    [self.aView.layer addSublayer:frontLayer];
     
     
 
@@ -158,9 +158,6 @@
     
     
     [self.scrollView addSubview:self.aView];
-    
-    [self.aView setBackgroundColor:[UIColor blackColor]];
-
     [self.scrollView setBackgroundColor:[UIColor blackColor]];
     
     
@@ -413,7 +410,7 @@
     self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,1.0 + (-yawf/pi),heading];
     
     float xpers = self.view.frame.size.width * self.zoomLevel;
-    float ypers = 0;
+    float ypers = 220;
     
     if(roll > 0){
         roll = -roll;

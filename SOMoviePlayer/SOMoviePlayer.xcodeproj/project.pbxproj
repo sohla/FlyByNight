@@ -93,6 +93,7 @@
 		F0AECCF418B171DC00263C32 /* SOMoviePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */; };
 		F0AECD0218B1785500263C32 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0118B1785500263C32 /* MediaPlayer.framework */; };
 		F0AECD0E18B1882B00263C32 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0D18B1882B00263C32 /* CoreMotion.framework */; };
+		F0FE7405191E3037008B7E45 /* SOScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FE7404191E3037008B7E45 /* SOScreenView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +201,8 @@
 		F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOMoviePlayerTests.m; sourceTree = "<group>"; };
 		F0AECD0118B1785500263C32 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F0AECD0D18B1882B00263C32 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		F0FE7403191E3037008B7E45 /* SOScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOScreenView.h; sourceTree = "<group>"; };
+		F0FE7404191E3037008B7E45 /* SOScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOScreenView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +349,8 @@
 				F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */,
 				F0AECCDD18B171DB00263C32 /* SODetailViewController.h */,
 				F0AECCDE18B171DC00263C32 /* SODetailViewController.m */,
+				F0FE7403191E3037008B7E45 /* SOScreenView.h */,
+				F0FE7404191E3037008B7E45 /* SOScreenView.m */,
 				F044179E18BA099300572780 /* SOSettingsViewController.h */,
 				F044179F18BA099300572780 /* SOSettingsViewController.m */,
 				F0AECCE018B171DC00263C32 /* Images.xcassets */,
@@ -550,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AECCDC18B171DB00263C32 /* SOMasterViewController.m in Sources */,
+				F0FE7405191E3037008B7E45 /* SOScreenView.m in Sources */,
 				F0AECCD618B171DB00263C32 /* SOAppDelegate.m in Sources */,
 				F04417A318BA0C2400572780 /* SONotifications.m in Sources */,
 				F0AECCD218B171DB00263C32 /* main.m in Sources */,
