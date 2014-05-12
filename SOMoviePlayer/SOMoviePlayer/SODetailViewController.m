@@ -9,7 +9,7 @@
 #import "SODetailViewController.h"
 #import "SONotifications.h"
 #import "SOSettingsViewController.h"
-#import "SOScreenView.h"
+#import "SOScreenViewController.h"
 
 @interface SODetailViewController ()
 
@@ -20,12 +20,13 @@
 
 @property (retain, nonatomic) UIScrollView              *scrollView;
 
+
+
 @property (retain,nonatomic) AVPlayer *avFrontPlayer;
-
-
-@property (retain, nonatomic) UIView *aView;
-
 @property float zoomLevel;
+
+
+
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
@@ -101,8 +102,9 @@
     [self.view addSubview:self.scrollView];
     [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
 
-    self.aView  = [[SOScreenView alloc] initWithFrame:fullFrame];
-    [self.scrollView addSubview:self.aView];
+    SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:fullFrame];
+    [self.scrollView addSubview:svc.view];
+    
     
 
     // setup avplayers
@@ -112,7 +114,7 @@
     AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
     [frontLayer setFrame:fullFrame];
     frontLayer.opacity = 0.1f;  
-    [self.aView.layer addSublayer:frontLayer];
+    //[self.aView.layer addSublayer:frontLayer];
     
     // fade in example
     CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
