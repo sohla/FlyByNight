@@ -22,7 +22,7 @@
 
 @property (weak, nonatomic) id playerObserver;
 
-@property (strong,nonatomic) AVPlayer *avFrontPlayer;
+@property (strong,nonatomic) AVPlayer *avPlayer;
 @property float zoomLevel;
 
 
@@ -94,8 +94,8 @@
     // setup avplayer
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.movieFilePath options:nil];
     
-    _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
-    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
+    _avPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
+    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [frontLayer setFrame:fullFrame];
     frontLayer.opacity = 0.1f;
     [screenView.layer addSublayer:frontLayer];
@@ -112,18 +112,18 @@
     
     
     // add boundry observer
-    CMTime duration = self.avFrontPlayer.currentItem.asset.duration;
+    CMTime duration = self.avPlayer.currentItem.asset.duration;
     Float64 durationInSeconds = CMTimeGetSeconds(duration);
 
-    NSArray *times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(5.0f, self.avFrontPlayer.currentTime.timescale)]];
+    NSArray *times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(5.0f, self.avPlayer.currentTime.timescale)]];
 //    __weak SODetailViewController *weakSelf = self;
 //    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
 //        NSLog(@"%f",durationInSeconds);
 //        //[weakSelf.avFrontPlayer pause];
 //    }];
 
-    times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(durationInSeconds - 5.0f, self.avFrontPlayer.currentTime.timescale)]];
-    _playerObserver = [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
+    times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(durationInSeconds - 5.0f, self.avPlayer.currentTime.timescale)]];
+    _playerObserver = [self.avPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
         NSLog(@"fadeOut");
         CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
         flash.fromValue = [NSNumber numberWithFloat:1.0];
@@ -136,18 +136,16 @@
     }];
 
     
-    
-    
-    [self.avFrontPlayer play];
+    [self.avPlayer play];
     
 
 }
 
 -(void)destroyPlayer{
     
-    [self.avFrontPlayer removeTimeObserver:self.playerObserver];
-    [self.avFrontPlayer pause];
-    self.avFrontPlayer = nil;
+    [self.avPlayer removeTimeObserver:self.playerObserver];
+    [self.avPlayer pause];
+    self.avPlayer = nil;
 
 }
 
@@ -156,7 +154,7 @@
 
 - (void)configureView{
 
-    self.zoomLevel = 1.2f;
+    self.zoomLevel = 1.0f;
     
     CGRect aspectFrame = CGRectMake(0.0, 0.0,
                                   self.view.bounds.size.height,
@@ -178,7 +176,6 @@
 
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:fullFrame];
     [self.scrollView addSubview:svc.view];
-    
     
     [self buildPlayerForView:svc.view];
     
@@ -222,7 +219,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayBackDidFinish:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self.avFrontPlayer currentItem]];
+                                               object:[self.avPlayer currentItem]];
 
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -239,7 +236,7 @@
 }
 -(void)removeObservers{
 
-    AVPlayer *avFrontPlayer = self.avFrontPlayer;
+    AVPlayer *avFrontPlayer = self.avPlayer;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:AVPlayerItemDidPlayToEndTimeNotification
@@ -259,7 +256,7 @@
 
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
     
-    [self.avFrontPlayer pause];
+    [self.avPlayer pause];
     
     [self.attitudeLabel setHidden:NO];
     
@@ -273,7 +270,7 @@
     
     __block SODetailViewController *blockSelf = self;
     [settingsVC setOnCloseUpBlock:^(){
-        [blockSelf.avFrontPlayer play];
+        [blockSelf.avPlayer play];
         [blockSelf.attitudeLabel setHidden:YES];
         
     }];
@@ -297,28 +294,18 @@
     
 }
 -(void)onZoomReset:(NSNotification *)notification{
-//
-//    UISwitch *swch = (UISwitch*)[notification object];
-//    
-//    if([swch isOn]){
-//        
-//        self.zoomLevel = 2.0f;
-//        [self resetScrollView];
-//        
-//        self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
-//        [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//
-//    }else{
-//     
-//        [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//        
-//        if(self.motionDisplayLink!=nil)
-//            self.motionDisplayLink = nil;
-//
-//        self.zoomLevel = 1.0f;
-//        [self resetScrollView];
-//  
-//    }
+
+    UISwitch *swch = (UISwitch*)[notification object];
+    
+    if([swch isOn]){
+        self.zoomLevel = 2.0f;
+    }else{
+        self.zoomLevel = 1.0f;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+
+
+
 }
 -(void)onMotionManagerReset:(NSNotification *)notification{
     
