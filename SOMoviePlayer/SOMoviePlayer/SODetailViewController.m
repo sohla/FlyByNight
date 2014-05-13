@@ -155,7 +155,7 @@
 -(void)addScreenWithURL:(NSURL*)url{
     
     
-    float z = 0.5 + (float)((arc4random()%100)/100.0f);
+    float z = 1.2;//0.5 + (float)((arc4random()%100)/100.0f);
     float xpers = self.view.frame.size.width;
     float ypers = self.view.frame.size.height;
     float offsetx = (xpers * 0.5f * (z - 1.0));
@@ -352,13 +352,20 @@
     
     (roll < 0.0f) ? roll *= -1.0f : roll;
     
-    yawf = yawf / (2.0 * M_PI) * xs;
-    roll = -roll / (2.0 * M_PI) * ys;
+    float offsetYaw = M_PI;
+    float dyaw = yawf+offsetYaw;
     
-    float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
-    float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));
-    xpers = offsetx - (yawf * xpers);
-    ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
+    if(dyaw >= M_PI){
+        dyaw -= M_PI*2;
+    }
+    
+    yawf = (dyaw / (2.0 * M_PI)) * xs;
+    roll = (-roll / (2.0 * M_PI)) * ys;
+    
+    //float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
+    //float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));
+    xpers = - (yawf * xpers);
+    ypers = (roll * ypers) + (ypers * 0.25f * ys);
     
     CGPoint pnt = CGPointMake(xpers, ypers);
     

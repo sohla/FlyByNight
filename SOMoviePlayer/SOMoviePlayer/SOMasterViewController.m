@@ -177,8 +177,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSURL *url = self.movieFilePaths[indexPath.row];
         [[segue destinationViewController] addScreenWithURL:url];
-        NSURL *urlb = self.movieFilePaths[indexPath.row + 1];
-        [[segue destinationViewController] addScreenWithURL:urlb];
+//        NSURL *urlb = self.movieFilePaths[indexPath.row + 1];
+//        [[segue destinationViewController] addScreenWithURL:urlb];
     }
 }
 
