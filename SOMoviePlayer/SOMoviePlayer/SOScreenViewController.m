@@ -26,7 +26,7 @@
     if (self) {
 
         
-        _zoomLevel = 1.2f;
+        _zoomLevel = 1.0f;
         
         CGRect fullFrame = CGRectMake(0.0, 0.0,
                                       frame.size.height,
@@ -47,15 +47,28 @@
     }
     return self;
 }
+-(void)resetZoomAt:(float)zoom{
 
+    self.zoomLevel = zoom;
+    
+    SOScreenView *screenView = [self.scrollView.subviews firstObject];
+    
+    CGRect fullFrame = CGRectMake(0.0, 0.0,
+                                  self.view.bounds.size.width * self.zoomLevel,
+                                  self.view.bounds.size.height * self.zoomLevel);
+    
+    [screenView setFrame:fullFrame];
+    [[[screenView.layer sublayers] firstObject] setFrame:fullFrame];
+    
+    
+}
 -(void)buildPlayerWithURL:(NSURL*)url{
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
                                   self.view.bounds.size.height * self.zoomLevel,
                                   self.view.bounds.size.width * self.zoomLevel);
     
-    
-    [self.scrollView addSubview:[[SOScreenView alloc] initWithFrame:fullFrame]];
+    SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
 
     // setup avplayer
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
@@ -64,8 +77,10 @@
     AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [frontLayer setFrame:fullFrame];
     frontLayer.opacity = 0.1f;
-    //[self.view.layer addSublayer:frontLayer];
+    [screenView.layer addSublayer:frontLayer];
     
+    [self.scrollView addSubview:screenView];
+
     // fade in example
     //    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
     //    flash.fromValue = [NSNumber numberWithFloat:0.0];
@@ -158,7 +173,7 @@
     
     (roll < 0.0f) ? roll *= -1.0f : roll;
     
-    float offsetYaw = 0;
+    float offsetYaw = 0;//-(M_PI/4);
     float dyaw = yawf+offsetYaw;
     
     if(dyaw >= M_PI){

@@ -21,7 +21,6 @@
 
 @property (retain, nonatomic) NSMutableDictionary       *screenViewControllers;
 
-@property float zoomLevel;
 
 
 
@@ -44,9 +43,7 @@
     
     [super viewDidLoad];
     
-    
     _screenViewControllers = [[NSMutableDictionary alloc] init];
-    _zoomLevel = 1.0f;
     
     [self.view setBackgroundColor:[UIColor blackColor]];
     
@@ -55,17 +52,6 @@
 
     [self addObservers];
 
-    // setup views
-//    CGRect aspectFrame = CGRectMake(0.0, 0.0,
-//                                    self.view.bounds.size.height,
-//                                    self.view.bounds.size.width);
-//    
-//    self.scrollView = [[UIScrollView alloc] initWithFrame:aspectFrame];
-//    [self resetScrollView];
-    
-//    [self.view addSubview:self.scrollView];
-//    [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
-    
     // attitude label
     [self.view bringSubviewToFront:self.attitudeLabel];
     [self.attitudeLabel setHidden:NO];
@@ -99,7 +85,6 @@
     
     [self removeObservers];
     
-//    self.scrollView = nil;
     self.screenViewControllers = nil;
     
     [self closeMotionManager];
@@ -181,17 +166,6 @@
     [[self view] addGestureRecognizer: swipeGesture];
 
 }
-//-(void)resetScrollView{
-//
-//    CGRect fullFrame = CGRectMake(0.0, 0.0,
-//                                    self.view.bounds.size.height * self.zoomLevel,
-//                                    self.view.bounds.size.width * self.zoomLevel);
-//    
-//    [self.scrollView setContentSize:fullFrame.size];
-//    [self.scrollView setContentOffset:self.scrollView.center animated:NO];
-//    [self.scrollView setScrollEnabled:NO];
-//
-//}
 
 -(void)addObservers{
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -223,15 +197,9 @@
 
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
     
-    //- (void)enumerateKeysAndObjectsUsingBlock:(void (^)(id key, id obj, BOOL *stop))block
-    
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-    
         [(SOScreenViewController*)obj pause];
-        
     }];
-    
-    
     
     [self.attitudeLabel setHidden:NO];
     
@@ -274,20 +242,25 @@
 }
 -(void)onZoomReset:(NSNotification *)notification{
 
-//    UISwitch *swch = (UISwitch*)[notification object];
-//    
-//    if([swch isOn]){
-//        self.zoomLevel = 2.0f;
-//    }else{
-//        self.zoomLevel = 1.0f;
-//    }
+    float z = 0;
+    UISwitch *swch = (UISwitch*)[notification object];
+    
+    if([swch isOn]){
+        z = 2.0f;
+    }else{
+        z = 1.0f;
+    }
 //    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
-//
+
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj resetZoomAt:z];
+    }];
+    
+
 
 
 }
 -(void)onMotionManagerReset:(NSNotification *)notification{
-    
     
     [self closeMotionManager];
     [self setupMotionManager];
@@ -322,41 +295,7 @@
     float heading = self.motionManager.deviceMotion.magneticField.field.y;
     
     self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
-    
-    
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    if(orientation == UIInterfaceOrientationLandscapeLeft){
-        
-        
-    }else if (orientation == UIInterfaceOrientationLandscapeRight){
-        
-    }
-
-    
-//    float xpers = self.view.frame.size.width;
-//    float ypers = self.view.frame.size.height;
-//    float xs = 3.0f;
-//    float ys = 3.0f;
-//    
-//    (roll < 0.0f) ? roll *= -1.0f : roll;
-//    
-//    float offsetYaw = 0;
-//    float dyaw = yawf+offsetYaw;
-//    
-//    if(dyaw >= M_PI){
-//        dyaw -= M_PI*2;
-//    }
-//    
-//    yawf = (dyaw / (2.0 * M_PI)) * xs;
-//    roll = (-roll / (2.0 * M_PI)) * ys;
-//    
-//    //float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
-//    //float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));
-//    xpers = - (yawf * xpers);
-//    ypers = (roll * ypers) + (ypers * 0.25f * ys);
-//    
-//    CGPoint pnt = CGPointMake(xpers, ypers);
-    
+     
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
     }];

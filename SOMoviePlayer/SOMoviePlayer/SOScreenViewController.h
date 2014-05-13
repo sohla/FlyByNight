@@ -21,5 +21,6 @@
 -(void)destroyPlayer;
 
 -(void)scrollTo:(CGPoint)pnt;
+-(void)resetZoomAt:(float)zoom;
 
 @end
