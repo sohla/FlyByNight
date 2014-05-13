@@ -20,9 +20,9 @@
 
 @property (retain, nonatomic) UIScrollView              *scrollView;
 
+@property (weak, nonatomic) id playerObserver;
 
-
-@property (assign,nonatomic) AVPlayer *avFrontPlayer;
+@property (strong,nonatomic) AVPlayer *avFrontPlayer;
 @property float zoomLevel;
 
 
@@ -84,6 +84,75 @@
     [self configureView];
     
 }
+-(void)buildPlayerForView:(SOScreenView*)screenView{
+
+    CGRect fullFrame = CGRectMake(0.0, 0.0,
+                                  self.view.bounds.size.height * self.zoomLevel,
+                                  self.view.bounds.size.width * self.zoomLevel);
+    
+
+    // setup avplayer
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.movieFilePath options:nil];
+    
+    _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
+    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
+    [frontLayer setFrame:fullFrame];
+    frontLayer.opacity = 0.1f;
+    [screenView.layer addSublayer:frontLayer];
+    
+    // fade in example
+//    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
+//    flash.fromValue = [NSNumber numberWithFloat:0.0];
+//    flash.toValue = [NSNumber numberWithFloat:1.0];
+//    flash.duration = 5.0;        // 1 second
+//    flash.autoreverses = NO;    // Back
+//    flash.repeatCount = 0;       // Or whatever
+//    
+//    [frontLayer addAnimation:flash forKey:@"fadeIn"];
+    
+    
+    // add boundry observer
+    CMTime duration = self.avFrontPlayer.currentItem.asset.duration;
+    Float64 durationInSeconds = CMTimeGetSeconds(duration);
+
+    NSArray *times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(5.0f, self.avFrontPlayer.currentTime.timescale)]];
+//    __weak SODetailViewController *weakSelf = self;
+//    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
+//        NSLog(@"%f",durationInSeconds);
+//        //[weakSelf.avFrontPlayer pause];
+//    }];
+
+    times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(durationInSeconds - 5.0f, self.avFrontPlayer.currentTime.timescale)]];
+    _playerObserver = [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
+        NSLog(@"fadeOut");
+        CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        flash.fromValue = [NSNumber numberWithFloat:1.0];
+        flash.toValue = [NSNumber numberWithFloat:0.0];
+        flash.duration = 5.0;
+        flash.autoreverses = NO;
+        flash.repeatCount = 0;
+
+        [frontLayer addAnimation:flash forKey:@"fadeOut"];
+    }];
+
+    
+    
+    
+    [self.avFrontPlayer play];
+    
+
+}
+
+-(void)destroyPlayer{
+    
+    [self.avFrontPlayer removeTimeObserver:self.playerObserver];
+    [self.avFrontPlayer pause];
+    self.avFrontPlayer = nil;
+
+}
+
+
+
 
 - (void)configureView{
 
@@ -111,54 +180,7 @@
     [self.scrollView addSubview:svc.view];
     
     
-//
-//    // setup avplayers
-//    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.movieFilePath options:nil];
-//
-//    _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
-//    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
-//    [frontLayer setFrame:fullFrame];
-//    frontLayer.opacity = 0.1f;  
-//    //[self.aView.layer addSublayer:frontLayer];
-//    
-//    // fade in example
-//    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
-//    flash.fromValue = [NSNumber numberWithFloat:0.0];
-//    flash.toValue = [NSNumber numberWithFloat:1.0];
-//    flash.duration = 5.0;        // 1 second
-//    flash.autoreverses = NO;    // Back
-//    flash.repeatCount = 0;       // Or whatever
-//    
-//    [frontLayer addAnimation:flash forKey:@"fadeIn"];
-//
-    
-//    // add boundry observer
-//    CMTime duration = self.avFrontPlayer.currentItem.asset.duration;
-//    Float64 durationInSeconds = CMTimeGetSeconds(duration);
-//    
-//    NSArray *times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(5.0f, self.avFrontPlayer.currentTime.timescale)]];
-////    __weak SODetailViewController *weakSelf = self;
-//    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
-//        NSLog(@"%f",durationInSeconds);
-//        //[weakSelf.avFrontPlayer pause];
-//    }];
-//    
-//    times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(durationInSeconds - 5.0f, self.avFrontPlayer.currentTime.timescale)]];
-//    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
-//        NSLog(@"fadeOut");
-//        CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
-//        flash.fromValue = [NSNumber numberWithFloat:1.0];
-//        flash.toValue = [NSNumber numberWithFloat:0.0];
-//        flash.duration = 5.0;
-//        flash.autoreverses = NO;
-//        flash.repeatCount = 0;      
-//        
-//        [frontLayer addAnimation:flash forKey:@"fadeOut"];
-//    }];
-//
-//    
-//    [self.avFrontPlayer play];
-    
+    [self buildPlayerForView:svc.view];
     
     
     
@@ -343,9 +365,8 @@
     [self removeObservers];
 
     self.scrollView = nil;
-    [self.avFrontPlayer pause];
-    self.avFrontPlayer = nil;
-    
+
+    [self destroyPlayer];
     
     [self closeMotionManager];
     
