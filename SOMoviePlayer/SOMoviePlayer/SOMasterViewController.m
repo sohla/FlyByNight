@@ -20,7 +20,6 @@
 
 @property (retain, nonatomic) ALAssetsLibrary           *library;
 
-//-(void)collectAssetsWithCompletionBlock:(void(^)(NSArray *assets))completionBlock;
 
 @end
 
@@ -176,12 +175,10 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSURL *pathA = self.movieFilePaths[indexPath.row];
-        
-        
-        [[segue destinationViewController] setMovieFilePathA:pathA];
-        
-        
+        NSURL *url = self.movieFilePaths[indexPath.row];
+        [[segue destinationViewController] addScreenWithURL:url];
+        NSURL *urlb = self.movieFilePaths[indexPath.row + 1];
+        [[segue destinationViewController] addScreenWithURL:urlb];
     }
 }
 

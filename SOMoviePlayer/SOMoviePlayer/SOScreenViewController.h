@@ -14,5 +14,10 @@
 @property (retain, nonatomic) SOScreenView *view;
 
 - (instancetype)initWithFrame:(CGRect)frame;
+-(void)buildPlayerWithURL:(NSURL*)url;
+-(void)play;
+-(void)pause;
+
+-(void)destroyPlayer;
 
 @end
