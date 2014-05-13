@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "SOScreenView.h"
 
-@interface SOScreenViewController : NSObject
+@interface SOScreenViewController : UIViewController
 
-@property (retain, nonatomic) SOScreenView *view;
+//@property (retain, nonatomic) SOScreenView *view;
 
 - (instancetype)initWithFrame:(CGRect)frame;
 -(void)buildPlayerWithURL:(NSURL*)url;
@@ -19,5 +19,7 @@
 -(void)pause;
 
 -(void)destroyPlayer;
+
+-(void)scrollTo:(CGPoint)pnt;
 
 @end

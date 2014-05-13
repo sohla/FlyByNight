@@ -14,6 +14,7 @@
 @property (weak,nonatomic) AVPlayer *avPlayer;
 @property float zoomLevel;
 @property (weak, nonatomic) id playerObserver;
+@property (retain, nonatomic) UIScrollView              *scrollView;
 
 @end
 
@@ -23,8 +24,26 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super init];
     if (self) {
+
         
-        _view = [[SOScreenView alloc] initWithFrame:frame];
+        _zoomLevel = 1.2f;
+        
+        CGRect fullFrame = CGRectMake(0.0, 0.0,
+                                      frame.size.height,
+                                      frame.size.width);
+
+        _scrollView = [[UIScrollView alloc] initWithFrame:fullFrame];
+        [self.view addSubview:self.scrollView];
+        
+        CGRect contentFrame = CGRectMake(0.0, 0.0,
+                                    frame.size.height * 2.0f,
+                                    frame.size.width * 2.0f);
+
+        [self.scrollView setContentSize:contentFrame.size];
+        [self.scrollView setContentOffset:self.scrollView.center animated:NO];
+        [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
+        [self.scrollView setScrollEnabled:NO];
+        
     }
     return self;
 }
@@ -36,6 +55,8 @@
                                   self.view.bounds.size.width * self.zoomLevel);
     
     
+    [self.scrollView addSubview:[[SOScreenView alloc] initWithFrame:fullFrame]];
+
     // setup avplayer
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
     
@@ -126,5 +147,33 @@
     self.avPlayer = nil;
     
 }
+-(void)scrollTo:(CGPoint)pnt{
 
+    float yawf = pnt.x;
+    float roll = pnt.y;
+    float xpers = self.view.frame.size.width;
+    float ypers = self.view.frame.size.height;
+    float xs = 3.0f;
+    float ys = 3.0f;
+    
+    (roll < 0.0f) ? roll *= -1.0f : roll;
+    
+    float offsetYaw = 0;
+    float dyaw = yawf+offsetYaw;
+    
+    if(dyaw >= M_PI){
+        dyaw -= M_PI*2;
+    }
+    
+    yawf = (dyaw / (2.0 * M_PI)) * xs;
+    roll = (-roll / (2.0 * M_PI)) * ys;
+    
+    float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
+    float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));
+    xpers = offsetx - (yawf * xpers);
+    ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
+    
+    [self.scrollView setContentOffset:(CGPoint){xpers,ypers} animated:NO];
+    
+}
 @end

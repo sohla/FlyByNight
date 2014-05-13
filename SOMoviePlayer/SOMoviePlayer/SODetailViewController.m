@@ -18,7 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel            *attitudeLabel;
 
-@property (retain, nonatomic) UIScrollView              *scrollView;
 
 @property (retain, nonatomic) NSMutableDictionary       *screenViewControllers;
 
@@ -57,14 +56,15 @@
     [self addObservers];
 
     // setup views
-    CGRect aspectFrame = CGRectMake(0.0, 0.0,
-                                    self.view.bounds.size.height,
-                                    self.view.bounds.size.width);
-    self.scrollView = [[UIScrollView alloc] initWithFrame:aspectFrame];
-    [self resetScrollView];
+//    CGRect aspectFrame = CGRectMake(0.0, 0.0,
+//                                    self.view.bounds.size.height,
+//                                    self.view.bounds.size.width);
+//    
+//    self.scrollView = [[UIScrollView alloc] initWithFrame:aspectFrame];
+//    [self resetScrollView];
     
-    [self.view addSubview:self.scrollView];
-    [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
+//    [self.view addSubview:self.scrollView];
+//    [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
     
     // attitude label
     [self.view bringSubviewToFront:self.attitudeLabel];
@@ -99,7 +99,7 @@
     
     [self removeObservers];
     
-    self.scrollView = nil;
+//    self.scrollView = nil;
     self.screenViewControllers = nil;
     
     [self closeMotionManager];
@@ -154,24 +154,12 @@
 
 -(void)addScreenWithURL:(NSURL*)url{
     
-    
-    float z = 1.2;//0.5 + (float)((arc4random()%100)/100.0f);
-    float xpers = self.view.frame.size.width;
-    float ypers = self.view.frame.size.height;
-    float offsetx = (xpers * 0.5f * (z - 1.0));
-    float offsety = (ypers * 0.5f * (z - 1.0));
-
-    CGRect fullFrame = CGRectMake(-offsety,-offsetx,
-                                  self.view.bounds.size.height * z,
-                                  self.view.bounds.size.width * z);
-
-    
-    SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:fullFrame];
+    SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
     [svc buildPlayerWithURL:url];
 
     [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];
     svc.view.alpha = 0.5f;
-    [self.scrollView addSubview:svc.view];
+    [self.view addSubview:svc.view];
     
 }
 #pragma mark - Setup
@@ -193,17 +181,17 @@
     [[self view] addGestureRecognizer: swipeGesture];
 
 }
--(void)resetScrollView{
-
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                    self.view.bounds.size.height * self.zoomLevel,
-                                    self.view.bounds.size.width * self.zoomLevel);
-    
-    [self.scrollView setContentSize:fullFrame.size];
-    [self.scrollView setContentOffset:self.scrollView.center animated:NO];
-    [self.scrollView setScrollEnabled:NO];
-
-}
+//-(void)resetScrollView{
+//
+//    CGRect fullFrame = CGRectMake(0.0, 0.0,
+//                                    self.view.bounds.size.height * self.zoomLevel,
+//                                    self.view.bounds.size.width * self.zoomLevel);
+//    
+//    [self.scrollView setContentSize:fullFrame.size];
+//    [self.scrollView setContentOffset:self.scrollView.center animated:NO];
+//    [self.scrollView setScrollEnabled:NO];
+//
+//}
 
 -(void)addObservers{
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -345,33 +333,34 @@
     }
 
     
-    float xpers = self.view.frame.size.width;
-    float ypers = self.view.frame.size.height;
-    float xs = 3.0f;
-    float ys = 3.0f;
+//    float xpers = self.view.frame.size.width;
+//    float ypers = self.view.frame.size.height;
+//    float xs = 3.0f;
+//    float ys = 3.0f;
+//    
+//    (roll < 0.0f) ? roll *= -1.0f : roll;
+//    
+//    float offsetYaw = 0;
+//    float dyaw = yawf+offsetYaw;
+//    
+//    if(dyaw >= M_PI){
+//        dyaw -= M_PI*2;
+//    }
+//    
+//    yawf = (dyaw / (2.0 * M_PI)) * xs;
+//    roll = (-roll / (2.0 * M_PI)) * ys;
+//    
+//    //float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
+//    //float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));
+//    xpers = - (yawf * xpers);
+//    ypers = (roll * ypers) + (ypers * 0.25f * ys);
+//    
+//    CGPoint pnt = CGPointMake(xpers, ypers);
     
-    (roll < 0.0f) ? roll *= -1.0f : roll;
-    
-    float offsetYaw = M_PI;
-    float dyaw = yawf+offsetYaw;
-    
-    if(dyaw >= M_PI){
-        dyaw -= M_PI*2;
-    }
-    
-    yawf = (dyaw / (2.0 * M_PI)) * xs;
-    roll = (-roll / (2.0 * M_PI)) * ys;
-    
-    //float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
-    //float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));
-    xpers = - (yawf * xpers);
-    ypers = (roll * ypers) + (ypers * 0.25f * ys);
-    
-    CGPoint pnt = CGPointMake(xpers, ypers);
-    
-    
-    [self.scrollView setContentOffset:pnt animated:NO];
-    
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
+    }];
+
     
 }
 
