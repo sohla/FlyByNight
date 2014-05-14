@@ -172,6 +172,8 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        //• pass in cue model 
         NSURL *url = self.movieFilePaths[indexPath.row];
         [[segue destinationViewController] addScreenWithURL:url];
 //        NSURL *urlb = self.movieFilePaths[indexPath.row + 1];

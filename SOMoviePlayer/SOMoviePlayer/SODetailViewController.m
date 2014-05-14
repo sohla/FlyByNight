@@ -140,6 +140,7 @@
 -(void)addScreenWithURL:(NSURL*)url{
     
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
+    //• pass in cue model
     svc.delegate = self;
     [svc buildPlayerWithURL:url];
 
@@ -239,6 +240,9 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     SOSettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"settingsVCID"];
+    
+    //•feed in the cue model
+    
     [self addChildViewController:settingsVC];
     [settingsVC.view setFrame:self.view.frame];
     [self.view addSubview:settingsVC.view];

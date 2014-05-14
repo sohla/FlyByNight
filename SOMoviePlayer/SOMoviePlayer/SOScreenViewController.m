@@ -187,6 +187,7 @@
     xpers = offsetx - (yawf * xpers);
     ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
     
+//    DLog(@"%f :%f",xpers,ypers);
     [self.scrollView setContentOffset:(CGPoint){xpers,ypers} animated:NO];
     
 }
