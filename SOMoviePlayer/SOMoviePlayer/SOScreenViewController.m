@@ -158,6 +158,9 @@
     self.avPlayer = nil;
     
 }
+//-(void)setOffset:(float)offset{
+//    _offset = offset;
+//}
 -(void)scrollTo:(CGPoint)pnt{
 
     float yawf = pnt.x;
@@ -169,8 +172,8 @@
     
     (roll < 0.0f) ? roll *= -1.0f : roll;
     
-    float offsetYaw = 0;//-(M_PI/4);
-    float dyaw = yawf+offsetYaw;
+//    float offsetYaw = 0;//-(M_PI/4);
+    float dyaw = yawf + self.offset;
     
     if(dyaw >= M_PI){
         dyaw -= M_PI*2;

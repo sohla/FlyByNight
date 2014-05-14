@@ -13,13 +13,16 @@
 @interface SOScreenViewController : UIViewController
 
 @property (assign, nonatomic) id<SOScreenViewControllerProtocol> delegate;
+@property (assign, nonatomic) float offset;// -M_PI..M_PI 
 
 - (instancetype)initWithFrame:(CGRect)frame;
+
 -(void)buildPlayerWithURL:(NSURL*)url;
+-(void)destroyPlayer;
+
 -(void)play;
 -(void)pause;
 
--(void)destroyPlayer;
 
 -(void)scrollTo:(CGPoint)pnt;
 -(void)resetZoomAt:(float)zoom;

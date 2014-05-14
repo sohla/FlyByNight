@@ -155,8 +155,8 @@
 
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
     DLog(@"");
-    [self cleanup];
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self cleanup];
+//    [self.navigationController popViewControllerAnimated:YES];
 
     
 }
@@ -182,14 +182,25 @@
 }
 
 -(void)addObservers{
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onMotionManagerReset:)
 												 name:kMotionManagerReset
 											   object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onZoomChanged:)
+												 name:kZoomChanged
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onZoomReset:)
 												 name:kZoomReset
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onOffsetChanged:)
+												 name:kOffsetChanged
 											   object:nil];
 
 
@@ -202,7 +213,15 @@
                                                   object:nil];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kZoomChanged
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kZoomReset
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kOffsetChanged
                                                   object:nil];
 
 }
@@ -254,6 +273,29 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+-(void)onOffsetChanged:(NSNotification *)notification{
+    
+    UISlider *slider = (UISlider*)[notification object];//0..1
+    float off = (([slider value] * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
+    
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj setOffset:off];
+    }];
+    
+}
+
+-(void)onZoomChanged:(NSNotification *)notification{
+    
+    UISlider *slider = (UISlider*)[notification object];//0..1
+    float z = 0.5 + ([slider value] * 1.5f); // 0.5..2.0
+    
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj resetZoomAt:z];
+    }];
+
+    
+}
+
 -(void)onZoomReset:(NSNotification *)notification{
 
     float z = 0;
@@ -269,10 +311,6 @@
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj resetZoomAt:z];
     }];
-    
-
-
-
 }
 -(void)onMotionManagerReset:(NSNotification *)notification{
     
