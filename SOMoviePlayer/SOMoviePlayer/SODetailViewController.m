@@ -140,6 +140,7 @@
 -(void)addScreenWithURL:(NSURL*)url{
     
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
+    svc.delegate = self;
     [svc buildPlayerWithURL:url];
 
     [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];
@@ -147,6 +148,16 @@
     [self.view addSubview:svc.view];
     
 }
+
+-(void)onScreenViewPlayerDidBegin:(SOScreenViewController*)svc{
+    DLog(@"");
+}
+
+-(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
+    DLog(@"");
+    
+}
+
 #pragma mark - Setup
 
 - (void)addGestures{

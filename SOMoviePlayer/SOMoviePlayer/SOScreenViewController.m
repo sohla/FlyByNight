@@ -81,6 +81,12 @@
     
     [self.scrollView addSubview:screenView];
 
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:[self.avPlayer currentItem]];
+
     // fade in example
     //    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
     //    flash.fromValue = [NSNumber numberWithFloat:0.0];
@@ -118,7 +124,7 @@
     
     
     [self play];
-    
+    [self.delegate onScreenViewPlayerDidBegin:self];
     
 }
 
@@ -132,31 +138,21 @@
 -(void)pause{
     [self.avPlayer pause];
 }
-//
-//
-//[[NSNotificationCenter defaultCenter] addObserver:self
-//                                         selector:@selector(moviePlayBackDidFinish:)
-//                                             name:AVPlayerItemDidPlayToEndTimeNotification
-//                                           object:[self.avPlayer currentItem]];
-//
-//AVPlayer *avFrontPlayer = self.avPlayer;
-//
-//[[NSNotificationCenter defaultCenter] removeObserver:self
-//                                                name:AVPlayerItemDidPlayToEndTimeNotification
-//                                              object:avFrontPlayer];
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification{
     
-    
-    //    [self.avFrontPlayer seekToTime:kCMTimeZero];
-    //    [self.avBackPlayer seekToTime:kCMTimeZero];
-    //    [self.avFrontPlayer play];
-    //    [self.avBackPlayer play];
+    [self.delegate onScreenViewPlayerDidEnd:self];
     
 }
 
 -(void)destroyPlayer{
     
+    AVPlayer *avFrontPlayer = self.avPlayer;
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:AVPlayerItemDidPlayToEndTimeNotification
+                                                  object:avFrontPlayer];
+
     [self.avPlayer removeTimeObserver:self.playerObserver];
     [self.avPlayer pause];
     self.avPlayer = nil;

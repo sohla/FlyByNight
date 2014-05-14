@@ -10,8 +10,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
-
-@interface SODetailViewController : UIViewController
+#import "SOScreenViewControllerProtocol.h"
+@interface SODetailViewController : UIViewController <SOScreenViewControllerProtocol>
 
 
 -(void)addScreenWithURL:(NSURL*)url;

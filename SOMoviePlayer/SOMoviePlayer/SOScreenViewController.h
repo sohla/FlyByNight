@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "SOScreenView.h"
+#import "SOScreenViewControllerProtocol.h"
 
 @interface SOScreenViewController : UIViewController
 
-//@property (retain, nonatomic) SOScreenView *view;
+@property (assign, nonatomic) id<SOScreenViewControllerProtocol> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame;
 -(void)buildPlayerWithURL:(NSURL*)url;
