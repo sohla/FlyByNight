@@ -155,6 +155,9 @@
 
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
     DLog(@"");
+    [self cleanup];
+    [self.navigationController popViewControllerAnimated:YES];
+
     
 }
 
