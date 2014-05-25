@@ -61,7 +61,11 @@
 
     [self addGestures];
 }
-
+-(void)dealloc{
+    DLog(@"");
+    //[self.screenViewControllers removeAllObjects];
+    
+}
 -(void)viewWillAppear:(BOOL)animated{
     
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
@@ -79,9 +83,9 @@
     DLog(@"");
     
     // need to destroy player and it's observers
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj destroyPlayer];
-    }];
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj destroyPlayer];
+//    }];
     
     [self removeGestures];
     

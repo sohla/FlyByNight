@@ -15,6 +15,7 @@
 @property float zoomLevel;
 @property (weak, nonatomic) id playerObserver;
 @property (strong, nonatomic) UIScrollView              *scrollView;
+@property (weak, nonatomic) AVPlayerLayer *playerLayer;
 
 @end
 
@@ -47,6 +48,11 @@
     }
     return self;
 }
+
+-(void)dealloc{
+    DLog(@"");
+    [self destroyPlayer];
+}
 -(void)resetZoomAt:(float)zoom{
 
     self.zoomLevel = zoom;
@@ -64,6 +70,11 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
     DLog(@"");//••FIX DESTROY
+    
+//    self.scrollView = nil;
+//    [self destroyPlayer];
+
+
 }
 -(void)buildPlayerWithURL:(NSURL*)url{
     
@@ -80,10 +91,10 @@
     [item addObserver:self forKeyPath:@"status" options:0 context:nil];
     
     _avPlayer = [AVPlayer playerWithPlayerItem:item];
-    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
-    [frontLayer setFrame:fullFrame];
-    frontLayer.opacity = 0.1f;
-//    [screenView.layer addSublayer:frontLayer];
+    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
+    [self.playerLayer setFrame:fullFrame];
+    self.playerLayer.opacity = 0.1f;
+    [screenView.layer addSublayer:self.playerLayer];
     
     [self.scrollView addSubview:screenView];
 
@@ -185,15 +196,24 @@
 
 -(void)destroyPlayer{
     
+
+    if(self.playerLayer != nil){
+        [self.playerLayer removeFromSuperlayer];
+        self.playerLayer = nil;
+    }
+    
+    
     AVPlayer *avFrontPlayer = self.avPlayer;
+    if(self.avPlayer != nil){
 
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:AVPlayerItemDidPlayToEndTimeNotification
-                                                  object:avFrontPlayer];
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:AVPlayerItemDidPlayToEndTimeNotification
+                                                      object:avFrontPlayer];
 
-    [self.avPlayer removeTimeObserver:self.playerObserver];
-    [self.avPlayer pause];
-    self.avPlayer = nil;
+        [self.avPlayer removeTimeObserver:self.playerObserver];
+        [self.avPlayer pause];
+        self.avPlayer = nil;
+    }
     
 }
 //-(void)setOffset:(float)offset{
