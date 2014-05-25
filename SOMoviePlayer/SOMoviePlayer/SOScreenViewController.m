@@ -11,10 +11,10 @@
 
 @interface SOScreenViewController ()
 
-@property (weak,nonatomic) AVPlayer *avPlayer;
+@property (strong,nonatomic) AVPlayer *avPlayer;
 @property float zoomLevel;
 @property (weak, nonatomic) id playerObserver;
-@property (retain, nonatomic) UIScrollView              *scrollView;
+@property (strong, nonatomic) UIScrollView              *scrollView;
 
 @end
 
@@ -62,6 +62,9 @@
     
     
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    DLog(@"");//••FIX DESTROY
+}
 -(void)buildPlayerWithURL:(NSURL*)url{
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
@@ -73,19 +76,22 @@
     // setup avplayer
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
     
-    _avPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
+    AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
+    [item addObserver:self forKeyPath:@"status" options:0 context:nil];
+    
+    _avPlayer = [AVPlayer playerWithPlayerItem:item];
     AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [frontLayer setFrame:fullFrame];
     frontLayer.opacity = 0.1f;
-    [screenView.layer addSublayer:frontLayer];
+//    [screenView.layer addSublayer:frontLayer];
     
     [self.scrollView addSubview:screenView];
 
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moviePlayBackDidFinish:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self.avPlayer currentItem]];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(moviePlayBackDidFinish:)
+//                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+//                                               object:[self.avPlayer currentItem]];
 
     // fade in example
     //    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -123,10 +129,42 @@
 //    }];
     
     
-    [self play];
-    [self.delegate onScreenViewPlayerDidBegin:self];
-    
 }
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    if ([object isKindOfClass:[AVPlayerItem class]]){
+        
+        AVPlayerItem *item = (AVPlayerItem *)object;
+        __weak SOScreenViewController *weakSelf = self;
+        if ([keyPath isEqualToString:@"status"]){
+            switch(item.status){
+                case AVPlayerItemStatusFailed:{
+                    DLog(@"player item status failed");
+                    }
+                    break;
+                case AVPlayerItemStatusReadyToPlay:{
+                    DLog(@"player item status is ready to play");
+                    [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
+                        [weakSelf play];
+                        [weakSelf.delegate onScreenViewPlayerDidBegin:self];
+                    }];
+                    
+                    
+                    
+
+                    }
+                    break;
+                case AVPlayerItemStatusUnknown:{
+                    DLog(@"player item status is unknown");
+                    }
+                    break;
+            }
+        }
+    }
+}
+
 
 
 -(void)play{

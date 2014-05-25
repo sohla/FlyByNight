@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
 #import "SOScreenViewControllerProtocol.h"
+
+#import "SOMotionManager.h"
+
 @interface SODetailViewController : UIViewController <SOScreenViewControllerProtocol>
 
 

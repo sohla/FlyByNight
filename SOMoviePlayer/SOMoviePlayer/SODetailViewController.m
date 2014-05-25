@@ -10,16 +10,19 @@
 #import "SONotifications.h"
 #import "SOSettingsViewController.h"
 #import "SOScreenViewController.h"
+#import "SOAppDelegate.h"
+
+// SOScreenViewManager
+//      has a bunch of screenviews
 
 @interface SODetailViewController ()
 
-@property (retain, nonatomic) CMMotionManager           *motionManager;
-@property (assign, nonatomic) CADisplayLink             *motionDisplayLink;
+//@property (strong, nonatomic) CMMotionManager           *motionManager;
+@property (strong, nonatomic) CADisplayLink             *motionDisplayLink;
 
 @property (weak, nonatomic) IBOutlet UILabel            *attitudeLabel;
 
-
-@property (retain, nonatomic) NSMutableDictionary       *screenViewControllers;
+@property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
 
 
@@ -48,9 +51,9 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     //motion
-    [self setupMotionManager];
+    //[self setupMotionManager];
 
-    [self addObservers];
+    //[self addObservers];
 
     // attitude label
     [self.view bringSubviewToFront:self.attitudeLabel];
@@ -73,22 +76,23 @@
 
 -(void)cleanup{
     
+    DLog(@"");
+    
     // need to destroy player and it's observers
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj destroyPlayer];
     }];
     
+    [self removeGestures];
+    
+//    [self removeObservers];
+    
+    
+    //[self closeMotionManager];
 
-    [self.view.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self.view removeGestureRecognizer:obj];
-    }];
-    
-    [self removeObservers];
-    
-    self.screenViewControllers = nil;
-    
-    [self closeMotionManager];
-    
+//    [self.screenViewControllers removeAllObjects];
+//    self.screenViewControllers = nil;
+
 }
 - (void)viewDidUnload{
     
@@ -107,32 +111,19 @@
 -(void)setupMotionManager{
     
     if(self.motionDisplayLink==nil){
-        self.motionManager = [[CMMotionManager alloc] init];
-    }
-    
-    self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
-    
-    if(self.motionDisplayLink==nil){
         self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
         [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     }
-    
-    if ([self.motionManager isDeviceMotionAvailable]) {
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
-    }
-    
 
 }
 
 -(void)closeMotionManager{
 
-    [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     if(self.motionDisplayLink!=nil)
+        [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         self.motionDisplayLink = nil;
     
-    if(self.motionManager!=nil)
-        self.motionManager = nil;
 
 }
 
@@ -141,7 +132,7 @@
     
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
     //• pass in cue model
-    svc.delegate = self;
+    //svc.delegate = self;
     [svc buildPlayerWithURL:url];
 
     [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];
@@ -155,7 +146,7 @@
 }
 
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
-    DLog(@"");
+//    DLog(@"");
 //    [self cleanup];
 //    [self.navigationController popViewControllerAnimated:YES];
 
@@ -171,17 +162,23 @@
                                           initWithTarget:self
                                           action:@selector(onDoubleTap:)];
     [tapGesture setNumberOfTapsRequired:2];
-    [[self view] addGestureRecognizer:tapGesture];
+    [self.view addGestureRecognizer:tapGesture];
 
 
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
     [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
-    [[self view] addGestureRecognizer: swipeGesture];
+    [self.view addGestureRecognizer: swipeGesture];
 
 }
+-(void)removeGestures{
+    
+    [self.view.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self.view removeGestureRecognizer:obj];
+    }];
 
+}
 -(void)addObservers{
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -318,8 +315,8 @@
 }
 -(void)onMotionManagerReset:(NSNotification *)notification{
     
-    [self closeMotionManager];
-    [self setupMotionManager];
+//    [self closeMotionManager];
+//    [self setupMotionManager];
 }
 
 
@@ -345,16 +342,16 @@
 
 - (void)motionRefresh:(id)sender {
     
-    float roll = self.motionManager.deviceMotion.attitude.roll;
-    float pitch = self.motionManager.deviceMotion.attitude.pitch;
-    float yawf = self.motionManager.deviceMotion.attitude.yaw;
-    float heading = self.motionManager.deviceMotion.magneticField.field.y;
-    
-    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
-     
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
-    }];
+//    float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
+//    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
+//    float yawf = [[SOMotionManager sharedManager] valueForKey:@"yawf"];
+//    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
+//
+//    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
+//     
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
+//    }];
 
     
 }

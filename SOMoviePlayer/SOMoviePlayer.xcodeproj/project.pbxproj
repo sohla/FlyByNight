@@ -14,6 +14,7 @@
 		F04417D518BD1BF400572780 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417D418BD1BF400572780 /* AssetsLibrary.framework */; };
 		F04417D818BD2D7900572780 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D618BD2D7900572780 /* default.png */; };
 		F04417D918BD2D7900572780 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D718BD2D7900572780 /* default@2x.png */; };
+		F072F5E819315DBD009EC2F5 /* SOMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F072F5E719315DBD009EC2F5 /* SOMotionManager.m */; };
 		F0AECCC618B171DB00263C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
 		F0AECCC818B171DB00263C32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC718B171DB00263C32 /* CoreGraphics.framework */; };
 		F0AECCCA18B171DB00263C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC918B171DB00263C32 /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 		F04417D418BD1BF400572780 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		F04417D618BD2D7900572780 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		F04417D718BD2D7900572780 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		F072F5E619315DBD009EC2F5 /* SOMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOMotionManager.h; sourceTree = "<group>"; };
+		F072F5E719315DBD009EC2F5 /* SOMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOMotionManager.m; sourceTree = "<group>"; };
 		F0AECCC218B171DB00263C32 /* SOMoviePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOMoviePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCC518B171DB00263C32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0AECCC718B171DB00263C32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -155,6 +158,8 @@
 				F04417A118BA0C2400572780 /* SONotifications.h */,
 				F04417A218BA0C2400572780 /* SONotifications.m */,
 				F0AECCD718B171DB00263C32 /* Main.storyboard */,
+				F072F5E619315DBD009EC2F5 /* SOMotionManager.h */,
+				F072F5E719315DBD009EC2F5 /* SOMotionManager.m */,
 				F0AECCDA18B171DB00263C32 /* SOMasterViewController.h */,
 				F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */,
 				F0AECCDD18B171DB00263C32 /* SODetailViewController.h */,
@@ -249,7 +254,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SO;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Stephen OHara";
 				TargetAttributes = {
 					F0AECCE518B171DC00263C32 = {
@@ -306,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AECCDC18B171DB00263C32 /* SOMasterViewController.m in Sources */,
+				F072F5E819315DBD009EC2F5 /* SOMotionManager.m in Sources */,
 				F0FE7405191E3037008B7E45 /* SOScreenView.m in Sources */,
 				F0AECCD618B171DB00263C32 /* SOAppDelegate.m in Sources */,
 				F04417A318BA0C2400572780 /* SONotifications.m in Sources */,
@@ -366,7 +372,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -405,7 +410,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -437,7 +441,6 @@
 		F0AECCF818B171DC00263C32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -454,7 +457,6 @@
 		F0AECCF918B171DC00263C32 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -471,7 +473,6 @@
 		F0AECCFB18B171DC00263C32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SOMoviePlayer.app/SOMoviePlayer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -494,7 +495,6 @@
 		F0AECCFC18B171DC00263C32 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SOMoviePlayer.app/SOMoviePlayer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
