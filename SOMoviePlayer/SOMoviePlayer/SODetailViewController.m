@@ -8,26 +8,25 @@
 
 #import "SODetailViewController.h"
 #import "SONotifications.h"
-
 #import "SOSettingsViewController.h"
+#import "SOScreenViewController.h"
+#import "SOAppDelegate.h"
+
+// SOScreenViewManager
+//      has a bunch of screenviews
 
 @interface SODetailViewController ()
 
-@property (retain, nonatomic) CMMotionManager           *motionManager;
-@property (retain, nonatomic) CADisplayLink             *motionDisplayLink;
+//@property (strong, nonatomic) CMMotionManager           *motionManager;
+@property (strong, nonatomic) CADisplayLink             *motionDisplayLink;
 
 @property (weak, nonatomic) IBOutlet UILabel            *attitudeLabel;
 
-@property (retain, nonatomic) UIScrollView              *scrollView;
-
-@property (retain,nonatomic) AVPlayer *avFrontPlayer;
-@property (retain,nonatomic) AVPlayer *avBackPlayer;
+@property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
 
-@property (retain, nonatomic) UIView *aView;
-@property (retain, nonatomic) UIView *bView;
 
-@property float zoomLevel;
+
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
@@ -38,212 +37,149 @@
 @implementation SODetailViewController
 
 
+
+
+
+#pragma mark - Views
+
+- (void)viewDidLoad{
+    
+    [super viewDidLoad];
+    
+    _screenViewControllers = [[NSMutableDictionary alloc] init];
+    
+    [self.view setBackgroundColor:[UIColor blackColor]];
+    
+    //motion
+    //[self setupMotionManager];
+
+    //[self addObservers];
+
+    // attitude label
+    [self.view bringSubviewToFront:self.attitudeLabel];
+    [self.attitudeLabel setHidden:NO];
+
+    [self addGestures];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self tabBarController].tabBar setHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [[self tabBarController].tabBar setHidden:NO];
+}
+
+-(void)cleanup{
+    
+    DLog(@"");
+    
+    // need to destroy player and it's observers
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj destroyPlayer];
+    }];
+    
+    [self removeGestures];
+    
+//    [self removeObservers];
+    
+    
+    //[self closeMotionManager];
+
+//    [self.screenViewControllers removeAllObjects];
+//    self.screenViewControllers = nil;
+
+}
+- (void)viewDidUnload{
+    
+    [self cleanup];
+    [super viewDidUnload];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 #pragma mark - Motion Manager
 
 -(void)setupMotionManager{
     
-    self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
-    
-//    self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
-    [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    if ([self.motionManager isDeviceMotionAvailable]) {
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+    if(self.motionDisplayLink==nil){
+        self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
+        [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     }
-    
 
 }
 
 -(void)closeMotionManager{
 
-    [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     if(self.motionDisplayLink!=nil)
+        [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         self.motionDisplayLink = nil;
     
-    if(self.motionManager!=nil)
-        self.motionManager = nil;
 
+}
+
+
+-(void)addScreenWithURL:(NSURL*)url{
+    
+    SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
+    //• pass in cue model
+    //svc.delegate = self;
+    [svc buildPlayerWithURL:url];
+
+    [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];
+    svc.view.alpha = 0.5f;
+    [self.view addSubview:svc.view];
+    
+}
+
+-(void)onScreenViewPlayerDidBegin:(SOScreenViewController*)svc{
+    DLog(@"");
+}
+
+-(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
+//    DLog(@"");
+//    [self cleanup];
+//    [self.navigationController popViewControllerAnimated:YES];
+
+    
 }
 
 #pragma mark - Setup
 
--(void)setMovieFilePathA:(NSURL *)pathA pathB:(NSURL*)pathB{
-    
-    if (_movieFilePath != pathA) {
-        _movieFilePath = pathA;
-        
-    }
-    
-    if (_movieFilePathB != pathB) {
-        _movieFilePathB = pathB;
-        
-    }
-    // Update the view.
-    [self configureView];
-    
-}
-
-- (void)configureView{
-
-    self.zoomLevel = 2.0f;
-    
-    CGRect aspectFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height,
-                                  self.view.bounds.size.width);
-
-
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * self.zoomLevel,
-                                  self.view.bounds.size.width * self.zoomLevel);
-
-    
-    
-    // setup scroll view
-    
-    self.scrollView = [[UIScrollView alloc] initWithFrame:aspectFrame];
-    [self resetScrollView];
-    [self.view addSubview:self.scrollView];
-    
-    
-    // our 2 views
-    self.aView  = [[UIView alloc] initWithFrame:fullFrame];
-    self.bView  = [[UIView alloc] initWithFrame:CGRectOffset(fullFrame,fullFrame.size.width,0.0)];
-    
-
-    // setup avplayers
-    
-    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.movieFilePath options:nil];
-
-    _avFrontPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
-    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
-    [frontLayer setFrame:fullFrame];
-    [self.aView.layer addSublayer:frontLayer];
-    
-    
-    asset = [AVURLAsset URLAssetWithURL:self.movieFilePathB options:nil];
-
-    _avBackPlayer = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
-    AVPlayerLayer *backLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
-    [backLayer setFrame:fullFrame];
-    [self.bView.layer addSublayer:backLayer];
-
-    // fade in example
-    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    flash.fromValue = [NSNumber numberWithFloat:0.0];
-    flash.toValue = [NSNumber numberWithFloat:1.0];
-    flash.duration = 5.0;        // 1 second
-    flash.autoreverses = NO;    // Back
-    flash.repeatCount = 0;       // Or whatever
-    
-    [frontLayer addAnimation:flash forKey:@"fadeIn"];
-
-    
-    CMTime duration = self.avFrontPlayer.currentItem.asset.duration;
-    
-    Float64 durationInSeconds = CMTimeGetSeconds(duration);
-    
-    
-    
-    // add boundry observer
-    NSArray *times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(5.0f, self.avFrontPlayer.currentTime.timescale)]];
-//    __weak SODetailViewController *weakSelf = self;
-    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
-        NSLog(@"%f",durationInSeconds);
-        //[weakSelf.avFrontPlayer pause];
-    }];
-    
-    times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(durationInSeconds - 5.0f, self.avFrontPlayer.currentTime.timescale)]];
-    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
-        NSLog(@"fadeOut");
-        CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        flash.fromValue = [NSNumber numberWithFloat:1.0];
-        flash.toValue = [NSNumber numberWithFloat:0.0];
-        flash.duration = 5.0;
-        flash.autoreverses = NO;
-        flash.repeatCount = 0;      
-        
-        [frontLayer addAnimation:flash forKey:@"fadeOut"];
-    }];
-
-    
-    [self.avFrontPlayer play];
-    [self.avBackPlayer play];
-    
-    
-    [self.scrollView addSubview:self.aView];
-    [self.scrollView addSubview:self.bView];
-    
-    [self.aView setBackgroundColor:[UIColor blackColor]];
-    [self.bView setBackgroundColor:[UIColor blackColor]];
-
-    [self.scrollView setBackgroundColor:[UIColor blackColor]];
-    
-    
-    // set view port to middle
-    CGPoint pnt = CGPointMake(self.view.bounds.size.height, 0);
-    [self.scrollView setContentOffset:pnt animated:NO];
+- (void)addGestures{
 
     // gestures
-    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
                                           action:@selector(onDoubleTap:)];
     [tapGesture setNumberOfTapsRequired:2];
-    [[self view] addGestureRecognizer:tapGesture];
+    [self.view addGestureRecognizer:tapGesture];
 
 
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
     [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
-    [[self view] addGestureRecognizer: swipeGesture];
-
-
-    //
-    [self addObservers];
-    
-    
-    
-    // attitude label
-    [self.view bringSubviewToFront:self.attitudeLabel];
-    [self.attitudeLabel setHidden:YES];
+    [self.view addGestureRecognizer: swipeGesture];
 
 }
--(void)resetScrollView{
-
-    CGRect doubleFrame = CGRectMake(0.0, 0.0,
-                                    self.view.bounds.size.height * self.zoomLevel,
-                                    self.view.bounds.size.width * self.zoomLevel);
+-(void)removeGestures{
     
-    [self.scrollView setContentSize:doubleFrame.size];
-    [self.scrollView setContentOffset:(CGPoint){0,0} animated:NO];
-    [self.scrollView setScrollEnabled:NO];
-    
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * self.zoomLevel,
-                                  self.view.bounds.size.width * self.zoomLevel);
-
-    self.aView.frame = fullFrame;
-    self.bView.frame = fullFrame;
-    
-    AVPlayerLayer *frontLayer = [AVPlayerLayer playerLayerWithPlayer:self.avFrontPlayer];
-    [frontLayer setFrame:fullFrame];
-//    self.aView.layer.frame = fullFrame;
-    
-    AVPlayerLayer *backLayer = [AVPlayerLayer playerLayerWithPlayer:self.avBackPlayer];
-    [backLayer setFrame:fullFrame];
-//    self.bView.layer.frame = fullFrame;
+    [self.view.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self.view removeGestureRecognizer:obj];
+    }];
 
 }
 -(void)addObservers{
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moviePlayBackDidFinish:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self.avFrontPlayer currentItem]];
-
     
     [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onMotionManagerReset:)
@@ -251,26 +187,39 @@
 											   object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onZoomChanged:)
+												 name:kZoomChanged
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onZoomReset:)
 												 name:kZoomReset
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onOffsetChanged:)
+												 name:kOffsetChanged
 											   object:nil];
 
 
 }
 -(void)removeObservers{
 
-    AVPlayer *avFrontPlayer = self.avFrontPlayer;
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:AVPlayerItemDidPlayToEndTimeNotification
-                                                  object:avFrontPlayer];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMotionManagerReset
                                                   object:nil];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kZoomChanged
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kZoomReset
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kOffsetChanged
                                                   object:nil];
 
 }
@@ -279,14 +228,18 @@
 
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
     
-    [self.avFrontPlayer pause];
-    [self.avBackPlayer pause];
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj pause];
+    }];
     
     [self.attitudeLabel setHidden:NO];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     SOSettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"settingsVCID"];
+    
+    //•feed in the cue model
+    
     [self addChildViewController:settingsVC];
     [settingsVC.view setFrame:self.view.frame];
     [self.view addSubview:settingsVC.view];
@@ -294,8 +247,11 @@
     
     __block SODetailViewController *blockSelf = self;
     [settingsVC setOnCloseUpBlock:^(){
-        [blockSelf.avFrontPlayer play];
-        [blockSelf.avBackPlayer play];
+        
+        [blockSelf.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            [(SOScreenViewController*)obj play];
+        }];
+       
         [blockSelf.attitudeLabel setHidden:YES];
         
     }];
@@ -318,96 +274,51 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+-(void)onOffsetChanged:(NSNotification *)notification{
+    
+    UISlider *slider = (UISlider*)[notification object];//0..1
+    float off = (([slider value] * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
+    
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj setOffset:off];
+    }];
+    
+}
+
+-(void)onZoomChanged:(NSNotification *)notification{
+    
+    UISlider *slider = (UISlider*)[notification object];//0..1
+    float z = 0.5 + ([slider value] * 1.5f); // 0.5..2.0
+    
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj resetZoomAt:z];
+    }];
+
+    
+}
+
 -(void)onZoomReset:(NSNotification *)notification{
-//
-//    UISwitch *swch = (UISwitch*)[notification object];
-//    
-//    if([swch isOn]){
-//        
-//        self.zoomLevel = 2.0f;
-//        [self resetScrollView];
-//        
-//        self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
-//        [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//
-//    }else{
-//     
-//        [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//        
-//        if(self.motionDisplayLink!=nil)
-//            self.motionDisplayLink = nil;
-//
-//        self.zoomLevel = 1.0f;
-//        [self resetScrollView];
-//  
-//    }
+
+    float z = 0;
+    UISwitch *swch = (UISwitch*)[notification object];
+    
+    if([swch isOn]){
+        z = 2.0f;
+    }else{
+        z = 1.0f;
+    }
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj resetZoomAt:z];
+    }];
 }
 -(void)onMotionManagerReset:(NSNotification *)notification{
     
-    
-    [self closeMotionManager];
-    [self setupMotionManager];
+//    [self closeMotionManager];
+//    [self setupMotionManager];
 }
 
-- (void) moviePlayBackDidFinish:(NSNotification*)notification{
-    
-
-//    [self.avFrontPlayer seekToTime:kCMTimeZero];
-//    [self.avBackPlayer seekToTime:kCMTimeZero];
-//    [self.avFrontPlayer play];
-//    [self.avBackPlayer play];
-    
-}
-
-#pragma mark - Views
-
-- (void)viewDidLoad{
-    
-    [super viewDidLoad];
-
-    [self.view setBackgroundColor:[UIColor blackColor]];
-    [self setupMotionManager];
-    
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    [[self tabBarController].tabBar setHidden:YES];
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [[self tabBarController].tabBar setHidden:NO];
-}
-
--(void)cleanup{
- 
-    [self removeObservers];
-    
-    [self.avFrontPlayer pause];
-    self.avFrontPlayer = nil;
-    [self.avBackPlayer pause];
-    self.avBackPlayer = nil;
-    
-    [self closeMotionManager];
-    
-    
-}
-
-- (void)viewDidUnload
-{
-    
-    [self cleanup];
-    [super viewDidUnload];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Orientation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -424,66 +335,24 @@
 {
     return UIInterfaceOrientationMaskLandscape;
 }
-
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+}
 #pragma mark - Motion Refresher
 
 - (void)motionRefresh:(id)sender {
     
-    float roll = self.motionManager.deviceMotion.attitude.roll;
-    float pitch = self.motionManager.deviceMotion.attitude.pitch;
-    float yawf = self.motionManager.deviceMotion.attitude.yaw;
-    float heading = self.motionManager.deviceMotion.magneticField.field.y;
-    
-    float pi = 3.141;
+//    float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
+//    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
+//    float yawf = [[SOMotionManager sharedManager] valueForKey:@"yawf"];
+//    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
+//
+//    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
+//     
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
+//    }];
 
-    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,1.0 + (-yawf/pi),heading];
-    
-    float xpers = self.view.frame.size.width * self.zoomLevel;
-    float ypers = 0;
-    
-    if(roll > 0){
-        roll = -roll;
-    }
-    
-//    CGPoint pnt = CGPointMake((-yawf * xpers) + 240, 160 -(-roll - 1.5) * ypers);
-    
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * self.zoomLevel,
-                                  self.view.bounds.size.width * self.zoomLevel);
-
-    yawf = -(yawf/pi);
-    
-    if(yawf <= 0){
-        
-        yawf += 1.0;
-        
-        [self.aView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * self.zoomLevel, 0.0)];
-        [self.bView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
-        
-    }else{
-
-        [self.aView setFrame:CGRectOffset(fullFrame, 0.0, 0.0)];
-        [self.bView setFrame:CGRectOffset(fullFrame, self.view.bounds.size.width * self.zoomLevel, 0.0)];
-
-        
-    }
-    
-    xpers = self.view.bounds.size.height + (yawf * xpers);
-    ypers = (self.view.bounds.size.width/4.0) -(-roll - 1.5) * ypers;
-    
-    CGPoint pnt = CGPointMake(xpers, ypers);
-    
-    
-    [self.scrollView setContentOffset:pnt animated:NO];
-    
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    if(orientation == UIInterfaceOrientationLandscapeLeft){
-        
-        
-    }else if (orientation == UIInterfaceOrientationLandscapeRight){
-        
-        
-    }
     
 }
 

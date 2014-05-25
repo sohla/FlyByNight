@@ -8,17 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
+#import "SOScreenViewControllerProtocol.h"
 
-@interface SODetailViewController : UIViewController
+#import "SOMotionManager.h"
 
-@property (retain, nonatomic) NSURL *movieFilePath;
-@property (retain, nonatomic) NSURL *movieFilePathB;
-- (void)configureView;
+@interface SODetailViewController : UIViewController <SOScreenViewControllerProtocol>
 
 
--(void)setMovieFilePathA:(NSURL *)pathA pathB:(NSURL*)pathB;
+-(void)addScreenWithURL:(NSURL*)url;
 
 
 @end

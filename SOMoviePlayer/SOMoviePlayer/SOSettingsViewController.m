@@ -13,6 +13,8 @@
 - (IBAction)onResetUp:(id)sender;
 - (IBAction)onCloseUp:(id)sender;
 - (IBAction)onZoom:(UISwitch *)sender;
+- (IBAction)onZoomChanged:(UISlider *)sender;
+- (IBAction)onOffsetChanged:(UISlider *)sender;
 
 @end
 
@@ -31,6 +33,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     self.view.alpha = 0.7;
 }
 
@@ -64,5 +67,13 @@
 
 - (IBAction)onZoom:(UISwitch *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kZoomReset object:sender];
+}
+
+- (IBAction)onZoomChanged:(UISlider *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZoomChanged object:sender];
+}
+
+- (IBAction)onOffsetChanged:(UISlider *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kOffsetChanged object:sender];
 }
 @end

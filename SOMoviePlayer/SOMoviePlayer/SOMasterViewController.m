@@ -20,7 +20,6 @@
 
 @property (retain, nonatomic) ALAssetsLibrary           *library;
 
-//-(void)collectAssetsWithCompletionBlock:(void(^)(NSArray *assets))completionBlock;
 
 @end
 
@@ -88,6 +87,12 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+//    [self performSegueWithIdentifier:@"showDetail" sender:self];
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -167,17 +172,12 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSURL *pathA = self.movieFilePaths[indexPath.row];
-        NSURL *pathB = self.movieFilePaths[indexPath.row];
-
-        if(indexPath.row < self.movieFilePaths.count - 1){
-            pathB = self.movieFilePaths[indexPath.row + 1];
-        }
         
-        
-        [[segue destinationViewController] setMovieFilePathA:pathA pathB:pathB];
-        
-        
+        //• pass in cue model 
+        NSURL *url = self.movieFilePaths[indexPath.row];
+        [[segue destinationViewController] addScreenWithURL:url];
+//        NSURL *urlb = self.movieFilePaths[indexPath.row + 1];
+//        [[segue destinationViewController] addScreenWithURL:urlb];
     }
 }
 
