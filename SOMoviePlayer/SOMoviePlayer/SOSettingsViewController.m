@@ -76,4 +76,7 @@
 - (IBAction)onOffsetChanged:(UISlider *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kOffsetChanged object:sender];
 }
+- (IBAction)onScrollChanged:(UISwitch *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kIsScrolling object:sender];
+}
 @end

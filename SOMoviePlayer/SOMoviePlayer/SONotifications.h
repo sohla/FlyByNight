@@ -14,5 +14,6 @@ extern NSString* const kMotionManagerReset;
 extern NSString* const kZoomReset;
 extern NSString* const kZoomChanged;
 extern NSString* const kOffsetChanged;
+extern NSString* const kIsScrolling;
 
 @end

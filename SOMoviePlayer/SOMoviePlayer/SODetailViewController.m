@@ -46,6 +46,8 @@
     
     [super viewDidLoad];
     
+    self.isScrolling = NO;
+    
     _screenViewControllers = [[NSMutableDictionary alloc] init];
     
     [self.view setBackgroundColor:[UIColor blackColor]];
@@ -140,8 +142,13 @@
     [svc buildPlayerWithURL:url];
 
     [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];
-    svc.view.alpha = 0.5f;
+//    svc.view.alpha = 0.5f;
     [self.view addSubview:svc.view];
+    
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj scrollTo:(CGPoint){0.0,M_PI_2}];
+    }];
+
     
 }
 
@@ -202,6 +209,11 @@
 												 name:kOffsetChanged
 											   object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onIsScrolling:)
+												 name:kIsScrolling
+											   object:nil];
+
 
 }
 -(void)removeObservers{
@@ -221,6 +233,10 @@
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kOffsetChanged
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kIsScrolling
                                                   object:nil];
 
 }
@@ -297,6 +313,13 @@
 
     
 }
+-(void)onIsScrolling:(NSNotification *)notification{
+    
+    UISwitch *swich = (UISwitch*)[notification object];
+    
+    self.isScrolling = [swich isOn];
+    
+}
 
 -(void)onZoomReset:(NSNotification *)notification{
 
@@ -349,7 +372,10 @@
     self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
      
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
+        if(self.isScrolling){
+            [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
+
+        }
     }];
 
     

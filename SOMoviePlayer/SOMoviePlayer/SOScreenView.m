@@ -27,7 +27,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [self randomColor];
+        self.backgroundColor = [UIColor blackColor];
         
         CGRect rect  = {0.0f,0.0f,frame.size.width,2.0f};
         _progressView = [[UIView alloc] initWithFrame:rect];

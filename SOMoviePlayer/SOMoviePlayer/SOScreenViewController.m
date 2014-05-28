@@ -30,7 +30,7 @@
         
         _zoomLevel = 1.0f;
         
-        self.offset = (arc4random() % 4 / 4.0) * M_PI ;
+        self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
         DLog(@"%f",self.offset);
         CGRect fullFrame = CGRectMake(0.0, 0.0,
                                       frame.size.height,
@@ -259,6 +259,7 @@
 //}
 -(void)scrollTo:(CGPoint)pnt{
 
+    DLog(@"%f %f",pnt.x,pnt.y);
     float yawf = pnt.x;
     float roll = pnt.y;
     float xpers = self.view.frame.size.width;
