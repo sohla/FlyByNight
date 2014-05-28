@@ -136,7 +136,7 @@
     
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
     //• pass in cue model
-    //svc.delegate = self;
+    svc.delegate = self;
     [svc buildPlayerWithURL:url];
 
     [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];

@@ -65,7 +65,7 @@
                                   self.view.bounds.size.height * self.zoomLevel);
     
     [screenView setFrame:fullFrame];
-    [[[screenView.layer sublayers] firstObject] setFrame:fullFrame];
+    [self.playerLayer setFrame:fullFrame];
     
     
 }
@@ -94,11 +94,12 @@
     _avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
-    self.playerLayer.opacity = 0.1f;
+    self.playerLayer.opacity = 1.0f;
     [screenView.layer addSublayer:self.playerLayer];
     
     [self.avPlayer setVolume:0.0f];
-    
+    [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];//loop
+
     [self.scrollView addSubview:screenView];
 
     
@@ -214,11 +215,16 @@
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification{
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:AVPlayerItemDidPlayToEndTimeNotification
-                                                  object:[self.avPlayer currentItem]];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                    name:AVPlayerItemDidPlayToEndTimeNotification
+//                                                  object:[self.avPlayer currentItem]];
+//    [self.delegate onScreenViewPlayerDidEnd:self];
 
-    [self.delegate onScreenViewPlayerDidEnd:self];
+    // lets loop movie for now
+    AVPlayerItem *p = [notification object];
+    [p seekToTime:kCMTimeZero];
+    [self.avPlayer play];
+
     
 }
 
@@ -269,7 +275,7 @@
     roll = (-roll / (2.0 * M_PI)) * ys;
     
     float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
-    float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));
+    float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));//-60.0f
     xpers = offsetx - (yawf * xpers);
     ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
     
