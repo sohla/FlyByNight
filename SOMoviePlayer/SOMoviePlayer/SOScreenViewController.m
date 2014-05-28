@@ -30,8 +30,8 @@
         
         _zoomLevel = 1.0f;
         
-        self.   offset = ( arc4random() % 4 / 4 ) * M_PI * 2;
-        
+        self.offset = (arc4random() % 4 / 4.0) * M_PI ;
+        DLog(@"%f",self.offset);
         CGRect fullFrame = CGRectMake(0.0, 0.0,
                                       frame.size.height,
                                       frame.size.width);
@@ -121,6 +121,8 @@
                                                float total = CMTimeGetSeconds([item duration]);
                                                float progress = current / total;
                                                //DLog(@"%f %f",current,total);
+                                               
+                                               if(progress < 0) progress = 0;
                                                
                                                for(SOScreenView *sv in weakSelf.scrollView.subviews){
                                                    
@@ -281,7 +283,7 @@
     xpers = offsetx - (yawf * xpers);
     ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
     
-//    DLog(@"%f :%f",xpers,ypers);
+//    DLog(@"%f :%f",self.offset,ypers);
     [self.scrollView setContentOffset:(CGPoint){xpers,ypers} animated:NO];
     
 }
