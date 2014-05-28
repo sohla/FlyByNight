@@ -30,6 +30,8 @@
         
         _zoomLevel = 1.0f;
         
+        self.   offset = ( arc4random() % 4 / 4 ) * M_PI * 2;
+        
         CGRect fullFrame = CGRectMake(0.0, 0.0,
                                       frame.size.height,
                                       frame.size.width);

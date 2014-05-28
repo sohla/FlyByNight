@@ -48,6 +48,8 @@
     
     
     [self collectAssetsWithCompletionBlock:^(NSArray *assets){
+        
+        // collect all the paths
         [assets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
             // limit assets count : device could have hundreds of movies!
             if(idx > kMaxAssetImages){
@@ -57,33 +59,36 @@
                 [paths addObject:url];
             }
         }];
+        
+        // now lets get all the images
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+        dispatch_async(queue, ^{
+            
+            
+            [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+                NSURL *url = (NSURL*)obj;
+                AVAsset *asset = [AVAsset assetWithURL:url];
+                AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
+                [imageGenerator setMaximumSize:(CGSize){90.0,60.0}];
+                
+                CMTime time = CMTimeMake(1, 1);
+                CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
+                UIImage *image = [UIImage imageWithCGImage:imageRef];
+                
+                
+                // need to check if image has been generated
+                if(image){
+                    [thumbs addObject:[UIImage imageWithCGImage:imageRef]];
+                }
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [blockSelf.tableView reloadData];
+                });
+            }];
+        });
+       
+        
     }];
     
-    // now lets get all the images
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-    dispatch_async(queue, ^{
-        
-        
-        [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-            NSURL *url = (NSURL*)obj;
-            AVAsset *asset = [AVAsset assetWithURL:url];
-            AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
-            [imageGenerator setMaximumSize:(CGSize){90.0,60.0}];
-            
-            CMTime time = CMTimeMake(1, 1);
-            CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-            UIImage *image = [UIImage imageWithCGImage:imageRef];
-            
-            
-            // need to check if image has been generated
-            if(image){
-                [thumbs addObject:[UIImage imageWithCGImage:imageRef]];
-            }
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [blockSelf.tableView reloadData];
-            });
-        }];
-    });
 
 }
 
@@ -176,8 +181,8 @@
         //• pass in cue model 
         NSURL *url = self.movieFilePaths[indexPath.row];
         [[segue destinationViewController] addScreenWithURL:url];
-//        NSURL *urlb = self.movieFilePaths[indexPath.row + 1];
-//        [[segue destinationViewController] addScreenWithURL:urlb];
+        NSURL *urlb = self.movieFilePaths[indexPath.row + 1];
+        [[segue destinationViewController] addScreenWithURL:urlb];
     }
 }
 
