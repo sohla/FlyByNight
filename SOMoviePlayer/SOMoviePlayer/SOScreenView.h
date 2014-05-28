@@ -10,4 +10,7 @@
 
 @interface SOScreenView : UIView
 
+
+-(void)setProgress:(float)progress;
+
 @end

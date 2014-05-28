@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UIScrollView              *scrollView;
 @property (weak, nonatomic) AVPlayerLayer *playerLayer;
 
+
 @end
 
 @implementation SOScreenViewController
@@ -87,7 +88,7 @@
     // setup avplayer
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
     
-    AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
+    __weak AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
     [item addObserver:self forKeyPath:@"status" options:0 context:nil];
     
     _avPlayer = [AVPlayer playerWithPlayerItem:item];
@@ -96,14 +97,37 @@
     self.playerLayer.opacity = 0.1f;
     [screenView.layer addSublayer:self.playerLayer];
     
+    [self.avPlayer setVolume:0.0f];
+    
     [self.scrollView addSubview:screenView];
 
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(moviePlayBackDidFinish:)
-//                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-//                                               object:[self.avPlayer currentItem]];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:[self.avPlayer currentItem]];
 
+
+    // custom progress of player
+    __weak SOScreenViewController *weakSelf = self;
+    _playerObserver = [self.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(60, 1000)
+                                                queue:dispatch_get_main_queue()
+                                           usingBlock:^(CMTime time) {
+                                               
+                                               float current = CMTimeGetSeconds(time);
+                                               float total = CMTimeGetSeconds([item duration]);
+                                               float progress = current / total;
+                                               //DLog(@"%f %f",current,total);
+                                               
+                                               for(SOScreenView *sv in weakSelf.scrollView.subviews){
+                                                   
+                                                   if([sv isKindOfClass:[SOScreenView class]]){
+                                                       [sv setProgress:progress];
+                                                   }
+                                               }
+    }];
+    
+    
     // fade in example
     //    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
     //    flash.fromValue = [NSNumber numberWithFloat:0.0];
@@ -190,6 +214,10 @@
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification{
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:AVPlayerItemDidPlayToEndTimeNotification
+                                                  object:[self.avPlayer currentItem]];
+
     [self.delegate onScreenViewPlayerDidEnd:self];
     
 }

@@ -51,9 +51,9 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     //motion
-    //[self setupMotionManager];
+    [self setupMotionManager];
 
-    //[self addObservers];
+    [self addObservers];
 
     // attitude label
     [self.view bringSubviewToFront:self.attitudeLabel];
@@ -89,10 +89,10 @@
     
     [self removeGestures];
     
-//    [self removeObservers];
+    [self removeObservers];
     
     
-    //[self closeMotionManager];
+    [self closeMotionManager];
 
 //    [self.screenViewControllers removeAllObjects];
 //    self.screenViewControllers = nil;
@@ -150,10 +150,7 @@
 }
 
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
-//    DLog(@"");
-//    [self cleanup];
-//    [self.navigationController popViewControllerAnimated:YES];
-
+    DLog(@"");
     
 }
 
@@ -311,32 +308,30 @@
     }else{
         z = 1.0f;
     }
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+    
+    //do we reset motion manager?
+    //[[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
 
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj resetZoomAt:z];
     }];
 }
 -(void)onMotionManagerReset:(NSNotification *)notification{
-    
-//    [self closeMotionManager];
-//    [self setupMotionManager];
+
+    [[SOMotionManager sharedManager] reset];
 }
 
 
 #pragma mark - Orientation
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return YES;
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate{
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
+- (NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskLandscape;
 }
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
@@ -346,16 +341,16 @@
 
 - (void)motionRefresh:(id)sender {
     
-//    float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
-//    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
-//    float yawf = [[SOMotionManager sharedManager] valueForKey:@"yawf"];
-//    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
-//
-//    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
-//     
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
-//    }];
+    float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
+    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
+    float yawf = [[SOMotionManager sharedManager] valueForKey:@"yaw"];
+    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
+
+    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
+     
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
+    }];
 
     
 }

@@ -8,7 +8,11 @@
 
 #import "SOScreenView.h"
 
+@interface SOScreenView ()
 
+@property (strong, nonatomic) UIView *progressView;
+
+@end
 @interface SOScreenView ()
 
 
@@ -24,6 +28,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [self randomColor];
+        
+        CGRect rect  = {0.0f,0.0f,frame.size.width,2.0f};
+        _progressView = [[UIView alloc] initWithFrame:rect];
+        
+        [self.progressView setBackgroundColor:[UIColor greenColor]];
+        
+        [self addSubview:self.progressView];
+        
+
     }
     return self;
 }
@@ -52,6 +65,12 @@
     CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
     CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
     return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1.0f];
+}
+
+-(void)setProgress:(float)progress{
+   
+    CGRect rect  = {0.0f,0.0f,self.frame.size.width * progress,2.0f};
+    [self.progressView setFrame:rect];
 }
 
 @end

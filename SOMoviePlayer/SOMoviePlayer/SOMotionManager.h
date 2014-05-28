@@ -19,4 +19,5 @@
 
 -(float)valueForKey:(NSString*)key;
 
+-(void)reset;
 @end

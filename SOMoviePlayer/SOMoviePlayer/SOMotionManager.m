@@ -65,6 +65,12 @@
     
 }
 
+-(void)reset{
+    
+    [self destroyMotionManager];
+    [self buildMotionManager];
+}
+
 -(float)valueForKey:(NSString*)key{
     
     if([key isEqualToString:@"roll"]){
