@@ -19,7 +19,7 @@
 
 
 
-@property (strong, nonatomic) CADisplayLink             *motionDisplayLink;
+@property (strong, nonatomic) CADisplayLink             *displayLink;
 @property (weak, nonatomic) IBOutlet UILabel            *attitudeLabel;
 @property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
@@ -126,9 +126,9 @@
 
 -(void)setupMotionManager{
     
-    if(self.motionDisplayLink==nil){
-        self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
-        [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    if(self.displayLink==nil){
+        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(onDisplayLink:)];
+        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     }
 
 }
@@ -136,9 +136,9 @@
 -(void)closeMotionManager{
 
     
-    if(self.motionDisplayLink!=nil)
-        [self.motionDisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        self.motionDisplayLink = nil;
+    if(self.displayLink!=nil)
+        [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        self.displayLink = nil;
     
 
 }
@@ -404,7 +404,7 @@
 }
 #pragma mark - Motion Refresher
 
-- (void)motionRefresh:(id)sender {
+- (void)onDisplayLink:(id)sender {
     
     float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
 //    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
