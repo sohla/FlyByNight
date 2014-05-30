@@ -24,6 +24,7 @@
 
 @property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
+@property (strong, nonatomic) SOScreenTransport *transport;
 
 
 
@@ -62,6 +63,18 @@
     [self.attitudeLabel setHidden:NO];
 
     [self addGestures];
+    
+    CGRect fullFrame = CGRectMake(0.0, 0.0,
+                                  self.view.frame.size.height,
+                                  self.view.frame.size.width);
+
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
+    [self addChildViewController:self.transport];
+    [self.transport.view setFrame:fullFrame];
+    [self.transport.view setAlpha:0.5f];
+    [self.view addSubview:self.transport.view];
+
 }
 -(void)dealloc{
     DLog(@"");
@@ -149,7 +162,7 @@
         [(SOScreenViewController*)obj scrollTo:(CGPoint){0.0,M_PI_2}];
     }];
 
-    
+    [self.view bringSubviewToFront:self.transport.view];
 }
 
 -(void)onScreenViewPlayerDidBegin:(SOScreenViewController*)svc{
@@ -166,11 +179,16 @@
 - (void)addGestures{
 
     // gestures
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self
-                                          action:@selector(onDoubleTap:)];
-    [tapGesture setNumberOfTapsRequired:2];
-    [self.view addGestureRecognizer:tapGesture];
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+//                                          initWithTarget:self
+//                                          action:@selector(onDoubleTap:)];
+//    [tapGesture setNumberOfTapsRequired:2];
+//    [self.view addGestureRecognizer:tapGesture];
+    UISwipeGestureRecognizer *swipeUpGesture = [[UISwipeGestureRecognizer alloc]
+                                              initWithTarget:self
+                                              action:@selector(onSwipeUp:)];
+    [swipeUpGesture setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer: swipeUpGesture];
 
 
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
@@ -214,6 +232,16 @@
 												 name:kIsScrolling
 											   object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onTransportBack:)
+												 name:kTransportBack
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onTransportForward:)
+												 name:kTransportForward
+											   object:nil];
+
 
 }
 -(void)removeObservers{
@@ -239,12 +267,22 @@
                                                     name:kIsScrolling
                                                   object:nil];
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kTransportForward
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kTransportBack
+                                                  object:nil];
+
 }
 
 #pragma mark - Gestures & Notifications
 
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
-    
+}
+- (void)onSwipeUp:(UIGestureRecognizer *)gestureRecognizer{
+
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj pause];
     }];
@@ -340,10 +378,19 @@
     }];
 }
 -(void)onMotionManagerReset:(NSNotification *)notification{
-
     [[SOMotionManager sharedManager] reset];
 }
 
+-(void)onTransportForward:(NSNotification *)notification{
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj jumpForward];
+    }];
+}
+-(void)onTransportBack:(NSNotification *)notification{
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj jumpBack];
+    }];
+}
 
 #pragma mark - Orientation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{

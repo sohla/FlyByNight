@@ -7,15 +7,15 @@
 //
 
 #import "SOScreenViewController.h"
-#import <AVFoundation/AVFoundation.h>
 
 @interface SOScreenViewController ()
 
 @property (strong,nonatomic) AVPlayer *avPlayer;
-@property float zoomLevel;
 @property (weak, nonatomic) id playerObserver;
 @property (strong, nonatomic) UIScrollView              *scrollView;
 @property (weak, nonatomic) AVPlayerLayer *playerLayer;
+
+@property float zoomLevel;
 
 
 @end
@@ -48,6 +48,8 @@
         [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
         [self.scrollView setScrollEnabled:NO];
         
+        
+
     }
     return self;
 }
@@ -216,6 +218,24 @@
 -(void)pause{
     [self.avPlayer pause];
 }
+
+
+-(void)jumpBack{
+    
+    CMTime current = [self.avPlayer currentTime];
+    CMTime jump = CMTimeMakeWithSeconds(5.0f,self.avPlayer.currentTime.timescale);
+    CMTime newTime = CMTimeSubtract(current, jump);
+    [self.avPlayer seekToTime:newTime];
+
+}
+-(void)jumpForward{
+
+    CMTime current = [self.avPlayer currentTime];
+    CMTime jump = CMTimeMakeWithSeconds(5.0f,self.avPlayer.currentTime.timescale);
+    CMTime newTime = CMTimeAdd(current, jump);
+    [self.avPlayer seekToTime:newTime];
+}
+
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification{
     

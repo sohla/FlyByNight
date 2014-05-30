@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 #import "SOScreenView.h"
 #import "SOScreenViewControllerProtocol.h"
+#import "SOScreenTransport.h"
+
 
 @interface SOScreenViewController : UIViewController
 
@@ -23,6 +26,8 @@
 -(void)play;
 -(void)pause;
 
+-(void)jumpBack;
+-(void)jumpForward;
 
 -(void)scrollTo:(CGPoint)pnt;
 -(void)resetZoomAt:(float)zoom;

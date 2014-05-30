@@ -15,5 +15,8 @@ NSString* const kZoomReset = @"kZoomReset";
 NSString* const kZoomChanged = @"kZoomChanged";
 NSString* const kOffsetChanged = @"kOffsetChanged";
 NSString* const kIsScrolling = @"kIsScrolling";
+NSString* const kTransportBack = @"kTransportBack";
+NSString* const kTransportForward = @"kTransportForward";
+
 
 @end
