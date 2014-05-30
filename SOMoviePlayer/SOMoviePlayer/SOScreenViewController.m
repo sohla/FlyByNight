@@ -28,8 +28,9 @@
     if (self) {
 
         
-        _zoomLevel = 1.0f;
-        
+        self.zoomLevel = 1.0f;
+        self.isScrolling = YES;
+
         self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
         DLog(@"%f",self.offset);
         CGRect fullFrame = CGRectMake(0.0, 0.0,
@@ -124,7 +125,7 @@
                                                float progress = current / total;
                                                //DLog(@"%f %f",current,total);
                                                
-                                               if(progress < 0) progress = 0;
+                                               if(isnan(progress)) progress = 0;
                                                
                                                for(SOScreenView *sv in weakSelf.scrollView.subviews){
                                                    
@@ -279,7 +280,7 @@
 //}
 -(void)scrollTo:(CGPoint)pnt{
 
-    DLog(@"%f %f",pnt.x,pnt.y);
+//    DLog(@"%f %f",pnt.x,pnt.y);
     float yawf = pnt.x;
     float roll = pnt.y;
     float xpers = self.view.frame.size.width;

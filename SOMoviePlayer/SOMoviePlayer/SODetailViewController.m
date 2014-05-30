@@ -47,7 +47,6 @@
     
     [super viewDidLoad];
     
-    self.isScrolling = NO;
     
     _screenViewControllers = [[NSMutableDictionary alloc] init];
     
@@ -155,7 +154,7 @@
     [svc buildPlayerWithURL:url];
 
     [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];
-//    svc.view.alpha = 0.5f;
+    svc.view.alpha = 0.5f;
     [self.view addSubview:svc.view];
     
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -179,11 +178,6 @@
 - (void)addGestures{
 
     // gestures
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
-//                                          initWithTarget:self
-//                                          action:@selector(onDoubleTap:)];
-//    [tapGesture setNumberOfTapsRequired:2];
-//    [self.view addGestureRecognizer:tapGesture];
     UISwipeGestureRecognizer *swipeUpGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeUp:)];
@@ -355,7 +349,10 @@
     
     UISwitch *swich = (UISwitch*)[notification object];
     
-    self.isScrolling = [swich isOn];
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj setIsScrolling:[swich isOn]];
+    }];
+
     
 }
 
@@ -412,14 +409,13 @@
 - (void)motionRefresh:(id)sender {
     
     float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
-    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
+//    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
     float yawf = [[SOMotionManager sharedManager] valueForKey:@"yaw"];
-    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
+//    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
 
-    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f pitch %.2f yaw %.2f h %.2f",roll,pitch,yawf,heading];
-     
+
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if(self.isScrolling){
+        if([(SOScreenViewController*)obj isScrolling]){
             [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
 
         }

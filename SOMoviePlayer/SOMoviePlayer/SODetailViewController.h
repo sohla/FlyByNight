@@ -14,7 +14,6 @@
 #import "SOMotionManager.h"
 
 @interface SODetailViewController : UIViewController <SOScreenViewControllerProtocol>
-@property (nonatomic) Boolean isScrolling;
 
 -(void)addScreenWithURL:(NSURL*)url;
 

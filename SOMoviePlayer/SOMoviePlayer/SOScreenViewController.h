@@ -17,6 +17,7 @@
 
 @property (assign, nonatomic) id<SOScreenViewControllerProtocol> delegate;
 @property (assign, nonatomic) float offset;// -M_PI..M_PI 
+@property (nonatomic) Boolean isScrolling;
 
 - (instancetype)initWithFrame:(CGRect)frame;
 
