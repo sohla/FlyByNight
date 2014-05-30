@@ -285,8 +285,8 @@
     float roll = pnt.y;
     float xpers = self.view.frame.size.width;
     float ypers = self.view.frame.size.height;
-    float xs = 3.0f;
-    float ys = 3.0f;
+    float xs = M_PI;//• if 0 doesnt scroll
+    float ys = M_PI;
     
     (roll < 0.0f) ? roll *= -1.0f : roll;
     
@@ -300,13 +300,13 @@
     yawf = (dyaw / (2.0 * M_PI)) * xs;
     roll = (-roll / (2.0 * M_PI)) * ys;
     
+    
     float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
     float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));//-60.0f
     xpers = offsetx - (yawf * xpers);
     ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
-    
 //    DLog(@"%f :%f",self.offset,ypers);
-    [self.scrollView setContentOffset:(CGPoint){xpers,ypers} animated:NO];
     
+    [self.scrollView setContentOffset:(CGPoint){xpers,ypers} animated:NO];
 }
 @end

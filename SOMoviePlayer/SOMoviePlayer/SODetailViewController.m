@@ -17,11 +17,10 @@
 
 @interface SODetailViewController ()
 
-//@property (strong, nonatomic) CMMotionManager           *motionManager;
+
+
 @property (strong, nonatomic) CADisplayLink             *motionDisplayLink;
-
 @property (weak, nonatomic) IBOutlet UILabel            *attitudeLabel;
-
 @property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
 @property (strong, nonatomic) SOScreenTransport *transport;
@@ -46,7 +45,6 @@
 - (void)viewDidLoad{
     
     [super viewDidLoad];
-    
     
     _screenViewControllers = [[NSMutableDictionary alloc] init];
     

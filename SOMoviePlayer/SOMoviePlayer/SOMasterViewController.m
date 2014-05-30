@@ -12,6 +12,7 @@
 
 
 #define kMaxAssetImages 5
+#define kBGQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface SOMasterViewController ()
     
@@ -19,6 +20,8 @@
 @property (retain, nonatomic) NSMutableArray *thumbNails;
 
 @property (retain, nonatomic) ALAssetsLibrary           *library;
+
+@property (nonatomic, strong)   NSDictionary *cuesStore;
 
 
 @end
@@ -36,6 +39,16 @@
 {
     [super viewDidLoad];
     
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    
+    [self loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
+        
+        if(error){
+            NSLog(@"%@",error.localizedDescription);
+        }
+    }];
+
     _thumbNails = [[NSMutableArray alloc] init];
     
     [self.tableView setRowHeight:88.0];
@@ -214,6 +227,44 @@
                               }];
     
     
+}
+
+
+-(void)loadJSONCuesWithPath:(NSString*)path completionBlock:(void (^)(NSError *error)) block{
+    
+    
+    NSURL *url = [NSURL fileURLWithPath:path];
+    dispatch_async(kBGQueue, ^{
+        
+        NSError *err;
+        NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:&err];
+        
+        if(err){
+            block(err);
+        }else{
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                //parse out the json data and store
+                NSError *error;
+                _cuesStore = [NSJSONSerialization
+                              JSONObjectWithData:data
+                              options:kNilOptions
+                              error:&error];
+                
+                if(error)
+                    block(error);
+  
+                
+                DLog(@"%@",self.cuesStore);
+
+                DLog(@"%@",self.cuesStore[@"cues"][0][@"title"]);
+
+//                [self buildStates];
+            });
+        }
+        
+    });
 }
 
 

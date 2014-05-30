@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F03392ED19382C4E004FDB33 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
 		F043DE551923070400306847 /* testsig.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F043DE541923070400306847 /* testsig.m4v */; };
 		F04417A018BA099300572780 /* SOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F044179F18BA099300572780 /* SOSettingsViewController.m */; };
 		F04417A318BA0C2400572780 /* SONotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F04417A218BA0C2400572780 /* SONotifications.m */; };
@@ -119,6 +120,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreenViewControllerProtocol.h; sourceTree = "<group>"; };
 		F043DE541923070400306847 /* testsig.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = testsig.m4v; sourceTree = "<group>"; };
 		F044179E18BA099300572780 /* SOSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSettingsViewController.h; sourceTree = "<group>"; };
@@ -261,6 +263,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F03392EB19382C3D004FDB33 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				F03392EC19382C4E004FDB33 /* data.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 		F0AECCB918B171DB00263C32 = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +337,7 @@
 		F0AECCCC18B171DB00263C32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F03392EB19382C3D004FDB33 /* json */,
 				F0E5699319356A680098F7EB /* 16_4_2014_convert */,
 				F043DE541923070400306847 /* testsig.m4v */,
 				F04417D618BD2D7900572780 /* default.png */,
@@ -567,6 +578,7 @@
 				F0E569F219356A680098F7EB /* FBN CLIP 27_converted.m4v in Resources */,
 				F0E56A1419356A680098F7EB /* FBN CLIP 61_converted.m4v in Resources */,
 				F0AECCD018B171DB00263C32 /* InfoPlist.strings in Resources */,
+				F03392ED19382C4E004FDB33 /* data.json in Resources */,
 				F0E56A1319356A680098F7EB /* FBN CLIP 60_converted.m4v in Resources */,
 				F0E56A1C19356A680098F7EB /* FBN CLIP 69_converted.m4v in Resources */,
 				F0E56A1619356A680098F7EB /* FBN CLIP 63_converted.m4v in Resources */,
