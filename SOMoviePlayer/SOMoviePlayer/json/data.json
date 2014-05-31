@@ -3,7 +3,8 @@
     
     "cues" : [{
         "title"         : "drinking tap",
-        "asset_url"     : "FBN CLIP 03_converted.m4v",
+        "path"     : "FBN CLIP 03_converted.m4v",
+        "type"      : "movie",
         
         "offset_x"      : 0.0,
         "offset_y"      : 0.0,
@@ -16,14 +17,15 @@
         
         "targets"          : [
         
-                           {"title" : "another cue"},
-                           {"title" : "and one more cue"},
+                           "another cue",
+                           "and one more cue"
         
                             ]
               },{
 
         "title"         : "another cue",
-        "asset_url"     : "FBN CLIP 04_converted.m4v",
+        "path"     : "FBN CLIP 04_converted.m4v",
+        "type"      : "movie",
 
         "offset_x"      : 0.0,
         "offset_y"      : 0.0,
@@ -40,7 +42,8 @@
               },{
 
         "title"         : "and one more cue",
-        "asset_url"     : "FBN CLIP 05_converted.m4v",
+        "path"     : "FBN CLIP 06_converted.m4v",
+        "type"      : "movie",
 
         "offset_x"      : 0.0,
         "offset_y"      : 0.0,

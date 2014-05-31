@@ -12,7 +12,6 @@
 
 
 #define kMaxAssetImages 5
-#define kBGQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface SOMasterViewController ()
     
@@ -21,7 +20,7 @@
 
 @property (retain, nonatomic) ALAssetsLibrary           *library;
 
-@property (nonatomic, strong)   NSDictionary *cuesStore;
+@property (strong, nonatomic) SOModelStore *modelStore;
 
 
 @end
@@ -40,14 +39,6 @@
     [super viewDidLoad];
     
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-    
-    [self loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
-        
-        if(error){
-            NSLog(@"%@",error.localizedDescription);
-        }
-    }];
 
     _thumbNails = [[NSMutableArray alloc] init];
     
@@ -59,6 +50,17 @@
     __block NSMutableArray *thumbs = self.thumbNails;
     __block SOMasterViewController *blockSelf = self;
     
+  
+    _modelStore = [[SOModelStore alloc] init];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    [self.modelStore loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
+        
+        if(error){
+            NSLog(@"%@",error.localizedDescription);
+        }
+    }];
+
     
     [self collectAssetsWithCompletionBlock:^(NSArray *assets){
         
@@ -152,22 +154,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.movieFilePaths.count;
+    return self.modelStore.sessionModel.cues.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    __block NSURL *url = self.movieFilePaths[indexPath.row] ;
-    NSString *title = [[url relativeString] lastPathComponent];
-    cell.textLabel.text = title;
+//    __block NSURL *url = self.movieFilePaths[indexPath.row] ;
+//    NSString *title = [[url relativeString] lastPathComponent];
+//    cell.textLabel.text = title;
+//    
+//    if(indexPath.row < self.thumbNails.count){
+//        cell.imageView.image = self.thumbNails[indexPath.row];
+//    }else{
+//        cell.imageView.image = [UIImage imageNamed:@"default.png"];
+//    }
     
-    if(indexPath.row < self.thumbNails.count){
-        cell.imageView.image = self.thumbNails[indexPath.row];
-    }else{
-        cell.imageView.image = [UIImage imageNamed:@"default.png"];
-    }
+    cell.textLabel.text = [[self.modelStore cueModelAtIndex:indexPath.row] title];
     return cell;
 }
 /*
@@ -189,13 +193,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
-        //• pass in cue model 
-        NSURL *url = self.movieFilePaths[indexPath.row];
-        [[segue destinationViewController] addScreenWithURL:url];
-        NSURL *urlb = self.movieFilePaths[indexPath.row + 1];
-        [[segue destinationViewController] addScreenWithURL:urlb];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
+        NSString *path = [cueModel path];
+        NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension] ofType:@"m4v"];
+
+        if(fullPath != nil){
+            NSURL *url = [NSURL fileURLWithPath:fullPath];
+            [[segue destinationViewController] addScreenWithURL:url];
+        }
+
     }
 }
 
@@ -229,43 +238,6 @@
     
 }
 
-
--(void)loadJSONCuesWithPath:(NSString*)path completionBlock:(void (^)(NSError *error)) block{
-    
-    
-    NSURL *url = [NSURL fileURLWithPath:path];
-    dispatch_async(kBGQueue, ^{
-        
-        NSError *err;
-        NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:&err];
-        
-        if(err){
-            block(err);
-        }else{
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                //parse out the json data and store
-                NSError *error;
-                _cuesStore = [NSJSONSerialization
-                              JSONObjectWithData:data
-                              options:kNilOptions
-                              error:&error];
-                
-                if(error)
-                    block(error);
-  
-                
-                DLog(@"%@",self.cuesStore);
-
-                DLog(@"%@",self.cuesStore[@"cues"][0][@"title"]);
-
-//                [self buildStates];
-            });
-        }
-        
-    });
-}
 
 
 @end
