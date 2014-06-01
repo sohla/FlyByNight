@@ -60,6 +60,8 @@
                          
                          //self.onCloseUpBlock();
                          [self removeFromParentViewController];
+                         
+                         [[NSNotificationCenter defaultCenter] postNotificationName:kEditModeOff object:nil];
                      }
      ];
 

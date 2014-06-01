@@ -66,7 +66,8 @@
 }
 
 -(void)onEditButton:(id)sender{
-    DLog(@"");
+    [[NSNotificationCenter defaultCenter] postNotificationName:kEditModeOn object:nil];
+
 }
 
 @end

@@ -17,5 +17,8 @@ extern NSString* const kOffsetChanged;
 extern NSString* const kIsScrolling;
 extern NSString* const kTransportBack;
 extern NSString* const kTransportForward;
+extern NSString* const kEditModeOn;
+extern NSString* const kEditModeOff;
+
 
 @end

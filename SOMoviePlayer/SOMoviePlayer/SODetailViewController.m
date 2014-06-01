@@ -54,7 +54,7 @@
 
     [self addObservers];
 
-//    [self addGestures];
+    [self addGestures];
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
                                   self.view.frame.size.height,
@@ -98,7 +98,6 @@
     [self removeGestures];
     
     [self removeObservers];
-    
     
     [self closeMotionManager];
 
@@ -178,12 +177,6 @@
 - (void)addGestures{
 
     // gestures
-    UISwipeGestureRecognizer *swipeUpGesture = [[UISwipeGestureRecognizer alloc]
-                                              initWithTarget:self
-                                              action:@selector(onSwipeUp:)];
-    [swipeUpGesture setDirection:UISwipeGestureRecognizerDirectionUp];
-    [self.view addGestureRecognizer: swipeUpGesture];
-
 
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
@@ -236,10 +229,15 @@
 												 name:kTransportForward
 											   object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onEditModeOn:)
+												 name:kEditModeOn
+											   object:nil];
+
+
 
 }
 -(void)removeObservers{
-
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMotionManagerReset
@@ -269,13 +267,16 @@
                                                     name:kTransportBack
                                                   object:nil];
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kEditModeOn
+                                                  object:nil];
+    
 }
 
 #pragma mark - Gestures & Notifications
 
-- (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
-}
-- (void)onSwipeUp:(UIGestureRecognizer *)gestureRecognizer{
+-(void)onEditModeOn:(NSNotification *)notification{
+
 
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj pause];

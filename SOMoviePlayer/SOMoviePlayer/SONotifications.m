@@ -17,6 +17,8 @@ NSString* const kOffsetChanged = @"kOffsetChanged";
 NSString* const kIsScrolling = @"kIsScrolling";
 NSString* const kTransportBack = @"kTransportBack";
 NSString* const kTransportForward = @"kTransportForward";
+NSString* const kEditModeOn = @"kEditModeOn";
+NSString* const kEditModeOff = @"kEditModeOff";
 
 
 @end
