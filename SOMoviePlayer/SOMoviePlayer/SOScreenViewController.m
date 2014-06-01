@@ -16,7 +16,6 @@
 @property (weak, nonatomic) AVPlayerLayer *playerLayer;
 @property float zoomLevel;
 
-
 @end
 
 @implementation SOScreenViewController
@@ -47,9 +46,8 @@
         [self.scrollView setContentOffset:self.scrollView.center animated:NO];
         [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
         [self.scrollView setScrollEnabled:NO];
-        [self.scrollView setUserInteractionEnabled:YES];
         
-        
+
 
     }
     return self;
@@ -82,13 +80,9 @@
 
 
 }
--(void)buildPlayerWithURL:(NSURL*)url{
+-(void)buildPlayerWithURL:(NSURL*)url{//•cuemodel
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.height * self.zoomLevel,
-                                  35.0f + self.view.bounds.size.width * self.zoomLevel);
-    
-    CGRect playerFrame = CGRectMake(0.0, 0.0,
                                     self.view.bounds.size.height * self.zoomLevel,
                                     self.view.bounds.size.width * self.zoomLevel);
 
@@ -103,14 +97,16 @@
     
     _avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
-    [self.playerLayer setFrame:playerFrame];
+    [self.playerLayer setFrame:fullFrame];
     self.playerLayer.opacity = 1.0f;
-    [screenView.layer addSublayer:self.playerLayer];
+    //[screenView.layer addSublayer:self.playerLayer];
     
     [self.avPlayer setVolume:0.0f];
     [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];//loop
 
     [self.scrollView addSubview:screenView];
+    
+    
     
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -178,7 +174,6 @@
     
     
 }
-
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     

@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (weak, nonatomic) IBOutlet UILabel *attitudeLabel;
+@property (strong, nonatomic) UIButton* editButton;
 
 
 @end
@@ -34,6 +35,17 @@
     
     self.backButton.layer.cornerRadius = self.backButton.frame.size.width / 2.0f;
     self.forwardButton.layer.cornerRadius = self.forwardButton.frame.size.width / 2.0f;
+
+
+    self.editButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    
+    [self.editButton setFrame:(CGRect){0.0f,0.0f,66.0f,66.0f}];
+    [self.editButton setBackgroundColor:[UIColor redColor]];
+    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.view addSubview:self.editButton];
+    
+    [self.editButton addTarget:self action:@selector(onEditButton:) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +63,10 @@
 
 -(void)updateAttitudeWithRoll:(float)roll andYaw:(float)yaw{
     self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f yaw %.2f",roll,yaw];
+}
+
+-(void)onEditButton:(id)sender{
+    DLog(@"");
 }
 
 @end

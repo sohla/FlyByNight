@@ -54,7 +54,7 @@
 
     [self addObservers];
 
-    [self addGestures];
+//    [self addGestures];
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
                                   self.view.frame.size.height,
