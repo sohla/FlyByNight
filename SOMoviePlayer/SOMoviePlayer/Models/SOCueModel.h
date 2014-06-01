@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSString *path;
 @property (strong, nonatomic) NSString *type;
 
+@property (assign, nonatomic) float zoom;
+
 @property (assign, nonatomic) float offset_x;
 @property (assign, nonatomic) float offset_y;
 

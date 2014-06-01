@@ -12,16 +12,18 @@
 #import "SOScreenViewControllerProtocol.h"
 #import "SOScreenTransport.h"
 
+#import "SOCueModel.h"
 
 @interface SOScreenViewController : UIViewController
 
 @property (assign, nonatomic) id<SOScreenViewControllerProtocol> delegate;
-@property (assign, nonatomic) float offset;// -M_PI..M_PI 
 @property (nonatomic) Boolean isScrolling;
 
 - (instancetype)initWithFrame:(CGRect)frame;
 
--(void)buildPlayerWithURL:(NSURL*)url;
+
+-(void)setCue:(SOCueModel*)cueModel;
+
 -(void)destroyPlayer;
 
 -(void)play;
@@ -31,6 +33,8 @@
 -(void)jumpForward;
 
 -(void)scrollTo:(CGPoint)pnt;
+-(void)resetOffsetX:(float)offset;
+
 -(void)resetZoomAt:(float)zoom;
 
 @end

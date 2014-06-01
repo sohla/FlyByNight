@@ -14,7 +14,9 @@
 @property (weak, nonatomic) id playerObserver;
 @property (strong, nonatomic) UIScrollView              *scrollView;
 @property (weak, nonatomic) AVPlayerLayer *playerLayer;
-@property float zoomLevel;
+@property (strong, nonatomic) SOCueModel *cueModel;
+
+
 
 @end
 
@@ -26,11 +28,10 @@
     if (self) {
 
         
-        self.zoomLevel = 1.0f;
         self.isScrolling = YES;
 
-        self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
-        DLog(@"%f",self.offset);
+//        self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
+//        DLog(@"%f",self.offset);
         CGRect fullFrame = CGRectMake(0.0, 0.0,
                                       frame.size.height,
                                       frame.size.width);
@@ -57,15 +58,21 @@
     DLog(@"");
     [self destroyPlayer];
 }
+
+-(void)resetOffsetX:(float)offset{
+    [self.cueModel setOffset_x:offset];
+}
+
+
 -(void)resetZoomAt:(float)zoom{
 
-    self.zoomLevel = zoom;
+    [self.cueModel setZoom:zoom];
     
     SOScreenView *screenView = [self.scrollView.subviews firstObject];
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.width * self.zoomLevel,
-                                  self.view.bounds.size.height * self.zoomLevel);
+                                  self.view.bounds.size.width * [self.cueModel zoom],
+                                  self.view.bounds.size.height * [self.cueModel zoom]);
     
     [screenView setFrame:fullFrame];
     [self.playerLayer setFrame:fullFrame];
@@ -80,11 +87,23 @@
 
 
 }
+-(void)setCue:(SOCueModel*)cueModel{
+
+    self.cueModel = cueModel;
+    
+    NSString *path = [cueModel path];
+    NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension] ofType:@"m4v"];
+    
+    if(fullPath != nil){
+        NSURL *url = [NSURL fileURLWithPath:fullPath];
+        [self buildPlayerWithURL:url];
+    }
+}
 -(void)buildPlayerWithURL:(NSURL*)url{//•cuemodel
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                    self.view.bounds.size.height * self.zoomLevel,
-                                    self.view.bounds.size.width * self.zoomLevel);
+                                    self.view.bounds.size.height * [self.cueModel zoom],
+                                    self.view.bounds.size.width * [self.cueModel zoom]);
 
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
@@ -99,7 +118,7 @@
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
     self.playerLayer.opacity = 1.0f;
-    //[screenView.layer addSublayer:self.playerLayer];
+    [screenView.layer addSublayer:self.playerLayer];
     
     [self.avPlayer setVolume:0.0f];
     [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];//loop
@@ -275,9 +294,6 @@
     }
     
 }
-//-(void)setOffset:(float)offset{
-//    _offset = offset;
-//}
 -(void)scrollTo:(CGPoint)pnt{
 
 //    DLog(@"%f %f",pnt.x,pnt.y);
@@ -291,7 +307,7 @@
     (roll < 0.0f) ? roll *= -1.0f : roll;
     
 //    float offsetYaw = 0;//-(M_PI/4);
-    float dyaw = yawf + self.offset;
+    float dyaw = yawf + self.cueModel.offset_x;
     
     if(dyaw >= M_PI){
         dyaw -= M_PI*2;
@@ -301,8 +317,8 @@
     roll = (-roll / (2.0 * M_PI)) * ys;
     
     
-    float offsetx = (xpers * 0.5f * (self.zoomLevel - 1.0));
-    float offsety = (ypers * 0.5f * (self.zoomLevel - 1.0));//-60.0f
+    float offsetx = (xpers * 0.5f * ([self.cueModel zoom] - 1.0));
+    float offsety = (ypers * 0.5f * ([self.cueModel zoom] - 1.0));//-60.0f
     xpers = offsetx - (yawf * xpers);
     ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
 //    DLog(@"%f :%f",self.offset,ypers);

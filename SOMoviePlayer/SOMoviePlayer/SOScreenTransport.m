@@ -38,9 +38,7 @@
 
 
     self.editButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    
-    
-    [self.editButton setFrame:(CGRect){0.0f,0.0f,66.0f,66.0f}];
+    [self.editButton setFrame:(CGRect){0.0f,0.0f,66.0f,33.0f}];
     [self.editButton setBackgroundColor:[UIColor redColor]];
     [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
     [self.view addSubview:self.editButton];

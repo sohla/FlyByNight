@@ -6,6 +6,8 @@
         "path"     : "FBN CLIP 03_converted.m4v",
         "type"      : "movie",
         
+        
+        "zoom"      : 1.0,
         "offset_x"      : 0.0,
         "offset_y"      : 0.0,
 
@@ -27,6 +29,7 @@
         "path"     : "FBN CLIP 04_converted.m4v",
         "type"      : "movie",
 
+              "zoom"      : 1.0,
         "offset_x"      : 0.0,
         "offset_y"      : 0.0,
 
@@ -45,6 +48,7 @@
         "path"     : "FBN CLIP 06_converted.m4v",
         "type"      : "movie",
 
+              "zoom"      : 1.0,
         "offset_x"      : 0.0,
         "offset_y"      : 0.0,
 

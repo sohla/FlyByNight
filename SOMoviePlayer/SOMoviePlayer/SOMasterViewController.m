@@ -197,13 +197,13 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
-        NSString *path = [cueModel path];
-        NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension] ofType:@"m4v"];
-
-        if(fullPath != nil){
-            NSURL *url = [NSURL fileURLWithPath:fullPath];
-            [[segue destinationViewController] addScreenWithURL:url];
-        }
+        [[segue destinationViewController] addScreenWithCue:cueModel];
+//        NSString *path = [cueModel path];
+//        NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension] ofType:@"m4v"];
+//
+//        if(fullPath != nil){
+//            NSURL *url = [NSURL fileURLWithPath:fullPath];
+//        }
 
     }
 }

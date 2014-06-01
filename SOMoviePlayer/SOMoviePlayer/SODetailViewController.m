@@ -138,22 +138,20 @@
 
 }
 
+
+
 -(void)addScreenWithCue:(SOCueModel*)cueModel{
-}
 
-
--(void)addScreenWithURL:(NSURL*)url{
-    
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
-    //• pass in cue model
-    svc.delegate = self;
-    [svc buildPlayerWithURL:url];
+    [svc setDelegate:self];
+    [svc setCue:cueModel];
 
-    [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];
+    
+    [self.screenViewControllers setObject:svc forKey:[cueModel title]];
     svc.view.alpha = 0.5f;
     [self.view addSubview:svc.view];
     
-    //•add debug screenview
+    //•add debug screenview maybe?
     
     
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -332,7 +330,7 @@
     float off = (([slider value] * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
     
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj setOffset:off];
+        [(SOScreenViewController*)obj resetOffsetX:off];
     }];
     
 }
