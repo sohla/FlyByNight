@@ -74,7 +74,8 @@
                                   self.view.bounds.size.width * [self.cueModel zoom],
                                   self.view.bounds.size.height * [self.cueModel zoom]);
     
-    [screenView setFrame:fullFrame];
+    [screenView setFrame:fullFrame];//•not working?
+    
     [self.playerLayer setFrame:fullFrame];
     
     
@@ -117,7 +118,7 @@
     _avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
-    self.playerLayer.opacity = 1.0f;
+    self.playerLayer.opacity = 0.2f;
     [screenView.layer addSublayer:self.playerLayer];
     
     [self.avPlayer setVolume:0.0f];

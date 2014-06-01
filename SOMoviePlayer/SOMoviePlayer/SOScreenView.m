@@ -45,7 +45,7 @@
     
     CGContextRef    context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 3.0f);
-    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+    CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
 
     CGPoint topLeft = {0.0f, 0.0f};
     CGPoint bottomRight = {self.bounds.size.width, self.bounds.size.height};
@@ -57,7 +57,7 @@
     CGContextAddLineToPoint(context, bottomRight.x, topLeft.y);
     
     CGContextStrokePath(context);
-
+    
 }
 
 -(UIColor*)randomColor{

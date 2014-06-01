@@ -17,7 +17,6 @@
 
 @interface SODetailViewController : UIViewController <SOScreenViewControllerProtocol>
 
-//-(void)addScreenWithURL:(NSURL*)url;
 -(void)addScreenWithCue:(SOCueModel*)cueModel;
 
 
