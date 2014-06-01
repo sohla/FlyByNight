@@ -35,7 +35,7 @@
         [self.progressView setBackgroundColor:[UIColor greenColor]];
         
         [self addSubview:self.progressView];
-        
+
 
     }
     return self;

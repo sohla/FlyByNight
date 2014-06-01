@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SONotifications.h"
+#import "SOSettingsViewController.h"
 
 @interface SOScreenTransport : UIViewController
 
+
+-(void)updateAttitudeWithRoll:(float)roll andYaw:(float)yaw;
 @end

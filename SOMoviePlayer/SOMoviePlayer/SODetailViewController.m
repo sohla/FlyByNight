@@ -20,10 +20,9 @@
 
 
 @property (strong, nonatomic) CADisplayLink             *displayLink;
-@property (weak, nonatomic) IBOutlet UILabel            *attitudeLabel;
 @property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
-@property (strong, nonatomic) SOScreenTransport *transport;
+@property (strong, nonatomic) SOScreenTransport         *transport;
 
 
 
@@ -55,10 +54,6 @@
 
     [self addObservers];
 
-    // attitude label
-    [self.view bringSubviewToFront:self.attitudeLabel];
-    [self.attitudeLabel setHidden:NO];
-
     [self addGestures];
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
@@ -71,6 +66,7 @@
     [self.transport.view setFrame:fullFrame];
     [self.transport.view setAlpha:0.5f];
     [self.view addSubview:self.transport.view];
+    
 
 }
 -(void)dealloc{
@@ -143,6 +139,9 @@
 
 }
 
+-(void)addScreenWithCue:(SOCueModel*)cueModel{
+}
+
 
 -(void)addScreenWithURL:(NSURL*)url{
     
@@ -154,6 +153,9 @@
     [self.screenViewControllers setObject:svc forKey:[url lastPathComponent]];
     svc.view.alpha = 0.5f;
     [self.view addSubview:svc.view];
+    
+    //•add debug screenview
+    
     
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj scrollTo:(CGPoint){0.0,M_PI_2}];
@@ -279,8 +281,6 @@
         [(SOScreenViewController*)obj pause];
     }];
     
-    [self.attitudeLabel setHidden:NO];
-    
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     SOSettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"settingsVCID"];
@@ -289,7 +289,12 @@
     
     [self addChildViewController:settingsVC];
     [settingsVC.view setFrame:self.view.frame];
+    
+    
     [self.view addSubview:settingsVC.view];
+    
+    
+    
     [settingsVC.view setTransform:CGAffineTransformMakeTranslation(0.0,320.0f)];
     
     __block SODetailViewController *blockSelf = self;
@@ -299,7 +304,6 @@
             [(SOScreenViewController*)obj play];
         }];
        
-        [blockSelf.attitudeLabel setHidden:YES];
         
     }];
     
@@ -411,7 +415,8 @@
     float yawf = [[SOMotionManager sharedManager] valueForKey:@"yaw"];
 //    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
 
-
+    [self.transport updateAttitudeWithRoll:roll andYaw:yawf];
+    
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if([(SOScreenViewController*)obj isScrolling]){
             [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];

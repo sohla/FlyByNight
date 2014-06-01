@@ -12,6 +12,8 @@
 #import "SOScreenViewControllerProtocol.h"
 
 #import "SOMotionManager.h"
+#import "SOCueModel.h"
+
 
 @interface SODetailViewController : UIViewController <SOScreenViewControllerProtocol>
 

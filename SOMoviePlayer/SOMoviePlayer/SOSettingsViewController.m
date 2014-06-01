@@ -58,7 +58,7 @@
                      }
                      completion:^(BOOL  complete){
                          
-                         self.onCloseUpBlock();
+                         //self.onCloseUpBlock();
                          [self removeFromParentViewController];
                      }
      ];

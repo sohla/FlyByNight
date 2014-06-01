@@ -14,7 +14,6 @@
 @property (weak, nonatomic) id playerObserver;
 @property (strong, nonatomic) UIScrollView              *scrollView;
 @property (weak, nonatomic) AVPlayerLayer *playerLayer;
-
 @property float zoomLevel;
 
 
@@ -48,6 +47,7 @@
         [self.scrollView setContentOffset:self.scrollView.center animated:NO];
         [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
         [self.scrollView setScrollEnabled:NO];
+        [self.scrollView setUserInteractionEnabled:YES];
         
         
 
@@ -86,7 +86,12 @@
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
                                   self.view.bounds.size.height * self.zoomLevel,
-                                  self.view.bounds.size.width * self.zoomLevel);
+                                  35.0f + self.view.bounds.size.width * self.zoomLevel);
+    
+    CGRect playerFrame = CGRectMake(0.0, 0.0,
+                                    self.view.bounds.size.height * self.zoomLevel,
+                                    self.view.bounds.size.width * self.zoomLevel);
+
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
 
@@ -98,7 +103,7 @@
     
     _avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
-    [self.playerLayer setFrame:fullFrame];
+    [self.playerLayer setFrame:playerFrame];
     self.playerLayer.opacity = 1.0f;
     [screenView.layer addSublayer:self.playerLayer];
     
@@ -106,8 +111,8 @@
     [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];//loop
 
     [self.scrollView addSubview:screenView];
-
     
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayBackDidFinish:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification

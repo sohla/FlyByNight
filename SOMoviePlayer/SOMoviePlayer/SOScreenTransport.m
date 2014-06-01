@@ -11,6 +11,8 @@
 @interface SOScreenTransport ()
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+@property (weak, nonatomic) IBOutlet UILabel *attitudeLabel;
+
 
 @end
 
@@ -45,6 +47,10 @@
 }
 - (IBAction)onForwardButton:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportForward object:sender];
+}
+
+-(void)updateAttitudeWithRoll:(float)roll andYaw:(float)yaw{
+    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f yaw %.2f",roll,yaw];
 }
 
 @end
