@@ -3,7 +3,7 @@
     
     "cues" : [{
         "title"         : "drinking tap",
-        "path"     : "FBN CLIP 03_converted.m4v",
+        "path"     : "checkTest.mov",
         "type"      : "movie",
         
         
@@ -26,7 +26,7 @@
               },{
 
         "title"         : "another cue",
-        "path"     : "FBN CLIP 04_converted.m4v",
+        "path"     : "FBN CLIP 05_converted.m4v",
         "type"      : "movie",
 
               "zoom"      : 1.0,

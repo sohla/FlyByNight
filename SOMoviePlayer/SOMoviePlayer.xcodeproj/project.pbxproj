@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F022FFE0193BF98F00829C20 /* burstTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDB193BF98F00829C20 /* burstTest.mov */; };
+		F022FFE1193BF98F00829C20 /* checkTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDC193BF98F00829C20 /* checkTest.mov */; };
+		F022FFE2193BF98F00829C20 /* noiseTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDD193BF98F00829C20 /* noiseTest.mov */; };
+		F022FFE3193BF98F00829C20 /* stripeTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDE193BF98F00829C20 /* stripeTest.mov */; };
+		F022FFE4193BF98F00829C20 /* testsig.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDF193BF98F00829C20 /* testsig.m4v */; };
 		F03392ED19382C4E004FDB33 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
-		F043DE551923070400306847 /* testsig.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F043DE541923070400306847 /* testsig.m4v */; };
 		F04417A018BA099300572780 /* SOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F044179F18BA099300572780 /* SOSettingsViewController.m */; };
 		F04417A318BA0C2400572780 /* SONotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F04417A218BA0C2400572780 /* SONotifications.m */; };
 		F04417BC18BC2FA400572780 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417BB18BC2FA400572780 /* AVFoundation.framework */; };
@@ -134,9 +138,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F022FFDB193BF98F00829C20 /* burstTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = burstTest.mov; sourceTree = "<group>"; };
+		F022FFDC193BF98F00829C20 /* checkTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = checkTest.mov; sourceTree = "<group>"; };
+		F022FFDD193BF98F00829C20 /* noiseTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = noiseTest.mov; sourceTree = "<group>"; };
+		F022FFDE193BF98F00829C20 /* stripeTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = stripeTest.mov; sourceTree = "<group>"; };
+		F022FFDF193BF98F00829C20 /* testsig.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = testsig.m4v; sourceTree = "<group>"; };
 		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreenViewControllerProtocol.h; sourceTree = "<group>"; };
-		F043DE541923070400306847 /* testsig.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = testsig.m4v; sourceTree = "<group>"; };
 		F044179E18BA099300572780 /* SOSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSettingsViewController.h; sourceTree = "<group>"; };
 		F044179F18BA099300572780 /* SOSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSettingsViewController.m; sourceTree = "<group>"; };
 		F04417A118BA0C2400572780 /* SONotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SONotifications.h; sourceTree = "<group>"; };
@@ -306,10 +314,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F022FFDA193BF98F00829C20 /* testMovies */ = {
+			isa = PBXGroup;
+			children = (
+				F022FFDB193BF98F00829C20 /* burstTest.mov */,
+				F022FFDC193BF98F00829C20 /* checkTest.mov */,
+				F022FFDD193BF98F00829C20 /* noiseTest.mov */,
+				F022FFDE193BF98F00829C20 /* stripeTest.mov */,
+				F022FFDF193BF98F00829C20 /* testsig.m4v */,
+			);
+			path = testMovies;
+			sourceTree = "<group>";
+		};
 		F03392EB19382C3D004FDB33 /* json */ = {
 			isa = PBXGroup;
 			children = (
 				F03392EC19382C4E004FDB33 /* data.json */,
+				F0E5699319356A680098F7EB /* 16_4_2014_convert */,
 			);
 			path = json;
 			sourceTree = "<group>";
@@ -384,9 +405,8 @@
 		F0AECCCC18B171DB00263C32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F022FFDA193BF98F00829C20 /* testMovies */,
 				F03392EB19382C3D004FDB33 /* json */,
-				F0E5699319356A680098F7EB /* 16_4_2014_convert */,
-				F043DE541923070400306847 /* testsig.m4v */,
 				F04417D618BD2D7900572780 /* default.png */,
 				F04417D718BD2D7900572780 /* default@2x.png */,
 				F0AECCCD18B171DB00263C32 /* SOMoviePlayer-Info.plist */,
@@ -563,7 +583,8 @@
 				F0E569D919356A680098F7EB /* FBN CLIP 73_converted.m4v */,
 				F0E569DA19356A680098F7EB /* FBN CLIP 74_converted.m4v */,
 			);
-			path = 16_4_2014_convert;
+			name = 16_4_2014_convert;
+			path = ../16_4_2014_convert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,7 +670,6 @@
 				F0E569E119356A680098F7EB /* FBN CLIP 09_converted.m4v in Resources */,
 				F0E56A0F19356A680098F7EB /* FBN CLIP 56_converted.m4v in Resources */,
 				F0E569F519356A680098F7EB /* FBN CLIP 30_converted.m4v in Resources */,
-				F043DE551923070400306847 /* testsig.m4v in Resources */,
 				F0E56A1F19356A680098F7EB /* FBN CLIP 72_converted.m4v in Resources */,
 				F0E56A1919356A680098F7EB /* FBN CLIP 66_converted.m4v in Resources */,
 				F0E569E219356A680098F7EB /* FBN CLIP 10_converted.m4v in Resources */,
@@ -665,11 +685,13 @@
 				F0E569F319356A680098F7EB /* FBN CLIP 28_converted.m4v in Resources */,
 				F0E56A2019356A680098F7EB /* FBN CLIP 73_converted.m4v in Resources */,
 				F0E569E019356A680098F7EB /* FBN CLIP 08_converted.m4v in Resources */,
+				F022FFE0193BF98F00829C20 /* burstTest.mov in Resources */,
 				F0E56A0319356A680098F7EB /* FBN CLIP 44_converted.m4v in Resources */,
 				F0E569F919356A680098F7EB /* FBN CLIP 34_converted.m4v in Resources */,
 				F0E569EC19356A680098F7EB /* FBN CLIP 21_converted.m4v in Resources */,
 				F0E569EB19356A680098F7EB /* FBN CLIP 20_converted.m4v in Resources */,
 				F0E56A1719356A680098F7EB /* FBN CLIP 64_converted.m4v in Resources */,
+				F022FFE2193BF98F00829C20 /* noiseTest.mov in Resources */,
 				F0E56A0219356A680098F7EB /* FBN CLIP 43_converted.m4v in Resources */,
 				F0E569F819356A680098F7EB /* FBN CLIP 33_converted.m4v in Resources */,
 				F0E56A1819356A680098F7EB /* FBN CLIP 65_converted.m4v in Resources */,
@@ -677,6 +699,7 @@
 				F0E569E419356A680098F7EB /* FBN CLIP 12_converted.m4v in Resources */,
 				F0E56A0019356A680098F7EB /* FBN CLIP 41_converted.m4v in Resources */,
 				F04417D918BD2D7900572780 /* default@2x.png in Resources */,
+				F022FFE4193BF98F00829C20 /* testsig.m4v in Resources */,
 				F0E569FA19356A680098F7EB /* FBN CLIP 35_converted.m4v in Resources */,
 				F0E569F119356A680098F7EB /* FBN CLIP 26_converted.m4v in Resources */,
 				F0E56A0119356A680098F7EB /* FBN CLIP 42_converted.m4v in Resources */,
@@ -688,6 +711,7 @@
 				F0E56A1E19356A680098F7EB /* FBN CLIP 71_converted.m4v in Resources */,
 				F0E56A1019356A680098F7EB /* FBN CLIP 57_converted.m4v in Resources */,
 				F0E569FD19356A680098F7EB /* FBN CLIP 38_converted.m4v in Resources */,
+				F022FFE1193BF98F00829C20 /* checkTest.mov in Resources */,
 				F0AECCE118B171DC00263C32 /* Images.xcassets in Resources */,
 				F0E569FC19356A680098F7EB /* FBN CLIP 37_converted.m4v in Resources */,
 				F0E569EA19356A680098F7EB /* FBN CLIP 19_converted.m4v in Resources */,
@@ -705,6 +729,7 @@
 				F0E569E819356A680098F7EB /* FBN CLIP 17_converted.m4v in Resources */,
 				F0E569EE19356A680098F7EB /* FBN CLIP 23_converted.m4v in Resources */,
 				F0E569FF19356A680098F7EB /* FBN CLIP 40_converted.m4v in Resources */,
+				F022FFE3193BF98F00829C20 /* stripeTest.mov in Resources */,
 				F0E569F019356A680098F7EB /* FBN CLIP 25_converted.m4v in Resources */,
 				F0E56A0619356A680098F7EB /* FBN CLIP 47_converted.m4v in Resources */,
 				F0E569E919356A680098F7EB /* FBN CLIP 18_converted.m4v in Resources */,

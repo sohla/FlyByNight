@@ -93,7 +93,8 @@
     self.cueModel = cueModel;
     
     NSString *path = [cueModel path];
-    NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension] ofType:@"m4v"];
+    NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension]
+                                                         ofType:[path pathExtension]];
     
     if(fullPath != nil){
         NSURL *url = [NSURL fileURLWithPath:fullPath];
@@ -118,7 +119,7 @@
     _avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
-    self.playerLayer.opacity = 0.2f;
+    self.playerLayer.opacity = 0.8f;
     [screenView.layer addSublayer:self.playerLayer];
     
     [self.avPlayer setVolume:0.0f];
