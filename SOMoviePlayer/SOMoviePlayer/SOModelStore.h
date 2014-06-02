@@ -16,5 +16,6 @@
 - (instancetype)init;
 
 -(SOCueModel*)cueModelAtIndex:(int)index;
+-(void)saveLatest;
 
 @end

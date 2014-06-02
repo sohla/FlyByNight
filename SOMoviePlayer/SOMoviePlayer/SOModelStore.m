@@ -8,6 +8,7 @@
 
 #import "SOModelStore.h"
 
+#define kLastFileSaved @"kLastFileSaved"
 #define kBGQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface SOModelStore ()
@@ -32,7 +33,6 @@
 
 -(void)loadCues{
 
-    NSString* const kLastFileSaved = @"kLastFileSaved";
     
     if(![[NSUserDefaults standardUserDefaults] stringForKey:kLastFileSaved] ) {
         
@@ -45,9 +45,7 @@
                 NSLog(@"%@",error.localizedDescription);
             }else{
                 
-                NSString *newFileName = [self saveLatest];
-                [[NSUserDefaults standardUserDefaults] setObject:newFileName forKey:kLastFileSaved];
-                [[NSUserDefaults standardUserDefaults] synchronize];
+                [self saveLatest];
 
             }
         }];
@@ -111,7 +109,7 @@
     });
 }
 
--(NSString*)saveLatest{
+-(void)saveLatest{
     
     NSDate	*now = [NSDate date];
 	NSCalendar *currentCalendar = [NSCalendar currentCalendar];
@@ -130,7 +128,9 @@
     
     [self saveCuesAsJsonWithTitle:newFileName];
     
-    return newFileName;
+    [[NSUserDefaults standardUserDefaults] setObject:newFileName forKey:kLastFileSaved];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
 
 }
 

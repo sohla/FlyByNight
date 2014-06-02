@@ -7,6 +7,7 @@
 //
 
 #import "SOMasterViewController.h"
+#import "SONotifications.h"
 
 #import "SODetailViewController.h"
 
@@ -37,8 +38,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+
+    [self addObservers];
 
     _thumbNails = [[NSMutableArray alloc] init];
     
@@ -113,15 +114,48 @@
 -(void)viewDidAppear:(BOOL)animated{
     
 //    [self performSegueWithIdentifier:@"showDetail" sender:self];
-    
+//    [self addObservers];
+ 
     
 }
+
+-(void)viewDidDisappear:(BOOL)animated{
+//    [self removeObservers];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Notifications
+
+-(void)addObservers{
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onEditModeOff:)
+												 name:kEditModeOff
+											   object:nil];
+    
+    
+    
+}
+-(void)removeObservers{
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kEditModeOff
+                                                  object:nil];
+    
+}
+
+
+-(void)onEditModeOff:(NSNotification *)notification{
+    
+    [self.modelStore saveLatest];
+    
+}
 
 -(NSArray*)getAllBundleFilesForTypes:(NSArray*)types{
     
