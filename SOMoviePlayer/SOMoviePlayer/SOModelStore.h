@@ -18,5 +18,6 @@
 
 
 -(SOCueModel*)cueModelAtIndex:(int)index;
+-(void)saveCuesAsJsonWithTitle:(NSString*)title;
 
 @end

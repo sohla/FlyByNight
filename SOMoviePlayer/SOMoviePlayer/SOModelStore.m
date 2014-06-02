@@ -12,7 +12,6 @@
 
 @interface SOModelStore ()
 
-@property (strong, nonatomic)   NSDictionary *cuesStore;
 
 @property (assign, nonatomic)   SOCueModel *currentCueModel;
 
@@ -29,6 +28,19 @@
 
     }
     return self;
+}
+
+-(void)loadCues{
+
+    NSString* const kFirstTimeRun = @"kFirstTimeRun";
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:kFirstTimeRun] ) {
+        
+        
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:kFirstTimeRun];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    };
+
 }
 
 
@@ -58,26 +70,41 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                //parse out the json data and store
-                NSError *error;
-                _cuesStore = [NSJSONSerialization
-                              JSONObjectWithData:data
-                              options:kNilOptions
-                              error:&error];
-                
-                if(error)
-                    block(error);
-                
 
                 _sessionModel = [[SOSessionModel alloc] initWithData:data error:&err];
                 
                 self.currentCueModel = self.sessionModel.cues[0];
 
-                
+                [self saveCuesAsJsonWithTitle:@"testJson"];
             });
         }
         
     });
+}
+
+
+-(void)saveCuesAsJsonWithTitle:(NSString*)title{
+    
+    NSArray *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *documentsDirectory = docsPath[0];
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@.",title];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:[fileName stringByAppendingString:@"json"]];
+    
+    if (![[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil]) {
+        //        NSError *error = [NSError errorWithDomain:@"writeToFile"
+        //                                             code:1
+        //                                         userInfo:[NSDictionary dictionaryWithObject:@"Can't create file" forKey:NSLocalizedDescriptionKey]
+        //                          ];
+        //        NSAssert(error==noErr,@"Can't create file");
+    }
+    
+    
+    NSString *jsonString = [self.sessionModel toJSONString];
+    
+    DLog(@"%@",jsonString);
+    [jsonString writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+
 }
 
 -(SOCueModel*)cueModelAtIndex:(int)index{

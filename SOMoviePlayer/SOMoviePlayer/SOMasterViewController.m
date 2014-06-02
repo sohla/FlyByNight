@@ -52,6 +52,9 @@
     
   
     _modelStore = [[SOModelStore alloc] init];
+
+    
+    
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
     [self.modelStore loadJSONCuesWithPath:path completionBlock:^(NSError *error) {

@@ -309,7 +309,7 @@
     (roll < 0.0f) ? roll *= -1.0f : roll;
     
 //    float offsetYaw = 0;//-(M_PI/4);
-    float dyaw = yawf + self.cueModel.offset_x;
+    float dyaw = yawf + self.cueModel.offset_x + 1.8;
     
     if(dyaw >= M_PI){
         dyaw -= M_PI*2;
