@@ -11,9 +11,9 @@
 @interface SOScreenViewController ()
 
 @property (strong,nonatomic) AVPlayer *avPlayer;
-@property (weak, nonatomic) id playerObserver;
+@property (strong, nonatomic) id playerObserver;
 @property (strong, nonatomic) UIScrollView              *scrollView;
-@property (weak, nonatomic) AVPlayerLayer *playerLayer;
+@property (strong, nonatomic) AVPlayerLayer *playerLayer;
 @property (strong, nonatomic) SOCueModel *cueModel;
 
 
@@ -109,6 +109,7 @@
 
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
+    [self.scrollView addSubview:screenView];
 
     // setup avplayer
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
@@ -116,7 +117,7 @@
     __weak AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
     [item addObserver:self forKeyPath:@"status" options:0 context:nil];
     
-    _avPlayer = [AVPlayer playerWithPlayerItem:item];
+    self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
     self.playerLayer.opacity = 0.8f;
@@ -125,7 +126,6 @@
     [self.avPlayer setVolume:0.0f];
     [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];//loop
 
-    [self.scrollView addSubview:screenView];
     
     
     
@@ -138,7 +138,7 @@
 
     // custom progress of player
     __weak SOScreenViewController *weakSelf = self;
-    _playerObserver = [self.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(60, 1000)
+    self.playerObserver = [self.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(60, 1000)
                                                 queue:dispatch_get_main_queue()
                                            usingBlock:^(CMTime time) {
                                                
@@ -276,23 +276,25 @@
 
 -(void)destroyPlayer{
     
-
-    if(self.playerLayer != nil){
-        [self.playerLayer removeFromSuperlayer];
-        self.playerLayer = nil;
+    AVPlayerLayer *avPlayerLayer = self.playerLayer;
+    
+    if(avPlayerLayer != nil){
+        [avPlayerLayer removeFromSuperlayer];
+        _playerLayer = nil;
     }
     
     
     AVPlayer *avFrontPlayer = self.avPlayer;
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:AVPlayerItemDidPlayToEndTimeNotification
+                                                  object:avFrontPlayer];
+
     if(self.avPlayer != nil){
 
-        [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:AVPlayerItemDidPlayToEndTimeNotification
-                                                      object:avFrontPlayer];
 
         [self.avPlayer removeTimeObserver:self.playerObserver];
         [self.avPlayer pause];
-        self.avPlayer = nil;
+        _avPlayer = nil;
     }
     
 }

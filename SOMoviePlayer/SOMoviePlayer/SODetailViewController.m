@@ -321,7 +321,7 @@
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
     [self cleanup];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:NO];
     
 }
 -(void)onOffsetChanged:(NSNotification *)notification{
