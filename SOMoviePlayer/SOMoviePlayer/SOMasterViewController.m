@@ -56,13 +56,13 @@
     
     
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-    [self.modelStore loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
-        
-        if(error){
-            NSLog(@"%@",error.localizedDescription);
-        }
-    }];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+//    [self.modelStore loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
+//        
+//        if(error){
+//            NSLog(@"%@",error.localizedDescription);
+//        }
+//    }];
 
     
     [self collectAssetsWithCompletionBlock:^(NSArray *assets){

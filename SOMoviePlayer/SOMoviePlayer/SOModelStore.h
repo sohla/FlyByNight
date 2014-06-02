@@ -14,10 +14,7 @@
 @property (strong, nonatomic)   SOSessionModel *sessionModel;
 
 - (instancetype)init;
--(void)loadJSONCuesWithPath:(NSString*)path completionBlock:(void (^)(NSError *error)) block;
-
 
 -(SOCueModel*)cueModelAtIndex:(int)index;
--(void)saveCuesAsJsonWithTitle:(NSString*)title;
 
 @end
