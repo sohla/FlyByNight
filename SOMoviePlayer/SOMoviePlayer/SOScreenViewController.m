@@ -158,15 +158,15 @@
     }];
     
     
-    // fade in example
-    //    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    //    flash.fromValue = [NSNumber numberWithFloat:0.0];
-    //    flash.toValue = [NSNumber numberWithFloat:1.0];
-    //    flash.duration = 5.0;        // 1 second
-    //    flash.autoreverses = NO;    // Back
-    //    flash.repeatCount = 0;       // Or whatever
-    //
-    //    [frontLayer addAnimation:flash forKey:@"fadeIn"];
+// fade in example
+//    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
+//    flash.fromValue = [NSNumber numberWithFloat:0.0];
+//    flash.toValue = [NSNumber numberWithFloat:1.0];
+//    flash.duration = 5.0;        // 1 second
+//    flash.autoreverses = NO;    // Back
+//    flash.repeatCount = 0;       // Or whatever
+//
+//    [frontLayer addAnimation:flash forKey:@"fadeIn"];
     
     
 //    // add boundry observer
