@@ -114,6 +114,7 @@
 
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
+    [screenView setTag:999];
     [self.scrollView addSubview:screenView];
 
     // setup avplayer
@@ -123,9 +124,9 @@
     self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
-//    self.playerLayer.opacity = 0.8f;
+//    self.playerLayer.opacity = 0.0f;
     [screenView.layer addSublayer:self.playerLayer];
-    
+    screenView.alpha = 0.1;
     [self.avPlayer setVolume:0.0f];
     [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];//loop
 
@@ -139,49 +140,6 @@
                                                object:[self.avPlayer currentItem]];
 
     [item addObserver:self forKeyPath:@"status" options:0 context:nil];
-
-
-    
-
-//    [self play];
-//    [self.delegate onScreenViewPlayerDidBegin:self];
-
-    
-// fade in example
-//    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
-//    flash.fromValue = [NSNumber numberWithFloat:0.0];
-//    flash.toValue = [NSNumber numberWithFloat:1.0];
-//    flash.duration = 5.0;        // 1 second
-//    flash.autoreverses = NO;    // Back
-//    flash.repeatCount = 0;       // Or whatever
-//
-//    [frontLayer addAnimation:flash forKey:@"fadeIn"];
-    
-    
-//    // add boundry observer
-//    CMTime duration = self.avPlayer.currentItem.asset.duration;
-//    Float64 durationInSeconds = CMTimeGetSeconds(duration);
-//    
-//    NSArray *times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(5.0f, self.avPlayer.currentTime.timescale)]];
-//    //    __weak SODetailViewController *weakSelf = self;
-//    //    [self.avFrontPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
-//    //        NSLog(@"%f",durationInSeconds);
-//    //        //[weakSelf.avFrontPlayer pause];
-//    //    }];
-//    
-//    times = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(durationInSeconds - 5.0f, self.avPlayer.currentTime.timescale)]];
-//    _playerObserver = [self.avPlayer addBoundaryTimeObserverForTimes:times queue:NULL usingBlock:^(){
-//        NSLog(@"fadeOut");
-//        CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
-//        flash.fromValue = [NSNumber numberWithFloat:1.0];
-//        flash.toValue = [NSNumber numberWithFloat:0.0];
-//        flash.duration = 5.0;
-//        flash.autoreverses = NO;
-//        flash.repeatCount = 0;
-//        
-//        [frontLayer addAnimation:flash forKey:@"fadeOut"];
-//    }];
-    
     
 }
 
@@ -190,39 +148,69 @@
     if ([object isKindOfClass:[AVPlayerItem class]]){
         
         AVPlayerItem *item = (AVPlayerItem *)object;
-//        __weak SOScreenViewController *weakSelf = self;
+
         if ([keyPath isEqualToString:@"status"]){
+        
             switch(item.status){
+            
                 case AVPlayerItemStatusFailed:{
                     DLog(@"player item status failed");
-                    }
-                    break;
+                }break;
+                
                 case AVPlayerItemStatusReadyToPlay:{
-                    
                     DLog(@"player item status is ready to play");
                     
-                    
-                    
-                    
                     [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
+
                         // let's add stuff
                         [self addPlayerObservers];
+
+                        [self fadeIn:1.0f];
+
                         [self play];
+                        
                         [self.delegate onScreenViewPlayerDidBegin:self];
                     }];
+                }break;
                     
-                    
-                    
-
-                    }
-                    break;
                 case AVPlayerItemStatusUnknown:{
                     DLog(@"player item status is unknown");
-                    }
-                    break;
+                }break;
             }
         }
     }
+}
+
+-(void)fadeIn:(float)ms{
+
+    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
+    sv.alpha = 0.0f;
+
+    [UIView animateWithDuration:1.0 animations:^{
+
+        sv.alpha = 1.0f;
+        
+    } completion:^(BOOL finished) {
+        
+        
+    }];
+    
+}
+
+-(void)fadeOut:(float)ms{
+    
+    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
+    sv.alpha = 1.0f;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        
+        sv.alpha = 0.0f;
+        
+    } completion:^(BOOL finished) {
+        
+        
+    }];
+    
 }
 
 -(void)addPlayerObservers{
@@ -249,32 +237,14 @@
                                                                        }
                                                                    }];
 
-    // boundries
-    NSArray *fadeInTime = @[[NSValue valueWithCMTime:CMTimeMake(0.0f, self.avPlayer.currentTime.timescale)]];
-    NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(totalTime - 1.0f, self.avPlayer.currentTime.timescale)]];
-    
-    self.fadeInObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeInTime queue:NULL usingBlock:^(){
-        DLog(@"fadeIn");
-        CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        fade.fromValue = [NSNumber numberWithFloat:0.0];
-        fade.toValue = [NSNumber numberWithFloat:1.0];
-        fade.duration = 1.0;
-        fade.autoreverses = NO;
-        fade.repeatCount = 0;
-        [weakSelf.playerLayer addAnimation:fade forKey:@"fadeIn"];
-        
-    }];
-    
+
+
+    // place a boundry observer to do a fade out
+    float fadeTime = 1000.0f;
+    float fadeValue = (totalTime * 1000.0f) - fadeTime;
+    NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMake(fadeValue,1000)]];
     self.fadeOutObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeOutFime queue:NULL usingBlock:^(){
-        DLog(@"fadeOut");
-        CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        fade.fromValue = [NSNumber numberWithFloat:1.0];
-        fade.toValue = [NSNumber numberWithFloat:0.0];
-        fade.duration = 1.0;
-        fade.autoreverses = NO;
-        fade.repeatCount = 0;
-        
-        [weakSelf.playerLayer addAnimation:fade forKey:@"fadeOut"];
+        [weakSelf fadeOut:1.0f];
     }];
     
 }
@@ -313,6 +283,9 @@
 //                                                    name:AVPlayerItemDidPlayToEndTimeNotification
 //                                                  object:[self.avPlayer currentItem]];
 //    [self.delegate onScreenViewPlayerDidEnd:self];
+
+
+    [self fadeIn:1.0f];
 
     // lets loop movie for now
     AVPlayerItem *p = [notification object];
