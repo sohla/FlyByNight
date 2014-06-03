@@ -122,6 +122,11 @@
 -(void)viewDidDisappear:(BOOL)animated{
 //    [self removeObservers];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self tabBarController].tabBar setHidden:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -235,12 +240,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
         [[segue destinationViewController] addScreenWithCue:cueModel];
-//        NSString *path = [cueModel path];
-//        NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension] ofType:@"m4v"];
-//
-//        if(fullPath != nil){
-//            NSURL *url = [NSURL fileURLWithPath:fullPath];
-//        }
+
+        cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 1];
+        [[segue destinationViewController] addScreenWithCue:cueModel];
+        
 
     }
 }

@@ -9,6 +9,7 @@
 #import "SODetailViewController.h"
 #import "SONotifications.h"
 #import "SOSettingsViewController.h"
+#import "SOPropertiesViewController.h"
 #import "SOScreenViewController.h"
 #import "SOAppDelegate.h"
 
@@ -82,8 +83,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [[self tabBarController].tabBar setHidden:NO];
+//    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+//    [[self tabBarController].tabBar setHidden:NO];
 }
 
 -(void)cleanup{
@@ -150,8 +151,6 @@
     [self.screenViewControllers setObject:svc forKey:[cueModel title]];
     svc.view.alpha = 0.5f;
     [self.view addSubview:svc.view];
-    
-    //•add debug screenview maybe?
     
     
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -232,6 +231,11 @@
 												 name:kEditModeOn
 											   object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onEditModeOff:)
+												 name:kEditModeOff
+											   object:nil];
+    
 
 
 }
@@ -268,53 +272,74 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kEditModeOn
                                                   object:nil];
-    
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kEditModeOff
+                                                  object:nil];
+
 }
 
 #pragma mark - Gestures & Notifications
+-(void)onEditModeOff:(NSNotification *)notification{
 
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [(SOScreenViewController*)obj play];
+    }];
+}
 -(void)onEditModeOn:(NSNotification *)notification{
 
 
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj pause];
     }];
+
+    SOPropertiesViewController *props = [[SOPropertiesViewController alloc] initWithNibName:@"SOPropertiesViewController" bundle:nil];
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+   // [props setCueModel:self.cueModel];
     
-    SOSettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"settingsVCID"];
+//    [self addChildViewController:props];
+//    [self.view addSubview:props.view];
+
+    [self presentViewController:props animated:YES completion:^{
+        
+    
+    }];
+    
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+//    SOSettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"settingsVCID"];
     
     //•feed in the cue model
     
-    [self addChildViewController:settingsVC];
-    [settingsVC.view setFrame:self.view.frame];
+//    [self addChildViewController:settingsVC];
+//    [settingsVC.view setFrame:self.view.frame];
+//    
+//    
+//    [self.view addSubview:settingsVC.view];
+//    
+//    
+//    
+//    [settingsVC.view setTransform:CGAffineTransformMakeTranslation(0.0,320.0f)];
     
+//    __block SODetailViewController *blockSelf = self;
+//    [settingsVC setOnCloseUpBlock:^(){
+//        
+//        [blockSelf.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//            [(SOScreenViewController*)obj play];
+//        }];
+//       
+//        
+//    }];
     
-    [self.view addSubview:settingsVC.view];
-    
-    
-    
-    [settingsVC.view setTransform:CGAffineTransformMakeTranslation(0.0,320.0f)];
-    
-    __block SODetailViewController *blockSelf = self;
-    [settingsVC setOnCloseUpBlock:^(){
-        
-        [blockSelf.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            [(SOScreenViewController*)obj play];
-        }];
-       
-        
-    }];
-    
-    [UIView animateWithDuration:0.2
-                         delay :0.0f
-                        options: UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         settingsVC.view.transform = CGAffineTransformMakeTranslation(0.0,0.0f);
-                     }
-                     completion:^(BOOL  complete){
-                     }
-     ];
+//    [UIView animateWithDuration:0.2
+//                         delay :0.0f
+//                        options: UIViewAnimationOptionCurveEaseInOut
+//                     animations:^{
+//                         settingsVC.view.transform = CGAffineTransformMakeTranslation(0.0,0.0f);
+//                     }
+//                     completion:^(BOOL  complete){
+//                     }
+//     ];
     
 }
 

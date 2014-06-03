@@ -331,8 +331,8 @@
     float roll = pnt.y;
     float xpers = self.view.frame.size.width;
     float ypers = self.view.frame.size.height;
-    float xs = M_PI;//• if 0 doesnt scroll
-    float ys = M_PI;
+    float xs = M_PI * [self.cueModel scroll_dx];
+    float ys = M_PI * [self.cueModel scroll_dy];
     
     (roll < 0.0f) ? roll *= -1.0f : roll;
     

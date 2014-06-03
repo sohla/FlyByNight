@@ -123,6 +123,8 @@
 		F0E56A1F19356A680098F7EB /* FBN CLIP 72_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0E569D819356A680098F7EB /* FBN CLIP 72_converted.m4v */; };
 		F0E56A2019356A680098F7EB /* FBN CLIP 73_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0E569D919356A680098F7EB /* FBN CLIP 73_converted.m4v */; };
 		F0E56A2119356A680098F7EB /* FBN CLIP 74_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0E569DA19356A680098F7EB /* FBN CLIP 74_converted.m4v */; };
+		F0FD848A193DE95400F5DD2F /* SOPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */; };
+		F0FD848B193DE95400F5DD2F /* SOPropertiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */; };
 		F0FE7405191E3037008B7E45 /* SOScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FE7404191E3037008B7E45 /* SOScreenView.m */; };
 		F0FE740919206C36008B7E45 /* SOScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FE740819206C36008B7E45 /* SOScreenViewController.m */; };
 /* End PBXBuildFile section */
@@ -280,6 +282,9 @@
 		F0E569D819356A680098F7EB /* FBN CLIP 72_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 72_converted.m4v"; sourceTree = "<group>"; };
 		F0E569D919356A680098F7EB /* FBN CLIP 73_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 73_converted.m4v"; sourceTree = "<group>"; };
 		F0E569DA19356A680098F7EB /* FBN CLIP 74_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 74_converted.m4v"; sourceTree = "<group>"; };
+		F0FD8487193DE95400F5DD2F /* SOPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPropertiesViewController.h; sourceTree = "<group>"; };
+		F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPropertiesViewController.m; sourceTree = "<group>"; };
+		F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOPropertiesViewController.xib; sourceTree = "<group>"; };
 		F0FE7403191E3037008B7E45 /* SOScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOScreenView.h; sourceTree = "<group>"; };
 		F0FE7404191E3037008B7E45 /* SOScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOScreenView.m; sourceTree = "<group>"; };
 		F0FE740719206C36008B7E45 /* SOScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOScreenViewController.h; sourceTree = "<group>"; };
@@ -330,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				F03392EC19382C4E004FDB33 /* data.json */,
-				F0E5699319356A680098F7EB /* 16_4_2014_convert */,
 			);
 			path = json;
 			sourceTree = "<group>";
@@ -394,6 +398,9 @@
 				F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */,
 				F044179E18BA099300572780 /* SOSettingsViewController.h */,
 				F044179F18BA099300572780 /* SOSettingsViewController.m */,
+				F0FD8487193DE95400F5DD2F /* SOPropertiesViewController.h */,
+				F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */,
+				F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */,
 				F0AECCD718B171DB00263C32 /* Main.storyboard */,
 				F0AECCE018B171DC00263C32 /* Images.xcassets */,
 				F0C2DF181939FCFF00EAB7F9 /* Models */,
@@ -406,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				F022FFDA193BF98F00829C20 /* testMovies */,
+				F0E5699319356A680098F7EB /* 16_4_2014_convert */,
 				F03392EB19382C3D004FDB33 /* json */,
 				F04417D618BD2D7900572780 /* default.png */,
 				F04417D718BD2D7900572780 /* default@2x.png */,
@@ -583,8 +591,7 @@
 				F0E569D919356A680098F7EB /* FBN CLIP 73_converted.m4v */,
 				F0E569DA19356A680098F7EB /* FBN CLIP 74_converted.m4v */,
 			);
-			name = 16_4_2014_convert;
-			path = ../16_4_2014_convert;
+			path = 16_4_2014_convert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -696,6 +703,7 @@
 				F0E569F819356A680098F7EB /* FBN CLIP 33_converted.m4v in Resources */,
 				F0E56A1819356A680098F7EB /* FBN CLIP 65_converted.m4v in Resources */,
 				F0E56A0B19356A680098F7EB /* FBN CLIP 52_converted.m4v in Resources */,
+				F0FD848B193DE95400F5DD2F /* SOPropertiesViewController.xib in Resources */,
 				F0E569E419356A680098F7EB /* FBN CLIP 12_converted.m4v in Resources */,
 				F0E56A0019356A680098F7EB /* FBN CLIP 41_converted.m4v in Resources */,
 				F04417D918BD2D7900572780 /* default@2x.png in Resources */,
@@ -773,6 +781,7 @@
 				F0C2DF101939FCBC00EAB7F9 /* JSONModelClassProperty.m in Sources */,
 				F0FE7405191E3037008B7E45 /* SOScreenView.m in Sources */,
 				F0C2DF151939FCBC00EAB7F9 /* JSONModel+networking.m in Sources */,
+				F0FD848A193DE95400F5DD2F /* SOPropertiesViewController.m in Sources */,
 				F0AECCD618B171DB00263C32 /* SOAppDelegate.m in Sources */,
 				F04417A318BA0C2400572780 /* SONotifications.m in Sources */,
 				F0FE740919206C36008B7E45 /* SOScreenViewController.m in Sources */,
