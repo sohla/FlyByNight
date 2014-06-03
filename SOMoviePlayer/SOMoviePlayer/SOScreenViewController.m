@@ -115,7 +115,7 @@
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
     
     __weak AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
-    [item addObserver:self forKeyPath:@"status" options:0 context:nil];
+//    [item addObserver:self forKeyPath:@"status" options:0 context:nil];
     
     self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
@@ -156,7 +156,10 @@
                                                    }
                                                }
     }];
-    
+
+    [self play];
+    [self.delegate onScreenViewPlayerDidBegin:self];
+
     
 // fade in example
 //    CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -196,38 +199,38 @@
     
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    
-    if ([object isKindOfClass:[AVPlayerItem class]]){
-        
-        AVPlayerItem *item = (AVPlayerItem *)object;
-        __weak SOScreenViewController *weakSelf = self;
-        if ([keyPath isEqualToString:@"status"]){
-            switch(item.status){
-                case AVPlayerItemStatusFailed:{
-                    DLog(@"player item status failed");
-                    }
-                    break;
-                case AVPlayerItemStatusReadyToPlay:{
-                    DLog(@"player item status is ready to play");
-                    [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
-                        [weakSelf play];
-                        [weakSelf.delegate onScreenViewPlayerDidBegin:self];
-                    }];
-                    
-                    
-                    
-
-                    }
-                    break;
-                case AVPlayerItemStatusUnknown:{
-                    DLog(@"player item status is unknown");
-                    }
-                    break;
-            }
-        }
-    }
-}
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+//    
+//    if ([object isKindOfClass:[AVPlayerItem class]]){
+//        
+//        AVPlayerItem *item = (AVPlayerItem *)object;
+////        __weak SOScreenViewController *weakSelf = self;
+//        if ([keyPath isEqualToString:@"status"]){
+//            switch(item.status){
+//                case AVPlayerItemStatusFailed:{
+//                    DLog(@"player item status failed");
+//                    }
+//                    break;
+//                case AVPlayerItemStatusReadyToPlay:{
+//                    DLog(@"player item status is ready to play");
+//                    [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
+//                        [self play];
+//                        [self.delegate onScreenViewPlayerDidBegin:self];
+//                    }];
+//                    
+//                    
+//                    
+//
+//                    }
+//                    break;
+//                case AVPlayerItemStatusUnknown:{
+//                    DLog(@"player item status is unknown");
+//                    }
+//                    break;
+//            }
+//        }
+//    }
+//}
 
 
 
