@@ -241,9 +241,9 @@
         SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
         [[segue destinationViewController] addScreenWithCue:cueModel];
 
-        cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 1];
-        [[segue destinationViewController] addScreenWithCue:cueModel];
-        
+//        cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 1];
+//        [[segue destinationViewController] addScreenWithCue:cueModel];
+
 
     }
 }

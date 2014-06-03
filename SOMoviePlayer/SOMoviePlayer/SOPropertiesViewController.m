@@ -9,6 +9,8 @@
 #import "SOPropertiesViewController.h"
 #import "SONotifications.h"
 
+#import "SOFloatPropViewController.h"
+
 @interface SOPropertiesViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -34,6 +36,12 @@
     [self.scrollView setContentSize:self.contentView.frame.size];
     
     [self.scrollView addSubview:self.contentView];
+
+
+    SOFloatPropViewController *propVC = [[SOFloatPropViewController alloc] initWithNibName:@"SOFloatPropViewController" bundle:nil];
+    
+    [self.contentView addSubview:propVC.view];
+    [propVC.view setFrame:CGRectOffset(propVC.view.frame, 0.0f, 100.0f)];
 }
 
 - (void)didReceiveMemoryWarning
