@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F043DE551923070400306847 /* testsig.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F043DE541923070400306847 /* testsig.m4v */; };
 		F04417A018BA099300572780 /* SOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F044179F18BA099300572780 /* SOSettingsViewController.m */; };
 		F04417A318BA0C2400572780 /* SONotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F04417A218BA0C2400572780 /* SONotifications.m */; };
 		F04417BC18BC2FA400572780 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417BB18BC2FA400572780 /* AVFoundation.framework */; };
@@ -120,7 +119,6 @@
 
 /* Begin PBXFileReference section */
 		F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreenViewControllerProtocol.h; sourceTree = "<group>"; };
-		F043DE541923070400306847 /* testsig.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = testsig.m4v; sourceTree = "<group>"; };
 		F044179E18BA099300572780 /* SOSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSettingsViewController.h; sourceTree = "<group>"; };
 		F044179F18BA099300572780 /* SOSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSettingsViewController.m; sourceTree = "<group>"; };
 		F04417A118BA0C2400572780 /* SONotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SONotifications.h; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				F0E5699319356A680098F7EB /* 16_4_2014_convert */,
-				F043DE541923070400306847 /* testsig.m4v */,
 				F04417D618BD2D7900572780 /* default.png */,
 				F04417D718BD2D7900572780 /* default@2x.png */,
 				F0AECCCD18B171DB00263C32 /* SOMoviePlayer-Info.plist */,
@@ -518,7 +515,6 @@
 				F0E569E119356A680098F7EB /* FBN CLIP 09_converted.m4v in Resources */,
 				F0E56A0F19356A680098F7EB /* FBN CLIP 56_converted.m4v in Resources */,
 				F0E569F519356A680098F7EB /* FBN CLIP 30_converted.m4v in Resources */,
-				F043DE551923070400306847 /* testsig.m4v in Resources */,
 				F0E56A1F19356A680098F7EB /* FBN CLIP 72_converted.m4v in Resources */,
 				F0E56A1919356A680098F7EB /* FBN CLIP 66_converted.m4v in Resources */,
 				F0E569E219356A680098F7EB /* FBN CLIP 10_converted.m4v in Resources */,
