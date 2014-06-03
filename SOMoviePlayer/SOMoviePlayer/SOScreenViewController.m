@@ -11,9 +11,14 @@
 @interface SOScreenViewController ()
 
 @property (strong,nonatomic) AVPlayer *avPlayer;
-@property (strong, nonatomic) id playerObserver;
-@property (strong, nonatomic) UIScrollView              *scrollView;
 @property (strong, nonatomic) AVPlayerLayer *playerLayer;
+
+@property (strong, nonatomic) id periodicObserver;
+@property (strong, nonatomic) id fadeInObserver;
+@property (strong, nonatomic) id fadeOutObserver;
+
+@property (strong, nonatomic) UIScrollView *scrollView;
+
 @property (strong, nonatomic) SOCueModel *cueModel;
 
 
@@ -101,7 +106,7 @@
         [self buildPlayerWithURL:url];
     }
 }
--(void)buildPlayerWithURL:(NSURL*)url{//•cuemodel
+-(void)buildPlayerWithURL:(NSURL*)url {
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
                                     self.view.bounds.size.height * [self.cueModel zoom],
@@ -113,21 +118,19 @@
 
     // setup avplayer
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
-    
     __weak AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
-//    [item addObserver:self forKeyPath:@"status" options:0 context:nil];
     
     self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
-    self.playerLayer.opacity = 0.8f;
+//    self.playerLayer.opacity = 0.8f;
     [screenView.layer addSublayer:self.playerLayer];
     
     [self.avPlayer setVolume:0.0f];
     [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];//loop
 
     
-    
+    // observe and notify
     
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -135,30 +138,13 @@
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
                                                object:[self.avPlayer currentItem]];
 
+    [item addObserver:self forKeyPath:@"status" options:0 context:nil];
 
-    // custom progress of player
-    __weak SOScreenViewController *weakSelf = self;
-    self.playerObserver = [self.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(60, 1000)
-                                                queue:dispatch_get_main_queue()
-                                           usingBlock:^(CMTime time) {
-                                               
-                                               float current = CMTimeGetSeconds(time);
-                                               float total = CMTimeGetSeconds([item duration]);
-                                               float progress = current / total;
-                                               //DLog(@"%f %f",current,total);
-                                               
-                                               if(isnan(progress)) progress = 0;
-                                               
-                                               for(SOScreenView *sv in weakSelf.scrollView.subviews){
-                                                   
-                                                   if([sv isKindOfClass:[SOScreenView class]]){
-                                                       [sv setProgress:progress];
-                                                   }
-                                               }
-    }];
 
-    [self play];
-    [self.delegate onScreenViewPlayerDidBegin:self];
+    
+
+//    [self play];
+//    [self.delegate onScreenViewPlayerDidBegin:self];
 
     
 // fade in example
@@ -199,40 +185,99 @@
     
 }
 
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-//    
-//    if ([object isKindOfClass:[AVPlayerItem class]]){
-//        
-//        AVPlayerItem *item = (AVPlayerItem *)object;
-////        __weak SOScreenViewController *weakSelf = self;
-//        if ([keyPath isEqualToString:@"status"]){
-//            switch(item.status){
-//                case AVPlayerItemStatusFailed:{
-//                    DLog(@"player item status failed");
-//                    }
-//                    break;
-//                case AVPlayerItemStatusReadyToPlay:{
-//                    DLog(@"player item status is ready to play");
-//                    [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
-//                        [self play];
-//                        [self.delegate onScreenViewPlayerDidBegin:self];
-//                    }];
-//                    
-//                    
-//                    
-//
-//                    }
-//                    break;
-//                case AVPlayerItemStatusUnknown:{
-//                    DLog(@"player item status is unknown");
-//                    }
-//                    break;
-//            }
-//        }
-//    }
-//}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    if ([object isKindOfClass:[AVPlayerItem class]]){
+        
+        AVPlayerItem *item = (AVPlayerItem *)object;
+//        __weak SOScreenViewController *weakSelf = self;
+        if ([keyPath isEqualToString:@"status"]){
+            switch(item.status){
+                case AVPlayerItemStatusFailed:{
+                    DLog(@"player item status failed");
+                    }
+                    break;
+                case AVPlayerItemStatusReadyToPlay:{
+                    
+                    DLog(@"player item status is ready to play");
+                    
+                    
+                    
+                    
+                    [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
+                        // let's add stuff
+                        [self addPlayerObservers];
+                        [self play];
+                        [self.delegate onScreenViewPlayerDidBegin:self];
+                    }];
+                    
+                    
+                    
 
+                    }
+                    break;
+                case AVPlayerItemStatusUnknown:{
+                    DLog(@"player item status is unknown");
+                    }
+                    break;
+            }
+        }
+    }
+}
 
+-(void)addPlayerObservers{
+    
+    float totalTime = CMTimeGetSeconds([self.avPlayer.currentItem duration]);
+
+    // custom progress of player
+    __weak SOScreenViewController *weakSelf = self;
+    self.periodicObserver = [self.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(60, 1000)
+                                                                        queue:dispatch_get_main_queue()
+                                                                   usingBlock:^(CMTime time) {
+                                                                       
+                                                                       float current = CMTimeGetSeconds(time);
+                                                                       float progress = current / totalTime;
+                                                                       //DLog(@"%f %f",current,totalTime);
+                                                                       
+                                                                       if(isnan(progress)) progress = 0;
+                                                                       
+                                                                       for(SOScreenView *sv in weakSelf.scrollView.subviews){
+                                                                           
+                                                                           if([sv isKindOfClass:[SOScreenView class]]){
+                                                                               [sv setProgress:progress];
+                                                                           }
+                                                                       }
+                                                                   }];
+
+    // boundries
+    NSArray *fadeInTime = @[[NSValue valueWithCMTime:CMTimeMake(0.0f, self.avPlayer.currentTime.timescale)]];
+    NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(totalTime - 1.0f, self.avPlayer.currentTime.timescale)]];
+    
+    self.fadeInObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeInTime queue:NULL usingBlock:^(){
+        DLog(@"fadeIn");
+        CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        fade.fromValue = [NSNumber numberWithFloat:0.0];
+        fade.toValue = [NSNumber numberWithFloat:1.0];
+        fade.duration = 1.0;
+        fade.autoreverses = NO;
+        fade.repeatCount = 0;
+        [weakSelf.playerLayer addAnimation:fade forKey:@"fadeIn"];
+        
+    }];
+    
+    self.fadeOutObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeOutFime queue:NULL usingBlock:^(){
+        DLog(@"fadeOut");
+        CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        fade.fromValue = [NSNumber numberWithFloat:1.0];
+        fade.toValue = [NSNumber numberWithFloat:0.0];
+        fade.duration = 1.0;
+        fade.autoreverses = NO;
+        fade.repeatCount = 0;
+        
+        [weakSelf.playerLayer addAnimation:fade forKey:@"fadeOut"];
+    }];
+    
+}
 
 -(void)play{
     [self.avPlayer play];
@@ -294,8 +339,13 @@
 
     if(self.avPlayer != nil){
 
+        // !don't forget to remove that observer!
+        [[self.avPlayer currentItem] removeObserver:self forKeyPath:@"status"];
 
-        [self.avPlayer removeTimeObserver:self.playerObserver];
+        [self.avPlayer removeTimeObserver:self.periodicObserver];
+        [self.avPlayer removeTimeObserver:self.fadeInObserver];
+        [self.avPlayer removeTimeObserver:self.fadeOutObserver];
+
         [self.avPlayer pause];
         _avPlayer = nil;
     }
