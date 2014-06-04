@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
+//@property (strong, nonatomic) SOFloatPropViewController *
 @end
 
 @implementation SOPropertiesViewController
@@ -38,11 +39,37 @@
     [self.scrollView addSubview:self.contentView];
 
 
-    SOFloatPropViewController *propVC = [[SOFloatPropViewController alloc] initWithNibName:@"SOFloatPropViewController" bundle:nil];
-    
+    SOFloatPropViewController *propVC = [[SOFloatPropViewController alloc] initWithNibName:@"SOFloatPropViewController"
+                                                                                 withTitle:@"x_axis"
+                                                                                   atPoint:(CGPoint){0.0f,100.0f}];
+    [propVC setValueDidChangeBlock:^float(float val) {
+        
+        NSString *formula = @"(val * 180.0 * 2.0) - 180.0";
+        
+        NSExpression *expr = [NSExpression expressionWithFormat:formula];
+        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [NSNumber numberWithFloat:val], @"val", nil];
+        
+        float result = [[expr expressionValueWithObject:object context:nil] floatValue];
+
+        return result;
+    }];
+
     [self.contentView addSubview:propVC.view];
-    [propVC.view setFrame:CGRectOffset(propVC.view.frame, 0.0f, 100.0f)];
+    [self addChildViewController:propVC];
+    
+    
 }
+
+
+/*
+x = (y * 180.0 * 2.0) - 180.0
+ 
+y = (x + 180.0) / (180.0 * 2.0)
+ 
+ 
+ 
+ */
 
 - (void)didReceiveMemoryWarning
 {

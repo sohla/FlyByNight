@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef float (^ValueChangeBlock)(float val);
+
+
+
 @interface SOFloatPropViewController : UIViewController
+
+
+
+@property (copy, nonatomic) ValueChangeBlock valueDidChangeBlock;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil withTitle:(NSString*)title atPoint:(CGPoint)pnt;
+
+-(void)setValueDidChangeBlock:(ValueChangeBlock)block;
 
 @end
