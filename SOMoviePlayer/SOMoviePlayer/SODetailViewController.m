@@ -295,51 +295,20 @@
 
     SOPropertiesViewController *props = [[SOPropertiesViewController alloc] initWithNibName:@"SOPropertiesViewController" bundle:nil];
     
+    //• use blocks to capture
+    // props onValueChangedBlock{}
+    // props setLabelWithBlock{}
+    
+
+    
+    
    // [props setCueModel:self.cueModel];
     
-//    [self addChildViewController:props];
-//    [self.view addSubview:props.view];
-
     [self presentViewController:props animated:YES completion:^{
         
     
     }];
     
-//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-//    SOSettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"settingsVCID"];
-    
-    //•feed in the cue model
-    
-//    [self addChildViewController:settingsVC];
-//    [settingsVC.view setFrame:self.view.frame];
-//    
-//    
-//    [self.view addSubview:settingsVC.view];
-//    
-//    
-//    
-//    [settingsVC.view setTransform:CGAffineTransformMakeTranslation(0.0,320.0f)];
-    
-//    __block SODetailViewController *blockSelf = self;
-//    [settingsVC setOnCloseUpBlock:^(){
-//        
-//        [blockSelf.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//            [(SOScreenViewController*)obj play];
-//        }];
-//       
-//        
-//    }];
-    
-//    [UIView animateWithDuration:0.2
-//                         delay :0.0f
-//                        options: UIViewAnimationOptionCurveEaseInOut
-//                     animations:^{
-//                         settingsVC.view.transform = CGAffineTransformMakeTranslation(0.0,0.0f);
-//                     }
-//                     completion:^(BOOL  complete){
-//                     }
-//     ];
     
 }
 
