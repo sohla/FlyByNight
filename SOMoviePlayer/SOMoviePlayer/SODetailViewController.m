@@ -320,11 +320,9 @@
 }
 -(void)onOffsetChanged:(NSNotification *)notification{
     
-    UISlider *slider = (UISlider*)[notification object];//0..1
-    float off = (([slider value] * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
-    
+    UISlider *slider = (UISlider*)[notification object];
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj resetOffsetX:off];
+        [(SOScreenViewController*)obj resetOffsetX:[slider value]];
     }];
     
 }
@@ -332,10 +330,8 @@
 -(void)onZoomChanged:(NSNotification *)notification{
     
     UISlider *slider = (UISlider*)[notification object];//0..1
-    float z = 0.5 + ([slider value] * 1.5f); // 0.5..2.0
-    
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj resetZoomAt:z];
+        [(SOScreenViewController*)obj resetZoomAt:[slider value]];
     }];
 
     

@@ -65,13 +65,17 @@
 }
 
 -(void)resetOffsetX:(float)offset{
-    [self.cueModel setOffset_x:offset];
+
+    float value = ((offset * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
+    [self.cueModel setOffset_x:value];
 }
 
 
 -(void)resetZoomAt:(float)zoom{
 
-    [self.cueModel setZoom:zoom];
+    float z = 0.5 + (zoom * 1.5f); // 0.5..2.0
+
+    [self.cueModel setZoom:z];
     
     SOScreenView *screenView = [self.scrollView.subviews firstObject];
     
