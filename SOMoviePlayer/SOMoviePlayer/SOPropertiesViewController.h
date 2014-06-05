@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SOCueModel.h"
+#import "SOModelStore.h"
 
 
 @interface SOPropertiesViewController : UIViewController

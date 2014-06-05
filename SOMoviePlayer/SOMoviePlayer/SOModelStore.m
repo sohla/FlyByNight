@@ -71,43 +71,6 @@
             }
         }];
         
-        unsigned int count;
-        objc_property_t* props = class_copyPropertyList([SOCueModel class], &count);
-        for (int i = 0; i < count; i++) {
-            objc_property_t property = props[i];
-            const char * name = property_getName(property);
-            NSString *propertyName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
-            const char * type = property_getAttributes(property);
-            NSString *attr = [NSString stringWithCString:type encoding:NSUTF8StringEncoding];
-            
-            NSString * typeString = [NSString stringWithUTF8String:type];
-            NSArray * attributes = [typeString componentsSeparatedByString:@","];
-            NSString * typeAttribute = [attributes objectAtIndex:0];
-            NSString * propertyType = [typeAttribute substringFromIndex:1];
-            const char * rawPropertyType = [propertyType UTF8String];
-
-
-            if (strcmp(rawPropertyType, @encode(float)) == 0) {
-                //it's a float
-                DLog(@"%@ %@",propertyName,propertyType);
-            } else if (strcmp(rawPropertyType, @encode(int)) == 0) {
-                //it's an int
-            } else if (strcmp(rawPropertyType, @encode(id)) == 0) {
-                //it's some sort of object
-            } else {
-                // According to Apples Documentation you can determine the corresponding encoding values
-            }
-            
-            if ([typeAttribute hasPrefix:@"T@"]) {
-                NSString * typeClassName = [typeAttribute substringWithRange:NSMakeRange(3, [typeAttribute length]-4)];  //turns @"NSDate" into NSDate
-                Class typeClass = NSClassFromString(typeClassName);
-                if (typeClass != nil) {
-                    // Here is the corresponding class even for nil values
-                }
-            }
-            
-        }
-        free(props);
 
         
     }
@@ -200,5 +163,52 @@
 
 -(SOCueModel*)cueModelAtIndex:(int)index{
     return self.sessionModel.cues[index];
+}
+
+
++(NSArray*)arrayOfFloatPropertiesForClass:(Class)c{
+
+    NSMutableArray *array = [NSMutableArray array];
+    unsigned int count;
+    objc_property_t* props = class_copyPropertyList(c, &count);
+    
+    for (int i = 0; i < count; i++) {
+    
+        objc_property_t property = props[i];
+        const char * name = property_getName(property);
+        NSString *propertyName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
+        const char * type = property_getAttributes(property);
+//        NSString *attr = [NSString stringWithCString:type encoding:NSUTF8StringEncoding];
+        
+        NSString * typeString = [NSString stringWithUTF8String:type];
+        NSArray * attributes = [typeString componentsSeparatedByString:@","];
+        NSString * typeAttribute = [attributes objectAtIndex:0];
+        NSString * propertyType = [typeAttribute substringFromIndex:1];
+        const char * rawPropertyType = [propertyType UTF8String];
+        
+        
+        if (strcmp(rawPropertyType, @encode(float)) == 0) {
+            [array addObject:propertyName];
+            
+        } else if (strcmp(rawPropertyType, @encode(int)) == 0) {
+            //it's an int
+        } else if (strcmp(rawPropertyType, @encode(id)) == 0) {
+            //it's some sort of object
+        } else {
+            // According to Apples Documentation you can determine the corresponding encoding values
+        }
+        
+        if ([typeAttribute hasPrefix:@"T@"]) {
+            NSString * typeClassName = [typeAttribute substringWithRange:NSMakeRange(3, [typeAttribute length]-4)];  //turns @"NSDate" into NSDate
+            Class typeClass = NSClassFromString(typeClassName);
+            if (typeClass != nil) {
+                // Here is the corresponding class even for nil values
+            }
+        }
+        
+    }
+    free(props);
+    
+    return array;
 }
 @end

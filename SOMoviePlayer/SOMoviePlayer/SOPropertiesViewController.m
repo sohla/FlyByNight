@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
-//@property (strong, nonatomic) SOFloatPropViewController *
+
 @end
 
 @implementation SOPropertiesViewController
@@ -39,24 +39,54 @@
     [self.scrollView addSubview:self.contentView];
 
 
-    SOFloatPropViewController *propVC = [[SOFloatPropViewController alloc] initWithNibName:@"SOFloatPropViewController"
-                                                                                 withTitle:@"x_axis"
-                                                                                   atPoint:(CGPoint){0.0f,100.0f}];
-    [propVC setValueDidChangeBlock:^float(float val) {
+    
+    //• loop thru
+    
+        //• new float prop vc : title = prop name
+    
+        //• setValueBlock
+    
+            //• setCueValue:val withKey:prop name
+    
+    NSArray *props = [SOModelStore arrayOfFloatPropertiesForClass:[SOCueModel class]];
+    
+    [props enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
-        NSString *formula = @"(val * 180.0 * 2.0) - 180.0";
         
-        NSExpression *expr = [NSExpression expressionWithFormat:formula];
-        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:
-                                [NSNumber numberWithFloat:val], @"val", nil];
+        NSString *propName = (NSString*)obj;
         
-        float result = [[expr expressionValueWithObject:object context:nil] floatValue];
+        DLog(@"%@",propName);
+        
+        SOFloatPropViewController *propVC = [[SOFloatPropViewController alloc] initWithNibName:@"SOFloatPropViewController"
+                                                                                     withTitle:propName
+                                                                                       atPoint:(CGPoint){0.0f,100.0f + (90.0f * idx )}];
+//        [propVC setValueDidChangeBlock:^float(float val) {
+//            
+        //
+//            return result;
+//        }];
+        
+        [self.contentView addSubview:propVC.view];
+        [self addChildViewController:propVC];
+    
+     }];
+    
+//    float value = ((offset * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
 
-        return result;
-    }];
+    NSString *formula = @"((val * 2.0) - 1.0) * pi";//@"(val * 180.0 * 2.0) - 180.0";
+    
+    NSExpression *expr = [NSExpression expressionWithFormat:formula];
+    NSDictionary *object = @{
+                             @"val": @0.5,
+                             @"pi": @(M_PI)
+                             };
+    
+    
+    
+    float result = [[expr expressionValueWithObject:object context:nil] floatValue];
+    
+    DLog(@"%f",result);
 
-    [self.contentView addSubview:propVC.view];
-    [self addChildViewController:propVC];
     
     
 }

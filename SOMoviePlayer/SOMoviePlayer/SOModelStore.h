@@ -17,5 +17,5 @@
 
 -(SOCueModel*)cueModelAtIndex:(int)index;
 -(void)saveLatest;
-
++(NSArray*)arrayOfFloatPropertiesForClass:(Class)c;
 @end
