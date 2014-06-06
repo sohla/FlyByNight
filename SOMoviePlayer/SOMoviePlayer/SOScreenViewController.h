@@ -24,6 +24,7 @@
 
 
 -(void)setCueModel:(SOCueModel*)cueModel;
+-(SOCueModel*)getCueModel;
 
 -(void)destroyPlayer;
 

@@ -406,6 +406,8 @@
 
     [self.transport updateAttitudeWithRoll:roll andYaw:yawf];
     
+    float threshold = 100.0f;
+
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         
         SOScreenViewController *svc = (SOScreenViewController*)obj;
@@ -416,19 +418,32 @@
         
         // hack for picking a current svc by where it's scrollview is positioned
         CGRect vr = [svc visibleFrame];
-        float threshold = 100.0f;
         
         if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
             [svc isSelected:YES];
         }else{
             [svc isSelected:NO];
         }
-        
-
     
     }];
 
+
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        
+        SOScreenViewController *svc = (SOScreenViewController*)obj;
+        // hack for picking a current svc by where it's scrollview is positioned
+        CGRect vr = [svc visibleFrame];
+        
+        if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
+            [[_transport selectedLabel] setText:[[svc getCueModel] title]];
+            *stop = YES;
+        }else{
+            [[_transport selectedLabel] setText:@"-"];
+        }
+        
+    }];
     
+
 }
 
 

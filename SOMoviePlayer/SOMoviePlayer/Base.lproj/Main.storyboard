@@ -244,6 +244,13 @@
                                     <action selector="onForwardButton:" destination="v2G-us-Fof" eventType="touchUpInside" id="bb3-L2-4Wc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P16-I6-0VJ">
+                                <rect key="frame" x="74" y="299" width="420" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -253,11 +260,12 @@
                         <outlet property="attitudeLabel" destination="ggH-Td-hrV" id="NgP-57-REr"/>
                         <outlet property="backButton" destination="vUF-mk-gvK" id="YeU-5f-qEb"/>
                         <outlet property="forwardButton" destination="y96-ye-7et" id="OE3-fO-7bA"/>
+                        <outlet property="selectedLabel" destination="P16-I6-0VJ" id="454-fx-9RY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9A-Yt-ww8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="596"/>
+            <point key="canvasLocation" x="306" y="639"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

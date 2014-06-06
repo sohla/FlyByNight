@@ -97,6 +97,10 @@
 
 
 }
+
+-(SOCueModel*)getCueModel{
+    return _cueModel;
+}
 -(void)setCueModel:(SOCueModel*)cueModel{
 
     _cueModel = cueModel;
