@@ -418,6 +418,9 @@
             [svc scrollTo:(CGPoint){yawf,roll}];
         }
         
+        [svc resetZoomAt:[[svc getCueModel] zoom]];
+        
+        
         // hack for picking a current svc by where it's scrollview is positioned
         CGRect vr = [svc visibleFrame];
         

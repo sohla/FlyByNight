@@ -79,13 +79,13 @@
 
     float z = 0.5 + (zoom * 1.5f); // 0.5..2.0
 
-    [self.cueModel setZoom:z];
+    //[self.cueModel setZoom:z];
     
     SOScreenView *screenView = [self.scrollView.subviews firstObject];
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.width * [self.cueModel zoom],
-                                  self.view.bounds.size.height * [self.cueModel zoom]);
+                                  self.view.bounds.size.width * z,
+                                  self.view.bounds.size.height * z);
     
     [screenView setFrame:fullFrame];//•not working?
     
