@@ -19,7 +19,7 @@
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
-@property (strong, nonatomic) SOCueModel *cueModel;
+@property (assign, nonatomic) SOCueModel *cueModel;
 
 
 
@@ -97,9 +97,9 @@
 
 
 }
--(void)setCue:(SOCueModel*)cueModel{
+-(void)setCueModel:(SOCueModel*)cueModel{
 
-    self.cueModel = cueModel;
+    _cueModel = cueModel;
     
     NSString *path = [cueModel path];
     NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension]
@@ -199,6 +199,27 @@
         
     }];
     
+}
+
+-(void)isSelected:(BOOL)selected{
+ 
+    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
+    sv.layer.borderColor = [[UIColor greenColor] CGColor];
+
+    if(selected){
+        sv.layer.borderWidth = 5.0f;
+    }else{
+        sv.layer.borderWidth = 0.0f;
+    }
+}
+-(CGRect)screenFrame{
+    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
+    return sv.frame;
+}
+
+-(CGRect)visibleFrame{
+    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
+    return [self.scrollView convertRect:self.scrollView.bounds toView:sv];
 }
 
 -(void)fadeOut:(float)ms{
@@ -358,5 +379,6 @@
 //    DLog(@"%f :%f",self.offset,ypers);
     
     [self.scrollView setContentOffset:(CGPoint){xpers,ypers} animated:NO];
+    
 }
 @end

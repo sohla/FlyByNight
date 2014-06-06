@@ -19,10 +19,11 @@
 @property (assign, nonatomic) id<SOScreenViewControllerProtocol> delegate;
 @property (nonatomic) Boolean isScrolling;
 
+
 - (instancetype)initWithFrame:(CGRect)frame;
 
 
--(void)setCue:(SOCueModel*)cueModel;
+-(void)setCueModel:(SOCueModel*)cueModel;
 
 -(void)destroyPlayer;
 
@@ -37,4 +38,8 @@
 
 -(void)resetZoomAt:(float)zoom;
 
+-(CGRect)visibleFrame;
+
+-(CGRect)screenFrame;
+-(void)isSelected:(BOOL)selected;
 @end

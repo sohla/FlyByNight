@@ -145,7 +145,7 @@
 
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
     [svc setDelegate:self];
-    [svc setCue:cueModel];
+    [svc setCueModel:cueModel];
 
     
     [self.screenViewControllers setObject:svc forKey:[cueModel title]];
@@ -407,10 +407,25 @@
     [self.transport updateAttitudeWithRoll:roll andYaw:yawf];
     
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if([(SOScreenViewController*)obj isScrolling]){
-            [(SOScreenViewController*)obj scrollTo:(CGPoint){yawf,roll}];
+        
+        SOScreenViewController *svc = (SOScreenViewController*)obj;
 
+        if([svc isScrolling]){
+            [svc scrollTo:(CGPoint){yawf,roll}];
         }
+        
+        // hack for picking a current svc by where it's scrollview is positioned
+        CGRect vr = [svc visibleFrame];
+        float threshold = 100.0f;
+        
+        if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
+            [svc isSelected:YES];
+        }else{
+            [svc isSelected:NO];
+        }
+        
+
+    
     }];
 
     
