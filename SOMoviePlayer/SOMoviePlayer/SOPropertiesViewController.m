@@ -76,6 +76,9 @@
         [propVC setValueDidChangeBlock:^float(float val) {
 
             [self.cueModel setValue:[NSNumber numberWithFloat:val] forKey:propName];
+            
+            //• update notifcation for screenview
+            
             return val;
         }];
         

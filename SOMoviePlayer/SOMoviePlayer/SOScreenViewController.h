@@ -17,7 +17,6 @@
 @interface SOScreenViewController : UIViewController
 
 @property (assign, nonatomic) id<SOScreenViewControllerProtocol> delegate;
-@property (nonatomic) Boolean isScrolling;
 
 
 - (instancetype)initWithFrame:(CGRect)frame;

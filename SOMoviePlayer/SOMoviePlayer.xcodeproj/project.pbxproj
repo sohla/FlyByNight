@@ -13,7 +13,6 @@
 		F022FFE3193BF98F00829C20 /* stripeTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDE193BF98F00829C20 /* stripeTest.mov */; };
 		F022FFE4193BF98F00829C20 /* testsig.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDF193BF98F00829C20 /* testsig.m4v */; };
 		F03392ED19382C4E004FDB33 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
-		F04417A018BA099300572780 /* SOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F044179F18BA099300572780 /* SOSettingsViewController.m */; };
 		F04417A318BA0C2400572780 /* SONotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F04417A218BA0C2400572780 /* SONotifications.m */; };
 		F04417BC18BC2FA400572780 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417BB18BC2FA400572780 /* AVFoundation.framework */; };
 		F04417D518BD1BF400572780 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417D418BD1BF400572780 /* AssetsLibrary.framework */; };
@@ -149,8 +148,6 @@
 		F022FFDF193BF98F00829C20 /* testsig.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = testsig.m4v; sourceTree = "<group>"; };
 		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreenViewControllerProtocol.h; sourceTree = "<group>"; };
-		F044179E18BA099300572780 /* SOSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSettingsViewController.h; sourceTree = "<group>"; };
-		F044179F18BA099300572780 /* SOSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSettingsViewController.m; sourceTree = "<group>"; };
 		F04417A118BA0C2400572780 /* SONotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SONotifications.h; sourceTree = "<group>"; };
 		F04417A218BA0C2400572780 /* SONotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SONotifications.m; sourceTree = "<group>"; };
 		F04417BB18BC2FA400572780 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -401,8 +398,6 @@
 				F068CE911938065A009B9297 /* SOScreenTransport.h */,
 				F068CE921938065A009B9297 /* SOScreenTransport.m */,
 				F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */,
-				F044179E18BA099300572780 /* SOSettingsViewController.h */,
-				F044179F18BA099300572780 /* SOSettingsViewController.m */,
 				F0FD8487193DE95400F5DD2F /* SOPropertiesViewController.h */,
 				F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */,
 				F0FD848C193DFAEA00F5DD2F /* SOFloatPropViewController.h */,
@@ -805,7 +800,6 @@
 				F0C2DF171939FCBC00EAB7F9 /* JSONValueTransformer.m in Sources */,
 				F0AECCDF18B171DC00263C32 /* SODetailViewController.m in Sources */,
 				F0C2DF161939FCBC00EAB7F9 /* JSONKeyMapper.m in Sources */,
-				F04417A018BA099300572780 /* SOSettingsViewController.m in Sources */,
 				F0C2DF0F1939FCBC00EAB7F9 /* JSONModelArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

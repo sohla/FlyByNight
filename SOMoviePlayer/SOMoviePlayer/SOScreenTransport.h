@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SONotifications.h"
-#import "SOSettingsViewController.h"
 
 @interface SOScreenTransport : UIViewController
 

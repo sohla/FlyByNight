@@ -8,7 +8,6 @@
 
 #import "SODetailViewController.h"
 #import "SONotifications.h"
-#import "SOSettingsViewController.h"
 #import "SOPropertiesViewController.h"
 #import "SOScreenViewController.h"
 #import "SOAppDelegate.h"
@@ -196,25 +195,6 @@
 												 name:kMotionManagerReset
 											   object:nil];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(onZoomChanged:)
-												 name:kZoomChanged
-											   object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(onZoomReset:)
-												 name:kZoomReset
-											   object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(onOffsetChanged:)
-												 name:kOffsetChanged
-											   object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(onIsScrolling:)
-												 name:kIsScrolling
-											   object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onTransportBack:)
@@ -243,22 +223,6 @@
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMotionManagerReset
-                                                  object:nil];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kZoomChanged
-                                                  object:nil];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kZoomReset
-                                                  object:nil];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kOffsetChanged
-                                                  object:nil];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kIsScrolling
                                                   object:nil];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -318,53 +282,53 @@
     [self.navigationController popViewControllerAnimated:NO];
     
 }
--(void)onOffsetChanged:(NSNotification *)notification{
-    
-    UISlider *slider = (UISlider*)[notification object];
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj resetOffsetX:[slider value]];
-    }];
-    
-}
-
--(void)onZoomChanged:(NSNotification *)notification{
-    
-    UISlider *slider = (UISlider*)[notification object];//0..1
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj resetZoomAt:[slider value]];
-    }];
-
-    
-}
--(void)onIsScrolling:(NSNotification *)notification{
-    
-    UISwitch *swich = (UISwitch*)[notification object];
-    
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj setIsScrolling:[swich isOn]];
-    }];
-
-    
-}
-
--(void)onZoomReset:(NSNotification *)notification{
-
-    float z = 0;
-    UISwitch *swch = (UISwitch*)[notification object];
-    
-    if([swch isOn]){
-        z = 2.0f;
-    }else{
-        z = 1.0f;
-    }
-    
-    //do we reset motion manager?
-    //[[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
-
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj resetZoomAt:z];
-    }];
-}
+//-(void)onOffsetChanged:(NSNotification *)notification{
+//    
+//    UISlider *slider = (UISlider*)[notification object];
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj resetOffsetX:[slider value]];
+//    }];
+//    
+//}
+//
+//-(void)onZoomChanged:(NSNotification *)notification{
+//    
+//    UISlider *slider = (UISlider*)[notification object];//0..1
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj resetZoomAt:[slider value]];
+//    }];
+//
+//    
+//}
+//-(void)onIsScrolling:(NSNotification *)notification{
+//    
+//    UISwitch *swich = (UISwitch*)[notification object];
+//    
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj setIsScrolling:[swich isOn]];
+//    }];
+//
+//    
+//}
+//
+//-(void)onZoomReset:(NSNotification *)notification{
+//
+//    float z = 0;
+//    UISwitch *swch = (UISwitch*)[notification object];
+//    
+//    if([swch isOn]){
+//        z = 2.0f;
+//    }else{
+//        z = 1.0f;
+//    }
+//    
+//    //do we reset motion manager?
+//    //[[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+//
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj resetZoomAt:z];
+//    }];
+//}
 -(void)onMotionManagerReset:(NSNotification *)notification{
     [[SOMotionManager sharedManager] reset];
 }
@@ -414,10 +378,9 @@
         
         SOScreenViewController *svc = (SOScreenViewController*)obj;
 
-        if([svc isScrolling]){
-            [svc scrollTo:(CGPoint){yawf,roll}];
-        }
+        [svc scrollTo:(CGPoint){yawf,roll}];
         
+//• for now
         [svc resetZoomAt:[[svc getCueModel] zoom]];
         
         

@@ -36,7 +36,8 @@
 -(void)loadCues{
 
     
-    if(![[NSUserDefaults standardUserDefaults] stringForKey:kLastFileSaved] ) {
+    if(YES) {
+//    if(![[NSUserDefaults standardUserDefaults] stringForKey:kLastFileSaved] ) {
         
         DLog(@"Loading default data file...");
         

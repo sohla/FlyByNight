@@ -11,10 +11,10 @@
 @interface SONotifications : NSObject
 
 extern NSString* const kMotionManagerReset;
-extern NSString* const kZoomReset;
-extern NSString* const kZoomChanged;
-extern NSString* const kOffsetChanged;
-extern NSString* const kIsScrolling;
+//extern NSString* const kZoomReset;
+//extern NSString* const kZoomChanged;
+//extern NSString* const kOffsetChanged;
+//extern NSString* const kIsScrolling;
 extern NSString* const kTransportBack;
 extern NSString* const kTransportForward;
 extern NSString* const kEditModeOn;

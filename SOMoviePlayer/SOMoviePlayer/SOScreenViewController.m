@@ -33,8 +33,6 @@
     if (self) {
 
         
-        self.isScrolling = YES;
-
 //        self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
 //        DLog(@"%f",self.offset);
         CGRect fullFrame = CGRectMake(0.0, 0.0,
@@ -70,7 +68,7 @@
     [self.cueModel setOffset_x:value];
     
     
-    [self.cueModel setValue:[NSNumber numberWithFloat:value] forKey:@"offset_x"];
+ //•   [self.cueModel setValue:[NSNumber numberWithFloat:value] forKey:@"offset_x"];
     
 }
 
@@ -117,6 +115,9 @@
         NSURL *url = [NSURL fileURLWithPath:fullPath];
         [self buildPlayerWithURL:url];
     }
+    
+    
+    
 }
 -(void)buildPlayerWithURL:(NSURL*)url {
     
@@ -191,6 +192,15 @@
             }
         }
     }
+    if ([object isKindOfClass:[self class]]){
+
+        if([keyPath isEqualToString:@"cueModel"]){
+            DLog(@"cue model changed");
+        }
+        
+        
+    }
+    
 }
 
 -(void)fadeIn:(float)ms{
@@ -343,6 +353,7 @@
                                                     name:AVPlayerItemDidPlayToEndTimeNotification
                                                   object:avFrontPlayer];
 
+    
     if(self.avPlayer != nil){
 
         // !don't forget to remove that observer!
@@ -370,7 +381,12 @@
     (roll < 0.0f) ? roll *= -1.0f : roll;
     
 //    float offsetYaw = 0;//-(M_PI/4);
-    float dyaw = yawf + self.cueModel.offset_x + 1.8;
+    
+    //• could also just have all translations here....everyting coming in is 0..1
+    
+    float xoff = ((self.cueModel.offset_x * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
+
+    float dyaw = yawf + xoff + 1.8;
     
     if(dyaw >= M_PI){
         dyaw -= M_PI*2;
