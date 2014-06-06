@@ -12,7 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (weak, nonatomic) IBOutlet UILabel *attitudeLabel;
-@property (strong, nonatomic) UIButton* editButton;
 
 
 @end

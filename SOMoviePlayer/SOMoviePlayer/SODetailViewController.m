@@ -24,7 +24,7 @@
 @property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
 @property (strong, nonatomic) SOScreenTransport         *transport;
-
+@property (weak, nonatomic) SOCueModel *selectedCueModel;
 
 
 
@@ -295,20 +295,20 @@
 
     SOPropertiesViewController *props = [[SOPropertiesViewController alloc] initWithNibName:@"SOPropertiesViewController" bundle:nil];
     
-    //• use blocks to capture
-    // props onValueChangedBlock{}
-    // props setLabelWithBlock{}
+    [props setCueModel:self.selectedCueModel];
     
-
+    [self.view addSubview:props.view];
     
+    [self addChildViewController:props];
+    props.view.transform = CGAffineTransformMakeTranslation(0.0, 320.0);
     
-   // [props setCueModel:self.cueModel];
-    
-    [self presentViewController:props animated:YES completion:^{
-        
-    
-    }];
-    
+    [UIView animateWithDuration:0.3
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         props.view.transform = CGAffineTransformMakeTranslation(0.0, 0.0);
+                     }
+                     completion:nil];
     
 }
 
@@ -408,6 +408,8 @@
     
     float threshold = 100.0f;
 
+    self.selectedCueModel = nil;
+
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         
         SOScreenViewController *svc = (SOScreenViewController*)obj;
@@ -421,27 +423,21 @@
         
         if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
             [svc isSelected:YES];
+            self.selectedCueModel = [svc getCueModel];
         }else{
             [svc isSelected:NO];
         }
     
     }];
 
-
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        
-        SOScreenViewController *svc = (SOScreenViewController*)obj;
-        // hack for picking a current svc by where it's scrollview is positioned
-        CGRect vr = [svc visibleFrame];
-        
-        if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
-            [[_transport selectedLabel] setText:[[svc getCueModel] title]];
-            *stop = YES;
-        }else{
-            [[_transport selectedLabel] setText:@"-"];
-        }
-        
-    }];
+    
+    if(self.selectedCueModel != nil){
+        [[_transport selectedLabel] setText:[self.selectedCueModel title]];
+        [[_transport editButton] setEnabled:YES];
+    }else{
+        [[_transport selectedLabel] setText:@"-"];
+        [[_transport editButton] setEnabled:NO];
+    }
     
 
 }

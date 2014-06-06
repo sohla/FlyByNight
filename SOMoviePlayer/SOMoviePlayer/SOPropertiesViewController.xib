@@ -7,8 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SOPropertiesViewController">
             <connections>
+                <outlet property="assetLabel" destination="nAg-1U-Hq9" id="HBd-au-5QK"/>
                 <outlet property="contentView" destination="maB-Mm-XsQ" id="C01-wg-FJv"/>
+                <outlet property="lengthLabel" destination="gwQ-k0-32S" id="cRw-2D-LqY"/>
                 <outlet property="scrollView" destination="rJl-9s-CyP" id="pqe-7w-Kxd"/>
+                <outlet property="titleLabel" destination="Slm-Rj-FcV" id="0N6-9i-Id9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -68,6 +68,10 @@
 
     float value = ((offset * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
     [self.cueModel setOffset_x:value];
+    
+    
+    [self.cueModel setValue:[NSNumber numberWithFloat:value] forKey:@"offset_x"];
+    
 }
 
 

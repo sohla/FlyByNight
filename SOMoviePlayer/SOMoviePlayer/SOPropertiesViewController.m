@@ -8,6 +8,7 @@
 
 #import "SOPropertiesViewController.h"
 #import "SONotifications.h"
+#import <AVFoundation/AVFoundation.h>
 
 #import "SOFloatPropViewController.h"
 
@@ -15,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *assetLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 
 @end
 
@@ -34,11 +38,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.view.alpha = 0.5;
+    self.scrollView.alpha = 0.5;
     [self.scrollView setContentSize:self.contentView.frame.size];
-    
     [self.scrollView addSubview:self.contentView];
 
-
+    [self.titleLabel setText:[self.cueModel title]];
+    [self.assetLabel setText:[self.cueModel path]];
+    
+    NSString *path = [self.cueModel path];
+    NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension]
+                                                         ofType:[path pathExtension]];
+    NSURL *sourceMovieURL = [NSURL fileURLWithPath:fullPath];
+    AVURLAsset *sourceAsset = [AVURLAsset URLAssetWithURL:sourceMovieURL options:nil];
+    [self.lengthLabel setText:[NSString stringWithFormat:@"%.2f",CMTimeGetSeconds(sourceAsset.duration)]];
     
     //• loop thru
     
@@ -61,9 +74,9 @@
                                                                                      withTitle:propName
                                                                                        atPoint:(CGPoint){0.0f,100.0f + (90.0f * idx )}];
 //        [propVC setValueDidChangeBlock:^float(float val) {
-//            
-        //
-//            return result;
+//
+//            [self.cueModel setValue:[NSNumber numberWithFloat:val] forKey:propName];
+//            return val;
 //        }];
         
         [self.contentView addSubview:propVC.view];
@@ -108,13 +121,19 @@ y = (x + 180.0) / (180.0 * 2.0)
 }
 - (IBAction)onExit:(UIButton *)sender {
 
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:kEditModeOff object:nil];
-        
-    }];
+    self.view.transform = CGAffineTransformMakeTranslation(0.0, 0.0);
     
-
+    [UIView animateWithDuration:0.3
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.view.transform = CGAffineTransformMakeTranslation(0.0, 320.0);
+                     }
+                     completion:^(BOOL  complete){
+                         [self.view removeFromSuperview];
+                         [self removeFromParentViewController];
+                         
+                     }];
 }
 
 @end

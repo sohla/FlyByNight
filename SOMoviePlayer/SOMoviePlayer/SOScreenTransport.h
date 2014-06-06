@@ -13,6 +13,7 @@
 @interface SOScreenTransport : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedLabel;
+@property (strong, nonatomic) UIButton* editButton;
 
 -(void)updateAttitudeWithRoll:(float)roll andYaw:(float)yaw;
 @end
