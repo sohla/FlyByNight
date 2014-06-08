@@ -21,6 +21,7 @@
 
 @property (assign, nonatomic) SOCueModel *cueModel;
 
+@property (strong, nonatomic) CADisplayLink             *displayLink;
 
 
 @end
@@ -58,47 +59,44 @@
 }
 
 -(void)dealloc{
-    DLog(@"");
     [self destroyPlayer];
 }
 
--(void)resetOffsetX:(float)offset{
+#pragma mark - Views
 
-    float value = ((offset * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
-    [self.cueModel setOffset_x:value];
+-(void)viewWillAppear:(BOOL)animated{
     
-    
- //•   [self.cueModel setValue:[NSNumber numberWithFloat:value] forKey:@"offset_x"];
+    [self addDisplayLink];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [self removeDisplayLink];
     
 }
 
-
--(void)resetZoomAt:(float)zoom{
-
-    float z = 0.5 + (zoom * 1.5f); // 0.5..2.0
-
-    //[self.cueModel setZoom:z];
-    
-    SOScreenView *screenView = [self.scrollView.subviews firstObject];
-    
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.width * z,
-                                  self.view.bounds.size.height * z);
-    
-    [screenView setFrame:fullFrame];//•not working?
-    
-    [self.playerLayer setFrame:fullFrame];
-    
-    
-}
 -(void)viewWillDisappear:(BOOL)animated{
-    DLog(@"");//••FIX DESTROY
-    
-//    self.scrollView = nil;
-//    [self destroyPlayer];
-
-
 }
+
+
+-(CGRect)visibleFrame{
+    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
+    return [self.scrollView convertRect:self.scrollView.bounds toView:sv];
+}
+
+-(void)setViewIsSelected:(BOOL)selected{
+    
+    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
+    sv.layer.borderColor = [[UIColor greenColor] CGColor];
+    
+    if(selected){
+        sv.layer.borderWidth = 5.0f;
+    }else{
+        sv.layer.borderWidth = 0.0f;
+    }
+}
+
+
+#pragma mark - Model
 
 -(SOCueModel*)getCueModel{
     return _cueModel;
@@ -119,6 +117,9 @@
     
     
 }
+
+#pragma mark - Player
+
 -(void)buildPlayerWithURL:(NSURL*)url {
     
     CGRect fullFrame = CGRectMake(0.0, 0.0,
@@ -156,51 +157,61 @@
     
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+-(void)destroyPlayer{
     
-    if ([object isKindOfClass:[AVPlayerItem class]]){
-        
-        AVPlayerItem *item = (AVPlayerItem *)object;
-
-        if ([keyPath isEqualToString:@"status"]){
-        
-            switch(item.status){
-            
-                case AVPlayerItemStatusFailed:{
-                    DLog(@"player item status failed");
-                }break;
-                
-                case AVPlayerItemStatusReadyToPlay:{
-                    DLog(@"player item status is ready to play");
-                    
-                    [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
-
-                        // let's add stuff
-                        [self addPlayerObservers];
-
-                        [self fadeIn:1.0f];
-
-                        [self play];
-                        
-                        [self.delegate onScreenViewPlayerDidBegin:self];
-                    }];
-                }break;
-                    
-                case AVPlayerItemStatusUnknown:{
-                    DLog(@"player item status is unknown");
-                }break;
-            }
-        }
-    }
-    if ([object isKindOfClass:[self class]]){
-
-        if([keyPath isEqualToString:@"cueModel"]){
-            DLog(@"cue model changed");
-        }
-        
-        
+    AVPlayerLayer *avPlayerLayer = self.playerLayer;
+    
+    if(avPlayerLayer != nil){
+        [avPlayerLayer removeFromSuperlayer];
+        _playerLayer = nil;
     }
     
+    
+    AVPlayer *avFrontPlayer = self.avPlayer;
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:AVPlayerItemDidPlayToEndTimeNotification
+                                                  object:avFrontPlayer];
+    
+    
+    if(self.avPlayer != nil){
+        
+        // !don't forget to remove that observer!
+        [[self.avPlayer currentItem] removeObserver:self forKeyPath:@"status"];
+        
+        [self.avPlayer removeTimeObserver:self.periodicObserver];
+        [self.avPlayer removeTimeObserver:self.fadeInObserver];
+        [self.avPlayer removeTimeObserver:self.fadeOutObserver];
+        
+        [self.avPlayer pause];
+        _avPlayer = nil;
+    }
+    
+}
+
+
+-(void)play{
+    [self.avPlayer play];
+}
+
+
+-(void)pause{
+    [self.avPlayer pause];
+}
+
+-(void)jumpBack:(float)secs{
+    
+    CMTime current = [self.avPlayer currentTime];
+    CMTime jump = CMTimeMakeWithSeconds(secs,self.avPlayer.currentTime.timescale);
+    CMTime newTime = CMTimeSubtract(current, jump);
+    [self.avPlayer seekToTime:newTime];
+    
+}
+-(void)jumpForward:(float)secs{
+    
+    CMTime current = [self.avPlayer currentTime];
+    CMTime jump = CMTimeMakeWithSeconds(secs,self.avPlayer.currentTime.timescale);
+    CMTime newTime = CMTimeAdd(current, jump);
+    [self.avPlayer seekToTime:newTime];
 }
 
 -(void)fadeIn:(float)ms{
@@ -219,27 +230,6 @@
     
 }
 
--(void)isSelected:(BOOL)selected{
- 
-    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
-    sv.layer.borderColor = [[UIColor greenColor] CGColor];
-
-    if(selected){
-        sv.layer.borderWidth = 5.0f;
-    }else{
-        sv.layer.borderWidth = 0.0f;
-    }
-}
--(CGRect)screenFrame{
-    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
-    return sv.frame;
-}
-
--(CGRect)visibleFrame{
-    SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
-    return [self.scrollView convertRect:self.scrollView.bounds toView:sv];
-}
-
 -(void)fadeOut:(float)ms{
     
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
@@ -255,6 +245,7 @@
     }];
     
 }
+#pragma mark - Player Observers
 
 -(void)addPlayerObservers{
     
@@ -292,31 +283,51 @@
     
 }
 
--(void)play{
-    [self.avPlayer play];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     
-}
-
-
--(void)pause{
-    [self.avPlayer pause];
-}
-
-
--(void)jumpBack{
+    if ([object isKindOfClass:[AVPlayerItem class]]){
+        
+        AVPlayerItem *item = (AVPlayerItem *)object;
+        
+        if ([keyPath isEqualToString:@"status"]){
+            
+            switch(item.status){
+                    
+                case AVPlayerItemStatusFailed:{
+                    DLog(@"player item status failed");
+                }break;
+                    
+                case AVPlayerItemStatusReadyToPlay:{
+                    DLog(@"player item status is ready to play");
+                    
+                    [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
+                        
+                        // let's add stuff
+                        [self addPlayerObservers];
+                        
+                        [self fadeIn:1.0f];
+                        
+                        [self play];
+                        
+                        [self.delegate onScreenViewPlayerDidBegin:self];
+                    }];
+                }break;
+                    
+                case AVPlayerItemStatusUnknown:{
+                    DLog(@"player item status is unknown");
+                }break;
+            }
+        }
+    }
+    if ([object isKindOfClass:[self class]]){
+        
+        if([keyPath isEqualToString:@"cueModel"]){
+            DLog(@"cue model changed");
+        }
+        
+        
+    }
     
-    CMTime current = [self.avPlayer currentTime];
-    CMTime jump = CMTimeMakeWithSeconds(5.0f,self.avPlayer.currentTime.timescale);
-    CMTime newTime = CMTimeSubtract(current, jump);
-    [self.avPlayer seekToTime:newTime];
-
-}
--(void)jumpForward{
-
-    CMTime current = [self.avPlayer currentTime];
-    CMTime jump = CMTimeMakeWithSeconds(5.0f,self.avPlayer.currentTime.timescale);
-    CMTime newTime = CMTimeAdd(current, jump);
-    [self.avPlayer seekToTime:newTime];
 }
 
 
@@ -338,36 +349,58 @@
     
 }
 
--(void)destroyPlayer{
-    
-    AVPlayerLayer *avPlayerLayer = self.playerLayer;
-    
-    if(avPlayerLayer != nil){
-        [avPlayerLayer removeFromSuperlayer];
-        _playerLayer = nil;
-    }
-    
-    
-    AVPlayer *avFrontPlayer = self.avPlayer;
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:AVPlayerItemDidPlayToEndTimeNotification
-                                                  object:avFrontPlayer];
 
+
+#pragma mark - Motion Manager
+
+-(void)addDisplayLink{
     
-    if(self.avPlayer != nil){
-
-        // !don't forget to remove that observer!
-        [[self.avPlayer currentItem] removeObserver:self forKeyPath:@"status"];
-
-        [self.avPlayer removeTimeObserver:self.periodicObserver];
-        [self.avPlayer removeTimeObserver:self.fadeInObserver];
-        [self.avPlayer removeTimeObserver:self.fadeOutObserver];
-
-        [self.avPlayer pause];
-        _avPlayer = nil;
+    if(self.displayLink==nil){
+        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(onDisplayLink:)];
+        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     }
     
 }
+
+-(void)removeDisplayLink{
+    
+    
+    if(self.displayLink!=nil)
+        [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    self.displayLink = nil;
+    
+    
+}
+
+- (void)onDisplayLink:(id)sender {
+
+    float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
+    //    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
+    float yawf = [[SOMotionManager sharedManager] valueForKey:@"yaw"];
+    //    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
+
+    [self scrollTo:(CGPoint){yawf,roll}];
+
+    [self zoomTo:self.cueModel.zoom];
+ 
+}
+
+-(void)zoomTo:(float)zoom{
+    
+    float z = 0.5 + (zoom * 1.5f); // 0.5..2.0
+    
+    SOScreenView *screenView = (SOScreenView*)[self.scrollView viewWithTag:999];
+    
+    CGRect fullFrame = CGRectMake(0.0, 0.0,
+                                  self.view.bounds.size.width * z,
+                                  self.view.bounds.size.height * z);
+    
+    [screenView setFrame:fullFrame];//•not working?
+    
+    [self.playerLayer setFrame:fullFrame];
+    
+}
+
 -(void)scrollTo:(CGPoint)pnt{
 
 //    DLog(@"%f %f",pnt.x,pnt.y);
@@ -403,6 +436,7 @@
 //    DLog(@"%f :%f",self.offset,ypers);
     
     [self.scrollView setContentOffset:(CGPoint){xpers,ypers} animated:NO];
+    
     
 }
 @end

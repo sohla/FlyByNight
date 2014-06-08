@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import "SOMotionManager.h"
 #import "SOScreenView.h"
 #import "SOScreenViewControllerProtocol.h"
 #import "SOScreenTransport.h"
@@ -30,16 +31,15 @@
 -(void)play;
 -(void)pause;
 
--(void)jumpBack;
--(void)jumpForward;
+-(void)jumpBack:(float)secs;
+-(void)jumpForward:(float)secs;
 
 -(void)scrollTo:(CGPoint)pnt;
--(void)resetOffsetX:(float)offset;
+//-(void)resetOffsetX:(float)offset;
 
--(void)resetZoomAt:(float)zoom;
+//-(void)resetZoomAt:(float)zoom;
 
 -(CGRect)visibleFrame;
 
--(CGRect)screenFrame;
--(void)isSelected:(BOOL)selected;
+-(void)setViewIsSelected:(BOOL)selected;
 @end

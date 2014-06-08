@@ -335,12 +335,12 @@
 
 -(void)onTransportForward:(NSNotification *)notification{
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj jumpForward];
+        [(SOScreenViewController*)obj jumpForward:5.0f];
     }];
 }
 -(void)onTransportBack:(NSNotification *)notification{
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj jumpBack];
+        [(SOScreenViewController*)obj jumpBack:5.0f];
     }];
 }
 
@@ -378,20 +378,20 @@
         
         SOScreenViewController *svc = (SOScreenViewController*)obj;
 
-        [svc scrollTo:(CGPoint){yawf,roll}];
+//        [svc scrollTo:(CGPoint){yawf,roll}];
         
 //• for now
-        [svc resetZoomAt:[[svc getCueModel] zoom]];
+//        [svc resetZoomAt:[[svc getCueModel] zoom]];
         
         
         // hack for picking a current svc by where it's scrollview is positioned
         CGRect vr = [svc visibleFrame];
         
         if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
-            [svc isSelected:YES];
+            [svc setViewIsSelected:YES];
             self.selectedCueModel = [svc getCueModel];
         }else{
-            [svc isSelected:NO];
+            [svc setViewIsSelected:NO];
         }
     
     }];
