@@ -410,6 +410,9 @@
     float rollY = pnt.y;
     float xpers = self.view.frame.size.width;
     float ypers = self.view.frame.size.height;
+    
+    //            NSNumber *uiVal = [SOFloatTransformer transformValue:[NSNumber numberWithFloat:val] valWithPropName:propName];
+
     float xs = M_PI * [self.cueModel scroll_dx];
     float ys = M_PI * [self.cueModel scroll_dy];
     

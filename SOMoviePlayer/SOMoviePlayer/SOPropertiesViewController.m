@@ -127,5 +127,8 @@ y = (x + 180.0) / (180.0 * 2.0)
 
                      }];
 }
+- (IBAction)onResetMotion:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+}
 
 @end
