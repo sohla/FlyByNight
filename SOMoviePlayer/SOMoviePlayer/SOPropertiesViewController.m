@@ -38,8 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.view.alpha = 0.5;
-    self.scrollView.alpha = 0.5;
+    self.view.alpha = 0.8;
     [self.scrollView setContentSize:self.contentView.frame.size];
     [self.scrollView addSubview:self.contentView];
 
@@ -68,21 +67,19 @@
         
         NSString *propName = (NSString*)obj;
         
-        DLog(@"%@",propName);
-        
         SOFloatPropViewController *propVC = [[SOFloatPropViewController alloc] initWithNibName:@"SOFloatPropViewController"
                                                                                      withTitle:propName
-                                                                                       atPoint:(CGPoint){0.0f,100.0f + (90.0f * idx )}];
+                                                                                       atPoint:(CGPoint){0.0f,100.0f + (70.0f * idx )}];
 
-        
+        // set the ui
         NSNumber *val= [self.cueModel valueForKey:propName];
         [propVC setValue:[val floatValue]];
         
+        
         [propVC setValueDidChangeBlock:^float(float val) {
-
             [self.cueModel setValue:[NSNumber numberWithFloat:val] forKey:propName];
             
-            //• update notifcation for screenview
+            //• transform value
             
             return val;
         }];
