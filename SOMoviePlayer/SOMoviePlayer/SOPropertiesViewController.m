@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "SOFloatPropViewController.h"
+#import "SOFloatTransformer.h"
 
 @interface SOPropertiesViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -75,13 +76,12 @@
         NSNumber *val= [self.cueModel valueForKey:propName];
         [propVC setValue:[val floatValue]];
         
-        
         [propVC setValueDidChangeBlock:^float(float val) {
+
             [self.cueModel setValue:[NSNumber numberWithFloat:val] forKey:propName];
             
-            //• transform value
-            
-            return val;
+            NSNumber *uiVal = [SOFloatTransformer transformValue:[NSNumber numberWithFloat:val] valWithPropName:propName];
+           return [uiVal floatValue];
         }];
         
         [self.contentView addSubview:propVC.view];

@@ -1,5 +1,18 @@
 {
     
+    "transformers" : {
+        
+        "zoom"          : "0.5 + (val * 1.5f)",
+        "offset_x"      : "((val * 2.0f) - 1.0f) * pi",
+        "offset_y"      : "((val * 2.0f) - 1.0f) * pi",
+        
+        "scroll_dx"      : "val * pi",
+        "scroll_dy"      : "val * pi",
+        
+        "pre_time"       : "val"
+        
+    },
+
     "cues" : [{
         "title"         : "drinking tap",
         "path"     : "checkTest.mov",
