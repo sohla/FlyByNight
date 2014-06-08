@@ -57,6 +57,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)setValue:(float)value{
+    [self.slider setValue:value];
+//    [self onSliderChanged:self.slider];
+    
+}
+
 - (IBAction)onSliderChanged:(UISlider *)sender {
     
     if(self.valueDidChangeBlock != nil){

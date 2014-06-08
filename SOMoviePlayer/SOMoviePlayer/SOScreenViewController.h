@@ -35,9 +35,9 @@
 -(void)jumpForward:(float)secs;
 
 -(void)scrollTo:(CGPoint)pnt;
-//-(void)resetOffsetX:(float)offset;
 
-//-(void)resetZoomAt:(float)zoom;
+-(void)fadeIn:(float)ms;
+-(void)fadeOut:(float)ms;
 
 -(CGRect)visibleFrame;
 

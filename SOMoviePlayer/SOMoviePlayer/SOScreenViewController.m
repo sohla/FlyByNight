@@ -52,6 +52,7 @@
         [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
         [self.scrollView setScrollEnabled:NO];
         
+        [self addDisplayLink];
 
 
     }
@@ -59,19 +60,20 @@
 }
 
 -(void)dealloc{
-    [self destroyPlayer];
 }
 
 #pragma mark - Views
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [self addDisplayLink];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
+
     [self removeDisplayLink];
     
+    [self destroyPlayer];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -138,7 +140,7 @@
     self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
-//    self.playerLayer.opacity = 0.0f;
+//    self.playerLayer.opacity = 0.3f;
     [screenView.layer addSublayer:self.playerLayer];
     screenView.alpha = 0.1;
     [self.avPlayer setVolume:0.0f];
@@ -404,36 +406,47 @@
 -(void)scrollTo:(CGPoint)pnt{
 
 //    DLog(@"%f %f",pnt.x,pnt.y);
-    float yawf = pnt.x;
-    float roll = pnt.y;
+    float yawX = pnt.x;
+    float rollY = pnt.y;
     float xpers = self.view.frame.size.width;
     float ypers = self.view.frame.size.height;
     float xs = M_PI * [self.cueModel scroll_dx];
     float ys = M_PI * [self.cueModel scroll_dy];
     
-    (roll < 0.0f) ? roll *= -1.0f : roll;
+    (rollY < 0.0f) ? rollY *= -1.0f : rollY;
     
 //    float offsetYaw = 0;//-(M_PI/4);
     
     //• could also just have all translations here....everyting coming in is 0..1
     
     float xoff = ((self.cueModel.offset_x * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
+    float yoff = ((self.cueModel.offset_y * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
 
-    float dyaw = yawf + xoff + 1.8;
+    // add the offsets
+    yawX = yawX + xoff + 1.8;
+    rollY = rollY + yoff;
     
-    if(dyaw >= M_PI){
-        dyaw -= M_PI*2;
+    // check bourndries
+    if(yawX >= M_PI){
+        yawX -= M_PI*2;
     }
     
-    yawf = (dyaw / (2.0 * M_PI)) * xs;
-    roll = (-roll / (2.0 * M_PI)) * ys;
+    //• droll boundry check not done
     
     
-    float offsetx = (xpers * 0.5f * ([self.cueModel zoom] - 1.0));
-    float offsety = (ypers * 0.5f * ([self.cueModel zoom] - 1.0));//-60.0f
-    xpers = offsetx - (yawf * xpers);
-    ypers = offsety + (roll * ypers) + (ypers * 0.25f * ys);
-//    DLog(@"%f :%f",self.offset,ypers);
+    // scale (ie. how much do we actually move)
+    yawX = (yawX / (2.0 * M_PI)) * xs;
+    rollY = (-rollY / (2.0 * M_PI)) * ys;
+    
+    // scale again for zoom
+    float zoomX = (xpers * 0.5f * ([self.cueModel zoom] - 1.0));
+    float zoomY = (ypers * 0.5f * ([self.cueModel zoom] - 1.0));//-60.0f
+
+    // put it all together
+    xpers = zoomX - (yawX * xpers);
+    ypers = zoomY + (rollY * ypers) + (ypers * 0.25f * ys);
+
+    DLog(@"%f :%f",xpers,ypers);
     
     [self.scrollView setContentOffset:(CGPoint){xpers,ypers} animated:NO];
     

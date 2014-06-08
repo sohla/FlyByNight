@@ -73,6 +73,11 @@
         SOFloatPropViewController *propVC = [[SOFloatPropViewController alloc] initWithNibName:@"SOFloatPropViewController"
                                                                                      withTitle:propName
                                                                                        atPoint:(CGPoint){0.0f,100.0f + (90.0f * idx )}];
+
+        
+        NSNumber *val= [self.cueModel valueForKey:propName];
+        [propVC setValue:[val floatValue]];
+        
         [propVC setValueDidChangeBlock:^float(float val) {
 
             [self.cueModel setValue:[NSNumber numberWithFloat:val] forKey:propName];
@@ -121,6 +126,8 @@ y = (x + 180.0) / (180.0 * 2.0)
                          [self.view removeFromSuperview];
                          [self removeFromParentViewController];
                          
+                         [[NSNotificationCenter defaultCenter] postNotificationName:kEditModeOff object:nil];
+
                      }];
 }
 

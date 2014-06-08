@@ -24,5 +24,5 @@ typedef float (^ValueChangeBlock)(float val);
 - (id)initWithNibName:(NSString *)nibNameOrNil withTitle:(NSString*)title atPoint:(CGPoint)pnt;
 
 -(void)setValueDidChangeBlock:(ValueChangeBlock)block;
-
+-(void)setValue:(float)value;
 @end

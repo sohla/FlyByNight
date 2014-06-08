@@ -50,7 +50,7 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     //motion
-    [self setupMotionManager];
+    [self addDisplayLink];
 
     [self addObservers];
 
@@ -99,7 +99,7 @@
     
     [self removeObservers];
     
-    [self closeMotionManager];
+    [self removeDisplayLink];
 
 //    [self.screenViewControllers removeAllObjects];
 //    self.screenViewControllers = nil;
@@ -119,7 +119,7 @@
 
 #pragma mark - Motion Manager
 
--(void)setupMotionManager{
+-(void)addDisplayLink{
     
     if(self.displayLink==nil){
         self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(onDisplayLink:)];
@@ -128,7 +128,7 @@
 
 }
 
--(void)closeMotionManager{
+-(void)removeDisplayLink{
 
     
     if(self.displayLink!=nil)
@@ -249,12 +249,19 @@
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj play];
     }];
+    
+    [self addDisplayLink];
 }
 -(void)onEditModeOn:(NSNotification *)notification{
 
 
+    [self removeDisplayLink];
+    
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj pause];
+        
+        SOScreenViewController *svc = (SOScreenViewController*)obj;
+        [svc pause];
+        [svc fadeIn:0.1];
     }];
 
     SOPropertiesViewController *props = [[SOPropertiesViewController alloc] initWithNibName:@"SOPropertiesViewController" bundle:nil];
@@ -282,53 +289,7 @@
     [self.navigationController popViewControllerAnimated:NO];
     
 }
-//-(void)onOffsetChanged:(NSNotification *)notification{
-//    
-//    UISlider *slider = (UISlider*)[notification object];
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [(SOScreenViewController*)obj resetOffsetX:[slider value]];
-//    }];
-//    
-//}
-//
-//-(void)onZoomChanged:(NSNotification *)notification{
-//    
-//    UISlider *slider = (UISlider*)[notification object];//0..1
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [(SOScreenViewController*)obj resetZoomAt:[slider value]];
-//    }];
-//
-//    
-//}
-//-(void)onIsScrolling:(NSNotification *)notification{
-//    
-//    UISwitch *swich = (UISwitch*)[notification object];
-//    
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [(SOScreenViewController*)obj setIsScrolling:[swich isOn]];
-//    }];
-//
-//    
-//}
-//
-//-(void)onZoomReset:(NSNotification *)notification{
-//
-//    float z = 0;
-//    UISwitch *swch = (UISwitch*)[notification object];
-//    
-//    if([swch isOn]){
-//        z = 2.0f;
-//    }else{
-//        z = 1.0f;
-//    }
-//    
-//    //do we reset motion manager?
-//    //[[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
-//
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [(SOScreenViewController*)obj resetZoomAt:z];
-//    }];
-//}
+
 -(void)onMotionManagerReset:(NSNotification *)notification{
     [[SOMotionManager sharedManager] reset];
 }
@@ -364,27 +325,20 @@
 - (void)onDisplayLink:(id)sender {
     
     float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
-//    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
     float yawf = [[SOMotionManager sharedManager] valueForKey:@"yaw"];
+
+//    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
 //    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
 
     [self.transport updateAttitudeWithRoll:roll andYaw:yawf];
     
+    // hack for picking a current svc by where it's scrollview is positioned
     float threshold = 100.0f;
-
     self.selectedCueModel = nil;
 
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         
         SOScreenViewController *svc = (SOScreenViewController*)obj;
-
-//        [svc scrollTo:(CGPoint){yawf,roll}];
-        
-//• for now
-//        [svc resetZoomAt:[[svc getCueModel] zoom]];
-        
-        
-        // hack for picking a current svc by where it's scrollview is positioned
         CGRect vr = [svc visibleFrame];
         
         if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
@@ -395,7 +349,6 @@
         }
     
     }];
-
     
     if(self.selectedCueModel != nil){
         [[_transport selectedLabel] setText:[self.selectedCueModel title]];
