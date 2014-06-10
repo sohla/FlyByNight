@@ -23,7 +23,7 @@
 }
 
 +(NSNumber*)zoom:(NSNumber*)val{
-    return [NSNumber numberWithFloat:0.5 + ([val floatValue] * 1.5f)];
+    return [NSNumber numberWithFloat:1.0 + ([val floatValue])];
 }
 +(NSNumber*)offset_x:(NSNumber*)val{
     return [NSNumber numberWithFloat:(([val floatValue] * 2.0f) - 1.0f) * M_PI];

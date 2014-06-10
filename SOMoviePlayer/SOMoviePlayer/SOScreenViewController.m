@@ -7,6 +7,7 @@
 //
 
 #import "SOScreenViewController.h"
+#import "SOFloatTransformer.h"
 
 @interface SOScreenViewController ()
 
@@ -389,7 +390,8 @@
 
 -(void)zoomTo:(float)zoom{
     
-    float z = 0.5 + (zoom * 1.5f); // 0.5..2.0
+    NSNumber *zn = [SOFloatTransformer transformValue:[NSNumber numberWithFloat:zoom] valWithPropName:@"zoom"];
+    float z = [zn floatValue];
     
     SOScreenView *screenView = (SOScreenView*)[self.scrollView viewWithTag:999];
     
@@ -411,23 +413,26 @@
     float xpers = self.view.frame.size.width;
     float ypers = self.view.frame.size.height;
     
-    //            NSNumber *uiVal = [SOFloatTransformer transformValue:[NSNumber numberWithFloat:val] valWithPropName:propName];
+    float scroll_dx = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.scroll_dx]
+                                     valWithPropName:@"scroll_dx"] floatValue];
+    float scroll_dy = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.scroll_dy]
+                                   valWithPropName:@"scroll_dy"] floatValue];
 
-    float xs = M_PI * [self.cueModel scroll_dx];
-    float ys = M_PI * [self.cueModel scroll_dy];
+    float offset_x = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.offset_x]
+                                     valWithPropName:@"offset_x"] floatValue];
+    float offset_y = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.offset_y]
+                                     valWithPropName:@"offset_y"] floatValue];
+    
+    float zoom = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.zoom]
+                                     valWithPropName:@"zoom"] floatValue];
+
     
     (rollY < 0.0f) ? rollY *= -1.0f : rollY;
     
-//    float offsetYaw = 0;//-(M_PI/4);
-    
-    //• could also just have all translations here....everyting coming in is 0..1
-    
-    float xoff = ((self.cueModel.offset_x * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
-    float yoff = ((self.cueModel.offset_y * 2.0f) - 1.0f) * M_PI;// -M_PI..M_PI
 
     // add the offsets
-    yawX = yawX + xoff + 1.8;
-    rollY = rollY + yoff;
+    yawX = yawX + offset_x;
+    rollY = rollY + offset_y;
     
     // check bourndries
     if(yawX >= M_PI){
@@ -438,16 +443,17 @@
     
     
     // scale (ie. how much do we actually move)
-    yawX = (yawX / (2.0 * M_PI)) * xs;
-    rollY = (-rollY / (2.0 * M_PI)) * ys;
+    yawX = (yawX / (2.0 * M_PI)) * scroll_dx;
+    rollY = (-rollY / (2.0 * M_PI)) * scroll_dy;
     
+
     // scale again for zoom
-    float zoomX = (xpers * 0.5f * ([self.cueModel zoom] - 1.0));
-    float zoomY = (ypers * 0.5f * ([self.cueModel zoom] - 1.0));//-60.0f
+    float zoomX = (xpers * 0.5f * (zoom - 1.0));
+    float zoomY = (ypers * 0.5f * (zoom - 1.0));//-60.0f
 
     // put it all together
     xpers = zoomX - (yawX * xpers);
-    ypers = zoomY + (rollY * ypers) + (ypers * 0.25f * ys);
+    ypers = zoomY + (rollY * ypers) + (ypers * 0.25f * scroll_dy);
 
 //    DLog(@"%f :%f",xpers,ypers);
     
