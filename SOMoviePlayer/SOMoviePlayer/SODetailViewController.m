@@ -162,6 +162,9 @@
         [(SOScreenViewController*)obj scrollTo:(CGPoint){0.0,M_PI_2}];
     }];
 
+    
+    self.transport.movieLabel.text = [url lastPathComponent];
+    
     [self.view bringSubviewToFront:self.transport.view];
 }
 

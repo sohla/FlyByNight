@@ -10,5 +10,6 @@
 #import "SONotifications.h"
 
 @interface SOScreenTransport : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *movieLabel;
 
 @end
