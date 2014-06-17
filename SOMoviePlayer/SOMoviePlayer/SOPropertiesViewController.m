@@ -72,6 +72,8 @@
                                                                                      withTitle:propName
                                                                                        atPoint:(CGPoint){0.0f,100.0f + (70.0f * idx )}];
 
+        
+//        propVC.view.bounds = self.view.bounds;
         // set the ui
         NSNumber *val= [self.cueModel valueForKey:propName];
         [propVC setValue:[val floatValue]];
