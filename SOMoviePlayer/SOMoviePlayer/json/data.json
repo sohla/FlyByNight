@@ -2,19 +2,22 @@
     
     "cues" : [{
         "title"    : "drinking tap",
-        "path"     : "checkTest.mov",
+        "path"     : "testsig.m4v",
         "type"      : "movie",
         
         
-        "zoom"      : 0.713,
+        "zoom"      : 0.3465,
         "offset_x"      : 0.5,
-        "offset_y"      : 0.5,
+        "offset_y"      : 0.75,
 
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,
         
-        "pre_time"       : 1000.0,
+              "pre_time"       : 1000.0,
+              "fadein_time"       : 2,
+              "fadeout_time"       : 0.1,
 
+              
         
         "targets"          : [
         
@@ -36,6 +39,8 @@
         "scroll_dy"      : 1.0,
 
         "pre_time"       : 1000.0,
+              "fadein_time"       : 1.0,
+              "fadeout_time"       : 1.0,
 
 
         "targets"          : [
@@ -55,6 +60,8 @@
         "scroll_dy"      : 1.0,
 
         "pre_time"       : 1000.0,
+              "fadein_time"       : 1.0,
+              "fadeout_time"       : 1.0,
 
 
         "targets"          : [

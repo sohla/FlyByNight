@@ -34,10 +34,7 @@
 -(void)jumpBack:(float)secs;
 -(void)jumpForward:(float)secs;
 
--(void)scrollTo:(CGPoint)pnt;
 
--(void)fadeIn:(float)ms;
--(void)fadeOut:(float)ms;
 
 -(CGRect)visibleFrame;
 

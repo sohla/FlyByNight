@@ -27,8 +27,11 @@
 @property (assign, nonatomic) float scroll_dy;
 
 @property (assign, nonatomic) float pre_time;
+@property (assign, nonatomic) float fadein_time;
+@property (assign, nonatomic) float fadeout_time;
 
 @property (strong, nonatomic) NSArray *targets;
+
 
 
 @end

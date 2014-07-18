@@ -11,6 +11,8 @@
 
 @interface SOScreenViewController ()
 
+
+
 @property (strong,nonatomic) AVPlayer *avPlayer;
 @property (strong, nonatomic) AVPlayerLayer *playerLayer;
 
@@ -23,6 +25,11 @@
 @property (assign, nonatomic) SOCueModel *cueModel;
 
 @property (strong, nonatomic) CADisplayLink             *displayLink;
+
+
+-(void)fadeIn:(float)seconds;
+-(void)fadeOut:(float)seconds;
+-(void)scrollTo:(CGPoint)pnt;
 
 
 @end
@@ -117,7 +124,8 @@
         [self buildPlayerWithURL:url];
     }
     
-    
+    [self scrollTo:(CGPoint){0.0,M_PI_2}];
+
     
 }
 
@@ -145,7 +153,9 @@
     [screenView.layer addSublayer:self.playerLayer];
     screenView.alpha = 0.1;
     [self.avPlayer setVolume:0.0f];
-    [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];//loop
+
+    //loop
+    [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
 
     
     // observe and notify
@@ -217,12 +227,12 @@
     [self.avPlayer seekToTime:newTime];
 }
 
--(void)fadeIn:(float)ms{
+-(void)fadeIn:(float)seconds{
 
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
     sv.alpha = 0.0f;
 
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:seconds animations:^{
 
         sv.alpha = 1.0f;
         
@@ -233,12 +243,12 @@
     
 }
 
--(void)fadeOut:(float)ms{
+-(void)fadeOut:(float)seconds{
     
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
     sv.alpha = 1.0f;
     
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:seconds animations:^{
         
         sv.alpha = 0.0f;
         
@@ -272,16 +282,23 @@
                                                                                [sv setProgress:progress];
                                                                            }
                                                                        }
+                                                                       
+                                                                       //• chcek where we are
+                                                                       //• call stradegy to change state
+                                                                       //• states :
+                                                                       //• init,fadein,play,fadeout
+                                                                       //• 
+                                                            
                                                                    }];
 
 
 
     // place a boundry observer to do a fade out
-    float fadeTime = 1000.0f;
+    float fadeTime = self.cueModel.fadeout_time * 1000.0f;
     float fadeValue = (totalTime * 1000.0f) - fadeTime;
     NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMake(fadeValue,1000)]];
     self.fadeOutObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeOutFime queue:NULL usingBlock:^(){
-        [weakSelf fadeOut:1.0f];
+        [weakSelf fadeOut:weakSelf.cueModel.fadeout_time];
     }];
     
 }
@@ -342,7 +359,7 @@
 //    [self.delegate onScreenViewPlayerDidEnd:self];
 
 
-    [self fadeIn:1.0f];
+    [self fadeIn:self.cueModel.fadein_time];
 
     // lets loop movie for now
     AVPlayerItem *p = [notification object];

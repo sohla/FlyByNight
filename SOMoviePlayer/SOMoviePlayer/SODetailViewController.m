@@ -152,9 +152,9 @@
     [self.view addSubview:svc.view];
     
     
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj scrollTo:(CGPoint){0.0,M_PI_2}];
-    }];
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj scrollTo:(CGPoint){0.0,M_PI_2}];
+//    }];
 
     [self.view bringSubviewToFront:self.transport.view];
 }
@@ -261,7 +261,6 @@
         
         SOScreenViewController *svc = (SOScreenViewController*)obj;
         [svc pause];
-        [svc fadeIn:0.1];
     }];
 
     SOPropertiesViewController *props = [[SOPropertiesViewController alloc] initWithNibName:@"SOPropertiesViewController" bundle:nil];

@@ -54,9 +54,6 @@
   
     _modelStore = [[SOModelStore alloc] init];
 
-    
-    
-    
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
 //    [self.modelStore loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
 //        
@@ -236,7 +233,6 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         
-        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
         [[segue destinationViewController] addScreenWithCue:cueModel];
@@ -246,7 +242,6 @@
 //
 //        cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 2];
 //        [[segue destinationViewController] addScreenWithCue:cueModel];
-
 
     }
 }
@@ -264,7 +259,6 @@
                                     
                                     [group enumerateAssetsUsingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
                                         
-                                        
                                         if (alAsset){
                                             ALAssetRepresentation *representation =[alAsset defaultRepresentation];
                                             NSURL *url = [representation url];
@@ -277,8 +271,6 @@
                               failureBlock:^(NSError *error){
                                   
                               }];
-    
-    
 }
 
 

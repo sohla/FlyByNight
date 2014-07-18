@@ -1,5 +1,11 @@
 {
     
+    
+    
+    
+    
+    
+    
     "transformers" : {
         
         "zoom"          : "0.5 + (val * 1.5f)",
