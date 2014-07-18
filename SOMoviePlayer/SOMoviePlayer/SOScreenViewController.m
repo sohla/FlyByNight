@@ -164,7 +164,7 @@
 
     [screenView.layer addSublayer:self.playerLayer];
 //    screenView.alpha = 0.1;
-    [self.avPlayer setVolume:0.0f];
+//    [self.avPlayer setVolume:0.0f];
     
 
     //loop
