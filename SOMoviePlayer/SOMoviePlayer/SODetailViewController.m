@@ -166,7 +166,12 @@
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
     DLog(@"");
     
+    [self cleanup];
+    [self.navigationController popViewControllerAnimated:NO];
+    
+    
 }
+
 
 #pragma mark - Setup
 

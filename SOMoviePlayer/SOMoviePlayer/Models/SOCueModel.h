@@ -30,6 +30,7 @@
 @property (assign, nonatomic) float fadein_time;
 @property (assign, nonatomic) float fadeout_time;
 
+
 @property (strong, nonatomic) NSArray *targets;
 
 

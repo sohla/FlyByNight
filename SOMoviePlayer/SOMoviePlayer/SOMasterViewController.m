@@ -141,7 +141,16 @@
 												 name:kEditModeOff
 											   object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onTransportBack:)
+												 name:kTransportBack
+											   object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onTransportForward:)
+												 name:kTransportForward
+											   object:nil];
+   
     
 }
 -(void)removeObservers{
@@ -150,8 +159,21 @@
                                                     name:kEditModeOff
                                                   object:nil];
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kTransportForward
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kTransportBack
+                                                  object:nil];
 }
 
+-(void)onTransportForward:(NSNotification *)notification{
+    
+
+}
+-(void)onTransportBack:(NSNotification *)notification{
+}
 
 -(void)onEditModeOff:(NSNotification *)notification{
     

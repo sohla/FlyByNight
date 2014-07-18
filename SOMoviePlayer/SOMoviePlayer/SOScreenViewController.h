@@ -26,17 +26,19 @@
 -(void)setCueModel:(SOCueModel*)cueModel;
 -(SOCueModel*)getCueModel;
 
--(void)destroyPlayer;
 
+
+-(void)begin;
 -(void)play;
 -(void)pause;
 
 -(void)jumpBack:(float)secs;
 -(void)jumpForward:(float)secs;
 
-
-
 -(CGRect)visibleFrame;
 
 -(void)setViewIsSelected:(BOOL)selected;
+
+
+
 @end
