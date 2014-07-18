@@ -2,7 +2,7 @@
     
     "cues" : [{
         "title"    : "drinking tap",
-        "path"     : "FBN CLIP 03_converted.m4v",
+        "path"     : "testsig.m4v",
         "type"      : "movie",
         
         
@@ -16,15 +16,9 @@
           "pre_time"       : 1000.0,
           "fadein_time"       : 2,
           "fadeout_time"       : 0.1,
+
               
-        
-        "targets"          : [
-        
-                           "another cue",
-                           "and one more cue"
-        
-                            ]
-              },{
+        },{
 
         "title"         : "another cue",
         "path"     : "burstTest.mov",
@@ -41,9 +35,6 @@
               "fadein_time"       : 1.0,
               "fadeout_time"       : 1.0,
 
-
-        "targets"          : [
-                            ]
 
               },{
 
@@ -62,10 +53,6 @@
               "fadein_time"       : 1.0,
               "fadeout_time"       : 1.0,
 
-
-        "targets"          : [
-
-                            ]
 
               }]
     

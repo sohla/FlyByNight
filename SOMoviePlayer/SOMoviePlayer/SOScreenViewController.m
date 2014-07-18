@@ -365,6 +365,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:AVPlayerItemDidPlayToEndTimeNotification
                                                   object:[self.avPlayer currentItem]];
+
+    
     [self.delegate onScreenViewPlayerDidEnd:self];
 
 
