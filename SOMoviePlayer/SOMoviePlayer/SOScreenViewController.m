@@ -144,7 +144,7 @@
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
     [screenView setTag:999];
-    [screenView setAlpha:0.0f];
+    //[screenView setAlpha:0.0f];
     
     [self.scrollView addSubview:screenView];
 
@@ -161,7 +161,7 @@
     [self.avPlayer setVolume:0.0f];
 
     //loop
-    [self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
+    //[self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
 
     
     // observe and notify
@@ -257,14 +257,12 @@
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
     sv.alpha = 1.0f;
     
-    [UIView animateWithDuration:seconds animations:^{
-        
-        sv.alpha = 0.0f;
-        
-    } completion:^(BOOL finished) {
-        
-        
-    }];
+    if(seconds > 0.0){
+        [UIView animateWithDuration:seconds animations:^{
+            sv.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+        }];
+    }
     
 }
 #pragma mark - Player Observers
@@ -361,21 +359,25 @@
 
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification{
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:AVPlayerItemDidPlayToEndTimeNotification
-                                                  object:[self.avPlayer currentItem]];
 
-    
-    [self.delegate onScreenViewPlayerDidEnd:self];
+       // [self fadeIn:0.0];
+//   [self.avPlayer seekToTime:[self.avPlayer.currentItem duration]];
+//    [self.avPlayer pause];
 
-
-//    [self fadeIn:self.cueModel.fadein_time];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                    name:AVPlayerItemDidPlayToEndTimeNotification
+//                                                  object:[self.avPlayer currentItem]];
 //
-//    // lets loop movie for now
-//    AVPlayerItem *p = [notification object];
-//    [p seekToTime:kCMTimeZero];
-//    [self.avPlayer play];
+//    
+//    [self.delegate onScreenViewPlayerDidEnd:self];
+
+
+    [self fadeIn:self.cueModel.fadein_time];
+
+    // lets loop movie for now
+    AVPlayerItem *p = [notification object];
+    [p seekToTime:kCMTimeZero];
+    [self.avPlayer play];
 
     
 }

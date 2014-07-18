@@ -49,9 +49,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="Ah7-4n-0Wa" kind="push" identifier="showDetail" id="jUr-3t-vfg"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -75,7 +72,7 @@
         <!--Detail View Controller - Detail-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
-                <viewController title="Detail" id="Ah7-4n-0Wa" customClass="SODetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailViewController" title="Detail" id="Ah7-4n-0Wa" customClass="SODetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="37n-So-LnE"/>
                         <viewControllerLayoutGuide type="bottom" id="Cth-oy-7YV"/>

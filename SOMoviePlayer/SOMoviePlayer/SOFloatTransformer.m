@@ -5,7 +5,8 @@
 //  Created by Stephen OHara on 8/06/2014.
 //  Copyright (c) 2014 Stephen OHara. All rights reserved.
 //
-
+//0.3565
+//0.713
 #import "SOFloatTransformer.h"
 
 @implementation SOFloatTransformer
@@ -16,7 +17,12 @@
     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    NSNumber *uiVal = [[SOFloatTransformer class] performSelector:sel withObject:val];
+    NSNumber *uiVal = 0;
+    if([SOFloatTransformer respondsToSelector:sel]){
+        uiVal = [[SOFloatTransformer class] performSelector:sel withObject:val];
+        
+    }
+    
 #pragma clang diagnostic pop
 
     return uiVal;

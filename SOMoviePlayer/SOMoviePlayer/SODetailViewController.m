@@ -142,6 +142,7 @@
 
 -(void)addScreenWithCue:(SOCueModel*)cueModel{
 
+    
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
     [svc setDelegate:self];
     [svc setCueModel:cueModel];
@@ -166,8 +167,8 @@
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
     DLog(@"");
     
-    [self cleanup];
-    [self.navigationController popViewControllerAnimated:NO];
+//    [self cleanup];
+//    [self.navigationController popViewControllerAnimated:NO];
     
     
 }
@@ -291,6 +292,8 @@
     
     [self cleanup];
     [self.navigationController popViewControllerAnimated:NO];
+    
+ //   [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 

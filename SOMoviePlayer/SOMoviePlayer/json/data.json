@@ -7,15 +7,15 @@
         
         
         "zoom"      : 0.3065,
-        "offset_x"      : 0.5,
-        "offset_y"      : 0.75,
+        "offset_x"      : 0.65,
+        "offset_y"      : 0.5,
 
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,
         
           "pre_time"       : 1000.0,
           "fadein_time"       : 2,
-          "fadeout_time"       : 0.1,
+          "fadeout_time"       : 0.5,
 
               
         },{
@@ -24,9 +24,9 @@
         "path"     : "burstTest.mov",
         "type"      : "movie",
 
-              "zoom"      : 0.713,
-        "offset_x"      : 0.5,
-        "offset_y"      : 0.75,
+              "zoom"      : 0.3065,
+        "offset_x"      : 0.45,
+        "offset_y"      : 0.5,
 
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,

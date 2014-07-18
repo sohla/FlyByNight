@@ -251,22 +251,47 @@
 }
 */
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
-        [[segue destinationViewController] addScreenWithCue:cueModel];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-//        cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 1];
+    __block SODetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"detailViewController"];
+
+    __block SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
+    [controller addScreenWithCue:cueModel];
+
+    [self.navigationController pushViewController:controller animated:YES];
+
+
+    __weak SOMasterViewController *weakSelf = self;
+//    cueModel = [weakSelf.modelStore cueModelAtIndex:[indexPath row] + 1];
+//    [controller addScreenWithCue:cueModel];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        cueModel = [weakSelf.modelStore cueModelAtIndex:[indexPath row] + 1];
+        [controller addScreenWithCue:cueModel];
+    });
+
+}
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+//        
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        __block SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
 //        [[segue destinationViewController] addScreenWithCue:cueModel];
 //
-//        cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 2];
-//        [[segue destinationViewController] addScreenWithCue:cueModel];
-
-    }
-}
+//        
+////        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+////            cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 1];
+////            [[segue destinationViewController] addScreenWithCue:cueModel];
+////        });
+//
+////
+////        cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 2];
+////        [[segue destinationViewController] addScreenWithCue:cueModel];
+//
+//    }
+//}
 
 -(void)collectAssetsWithCompletionBlock:(void(^)(NSArray*))completionBlock{
     
