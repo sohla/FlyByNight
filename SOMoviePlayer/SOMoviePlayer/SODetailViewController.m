@@ -47,7 +47,7 @@
     
     _screenViewControllers = [[NSMutableDictionary alloc] init];
     
-    [self.view setBackgroundColor:[UIColor blackColor]];
+    [self.view setBackgroundColor:[UIColor darkGrayColor]];
     
     //motion
     [self addDisplayLink];
@@ -149,7 +149,7 @@
 
     
     [self.screenViewControllers setObject:svc forKey:[cueModel title]];
-    svc.view.alpha = 0.5f;
+
     [self.view addSubview:svc.view];
     
     

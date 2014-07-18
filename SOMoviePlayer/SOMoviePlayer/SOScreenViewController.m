@@ -47,21 +47,20 @@
 
         
 //        self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
-//        DLog(@"%f",self.offset);
-        CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                      frame.size.height,
-                                      frame.size.width);
+        DLog(@"w:%f h:%f",frame.size.width,frame.size.height);
 
-        _scrollView = [[UIScrollView alloc] initWithFrame:fullFrame];
-        [self.view addSubview:self.scrollView];
+        float w = 568.0f;
+        float h = 320.0f;
         
-        CGRect contentFrame = CGRectMake(0.0, 0.0,
-                                    frame.size.height * 2.0f,
-                                    frame.size.width * 2.0f);
+        CGRect fullFrame = CGRectMake(0.0, 0.0,w,h);
+
+        _scrollView = [[UIScrollView alloc] initWithFrame:frame];
+        [self.view addSubview:self.scrollView];
+        CGRect contentFrame = CGRectMake(0.0, 0.0,w * 2.0f,h * 2.0f);
 
         [self.scrollView setContentSize:contentFrame.size];
         [self.scrollView setContentOffset:self.scrollView.center animated:NO];
-        [self.scrollView setBackgroundColor:[UIColor darkGrayColor]];
+        [self.scrollView setBackgroundColor:[UIColor clearColor]];
         [self.scrollView setScrollEnabled:NO];
         
         [self addDisplayLink];
@@ -137,9 +136,12 @@
 
 -(void)buildPlayerWithURL:(NSURL*)url {
     
+    float w = 568.0f;
+    float h = 320.0f;
+
     CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                    self.view.bounds.size.height * [self.cueModel zoom],
-                                    self.view.bounds.size.width * [self.cueModel zoom]);
+                                    h * [self.cueModel zoom],
+                                    w * [self.cueModel zoom]);
 
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
@@ -156,7 +158,7 @@
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     [self.playerLayer setFrame:fullFrame];
 //    self.playerLayer.opacity = 0.3f;
-    [screenView.layer addSublayer:self.playerLayer];
+//    [screenView.layer addSublayer:self.playerLayer];
     screenView.alpha = 0.1;
     [self.avPlayer setVolume:0.0f];
 
@@ -425,9 +427,10 @@
     
     SOScreenView *screenView = (SOScreenView*)[self.scrollView viewWithTag:999];
     
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.bounds.size.width * z,
-                                  self.view.bounds.size.height * z);
+    float w = 568.0f;
+    float h = 320.0f;
+
+    CGRect fullFrame = CGRectMake(0.0, 0.0,w * z,h * z);
     
     [screenView setFrame:fullFrame];//•not working?
     
@@ -440,9 +443,9 @@
 //    DLog(@"%f %f",pnt.x,pnt.y);
     float yawX = pnt.x;
     float rollY = pnt.y;
-    float xpers = self.view.frame.size.width;
-    float ypers = self.view.frame.size.height;
-    
+    float xpers = 568.0f;
+    float ypers = 320.0f;
+
     float scroll_dx = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.scroll_dx]
                                      valWithPropName:@"scroll_dx"] floatValue];
     float scroll_dy = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.scroll_dy]

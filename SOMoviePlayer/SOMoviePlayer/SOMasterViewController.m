@@ -131,6 +131,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft );
+}
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight ;
+}
+-(BOOL)shouldAutorotate{
+    return YES;
+}
+
 #pragma mark - Notifications
 
 -(void)addObservers{
@@ -256,7 +271,7 @@
     __block SODetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"detailViewController"];
 
     __block SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
-    [controller addScreenWithCue:cueModel];
+   // [controller addScreenWithCue:cueModel];
 
     [self.navigationController pushViewController:controller animated:YES];
 
@@ -266,7 +281,11 @@
 //    [controller addScreenWithCue:cueModel];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        cueModel = [weakSelf.modelStore cueModelAtIndex:[indexPath row] + 1];
+        [controller addScreenWithCue:cueModel];
+    });
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        cueModel = [weakSelf.modelStore cueModelAtIndex:[indexPath row]  + 1 ];
         [controller addScreenWithCue:cueModel];
     });
 
