@@ -132,19 +132,19 @@
 }
 
 
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft );
-}
-
--(NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight ;
-}
--(BOOL)shouldAutorotate{
-    return YES;
-}
+//// Override to allow orientations other than the default portrait orientation.
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+//    // Return YES for supported orientations
+//    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft );
+//}
+//
+//-(NSUInteger)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight ;
+//}
+//-(BOOL)shouldAutorotate{
+//    return YES;
+//}
 
 #pragma mark - Notifications
 
@@ -284,7 +284,7 @@
         [controller addScreenWithCue:cueModel];
     });
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 4 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         cueModel = [weakSelf.modelStore cueModelAtIndex:[indexPath row]  + 1 ];
         [controller addScreenWithCue:cueModel];
     });

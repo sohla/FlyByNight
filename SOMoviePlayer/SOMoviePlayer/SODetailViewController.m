@@ -19,7 +19,7 @@
 
 
 
-@property (strong, nonatomic) CADisplayLink             *displayLink;
+@property (assign, nonatomic) CADisplayLink             *displayLink;
 @property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
 @property (strong, nonatomic) SOScreenTransport         *transport;
@@ -99,7 +99,7 @@
     
     [self removeObservers];
     
-    [self removeDisplayLink];
+//    [self removeDisplayLink];
 
 //    [self.screenViewControllers removeAllObjects];
 //    self.screenViewControllers = nil;

@@ -52,8 +52,6 @@
         float w = 568.0f;
         float h = 320.0f;
         
-        CGRect fullFrame = CGRectMake(0.0, 0.0,w,h);
-
         _scrollView = [[UIScrollView alloc] initWithFrame:frame];
         [self.view addSubview:self.scrollView];
         CGRect contentFrame = CGRectMake(0.0, 0.0,w * 2.0f,h * 2.0f);
@@ -146,7 +144,6 @@
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
     [screenView setTag:999];
-    //[screenView setAlpha:0.0f];
     
     [self.scrollView addSubview:screenView];
 
@@ -156,11 +153,19 @@
     
     self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
+    
+//    [CATransaction begin];
+//    [CATransaction setAnimationDuration:0];
+//    [CATransaction setDisableActions:YES];
     [self.playerLayer setFrame:fullFrame];
-//    self.playerLayer.opacity = 0.3f;
-//    [screenView.layer addSublayer:self.playerLayer];
-    screenView.alpha = 0.1;
+//    [CATransaction commit];
+
+    
+
+    [screenView.layer addSublayer:self.playerLayer];
+//    screenView.alpha = 0.1;
     [self.avPlayer setVolume:0.0f];
+    
 
     //loop
     //[self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
@@ -331,6 +336,7 @@
                     
                     [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
                         
+                        
                         // let's add stuff
                         [self addPlayerObservers];
                         
@@ -434,7 +440,13 @@
     
     [screenView setFrame:fullFrame];//•not working?
     
+//    [CATransaction begin];
+//    [CATransaction setAnimationDuration:0];
+//    [CATransaction setDisableActions:YES];
     [self.playerLayer setFrame:fullFrame];
+//    [CATransaction commit];
+    
+
     
 }
 
