@@ -270,7 +270,7 @@
 
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [controller addScreenWithCue:cueModel];
+            [controller playCue:cueModel];
         });
 
     }];

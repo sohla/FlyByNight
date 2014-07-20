@@ -140,7 +140,7 @@
 
 
 
--(void)addScreenWithCue:(SOCueModel*)cueModel{
+-(void)playCue:(SOCueModel*)cueModel{
 
     
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
@@ -158,6 +158,16 @@
 //    }];
 
     [self.view bringSubviewToFront:self.transport.view];
+}
+-(void)stopCue:(SOCueModel*)cueModel{
+    
+    SOScreenViewController *svc = [self.screenViewControllers objectForKey:cueModel.title];
+    
+    if(svc){
+        [svc stopWithcompletionBlock:^{
+            
+        }];
+    }
 }
 
 #pragma mark - ScreenView Protocol
@@ -313,12 +323,11 @@
 }
 
 -(void)onTransportStop:(NSNotification *)notification{
+    
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        
         [(SOScreenViewController*)obj stopWithcompletionBlock:^{
             [self cleanup];
             [self.navigationController popViewControllerAnimated:NO];
-
         }];
     }];
     

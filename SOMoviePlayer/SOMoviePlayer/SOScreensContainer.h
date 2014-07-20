@@ -17,7 +17,8 @@
 
 @interface SOScreensContainer : UIViewController <SOScreenViewControllerProtocol>
 
--(void)addScreenWithCue:(SOCueModel*)cueModel;
+-(void)playCue:(SOCueModel*)cueModel;
+-(void)stopCue:(SOCueModel*)cueModel;
 
 
 @end
