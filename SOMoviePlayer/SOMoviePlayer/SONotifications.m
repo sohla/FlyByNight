@@ -17,6 +17,7 @@ NSString* const kMotionManagerReset = @"kMotionManagerReset";
 //NSString* const kIsScrolling = @"kIsScrolling";
 NSString* const kTransportBack = @"kTransportBack";
 NSString* const kTransportForward = @"kTransportForward";
+NSString* const kTransportStop = @"kTransportStop";
 NSString* const kEditModeOn = @"kEditModeOn";
 NSString* const kEditModeOff = @"kEditModeOff";
 

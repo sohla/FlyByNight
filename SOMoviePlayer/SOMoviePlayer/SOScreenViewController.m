@@ -27,8 +27,8 @@
 @property (strong, nonatomic) CADisplayLink             *displayLink;
 
 
--(void)fadeIn:(float)seconds;
--(void)fadeOut:(float)seconds;
+-(void)fadeIn:(float)seconds completionBlock:(void (^)()) block;
+-(void)fadeOut:(float)seconds completionBlock:(void (^)()) block;
 
 -(void)scrollTo:(CGPoint)pnt;
 
@@ -218,6 +218,14 @@
     [self.avPlayer pause];
 }
 
+-(void)stopWithcompletionBlock:(void (^)()) block{
+
+     [self fadeOut:0.5 completionBlock:^{
+        block();
+    }];
+
+}
+
 -(void)jumpBack:(float)secs{
     
     CMTime current = [self.avPlayer currentTime];
@@ -234,24 +242,21 @@
     [self.avPlayer seekToTime:newTime];
 }
 
--(void)fadeIn:(float)seconds{
+-(void)fadeIn:(float)seconds completionBlock:(void (^)()) block{
 
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
     sv.alpha = 0.0f;
 
     [UIView animateWithDuration:seconds animations:^{
-
         sv.alpha = 1.0f;
-        
     } completion:^(BOOL finished) {
-        
-        
+        if(block) block();
     }];
     
 }
 
--(void)fadeOut:(float)seconds{
-    
+-(void)fadeOut:(float)seconds completionBlock:(void (^)()) block{
+
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
     sv.alpha = 1.0f;
     
@@ -259,6 +264,7 @@
         [UIView animateWithDuration:seconds animations:^{
             sv.alpha = 0.0f;
         } completion:^(BOOL finished) {
+            if(block) block();
         }];
     }
     
@@ -306,7 +312,7 @@
         float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
                                              valWithPropName:@"fadeout_time"] floatValue];
 
-        [weakSelf fadeOut:fadeout_time];
+        [weakSelf fadeOut:fadeout_time completionBlock:nil];
     }];
     
 }
@@ -340,7 +346,7 @@
                         float fadein_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.fadein_time]
                                                                  valWithPropName:@"fadein_time"] floatValue];
 
-                        [self fadeIn:fadein_time];
+                        [self fadeIn:fadein_time completionBlock:nil];
                         
                         [self play];
                         
@@ -379,11 +385,14 @@
 //    
 //    [self.delegate onScreenViewPlayerDidEnd:self];
 
-    float fadein_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.fadein_time]
-                                            valWithPropName:@"fadein_time"] floatValue];
+    
+    
+//     float fadein_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.fadein_time]
+//                                            valWithPropName:@"fadein_time"] floatValue];
+//
+//    [self fadeIn:fadein_time];
 
-    [self fadeIn:fadein_time];
-
+    
     // lets loop movie for now
     AVPlayerItem *p = [notification object];
     [p seekToTime:kCMTimeZero];

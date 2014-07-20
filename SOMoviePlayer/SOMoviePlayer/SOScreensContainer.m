@@ -169,8 +169,8 @@
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
     DLog(@"");
     
-//    [self cleanup];
-//    [self.navigationController popViewControllerAnimated:NO];
+    //[self cleanup];
+    //[self.navigationController popViewControllerAnimated:NO];
     
     
 }
@@ -215,6 +215,11 @@
 											   object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onTransportStop:)
+												 name:kTransportStop
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onEditModeOn:)
 												 name:kEditModeOn
 											   object:nil];
@@ -235,6 +240,10 @@
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kTransportForward
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kTransportStop
                                                   object:nil];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -301,6 +310,18 @@
 
 -(void)onMotionManagerReset:(NSNotification *)notification{
     [[SOMotionManager sharedManager] reset];
+}
+
+-(void)onTransportStop:(NSNotification *)notification{
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        
+        [(SOScreenViewController*)obj stopWithcompletionBlock:^{
+            [self cleanup];
+            [self.navigationController popViewControllerAnimated:NO];
+
+        }];
+    }];
+    
 }
 
 -(void)onTransportForward:(NSNotification *)notification{
