@@ -18,13 +18,22 @@
                "action" : "post",
                "cues" : [ "another cue","and one more cue"]
                
-               }
+                 },{
+                 
+                 "minor" : 3,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "noise"]
+                 
+                 }
                
                
                ],
     
     
-    "cues" : [{
+    "cues" : [
+              
+              {
         "title"    : "drinking tap",
         "path"     : "FBN CLIP 03_converted.m4v",
         "type"      : "movie",
@@ -78,7 +87,29 @@
               "fadeout_time"       : 0.1
 
 
-              }]
+              
+              },{
+              
+              "title"    : "noise",
+              "path"     : "noiseTest.mov",
+              "type"      : "movie",
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.75,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              }
+
+              
+            ]
     
     
 }

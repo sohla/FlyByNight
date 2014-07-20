@@ -25,7 +25,7 @@
 
 @property (strong, nonatomic) SOScreenTransport         *transport;
 @property (weak, nonatomic) SOCueModel *selectedCueModel;
-@property (assign, nonatomic) int currentBeacon;
+@property (assign, nonatomic) SOBeaconModel *currentBeaconModel;
 
 
 
@@ -174,12 +174,12 @@
 
 #pragma mark - Beacon
 
--(void)triggerBeacon:(int)minor{
+-(void)triggerBeacon:(SOBeaconModel*)beaconModel{
     
-    self.currentBeacon = minor;
-    __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:minor];
+    self.currentBeaconModel = beaconModel;
+//    SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:minor];
     
-    [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [beaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
         
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
@@ -350,7 +350,7 @@
     
     
     
-    __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeacon];
+    __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor];
     
     [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
@@ -363,18 +363,10 @@
     }];
 
     
-    [self triggerBeacon:self.currentBeacon+1];
+   // [self.mod.beacons valueForKeyPath:@"minor"]
     
-//    __weak SOScreensContainer* weakSelf;
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [(SOScreenViewController*)obj stopWithcompletionBlock:^{
-////            [self cleanup];
-////            [self.navigationController popViewControllerAnimated:NO];
-//            
-//            [weakSelf triggerBeacon:self.currentBeacon+1];
-//            
-//        }];
-//    }];
+    [self triggerBeacon:[self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor + 1]];
+
     
 }
 

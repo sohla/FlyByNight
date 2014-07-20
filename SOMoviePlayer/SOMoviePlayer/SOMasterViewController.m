@@ -261,7 +261,7 @@
     [self.navigationController pushViewController:controller animated:YES];
 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [controller triggerBeacon:cell.textLabel.text.intValue];
+    [controller triggerBeacon:[self.modelStore beaconModelWithMinor:cell.textLabel.text.intValue]];
 }
 
 -(void)collectAssetsWithCompletionBlock:(void(^)(NSArray*))completionBlock{

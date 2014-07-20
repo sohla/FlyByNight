@@ -50,11 +50,11 @@
                 
                 [self saveLatest];
 
-//                DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"minor"]);
+                DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"minor"]);
             
 //                DLog(@"%@",[self beaconModelWithMinor:2]);
                 
-                DLog(@"%@",[self cueModelWithTitle:@"drinking tap"]);
+                //DLog(@"%@",[self cueModelWithTitle:@"drinking tap"]);
             }
             
         }];

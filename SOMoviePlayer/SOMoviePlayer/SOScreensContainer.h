@@ -23,7 +23,7 @@
 -(void)playCue:(SOCueModel*)cueModel;
 -(void)stopCue:(SOCueModel*)cueModel;
 
--(void)triggerBeacon:(int)minor;
+-(void)triggerBeacon:(SOBeaconModel*)beaconModel;
 
 
 @end
