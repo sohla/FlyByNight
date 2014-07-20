@@ -14,8 +14,12 @@
 @property (strong, nonatomic)   SOSessionModel *sessionModel;
 
 - (instancetype)init;
-
--(SOCueModel*)cueModelAtIndex:(int)index;
--(void)saveLatest;
 +(NSArray*)arrayOfFloatPropertiesForClass:(Class)c;
+
+-(void)saveLatest;
+
+-(SOBeaconModel*)beaconModelWithMinor:(int)minor;
+-(SOCueModel*)cueModelAtIndex:(int)index;
+-(SOCueModel*)cueModelWithTitle:(NSString*)title;
+
 @end

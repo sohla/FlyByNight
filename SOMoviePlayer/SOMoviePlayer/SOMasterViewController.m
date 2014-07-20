@@ -223,18 +223,18 @@
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.modelStore.sessionModel.cues.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.modelStore.sessionModel.beacons.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
 //    __block NSURL *url = self.movieFilePaths[indexPath.row] ;
@@ -247,7 +247,8 @@
 //        cell.imageView.image = [UIImage imageNamed:@"default.png"];
 //    }
     
-    cell.textLabel.text = [[self.modelStore cueModelAtIndex:indexPath.row] title];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d",[self.modelStore beaconModelWithMinor:indexPath.row+1].minor];
+    
     return cell;
 }
 
@@ -257,25 +258,20 @@
 
     __block SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
 
-    __block SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
-   // [controller addScreenWithCue:cueModel];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:cell.textLabel.text.intValue];
+    
+    [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, cueModel.pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [controller addScreenWithCue:cueModel];
+        });
+
+    }];
 
     [self.navigationController pushViewController:controller animated:YES];
-
-
-    __weak SOMasterViewController *weakSelf = self;
-//    cueModel = [weakSelf.modelStore cueModelAtIndex:[indexPath row] + 1];
-//    [controller addScreenWithCue:cueModel];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [controller addScreenWithCue:cueModel];
-    });
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 4 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        cueModel = [weakSelf.modelStore cueModelAtIndex:[indexPath row]  + 1 ];
-        [controller addScreenWithCue:cueModel];
-    });
-
 }
 
 -(void)collectAssetsWithCompletionBlock:(void(^)(NSArray*))completionBlock{
@@ -304,7 +300,5 @@
                                   
                               }];
 }
-
-
 
 @end

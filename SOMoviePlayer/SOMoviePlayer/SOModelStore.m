@@ -50,9 +50,13 @@
                 
                 [self saveLatest];
 
-                DLog(@"%@",[self.sessionModel.beacons valueForKeyPath:@"minor"]);
+//                DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"minor"]);
+            
+//                DLog(@"%@",[self beaconModelWithMinor:2]);
                 
+                DLog(@"%@",[self cueModelWithTitle:@"drinking tap"]);
             }
+            
         }];
         
         
@@ -77,6 +81,23 @@
         
     }
 
+}
+
+-(SOBeaconModel*)beaconModelWithMinor:(int)minor{
+    
+    NSArray *minors = [self.sessionModel.beacons   valueForKeyPath:@"minor"];
+    __block SOBeaconModel *beacon;
+    [minors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        if([obj integerValue] == minor){
+            beacon = self.sessionModel.beacons[idx];
+        }
+        
+    }];
+    
+    return beacon;
+    
+    
 }
 
 -(void)loadJSONCuesWithPath:(NSString*)path completionBlock:(void (^)(NSError *error)) block{
@@ -161,6 +182,24 @@
     NSString *jsonString = [self.sessionModel toJSONString];
     [jsonString writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
 
+}
+
+
+-(SOCueModel*)cueModelWithTitle:(NSString*)title{
+    
+  
+    __block SOCueModel *cueModel;
+    
+    [self.sessionModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+       
+        if([[obj title] isEqualToString:title]){
+            cueModel = obj;
+        }
+        
+    }];
+    
+    return cueModel;
+    
 }
 
 -(SOCueModel*)cueModelAtIndex:(int)index{
