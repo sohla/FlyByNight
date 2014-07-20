@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="459" y="64"/>
         </scene>
-        <!--Detail View Controller - Detail-->
+        <!--Screens Container - Detail-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
-                <viewController storyboardIdentifier="detailViewController" title="Detail" id="Ah7-4n-0Wa" customClass="SODetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailViewController" title="Detail" id="Ah7-4n-0Wa" customClass="SOScreensContainer" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="37n-So-LnE"/>
                         <viewControllerLayoutGuide type="bottom" id="Cth-oy-7YV"/>

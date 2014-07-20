@@ -29,7 +29,7 @@
 		F0AECCD618B171DB00263C32 /* SOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCD518B171DB00263C32 /* SOAppDelegate.m */; };
 		F0AECCD918B171DB00263C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCD718B171DB00263C32 /* Main.storyboard */; };
 		F0AECCDC18B171DB00263C32 /* SOMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */; };
-		F0AECCDF18B171DC00263C32 /* SODetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCDE18B171DC00263C32 /* SODetailViewController.m */; };
+		F0AECCDF18B171DC00263C32 /* SOScreensContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */; };
 		F0AECCE118B171DC00263C32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCE018B171DC00263C32 /* Images.xcassets */; };
 		F0AECCE818B171DC00263C32 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCE718B171DC00263C32 /* XCTest.framework */; };
 		F0AECCE918B171DC00263C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
@@ -175,8 +175,8 @@
 		F0AECCD818B171DB00263C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0AECCDA18B171DB00263C32 /* SOMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOMasterViewController.h; sourceTree = "<group>"; };
 		F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOMasterViewController.m; sourceTree = "<group>"; };
-		F0AECCDD18B171DB00263C32 /* SODetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SODetailViewController.h; sourceTree = "<group>"; };
-		F0AECCDE18B171DC00263C32 /* SODetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SODetailViewController.m; sourceTree = "<group>"; };
+		F0AECCDD18B171DB00263C32 /* SOScreensContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreensContainer.h; sourceTree = "<group>"; };
+		F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOScreensContainer.m; sourceTree = "<group>"; };
 		F0AECCE018B171DC00263C32 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SOMoviePlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCE718B171DC00263C32 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -398,15 +398,15 @@
 				F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */,
 				F0AECCDA18B171DB00263C32 /* SOMasterViewController.h */,
 				F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */,
-				F0AECCDD18B171DB00263C32 /* SODetailViewController.h */,
-				F0AECCDE18B171DC00263C32 /* SODetailViewController.m */,
+				F0AECCDD18B171DB00263C32 /* SOScreensContainer.h */,
+				F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */,
+				F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */,
 				F0FE740719206C36008B7E45 /* SOScreenViewController.h */,
 				F0FE740819206C36008B7E45 /* SOScreenViewController.m */,
 				F0FE7403191E3037008B7E45 /* SOScreenView.h */,
 				F0FE7404191E3037008B7E45 /* SOScreenView.m */,
 				F068CE911938065A009B9297 /* SOScreenTransport.h */,
 				F068CE921938065A009B9297 /* SOScreenTransport.m */,
-				F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */,
 				F0FD8487193DE95400F5DD2F /* SOPropertiesViewController.h */,
 				F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */,
 				F0FD848C193DFAEA00F5DD2F /* SOFloatPropViewController.h */,
@@ -812,7 +812,7 @@
 				F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */,
 				F0C2DEEF1939F51100EAB7F9 /* SOModelStore.m in Sources */,
 				F0C2DF171939FCBC00EAB7F9 /* JSONValueTransformer.m in Sources */,
-				F0AECCDF18B171DC00263C32 /* SODetailViewController.m in Sources */,
+				F0AECCDF18B171DC00263C32 /* SOScreensContainer.m in Sources */,
 				F0C2DF161939FCBC00EAB7F9 /* JSONKeyMapper.m in Sources */,
 				F0C2DF0F1939FCBC00EAB7F9 /* JSONModelArray.m in Sources */,
 			);

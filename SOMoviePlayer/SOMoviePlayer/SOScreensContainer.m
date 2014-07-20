@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Stephen OHara. All rights reserved.
 //
 
-#import "SODetailViewController.h"
+#import "SOScreensContainer.h"
 #import "SONotifications.h"
 #import "SOPropertiesViewController.h"
 #import "SOScreenViewController.h"
@@ -15,7 +15,7 @@
 // SOScreenViewManager
 //      has a bunch of screenviews
 
-@interface SODetailViewController ()
+@interface SOScreensContainer ()
 
 
 
@@ -33,7 +33,7 @@
 
 @end
 
-@implementation SODetailViewController
+@implementation SOScreensContainer
 
 
 

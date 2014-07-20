@@ -9,7 +9,7 @@
 #import "SOMasterViewController.h"
 #import "SONotifications.h"
 
-#import "SODetailViewController.h"
+#import "SOScreensContainer.h"
 
 
 #define kMaxAssetImages 5
@@ -268,7 +268,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    __block SODetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"detailViewController"];
+    __block SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"detailViewController"];
 
     __block SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
    // [controller addScreenWithCue:cueModel];

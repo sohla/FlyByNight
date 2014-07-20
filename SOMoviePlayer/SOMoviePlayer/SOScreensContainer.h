@@ -15,7 +15,7 @@
 #import "SOCueModel.h"
 
 
-@interface SODetailViewController : UIViewController <SOScreenViewControllerProtocol>
+@interface SOScreensContainer : UIViewController <SOScreenViewControllerProtocol>
 
 -(void)addScreenWithCue:(SOCueModel*)cueModel;
 
