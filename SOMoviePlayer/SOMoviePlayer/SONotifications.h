@@ -18,6 +18,7 @@ extern NSString* const kMotionManagerReset;
 extern NSString* const kTransportStop;
 extern NSString* const kTransportBack;
 extern NSString* const kTransportForward;
+extern NSString* const kTransportNext;
 extern NSString* const kEditModeOn;
 extern NSString* const kEditModeOff;
 

@@ -60,6 +60,9 @@
 - (IBAction)onStopButton:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportStop object:sender];
 }
+- (IBAction)onNextButton:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:sender];
+}
 
 -(void)updateAttitudeWithRoll:(float)roll andYaw:(float)yaw{
     self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f yaw %.2f",roll,yaw];

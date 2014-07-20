@@ -256,26 +256,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    __block SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
+    SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
+    controller.modelStore = self.modelStore;
+    [self.navigationController pushViewController:controller animated:YES];
 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:cell.textLabel.text.intValue];
-    
-    [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
-        
-        float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
-                                         valWithPropName:@"pre_time"] floatValue];
-
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [controller playCue:cueModel];
-        });
-
-    }];
-
-    [self.navigationController pushViewController:controller animated:YES];
+    [controller triggerBeacon:cell.textLabel.text.intValue];
 }
 
 -(void)collectAssetsWithCompletionBlock:(void(^)(NSArray*))completionBlock{

@@ -12,13 +12,18 @@
 #import "SOScreenViewControllerProtocol.h"
 
 #import "SOMotionManager.h"
+#import "SOModelStore.h"
 #import "SOCueModel.h"
 
 
 @interface SOScreensContainer : UIViewController <SOScreenViewControllerProtocol>
 
+@property (assign, nonatomic) SOModelStore *modelStore;
+
 -(void)playCue:(SOCueModel*)cueModel;
 -(void)stopCue:(SOCueModel*)cueModel;
+
+-(void)triggerBeacon:(int)minor;
 
 
 @end

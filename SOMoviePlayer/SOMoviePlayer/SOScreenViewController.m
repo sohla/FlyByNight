@@ -220,7 +220,9 @@
 
 -(void)stopWithcompletionBlock:(void (^)()) block{
 
+    
      [self fadeOut:0.5 completionBlock:^{
+         [self destroyPlayer];
         block();
     }];
 
@@ -389,11 +391,11 @@
     
 //     float fadein_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.fadein_time]
 //                                            valWithPropName:@"fadein_time"] floatValue];
-//
-//    [self fadeIn:fadein_time];
+
 
     
     // lets loop movie for now
+    [self fadeIn:0.0 completionBlock:nil];
     AVPlayerItem *p = [notification object];
     [p seekToTime:kCMTimeZero];
     [self.avPlayer play];

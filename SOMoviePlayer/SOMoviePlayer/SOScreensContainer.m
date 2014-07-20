@@ -10,6 +10,7 @@
 #import "SONotifications.h"
 #import "SOPropertiesViewController.h"
 #import "SOScreenViewController.h"
+#import "SOFloatTransformer.h"
 #import "SOAppDelegate.h"
 
 // SOScreenViewManager
@@ -24,6 +25,7 @@
 
 @property (strong, nonatomic) SOScreenTransport         *transport;
 @property (weak, nonatomic) SOCueModel *selectedCueModel;
+@property (assign, nonatomic) int currentBeacon;
 
 
 
@@ -168,6 +170,28 @@
             
         }];
     }
+}
+
+#pragma mark - Beacon
+
+-(void)triggerBeacon:(int)minor{
+    
+    self.currentBeacon = minor;
+    __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:minor];
+    
+    [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
+        
+        float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
+                                             valWithPropName:@"pre_time"] floatValue];
+        
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self playCue:cueModel];
+        });
+        
+    }];
+    
 }
 
 #pragma mark - ScreenView Protocol
@@ -324,12 +348,33 @@
 
 -(void)onTransportStop:(NSNotification *)notification{
     
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [(SOScreenViewController*)obj stopWithcompletionBlock:^{
-            [self cleanup];
-            [self.navigationController popViewControllerAnimated:NO];
+    
+    
+    __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeacon];
+    
+    [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
+        
+        [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
+            
+            [self.screenViewControllers removeObjectForKey:cueModel.title];
         }];
+    
     }];
+
+    
+    [self triggerBeacon:self.currentBeacon+1];
+    
+//    __weak SOScreensContainer* weakSelf;
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [(SOScreenViewController*)obj stopWithcompletionBlock:^{
+////            [self cleanup];
+////            [self.navigationController popViewControllerAnimated:NO];
+//            
+//            [weakSelf triggerBeacon:self.currentBeacon+1];
+//            
+//        }];
+//    }];
     
 }
 
