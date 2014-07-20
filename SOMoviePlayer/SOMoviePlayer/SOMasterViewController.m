@@ -250,25 +250,12 @@
     cell.textLabel.text = [[self.modelStore cueModelAtIndex:indexPath.row] title];
     return cell;
 }
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    __block SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"detailViewController"];
+    __block SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
 
     __block SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
    // [controller addScreenWithCue:cueModel];
@@ -290,27 +277,6 @@
     });
 
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        __block SOCueModel *cueModel = [self.modelStore cueModelAtIndex:[indexPath row]];
-//        [[segue destinationViewController] addScreenWithCue:cueModel];
-//
-//        
-////        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-////            cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 1];
-////            [[segue destinationViewController] addScreenWithCue:cueModel];
-////        });
-//
-////
-////        cueModel = [self.modelStore cueModelAtIndex:[indexPath row] + 2];
-////        [[segue destinationViewController] addScreenWithCue:cueModel];
-//
-//    }
-//}
 
 -(void)collectAssetsWithCompletionBlock:(void(^)(NSArray*))completionBlock{
     

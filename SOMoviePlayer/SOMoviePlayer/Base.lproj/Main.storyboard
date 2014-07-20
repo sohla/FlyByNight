@@ -72,7 +72,7 @@
         <!--Screens Container - Detail-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
-                <viewController storyboardIdentifier="detailViewController" title="Detail" id="Ah7-4n-0Wa" customClass="SOScreensContainer" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="screenContainer" title="Detail" id="Ah7-4n-0Wa" customClass="SOScreensContainer" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="37n-So-LnE"/>
                         <viewControllerLayoutGuide type="bottom" id="Cth-oy-7YV"/>

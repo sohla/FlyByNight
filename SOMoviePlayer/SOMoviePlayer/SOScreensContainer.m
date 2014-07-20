@@ -160,6 +160,8 @@
     [self.view bringSubviewToFront:self.transport.view];
 }
 
+#pragma mark - ScreenView Protocol
+
 -(void)onScreenViewPlayerDidBegin:(SOScreenViewController*)svc{
     DLog(@"");
 }
