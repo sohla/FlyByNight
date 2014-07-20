@@ -8,7 +8,7 @@
 
 #import "SOMasterViewController.h"
 #import "SONotifications.h"
-
+#import "SOFloatTransformer.h"
 #import "SOScreensContainer.h"
 
 
@@ -265,7 +265,11 @@
     [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, cueModel.pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
+                                         valWithPropName:@"pre_time"] floatValue];
+
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             [controller addScreenWithCue:cueModel];
         });
 

@@ -303,7 +303,10 @@
     float fadeValue = (totalTime * 1000.0f) - fadeTime;
     NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMake(fadeValue,1000)]];
     self.fadeOutObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeOutFime queue:NULL usingBlock:^(){
-        [weakSelf fadeOut:weakSelf.cueModel.fadeout_time];
+        float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
+                                             valWithPropName:@"fadeout_time"] floatValue];
+
+        [weakSelf fadeOut:fadeout_time];
     }];
     
 }
@@ -334,7 +337,10 @@
                         
                         [self.scrollView setHidden:NO];
 
-                        [self fadeIn:self.cueModel.fadein_time];
+                        float fadein_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.fadein_time]
+                                                                 valWithPropName:@"fadein_time"] floatValue];
+
+                        [self fadeIn:fadein_time];
                         
                         [self play];
                         
@@ -373,8 +379,10 @@
 //    
 //    [self.delegate onScreenViewPlayerDidEnd:self];
 
+    float fadein_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.fadein_time]
+                                            valWithPropName:@"fadein_time"] floatValue];
 
-    [self fadeIn:self.cueModel.fadein_time];
+    [self fadeIn:fadein_time];
 
     // lets loop movie for now
     AVPlayerItem *p = [notification object];

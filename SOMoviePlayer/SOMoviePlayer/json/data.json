@@ -37,9 +37,9 @@
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,
         
-          "pre_time"       : 0.1,
-          "fadein_time"       : 0.5,
-          "fadeout_time"       : 0.5,
+          "pre_time"       : 0.001,
+          "fadein_time"       : 0.05,
+          "fadeout_time"       : 0.05,
 
               
         },{
@@ -55,9 +55,9 @@
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,
 
-        "pre_time"       : 1.0,
-              "fadein_time"       : 0.5,
-              "fadeout_time"       : 0.5,
+        "pre_time"       : 2.0,
+              "fadein_time"       : 0.15,
+              "fadeout_time"       : 0.1
 
 
               },{
@@ -73,9 +73,9 @@
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,
 
-        "pre_time"       : 2.0,
-              "fadein_time"       : 1.0,
-              "fadeout_time"       : 1.0,
+        "pre_time"       : 0.04,
+              "fadein_time"       : 0.15,
+              "fadeout_time"       : 0.1
 
 
               }]

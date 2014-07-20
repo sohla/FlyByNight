@@ -23,6 +23,8 @@
 
 +(NSNumber*)pre_time:(NSNumber*)val;
 
++(NSNumber*)fadein_time:(NSNumber*)val;
++(NSNumber*)fadeout_time:(NSNumber*)val;
 
 
 @end

@@ -19,8 +19,9 @@
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     NSNumber *uiVal = 0;
     if([SOFloatTransformer respondsToSelector:sel]){
-        uiVal = [[SOFloatTransformer class] performSelector:sel withObject:val];
-        
+        uiVal = [[SOFloatTransformer class] performSelector:sel withObject:val];        
+    }else{
+        uiVal = val; //pass thru
     }
     
 #pragma clang diagnostic pop
@@ -46,7 +47,15 @@
 }
 
 +(NSNumber*)pre_time:(NSNumber*)val{
-    return val;
+    return [NSNumber numberWithFloat:[val floatValue] * 100];
+}
+
++(NSNumber*)fadein_time:(NSNumber*)val{
+    return [NSNumber numberWithFloat:[val floatValue] * 10];
+}
+
++(NSNumber*)fadeout_time:(NSNumber*)val{
+    return [NSNumber numberWithFloat:[val floatValue] * 10];
 }
 
 
