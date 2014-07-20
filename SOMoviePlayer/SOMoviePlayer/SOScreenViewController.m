@@ -144,36 +144,27 @@
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
     [screenView setTag:999];
-    
+    [self.scrollView setHidden:YES];
     [self.scrollView addSubview:screenView];
 
+    
     // setup avplayer
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
-    __weak AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
+    AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
     
     self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     
-//    [CATransaction begin];
-//    [CATransaction setAnimationDuration:0];
-//    [CATransaction setDisableActions:YES];
-    [self.playerLayer setFrame:fullFrame];
-//    [CATransaction commit];
-
-    
-
     [screenView.layer addSublayer:self.playerLayer];
-//    screenView.alpha = 0.1;
-//    [self.avPlayer setVolume:0.0f];
     
+    
+    [self.avPlayer setVolume:0.0f];
+    [self.playerLayer setFrame:fullFrame];
 
     //loop
     //[self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
 
-    
     // observe and notify
-    
-
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayBackDidFinish:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
@@ -334,12 +325,15 @@
                 case AVPlayerItemStatusReadyToPlay:{
                     DLog(@"player item status is ready to play");
                     
+
                     [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
                         
                         
                         // let's add stuff
                         [self addPlayerObservers];
                         
+                        [self.scrollView setHidden:NO];
+
                         [self fadeIn:self.cueModel.fadein_time];
                         
                         [self play];
@@ -440,13 +434,7 @@
     
     [screenView setFrame:fullFrame];//•not working?
     
-//    [CATransaction begin];
-//    [CATransaction setAnimationDuration:0];
-//    [CATransaction setDisableActions:YES];
     [self.playerLayer setFrame:fullFrame];
-//    [CATransaction commit];
-    
-
     
 }
 

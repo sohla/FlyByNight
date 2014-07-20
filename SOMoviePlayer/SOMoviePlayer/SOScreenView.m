@@ -32,7 +32,7 @@
         CGRect rect  = {0.0f,0.0f,frame.size.width,2.0f};
         _progressView = [[UIView alloc] initWithFrame:rect];
         
-        [self.progressView setBackgroundColor:[UIColor yellowColor] ];
+        [self.progressView setBackgroundColor:[UIColor redColor] ];
         
         [self addSubview:self.progressView];
 
