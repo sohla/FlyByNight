@@ -8,10 +8,12 @@
 
 #import "JSONModel.h"
 #import "SOCueModel.h"
+#import "SOBeaconModel.h"
 
 @interface SOSessionModel : JSONModel
 
 
 @property (strong, nonatomic) NSArray<SOCueModel>* cues;
+@property (strong, nonatomic) NSArray<SOBeaconModel>* beacons;
 
 @end

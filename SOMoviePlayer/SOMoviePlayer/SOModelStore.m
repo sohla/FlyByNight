@@ -50,6 +50,7 @@
                 
                 [self saveLatest];
 
+                DLog(@"%@",[self.sessionModel.beacons valueForKeyPath:@"minor"]);
                 
             }
         }];

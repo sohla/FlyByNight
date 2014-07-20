@@ -1,4 +1,28 @@
 {
+ 
+    
+    
+    "beacons" : [
+               
+               {
+               "minor" : 1,
+               "threshold" : 2.3,
+               "action" : "pre",
+               "cues" : [ "drinking tap"]
+               
+               
+               },{
+               
+               "minor" : 2,
+               "threshold" : 2.3,
+               "action" : "post",
+               "cues" : [ "another cue","and one more cue"]
+               
+               }
+               
+               
+               ],
+    
     
     "cues" : [{
         "title"    : "drinking tap",
