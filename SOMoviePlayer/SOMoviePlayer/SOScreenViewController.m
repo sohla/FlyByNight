@@ -157,7 +157,6 @@
     
     [screenView.layer addSublayer:self.playerLayer];
     
-    
     [self.avPlayer setVolume:0.0f];
     [self.playerLayer setFrame:fullFrame];
 

@@ -254,6 +254,11 @@
 											   object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onTransportNext:)
+												 name:kTransportNext
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onEditModeOn:)
 												 name:kEditModeOn
 											   object:nil];
@@ -282,6 +287,10 @@
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kTransportBack
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kTransportNext
                                                   object:nil];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -348,7 +357,28 @@
 
 -(void)onTransportStop:(NSNotification *)notification{
     
+    __block int count = 0;
     
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+
+        [obj stopWithcompletionBlock:^{
+           
+            count++;
+            
+            if(count == self.screenViewControllers.count){
+                // last one
+                
+                [self cleanup];
+                [self.navigationController popViewControllerAnimated:NO];
+                
+            }
+        }];
+    }];
+
+
+}
+
+-(void)onTransportNext:(NSNotification *)notification{
     
     __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor];
     
