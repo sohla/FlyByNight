@@ -8,6 +8,7 @@
 //0.3565
 //0.713
 #import "SOFloatTransformer.h"
+#include "TargetConditionals.h"
 
 @implementation SOFloatTransformer
 
@@ -36,6 +37,9 @@
     return [NSNumber numberWithFloat:(([val floatValue] * 2.0f) - 1.0f) * M_PI];
 }
 +(NSNumber*)offset_y:(NSNumber*)val{
+#if (TARGET_IPHONE_SIMULATOR)
+    val = @([val floatValue] + 0.25);
+#endif
     return [NSNumber numberWithFloat:(([val floatValue] * 2.0f) - 1.0f) * M_PI];
 }
 

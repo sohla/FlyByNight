@@ -35,20 +35,20 @@
               
               {
         "title"    : "drinking tap",
-        "path"     : "FBN CLIP 03_converted.m4v",
+        "path"     : "FBN CLIP 01_converted.m4v",
         "type"      : "movie",
         
         
         "zoom"      : 0.3065,
         "offset_x"      : 0.5,
-        "offset_y"      : 0.75,
+        "offset_y"      : 0.5,
 
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,
         
           "pre_time"       : 0.001,
           "fadein_time"       : 0.05,
-          "fadeout_time"       : 0.05,
+          "fadeout_time"       : 0.3,
 
               
         },{
@@ -59,14 +59,14 @@
 
               "zoom"      : 0.3065,
         "offset_x"      : 0.25,
-        "offset_y"      : 0.75,
+        "offset_y"      : 0.5,
 
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,
 
         "pre_time"       : 0.001,
               "fadein_time"       : 0.15,
-              "fadeout_time"       : 0.1
+              "fadeout_time"       : 0.15
 
 
               },{
@@ -77,14 +77,14 @@
 
             "zoom"      : 0.3065,
         "offset_x"      : 0.75,
-        "offset_y"      : 0.75,
+        "offset_y"      : 0.5,
 
         "scroll_dx"      : 1.0,
         "scroll_dy"      : 1.0,
 
         "pre_time"       : 0.001,
               "fadein_time"       : 0.15,
-              "fadeout_time"       : 0.4
+              "fadeout_time"       : 0.15
 
 
               
@@ -96,7 +96,7 @@
               
               "zoom"      : 0.3065,
               "offset_x"      : 0.5,
-              "offset_y"      : 0.75,
+              "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
