@@ -32,17 +32,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.forwardButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.9f] ];
-    [self.backButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.9f] ];
-
-
-    self.editButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.editButton setFrame:(CGRect){self.view.frame.size.height-66.0f,0.0f,66.0f,66.0f}];
-    [self.editButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.9f] ];
-    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
-    [self.view addSubview:self.editButton];
-    
-    [self.editButton addTarget:self action:@selector(onEditButton:) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +57,7 @@
     self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f yaw %.2f",roll,yaw];
 }
 
--(void)onEditButton:(id)sender{
+-(IBAction)onEditButton:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:kEditModeOn object:nil];
 
 }
