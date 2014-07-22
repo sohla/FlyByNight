@@ -47,7 +47,7 @@
 
         
 //        self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
-        DLog(@"w:%f h:%f",frame.size.width,frame.size.height);
+        //DLog(@"w:%f h:%f",frame.size.width,frame.size.height);
 
         float w = 568.0f;
         float h = 320.0f;
@@ -307,16 +307,19 @@
 
 
 
-    // place a boundry observer to do a fade out
-    float fadeTime = self.cueModel.fadeout_time * 1000.0f;
-    float fadeValue = (totalTime * 1000.0f) - fadeTime;
-    NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMake(fadeValue,1000)]];
-    self.fadeOutObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeOutFime queue:NULL usingBlock:^(){
-        float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
-                                             valWithPropName:@"fadeout_time"] floatValue];
+    // don't fade if we are looping
+    if(!self.cueModel.loop){
+        // place a boundry observer to do a fade out
+        float fadeTime = self.cueModel.fadeout_time * 1000.0f;
+        float fadeValue = (totalTime * 1000.0f) - fadeTime;
+        NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMake(fadeValue,1000)]];
+        self.fadeOutObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeOutFime queue:NULL usingBlock:^(){
+            float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
+                                                 valWithPropName:@"fadeout_time"] floatValue];
 
-        [weakSelf fadeOut:fadeout_time completionBlock:nil];
-    }];
+            [weakSelf fadeOut:fadeout_time completionBlock:nil];
+        }];
+    }
     
 }
 
@@ -335,7 +338,7 @@
                 }break;
                     
                 case AVPlayerItemStatusReadyToPlay:{
-                    DLog(@"player item status is ready to play");
+                    //DLog(@"player item status is ready to play");
                     
 
                     [self.avPlayer prerollAtRate:1.0f completionHandler:^(BOOL finished) {
@@ -395,11 +398,21 @@
 
 
     
-    // lets loop movie for now
-    [self fadeIn:0.0 completionBlock:nil];
-    AVPlayerItem *p = [notification object];
-    [p seekToTime:kCMTimeZero];
-    [self.avPlayer play];
+    if(self.cueModel.loop){
+        
+        // lets loop movie for now
+        [self fadeIn:0.0 completionBlock:nil];
+        AVPlayerItem *p = [notification object];
+        [p seekToTime:kCMTimeZero];
+        [self.avPlayer play];
+   
+    }else{
+        
+        [self destroyPlayer];
+        [self.delegate onScreenViewPlayerDidEnd:self];
+
+
+    }
 
     
 }

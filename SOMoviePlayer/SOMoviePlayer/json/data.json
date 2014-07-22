@@ -3,28 +3,141 @@
     
     
     "beacons" : [
-               
-               {
-               "minor" : 1,
+
+                 {
+                 
+                 "minor" : 1,
+                 "threshold" : 2.3,
+                 "action" : "pre",
+                 "cues" : [ "titles"]
+                 
+                 },{
+
+               "minor" : 100,
                "threshold" : 2.3,
                "action" : "pre",
-               "cues" : [ "drinking tap"]
-               
+               "cues" : [ "safety hazards","titles","first water tap"]
                
                },{
                
                "minor" : 2,
                "threshold" : 2.3,
                "action" : "post",
-               "cues" : [ "another cue","and one more cue"]
+               "cues" : [ "water tap to external","business woman","exit button"]
                
                  },{
                  
                  "minor" : 3,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "noise"]
+                 "cues" : [ "door to lift","lift button"]
                  
+                 },{
+                 
+                 "minor" : 4,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "close up button"]
+                 
+                 },{
+                 
+                 "minor" : 5,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "lift to river","long shot of woman","entrance button"]
+                 
+                 },{
+                 
+                 "minor" : 6,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "riverside entrance","ned emerging","yellow doors","door opening"]
+                 
+                 },{
+                 
+                 "minor" : 7,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "ned pink stairs","woman pink stairs"]
+                 
+                 },{
+                 
+                 "minor" : 8,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "ned further pink stairs","no exit"]
+                 
+                 },{
+                 
+                 "minor" : 9,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "corridor to melbourne room","busker in door","diva fire cupboard"]
+                 
+                 },{
+                 
+                 "minor" : 10,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "dan fish","room to painting","lady painting","ned escalator","ned to light boxes"]
+                 
+                 },{
+                 
+                 "minor" : 11,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "dan drag left","woman down stairs"]
+                 
+                 },{
+                 
+                 "minor" : 12,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "legs in air","torso","diva","towards water tap"]
+                 
+                 },{
+                 
+                 "minor" : 13,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "tuba man lift"]
+                 
+                 },{
+                 
+                 "minor" : 14,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "level 7"]
+                 
+                 },{
+                 
+                 "minor" : 15,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "gumleaves floor","corridor dan"]
+                 
+                 },{
+                 
+                 "minor" : 16,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "tuba man picture","tuba man to lady"]
+                 
+                 },{
+                 
+                 "minor" : 17,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "white lady picture","towards door","waiting door","door handle"]
+                 
+                 },{
+                 
+                 "minor" : 18,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "nightscape"]
+                 
+            
                  }
                
                
@@ -34,65 +147,70 @@
     "cues" : [
               
               {
-        "title"    : "drinking tap",
-        "path"     : "FBN CLIP 01_converted.m4v",
-        "type"      : "movie",
+              "title"    : "safety hazards",
+              "path"     : "FBN CLIP 01_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
         
         
-        "zoom"      : 0.3065,
-        "offset_x"      : 0.5,
-        "offset_y"      : 0.5,
-
-        "scroll_dx"      : 1.0,
-        "scroll_dy"      : 1.0,
-        
-          "pre_time"       : 0.001,
-          "fadein_time"       : 0.05,
-          "fadeout_time"       : 0.3,
-
-              
-        },{
-
-        "title"         : "another cue",
-        "path"     : "burstTest.mov",
-        "type"      : "movie",
-
               "zoom"      : 0.3065,
-        "offset_x"      : 0.25,
-        "offset_y"      : 0.5,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
 
-        "scroll_dx"      : 1.0,
-        "scroll_dy"      : 1.0,
-
-        "pre_time"       : 0.001,
-              "fadein_time"       : 0.15,
-              "fadeout_time"       : 0.15
-
-
-              },{
-
-        "title"    : "and one more cue",
-        "path"     : "stripeTest.mov",
-        "type"      : "movie",
-
-            "zoom"      : 0.3065,
-        "offset_x"      : 0.75,
-        "offset_y"      : 0.5,
-
-        "scroll_dx"      : 1.0,
-        "scroll_dy"      : 1.0,
-
-        "pre_time"       : 0.001,
-              "fadein_time"       : 0.15,
-              "fadeout_time"       : 0.15
-
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+        
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.3,
 
               
               },{
-              
-              "title"    : "noise",
+
+              "title"    : "titles",
               "path"     : "noiseTest.mov",
               "type"      : "movie",
+              "loop"    : 1,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.001
+              
+
+
+              },{
+
+              "title"    : "first water tap",
+              "path"     : "FBN CLIP 03_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+
+
+              
+              },{
+              
+              "title"    : "water tap to external",
+              "path"     : "FBN CLIP 05_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
               
               "zoom"      : 0.3065,
               "offset_x"      : 0.5,
@@ -106,7 +224,1208 @@
               "fadeout_time"       : 0.05
               
               
-              }
+              
+              },{
+              
+              "title"    : "business woman",
+              "path"     : "FBN CLIP 06_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "exit button",
+              "path"     : "FBN CLIP 07_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "door to lift",
+              "path"     : "FBN CLIP 08_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "lift button",
+              "path"     : "FBN CLIP 09_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "close up button",
+              "path"     : "FBN CLIP 10_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "lift to river",
+              "path"     : "FBN CLIP 11_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.713,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "long shot of woman",
+              "path"     : "FBN CLIP 12a_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.713,
+              "offset_x"      : 1.0,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "falling down1",
+              "path"     : "FBN CLIP 12b_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "falling down2",
+              "path"     : "FBN CLIP 12c_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "falling down13",
+              "path"     : "FBN CLIP 12d_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "following busker",
+              "path"     : "FBN CLIP 013b_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "entrance button",
+              "path"     : "FBN CLIP 14_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "riverside entrance",
+              "path"     : "FBN CLIP 15_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ned emerging",
+              "path"     : "FBN CLIP 17a_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "yellow doors",
+              "path"     : "FBN CLIP 17c_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "door opening",
+              "path"     : "FBN CLIP 18_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.03,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ned pink stairs",
+              "path"     : "FBN CLIP 20a_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "woman pink stairs",
+              "path"     : "FBN CLIP 19_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ned further pink stairs",
+              "path"     : "FBN CLIP 20b_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "no exit",
+              "path"     : "FBN CLIP 21_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "corridor to melbourne room",
+              "path"     : "FBN CLIP 25_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "busker in door",
+              "path"     : "FBN CLIP 23_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.0,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "diva fire cupboard",
+              "path"     : "FBN CLIP 24_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.0,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "dan fish",
+              "path"     : "FBN CLIP 26_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "room to painting",
+              "path"     : "FBN CLIP 27_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "lady painting",
+              "path"     : "FBN CLIP 28_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ned escalator",
+              "path"     : "FBN CLIP 30_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.03,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ned to light boxes",
+              "path"     : "FBN CLIP 31_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.04,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "dan drag left",
+              "path"     : "FBN CLIP 32_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "dan drag right",
+              "path"     : "FBN CLIP 33_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ing tuba1",
+              "path"     : "FBN CLIP 35_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ing tuba2",
+              "path"     : "FBN CLIP 36_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "frogman",
+              "path"     : "FBN CLIP 37_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "reaching",
+              "path"     : "FBN CLIP 38_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "tuba vacuum",
+              "path"     : "FBN CLIP 39_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "silk burb",
+              "path"     : "FBN CLIP 40_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "silk sing",
+              "path"     : "FBN CLIP 41_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ing solo",
+              "path"     : "FBN CLIP 42_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ing crow",
+              "path"     : "FBN CLIP 43_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "ing dan impro",
+              "path"     : "FBN CLIP 44_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "dan silk fan",
+              "path"     : "FBN CLIP 45_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "gold roof to piano",
+              "path"     : "FBN CLIP 46_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "dan waiting",
+              "path"     : "FBN CLIP 34_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "woman down stairs",
+              "path"     : "FBN CLIP 47_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "legs in air",
+              "path"     : "FBN CLIP 48_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "torso",
+              "path"     : "FBN CLIP 51_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 1.0,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "diva",
+              "path"     : "FBN CLIP 53_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "towards water tap",
+              "path"     : "FBN CLIP 64_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "tuba man lift",
+              "path"     : "FBN CLIP 66_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "level 7",
+              "path"     : "FBN CLIP 67_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "gumleaves floor",
+              "path"     : "FBN CLIP 68a_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+            
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "corridor dan",
+              "path"     : "FBN CLIP 68b_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "tuba man picture",
+              "path"     : "FBN CLIP 69_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "tuba man to lady",
+              "path"     : "FBN CLIP 70_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "white lady picture",
+              "path"     : "FBN CLIP 71_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "towards door",
+              "path"     : "FBN CLIP 72a_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "waiting door",
+              "path"     : "FBN CLIP 72b_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "door handle",
+              "path"     : "FBN CLIP 73_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.03,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "nightscape",
+              "path"     : "FBN CLIP 74a_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+             
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+              },{
+              
+              "title"    : "moving away",
+              "path"     : "FBN CLIP 74b_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3065,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 1.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              
+          }
 
               
             ]

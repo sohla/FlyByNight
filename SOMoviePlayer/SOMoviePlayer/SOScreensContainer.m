@@ -176,11 +176,15 @@
 
 -(void)triggerBeacon:(SOBeaconModel*)beaconModel{
     
+    DLog(@"TRIGGER %d",beaconModel.minor);
+    
     self.currentBeaconModel = beaconModel;
 //    SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:minor];
     
     [beaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
+        DLog(@"cueing %@",cueModel.path);
         
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
                                              valWithPropName:@"pre_time"] floatValue];
@@ -201,12 +205,8 @@
 }
 
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
-    DLog(@"");
-    
-    //[self cleanup];
-    //[self.navigationController popViewControllerAnimated:NO];
-    
-    
+
+    [self.screenViewControllers removeObjectForKey:[[svc getCueModel] title]];
 }
 
 
@@ -380,13 +380,17 @@
 
 -(void)onTransportNext:(NSNotification *)notification{
     
-    __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor];
+   // __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor];
+    int nextMinor = self.currentBeaconModel.minor + 1;
     
-    [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    
+    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
         
         [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
             
+            DLog(@"killing %@",cueModel.title);
             [self.screenViewControllers removeObjectForKey:cueModel.title];
         }];
     
@@ -395,7 +399,10 @@
     
    // [self.mod.beacons valueForKeyPath:@"minor"]
     
-    [self triggerBeacon:[self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor + 1]];
+    
+    [self triggerBeacon:[self.modelStore beaconModelWithMinor:nextMinor]];
+
+    
 
     
 }
