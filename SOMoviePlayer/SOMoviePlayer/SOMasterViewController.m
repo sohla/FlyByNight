@@ -247,7 +247,17 @@
 //        cell.imageView.image = [UIImage imageNamed:@"default.png"];
 //    }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",[self.modelStore beaconModelWithMinor:indexPath.row+1].minor];
+    SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:indexPath.row+1];
+    
+    __block NSString *title = @"";
+     [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+         title = [[title stringByAppendingString:[[self.modelStore cueModelWithTitle:obj] title]] stringByAppendingString:@" / "];
+     }];
+        
+    cell.textLabel.text = [NSString stringWithFormat:@"%d %@",
+                           beacon.minor,
+                           title
+                           ];
     
     return cell;
 }
