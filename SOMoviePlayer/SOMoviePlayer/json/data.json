@@ -37,7 +37,7 @@
                  "minor" : 4,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "10","10a","close up button"]
+                 "cues" : [ "10","close up button"]
                  
                  },{
                  
@@ -58,49 +58,49 @@
                  "minor" : 7,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "ned emerging","17","yellow doors","18","door opening"]
+                 "cues" : [ "ned emerging","yellow doors","door opening"]
                  
                  },{
                  
                  "minor" : 8,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "ned pink stairs","woman pink stairs","ned pink stairs"]
+                 "cues" : [ "ned pink stairs","19","woman pink stairs","ned pink stairs2"]
                  
                  },{
                  
                  "minor" : 9,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "ned further pink stairs","no exit"]
+                 "cues" : [ "ned further pink stairs","21","no exit"]
                  
                  },{
                  
                  "minor" : 10,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "corridor to melbourne room","busker in door","diva fire cupboard"]
+                 "cues" : [ "25","corridor to melbourne room","busker in door","diva fire cupboard"]
                  
                  },{
                  
                  "minor" : 11,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "dan fish","room to painting","lady painting","ned escalator","ned to light boxes"]
+                 "cues" : [ "dan fish","27","room to painting","lady painting","ned escalator","ned to light boxes"]
                  
                  },{
                  
                  "minor" : 12,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "dan drag left","silk burb","ing tuba1","gold roof to piano","woman down stairs"]
+                 "cues" : [ "dan drag left","silk burb","ing tuba1","gold roof to piano","47","woman down stairs"]
                  
                  },{
                  
                  "minor" : 13,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "legs in air","torso","diva","towards water tap"]
+                 "cues" : [ "51","legs in air","torso","diva","towards water tap"]
                  
                  },{
                  
@@ -114,35 +114,35 @@
                  "minor" : 15,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "level 7"]
+                 "cues" : [ "67","level 7"]
                  
                  },{
                  
                  "minor" : 16,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "gumleaves floor","corridor dan"]
+                 "cues" : [ "68","gumleaves floor","68b","corridor dan"]
                  
                  },{
                  
                  "minor" : 17,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "tuba man picture","tuba man to lady"]
+                 "cues" : [ "69","tuba man picture","70","tuba man to lady"]
                  
                  },{
                  
                  "minor" : 18,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "white lady picture","towards door","waiting door","door handle"]
+                 "cues" : [ "71","white lady picture","72","towards door","waiting door","73","door handle"]
                  
                  },{
                  
                  "minor" : 19,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "nightscape","moving away"]
+                 "cues" : [ "74","nightscape","moving away"]
                  
             
                  }
@@ -446,31 +446,12 @@
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.08,
 
-              },{
-              
-              "title"    : "10a",
-              "path"     : "10 SFX Loop.wav",
-              "type"      : "audio",
-              "loop"    : 1,
-              
-              
-              "zoom"      : 0.3565,
-              "offset_x"      : 0.5,
-              "offset_y"      : 0.5,
-              
-              "scroll_dx"      : 0.0,
-              "scroll_dy"      : 0.0,
-              
-              "pre_time"       : 0.001,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.08,
-              
 
               },{
               
               "title"    : "close up button",
-              "path"     : "FBN CLIP 10_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 10.m4v",
+              "type"      : "movieaudio",
               "loop"    : 1,
              
               "zoom"      : 0.3565,
@@ -724,6 +705,7 @@
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.08,
+
               },{
               
               "title"    : "15b",
@@ -761,25 +743,6 @@
               "fadein_time"       : 0.001,
               "fadeout_time"       : 0.05
               
-              },{
-              
-              "title"    : "17",
-              "path"     : "17a.wav",
-              "type"      : "audio",
-              "loop"    : 0,
-              
-              
-              "zoom"      : 0.3565,
-              "offset_x"      : 0.5,
-              "offset_y"      : 0.5,
-              
-              "scroll_dx"      : 0.0,
-              "scroll_dy"      : 0.0,
-              
-              "pre_time"       : 0.30,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.08,
-           
               
               },{
               
@@ -804,8 +767,8 @@
               },{
               
               "title"    : "yellow doors",
-              "path"     : "FBN CLIP 17c_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 17c.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
@@ -820,50 +783,12 @@
               "fadeout_time"       : 0.2
               
               
-              
-              },{
-              
-              "title"    : "17",
-              "path"     : "17c - 18.wav",
-              "type"      : "audio",
-              "loop"    : 0,
-              
-              
-              "zoom"      : 0.3565,
-              "offset_x"      : 0.5,
-              "offset_y"      : 0.5,
-              
-              "scroll_dx"      : 0.0,
-              "scroll_dy"      : 0.0,
-              
-              "pre_time"       : 0.30,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.2,
-
-              },{
-              
-              "title"    : "18",
-              "path"     : "18 Loop.wav",
-              "type"      : "audio",
-              "loop"    : 1,
-              
-              
-              "zoom"      : 0.3565,
-              "offset_x"      : 0.5,
-              "offset_y"      : 0.5,
-              
-              "scroll_dx"      : 0.0,
-              "scroll_dy"      : 0.0,
-              
-              "pre_time"       : 0.52,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.2,
 
               },{
               
               "title"    : "door opening",
-              "path"     : "FBN CLIP 18_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 18.m4v",
+              "type"      : "movieaudio",
               "loop"    : 1,
               
               "zoom"      : 0.3565,
@@ -882,8 +807,8 @@
               },{
               
               "title"    : "ned pink stairs",
-              "path"     : "FBN CLIP 20a_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 20a.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.713,
@@ -895,8 +820,28 @@
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.3
               
+              
+              
+              },{
+              
+              "title"    : "19",
+              "path"     : "19.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.18,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
               
               
               },{
@@ -913,16 +858,16 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.23,
-              "fadein_time"       : 0.05,
+              "pre_time"       : 0.18,
+              "fadein_time"       : 0.8,
               "fadeout_time"       : 0.05
               
               
               },{
               
               "title"    : "ned pink stairs2",
-              "path"     : "FBN CLIP 20a_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 20a.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.713,
@@ -932,7 +877,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.46,
+              "pre_time"       : 1.35,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -941,8 +886,8 @@
               },{
               
               "title"    : "ned further pink stairs",
-              "path"     : "FBN CLIP 20b_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 20b.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
@@ -954,10 +899,29 @@
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.001
               
               
               
+              },{
+              
+              "title"    : "21",
+              "path"     : "21 Loop.wav",
+              "type"      : "audio",
+              "loop"    : 1,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.40,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+ 
               },{
               
               "title"    : "no exit",
@@ -972,12 +936,31 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.24,
-              "fadein_time"       : 0.05,
+              "pre_time"       : 0.40,
+              "fadein_time"       : 0.001,
               "fadeout_time"       : 0.05
               
               
               
+              },{
+              
+              "title"    : "25",
+              "path"     : "25.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
               },{
               
               "title"    : "corridor to melbourne room",
@@ -1001,18 +984,18 @@
               },{
               
               "title"    : "busker in door",
-              "path"     : "FBN CLIP 23_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 23.m4v",
+              "type"      : "movieaudio",
               "loop"    : 1,
               
               "zoom"      : 0.3065,
-              "offset_x"      : 0.2,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.5,
+              "pre_time"       : 0.05,
               "fadein_time"       : 0.08,
               "fadeout_time"       : 0.2
               
@@ -1021,12 +1004,12 @@
               },{
               
               "title"    : "diva fire cupboard",
-              "path"     : "FBN CLIP 24_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 24.m4v",
+              "type"      : "movieaudio",
               "loop"    : 1,
               
               "zoom"      : 0.3065,
-              "offset_x"      : 0.15,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1041,8 +1024,8 @@
               },{
               
               "title"    : "dan fish",
-              "path"     : "FBN CLIP 26_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 26.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
@@ -1060,6 +1043,25 @@
               
               },{
               
+              "title"    : "27",
+              "path"     : "27.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.38,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+              
+              },{
+              
               "title"    : "room to painting",
               "path"     : "FBN CLIP 27_converted.m4v",
               "type"      : "movie",
@@ -1074,15 +1076,15 @@
               
               "pre_time"       : 0.38,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.4
+              "fadeout_time"       : 0.001
               
               
               
               },{
               
               "title"    : "lady painting",
-              "path"     : "FBN CLIP 28_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 28.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.713,
@@ -1093,7 +1095,7 @@
               "scroll_dy"      : 1.0,
               
               "pre_time"       : 0.60,
-              "fadein_time"       : 0.05,
+              "fadein_time"       : 0.001,
               "fadeout_time"       : 0.05
               
               
@@ -1101,8 +1103,8 @@
               },{
               
               "title"    : "ned escalator",
-              "path"     : "FBN CLIP 30_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 30.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
@@ -1121,8 +1123,8 @@
               },{
               
               "title"    : "ned to light boxes",
-              "path"     : "FBN CLIP 31_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 31.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
@@ -1141,12 +1143,12 @@
               },{
               
               "title"    : "dan drag left",
-              "path"     : "FBN CLIP 32_converted.m4v",
-              "type"      : "movie",
-              "loop"    : 1,
+              "path"     : "FBN AV 32.m4v",
+              "type"      : "movieaudio",
+              "loop"    : 0,
               
               "zoom"      : 0.5565,
-              "offset_x"      : 0.9,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1161,12 +1163,12 @@
               },{
               
               "title"    : "dan drag right",
-              "path"     : "FBN CLIP 33_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 33.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
              
               "zoom"      : 0.3565,
-              "offset_x"      : 0.25,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1181,8 +1183,8 @@
               },{
               
               "title"    : "ing tuba1",
-              "path"     : "FBN CLIP 35_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FFBN AV 35.m4v",
+              "type"      : "movieaudio",
               "loop"    : 1,
              
               "zoom"      : 0.5565,
@@ -1201,12 +1203,12 @@
               },{
               
               "title"    : "ing tuba2",
-              "path"     : "FBN CLIP 36_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 36.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
              
               "zoom"      : 0.3565,
-              "offset_x"      : 0.75,
+              "offset_x"      : 0.55,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1221,12 +1223,12 @@
               },{
               
               "title"    : "frogman",
-              "path"     : "FBN CLIP 37_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 37.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.75,
+              "offset_x"      : 0.55,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1241,12 +1243,12 @@
               },{
               
               "title"    : "reaching",
-              "path"     : "FBN CLIP 38_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 38.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.25,
+              "offset_x"      : 0.55,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1261,12 +1263,12 @@
               },{
               
               "title"    : "tuba vacuum",
-              "path"     : "FBN CLIP 39_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 39.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 1.0,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1281,12 +1283,12 @@
               },{
               
               "title"    : "silk burb",
-              "path"     : "FBN CLIP 40_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 40.m4v",
+              "type"      : "movieaudio",
               "loop"    : 1,
               
               "zoom"      : 0.5565,
-              "offset_x"      : 0.1,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1300,8 +1302,8 @@
               },{
               
               "title"    : "silk sing",
-              "path"     : "FBN CLIP 41_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 41.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
@@ -1320,12 +1322,12 @@
               },{
               
               "title"    : "ing solo",
-              "path"     : "FBN CLIP 42_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 42.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.75,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1340,12 +1342,12 @@
               },{
               
               "title"    : "ing crow",
-              "path"     : "FBN CLIP 43_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 43.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 1.0,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1360,12 +1362,12 @@
               },{
               
               "title"    : "ing dan impro",
-              "path"     : "FBN CLIP 44_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 44.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.75,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1379,12 +1381,12 @@
               },{
               
               "title"    : "dan silk fan",
-              "path"     : "FBN CLIP 45_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 45.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 1.0,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 0.5,
@@ -1399,12 +1401,12 @@
               },{
               
               "title"    : "gold roof to piano",
-              "path"     : "FBN CLIP 46_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 46.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.713,
-              "offset_x"      : 1.0,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1438,6 +1440,25 @@
               
               },{
               
+              "title"    : "47",
+              "path"     : "47-51.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.30,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
+              },{
+              
               "title"    : "woman down stairs",
               "path"     : "FBN CLIP 47_converted.m4v",
               "type"      : "movie",
@@ -1456,6 +1477,25 @@
               
               
               
+              },{
+              
+              "title"    : "51",
+              "path"     : "51.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
               },{
               
               "title"    : "legs in air",
@@ -1499,8 +1539,8 @@
               },{
               
               "title"    : "diva",
-              "path"     : "FBN CLIP 53_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 53.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.713,
@@ -1539,8 +1579,8 @@
               },{
               
               "title"    : "tuba man lift",
-              "path"     : "FBN CLIP 66_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 66.m4v",
+              "type"      : "movieaudio",
               "loop"    : 1,
               
               "zoom"      : 0.3565,
@@ -1555,6 +1595,25 @@
               "fadeout_time"       : 0.05
               
               
+              
+              },{
+              
+              "title"    : "67",
+              "path"     : "67.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
               
               },{
               
@@ -1578,6 +1637,25 @@
               
               },{
               
+              "title"    : "68",
+              "path"     : "68a.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+              
+              },{
+              
               "title"    : "gumleaves floor",
               "path"     : "FBN CLIP 68a_converted.m4v",
               "type"      : "movie",
@@ -1596,6 +1674,25 @@
               
               
               
+              
+              },{
+              
+              "title"    : "68b",
+              "path"     : "68b.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.28,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
               },{
               
               "title"    : "corridor dan",
@@ -1618,6 +1715,25 @@
               
               },{
               
+              "title"    : "69",
+              "path"     : "69.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+              
+             },{
+              
               "title"    : "tuba man picture",
               "path"     : "FBN CLIP 69_converted.m4v",
               "type"      : "movie",
@@ -1636,6 +1752,25 @@
               
               
               
+              },{
+              
+              "title"    : "70",
+              "path"     : "70.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.84,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
               },{
               
               "title"    : "tuba man to lady",
@@ -1658,6 +1793,25 @@
               
               },{
               
+              "title"    : "71",
+              "path"     : "71.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
+              },{
+              
               "title"    : "white lady picture",
               "path"     : "FBN CLIP 71_converted.m4v",
               "type"      : "movie",
@@ -1678,6 +1832,25 @@
               
               },{
               
+              "title"    : "72",
+              "path"     : "72a.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.48,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
+              },{
+              
               "title"    : "towards door",
               "path"     : "FBN CLIP 72a_converted.m4v",
               "type"      : "movie",
@@ -1696,11 +1869,12 @@
               
               
               
+              
               },{
               
               "title"    : "waiting door",
-              "path"     : "FBN CLIP 72b_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 72b.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
@@ -1717,6 +1891,24 @@
               
               
               },{
+              
+              "title"    : "73",
+              "path"     : "73 Loop.wav",
+              "type"      : "audio",
+              "loop"    : 1,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.79,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+           },{
               
               "title"    : "door handle",
               "path"     : "FBN CLIP 73_converted.m4v",
@@ -1736,6 +1928,24 @@
               
               
               
+              },{
+              
+              "title"    : "74",
+              "path"     : "74 - 75.wav",
+              "type"      : "audio",
+              "loop"    : 1,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
               },{
               
               "title"    : "nightscape",

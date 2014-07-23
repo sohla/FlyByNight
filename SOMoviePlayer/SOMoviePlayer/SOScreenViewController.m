@@ -270,6 +270,9 @@
     if([self.cueModel.type isEqualToString:@"audio"]){
         [self fadeAudio];
     }
+    if([self.cueModel.type isEqualToString:@"movieaudio"]){
+        [self fadeAudio];
+    }
     
     if(seconds > 0.0){
         [UIView animateWithDuration:seconds animations:^{
@@ -326,7 +329,7 @@
 
 
     // don't fade if we are looping
-    if(!self.cueModel.loop){
+    if(self.cueModel.loop != 1){
         // place a boundry observer to do a fade out
         float fadeTime = self.cueModel.fadeout_time * 1000.0f;
         float fadeValue = (totalTime * 1000.0f) - fadeTime;
