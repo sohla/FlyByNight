@@ -149,17 +149,38 @@
     [svc setDelegate:self];
     [svc setCueModel:cueModel];
 
-    
     [self.screenViewControllers setObject:svc forKey:[cueModel title]];
-
+    
     [self.view addSubview:svc.view];
-    
-    
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [(SOScreenViewController*)obj scrollTo:(CGPoint){0.0,M_PI_2}];
-//    }];
 
+    [self.view bringSubviewToFront:svc.view];
     [self.view bringSubviewToFront:self.transport.view];
+    
+
+    //• kill other cues?
+    
+//    if(self.screenViewControllers.count > 0){
+//        [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//            
+//            [obj stopWithcompletionBlock:^{
+//                [self.screenViewControllers setObject:svc forKey:[cueModel title]];
+//                
+//                [self.view addSubview:svc.view];
+//                
+//                [self.view bringSubviewToFront:self.transport.view];
+//            }];
+//        }];
+//    }else{
+//        
+//        [self.screenViewControllers setObject:svc forKey:[cueModel title]];
+//        
+//        [self.view addSubview:svc.view];
+//        
+//        [self.view bringSubviewToFront:self.transport.view];
+//        
+//    }
+
+    
 }
 -(void)stopCue:(SOCueModel*)cueModel{
     
@@ -181,10 +202,14 @@
     self.currentBeaconModel = beaconModel;
 //    SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:minor];
     
+    // if we are a movie
     [beaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
         DLog(@"cueing %@",cueModel.path);
+        
+        //• check type
+        
         
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
                                              valWithPropName:@"pre_time"] floatValue];

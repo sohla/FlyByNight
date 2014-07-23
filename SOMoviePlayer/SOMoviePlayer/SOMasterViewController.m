@@ -54,13 +54,20 @@
   
     _modelStore = [[SOModelStore alloc] init];
 
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-//    [self.modelStore loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
-//        
-//        if(error){
-//            NSLog(@"%@",error.localizedDescription);
-//        }
-//    }];
+    
+    NSArray * files = [self getAllBundleFilesForTypes:@[@"m4v"]];
+    
+    [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        
+        AVURLAsset *asset = [AVURLAsset URLAssetWithURL:obj options:nil];
+
+
+        NSLog(@"%@ %f",[[asset.URL pathComponents] lastObject],CMTimeGetSeconds(asset.duration) );
+        
+    }];
+    
+    
 
     
     [self collectAssetsWithCompletionBlock:^(NSArray *assets){
@@ -235,20 +242,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-//    __block NSURL *url = self.movieFilePaths[indexPath.row] ;
-//    NSString *title = [[url relativeString] lastPathComponent];
-//    cell.textLabel.text = title;
-//    
-//    if(indexPath.row < self.thumbNails.count){
-//        cell.imageView.image = self.thumbNails[indexPath.row];
-//    }else{
-//        cell.imageView.image = [UIImage imageNamed:@"default.png"];
-//    }
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:indexPath.row+1];
-    
     __block NSString *title = @"";
      [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
          title = [[title stringByAppendingString:[[self.modelStore cueModelWithTitle:obj] title]] stringByAppendingString:@" / "];

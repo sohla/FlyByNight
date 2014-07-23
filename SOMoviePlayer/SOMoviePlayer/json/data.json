@@ -9,7 +9,7 @@
                  "minor" : 1,
                  "threshold" : 2.3,
                  "action" : "pre",
-                 "cues" : [ "titles"]
+                 "cues" : [ "safety hazards","titles","first water tap"]
                  
                  },{
 
@@ -44,95 +44,102 @@
                  "minor" : 5,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "lift to river","long shot of woman","entrance button"]
+                 "cues" : [ "lift to river","long shot of woman","following busker","entrance button"]
                  
                  },{
                  
                  "minor" : 6,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "riverside entrance","ned emerging","yellow doors","door opening"]
+                 "cues" : [ "riverside entrance","ned emerging"]
                  
                  },{
                  
                  "minor" : 7,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "ned pink stairs","woman pink stairs"]
+                 "cues" : [ "yellow doors","door opening"]
                  
                  },{
                  
                  "minor" : 8,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "ned further pink stairs","no exit"]
+                 "cues" : [ "ned pink stairs","woman pink stairs"]
                  
                  },{
                  
                  "minor" : 9,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "corridor to melbourne room","busker in door","diva fire cupboard"]
+                 "cues" : [ "ned further pink stairs","no exit"]
                  
                  },{
                  
                  "minor" : 10,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "dan fish","room to painting","lady painting","ned escalator","ned to light boxes"]
+                 "cues" : [ "corridor to melbourne room","busker in door","diva fire cupboard"]
                  
                  },{
                  
                  "minor" : 11,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "dan drag left","woman down stairs"]
+                 "cues" : [ "dan fish","room to painting","lady painting","ned escalator","ned to light boxes"]
                  
                  },{
                  
                  "minor" : 12,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "legs in air","torso","diva","towards water tap"]
+                 "cues" : [ "dan drag left","silk burb","ing tuba1","ing dan impro","tuba vacuum","gold roof to piano","woman down stairs"]
                  
                  },{
                  
                  "minor" : 13,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "tuba man lift"]
+                 "cues" : [ "legs in air","torso","diva","towards water tap"]
                  
                  },{
                  
                  "minor" : 14,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "level 7"]
+                 "cues" : [ "tuba man lift"]
                  
                  },{
                  
                  "minor" : 15,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "gumleaves floor","corridor dan"]
+                 "cues" : [ "level 7"]
                  
                  },{
                  
                  "minor" : 16,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "tuba man picture","tuba man to lady"]
+                 "cues" : [ "gumleaves floor","corridor dan"]
                  
                  },{
                  
                  "minor" : 17,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "white lady picture","towards door","waiting door","door handle"]
+                 "cues" : [ "tuba man picture","tuba man to lady"]
                  
                  },{
                  
                  "minor" : 18,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "cues" : [ "white lady picture","towards door","waiting door","door handle"]
+                 
+                 },{
+                 
+                 "minor" : 19,
                  "threshold" : 2.3,
                  "action" : "post",
                  "cues" : [ "nightscape"]
@@ -153,7 +160,7 @@
               "loop"    : 0,
         
         
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
 
@@ -172,7 +179,7 @@
               "type"      : "movie",
               "loop"    : 1,
               
-              "zoom"      : 0.356,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -190,9 +197,9 @@
               "title"    : "first water tap",
               "path"     : "FBN CLIP 03_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -201,7 +208,8 @@
               
               "pre_time"       : 0.02,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.08
+              
 
 
               
@@ -212,16 +220,16 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.001
               
               
               
@@ -232,16 +240,16 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.01,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadein_time"       : 0.001,
+              "fadeout_time"       : 0.001
               
               
               
@@ -250,9 +258,9 @@
               "title"    : "exit button",
               "path"     : "FBN CLIP 07_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -260,8 +268,8 @@
               "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.02,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadein_time"       : 0.001,
+              "fadeout_time"       : 0.2
               
               
               
@@ -272,7 +280,7 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -292,14 +300,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.03,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -312,7 +320,7 @@
               "type"      : "movie",
               "loop"    : 0,
              
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -359,7 +367,7 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.05,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -372,7 +380,7 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -392,7 +400,7 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -412,7 +420,7 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -428,18 +436,18 @@
               },{
               
               "title"    : "following busker",
-              "path"     : "FBN CLIP 013b_converted.m4v",
+              "path"     : "FBN CLIP 13b_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.001,
+              "pre_time"       : 0.1,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -450,18 +458,18 @@
               "title"    : "entrance button",
               "path"     : "FBN CLIP 14_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
              
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.02,
+              "pre_time"       : 0.15,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.2
               
               
               
@@ -472,15 +480,15 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
-              "fadein_time"       : 0.05,
+              "fadein_time"       : 0.001,
               "fadeout_time"       : 0.05
               
               
@@ -492,16 +500,16 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.01,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadein_time"       : 0.001,
+              "fadeout_time"       : 0.2
               
               
               
@@ -512,16 +520,16 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.75,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.02,
+              "pre_time"       : 0.03,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.001
               
               
               
@@ -530,18 +538,18 @@
               "title"    : "door opening",
               "path"     : "FBN CLIP 18_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.03,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "pre_time"       : 0.05,
+              "fadein_time"       : 0.001,
+              "fadeout_time"       : 0.2
               
               
               
@@ -552,7 +560,7 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.713,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -572,9 +580,9 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
-              "offset_y"      : 0.5,
+              "offset_y"      : 0.75,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
@@ -592,12 +600,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -610,16 +618,16 @@
               "title"    : "no exit",
               "path"     : "FBN CLIP 21_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.02,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -630,14 +638,14 @@
               "title"    : "corridor to melbourne room",
               "path"     : "FBN CLIP 25_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -650,18 +658,18 @@
               "title"    : "busker in door",
               "path"     : "FBN CLIP 23_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
               "zoom"      : 0.3065,
-              "offset_x"      : 0.0,
+              "offset_x"      : 0.2,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "pre_time"       : 0.04,
+              "fadein_time"       : 0.08,
+              "fadeout_time"       : 0.2
               
               
               
@@ -670,18 +678,18 @@
               "title"    : "diva fire cupboard",
               "path"     : "FBN CLIP 24_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
               "zoom"      : 0.3065,
-              "offset_x"      : 0.0,
+              "offset_x"      : 0.15,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.02,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "pre_time"       : 0.12,
+              "fadein_time"       : 0.08,
+              "fadeout_time"       : 0.2
               
               
               
@@ -692,12 +700,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -712,14 +720,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.04,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -732,14 +740,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.713,
+              "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
               
-              "pre_time"       : 0.02,
+              "pre_time"       : 0.08,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -752,14 +760,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.25,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.03,
+              "pre_time"       : 0.12,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -772,14 +780,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.25,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.04,
+              "pre_time"       : 0.16,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -792,12 +800,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.25,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -812,12 +820,12 @@
               "type"      : "movie",
               "loop"    : 0,
              
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.25,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -832,12 +840,12 @@
               "type"      : "movie",
               "loop"    : 0,
              
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -852,12 +860,12 @@
               "type"      : "movie",
               "loop"    : 0,
              
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.75,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -872,12 +880,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.75,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -892,17 +900,17 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.25,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
-              
+             
               
               
               },{
@@ -912,17 +920,17 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
-              
+             
               
               
               },{
@@ -932,17 +940,16 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.25,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
-              
               
               
               },{
@@ -952,12 +959,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -971,13 +978,13 @@
               "path"     : "FBN CLIP 42_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
-             
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.75,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -992,12 +999,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1012,17 +1019,16 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.75,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
-              
               
               
               },{
@@ -1032,12 +1038,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.5,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1052,14 +1058,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.713,
+              "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
               
-              "pre_time"       : 0.001,
+              "pre_time"       : 0.20,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1072,7 +1078,7 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -1092,14 +1098,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.2,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.3,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1112,12 +1118,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.713,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.2,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1132,12 +1138,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.713,
               "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.2,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1152,14 +1158,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.713,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.4,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.1,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1170,16 +1176,16 @@
               "title"    : "towards water tap",
               "path"     : "FBN CLIP 64_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.25,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.02,
+              "pre_time"       : 0.2,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1192,12 +1198,12 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1210,14 +1216,14 @@
               "title"    : "level 7",
               "path"     : "FBN CLIP 67_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
              
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1232,12 +1238,12 @@
               "type"      : "movie",
               "loop"    : 0,
             
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1252,16 +1258,16 @@
               "type"      : "movie",
               "loop"    : 0,
              
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.04,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.2
               
               
               
@@ -1272,12 +1278,12 @@
               "type"      : "movie",
               "loop"    : 0,
              
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.713,
+              "offset_x"      : 0.75,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.4,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1292,14 +1298,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.04,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1312,12 +1318,12 @@
               "type"      : "movie",
               "loop"    : 0,
              
-              "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.713,
+              "offset_x"      : 0.75,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.4,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1332,14 +1338,14 @@
               "type"      : "movie",
               "loop"    : 0,
              
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.04,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1352,14 +1358,14 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.02,
+              "pre_time"       : 0.08,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1370,18 +1376,18 @@
               "title"    : "door handle",
               "path"     : "FBN CLIP 73_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.03,
+              "pre_time"       : 0.12,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.2
               
               
               
@@ -1390,14 +1396,14 @@
               "title"    : "nightscape",
               "path"     : "FBN CLIP 74a_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
              
-              "zoom"      : 0.3065,
+              "zoom"      : 0.713,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dy"      : 0.3,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -1412,7 +1418,7 @@
               "type"      : "movie",
               "loop"    : 0,
               
-              "zoom"      : 0.3065,
+              "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               

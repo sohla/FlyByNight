@@ -50,7 +50,7 @@
                 
                 [self saveLatest];
 
-                DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"minor"]);
+                //DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"minor"]);
             
 //                DLog(@"%@",[self beaconModelWithMinor:2]);
                 
@@ -181,6 +181,9 @@
     
     NSString *jsonString = [self.sessionModel toJSONString];
     [jsonString writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+    
+    
+    DLog(@"%@",jsonString);
 
 }
 

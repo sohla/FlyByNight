@@ -1041,7 +1041,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
     
     @try {
         NSDictionary* dict = [self toDictionaryWithKeys:propertyNames];
-        jsonData = [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:&jsonError];
+        jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&jsonError];
     }
     @catch (NSException *exception) {
         //this should not happen in properly design JSONModel
