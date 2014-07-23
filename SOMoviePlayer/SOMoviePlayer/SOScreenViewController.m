@@ -157,7 +157,10 @@
     
     [screenView.layer addSublayer:self.playerLayer];
     
-    [self.avPlayer setVolume:0.0f];
+    if([self.cueModel.type isEqualToString:@"movie"]){
+        [self.avPlayer setVolume:0.0f];
+    }
+    
     [self.playerLayer setFrame:fullFrame];
 
     //loop
@@ -252,6 +255,7 @@
 
     [UIView animateWithDuration:seconds animations:^{
         sv.alpha = 1.0f;
+        //self.avPlayer.volume = 1.0f;
     } completion:^(BOOL finished) {
         if(block) block();
     }];
@@ -263,14 +267,28 @@
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
     sv.alpha = 1.0f;
     
+    if([self.cueModel.type isEqualToString:@"audio"]){
+        [self fadeAudio];
+    }
+    
     if(seconds > 0.0){
         [UIView animateWithDuration:seconds animations:^{
+            
             sv.alpha = 0.0f;
         } completion:^(BOOL finished) {
             if(block) block();
         }];
     }
     
+}
+
+-(void)fadeAudio{
+    
+    if(self.avPlayer.volume > 0.0){
+        self.avPlayer.volume -= 0.2;
+        DLog(@"%f",self.avPlayer.volume);
+        [self performSelector:@selector(fadeAudio) withObject:nil afterDelay:0.002];
+    }
 }
 #pragma mark - Player Observers
 

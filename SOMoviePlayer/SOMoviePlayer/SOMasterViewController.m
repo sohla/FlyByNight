@@ -45,7 +45,7 @@
     
     [self.tableView setRowHeight:88.0];
     
-    self.movieFilePaths = [NSMutableArray arrayWithArray:[self getAllBundleFilesForTypes:@[@"m4v",@"mov"]]];
+    self.movieFilePaths = [NSMutableArray arrayWithArray:[self getAllBundleFilesForTypes:@[@"m4v",@"mov",@"wav"]]];
 
     __block NSMutableArray *paths = self.movieFilePaths;
     __block NSMutableArray *thumbs = self.thumbNails;
