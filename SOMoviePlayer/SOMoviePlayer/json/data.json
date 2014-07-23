@@ -9,7 +9,7 @@
                  "minor" : 1,
                  "threshold" : 2.3,
                  "action" : "pre",
-                 "cues" : [ "03","safety hazards","titles","first water tap"]
+                 "cues" : [ "safety hazards","titles","first water tap"]
                  
                  },{
 
@@ -37,35 +37,35 @@
                  "minor" : 4,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "close up button"]
+                 "cues" : [ "10","10a","close up button"]
                  
                  },{
                  
                  "minor" : 5,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "lift to river","long shot of woman","following busker","entrance button"]
+                 "cues" : [ "11","lift to river","12","long shot of woman","13","following busker","14","entrance button"]
                  
                  },{
                  
                  "minor" : 6,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "riverside entrance","ned emerging"]
+                 "cues" : [ "15a","15b","riverside entrance"]
                  
                  },{
                  
                  "minor" : 7,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "yellow doors","door opening"]
+                 "cues" : [ "ned emerging","17","yellow doors","18","door opening"]
                  
                  },{
                  
                  "minor" : 8,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "ned pink stairs","woman pink stairs"]
+                 "cues" : [ "ned pink stairs","woman pink stairs","ned pink stairs"]
                  
                  },{
                  
@@ -93,7 +93,7 @@
                  "minor" : 12,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "audioTest","dan drag left","silk burb","ing tuba1","ing dan impro","tuba vacuum","gold roof to piano","woman down stairs"]
+                 "cues" : [ "dan drag left","silk burb","ing tuba1","gold roof to piano","woman down stairs"]
                  
                  },{
                  
@@ -142,7 +142,7 @@
                  "minor" : 19,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "nightscape"]
+                 "cues" : [ "nightscape","moving away"]
                  
             
                  }
@@ -175,8 +175,8 @@
               },{
 
               "title"    : "safety hazards",
-              "path"     : "FBN CLIP 01_converted.m4v",
-              "type"      : "movie",
+              "path"     : "ipod.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
         
         
@@ -429,10 +429,49 @@
               
               },{
               
+              "title"    : "10",
+              "path"     : "10 Music & Atmos.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
+              },{
+              
+              "title"    : "10a",
+              "path"     : "10 SFX Loop.wav",
+              "type"      : "audio",
+              "loop"    : 1,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+              
+
+              },{
+              
               "title"    : "close up button",
               "path"     : "FBN CLIP 10_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -446,6 +485,26 @@
               "fadeout_time"       : 0.05
               
               
+              
+
+              },{
+              
+              "title"    : "11",
+              "path"     : "11.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
               
               },{
               
@@ -467,6 +526,26 @@
               
               
               
+              },{
+              
+              "title"    : "12",
+              "path"     : "12b insert.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.30,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+              
+
               },{
               
               "title"    : "long shot of woman",
@@ -547,6 +626,27 @@
               
               
               
+              
+              },{
+              
+              "title"    : "13",
+              "path"     : "13-14 atmos.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 1.40,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+ 
+              
               },{
               
               "title"    : "following busker",
@@ -569,6 +669,25 @@
               
               },{
               
+              "title"    : "14",
+              "path"     : "14 Loop.wav",
+              "type"      : "audio",
+              "loop"    : 1,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 1.70,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
+              },{
+              
               "title"    : "entrance button",
               "path"     : "FBN CLIP 14_converted.m4v",
               "type"      : "movie",
@@ -589,6 +708,43 @@
               
               },{
               
+              "title"    : "15a",
+              "path"     : "15 Room Tone.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+              },{
+              
+              "title"    : "15b",
+              "path"     : "15.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.005,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+
+              },{
+              
               "title"    : "riverside entrance",
               "path"     : "FBN CLIP 15_converted.m4v",
               "type"      : "movie",
@@ -601,17 +757,35 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.001,
+              "pre_time"       : 0.005,
               "fadein_time"       : 0.001,
               "fadeout_time"       : 0.05
               
+              },{
               
+              "title"    : "17",
+              "path"     : "17a.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.30,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.08,
+           
               
               },{
               
               "title"    : "ned emerging",
-              "path"     : "FBN CLIP 17a_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN AV 17A.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               
               "zoom"      : 0.3565,
@@ -621,7 +795,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.001,
               "fadein_time"       : 0.001,
               "fadeout_time"       : 0.2
               
@@ -641,12 +815,50 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.03,
+              "pre_time"       : 0.30,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.001
+              "fadeout_time"       : 0.2
               
               
               
+              },{
+              
+              "title"    : "17",
+              "path"     : "17c - 18.wav",
+              "type"      : "audio",
+              "loop"    : 0,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.30,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.2,
+
+              },{
+              
+              "title"    : "18",
+              "path"     : "18 Loop.wav",
+              "type"      : "audio",
+              "loop"    : 1,
+              
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.52,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.2,
+
               },{
               
               "title"    : "door opening",
@@ -661,7 +873,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.05,
+              "pre_time"       : 0.52,
               "fadein_time"       : 0.001,
               "fadeout_time"       : 0.2
               
@@ -678,8 +890,8 @@
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
@@ -696,12 +908,31 @@
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
-              "offset_y"      : 0.75,
+              "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.01,
+              "pre_time"       : 0.23,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              
+              
+              },{
+              
+              "title"    : "ned pink stairs2",
+              "path"     : "FBN CLIP 20a_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.713,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.46,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -741,7 +972,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.02,
+              "pre_time"       : 0.24,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -781,7 +1012,7 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.04,
+              "pre_time"       : 0.5,
               "fadein_time"       : 0.08,
               "fadeout_time"       : 0.2
               
@@ -801,7 +1032,7 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.12,
+              "pre_time"       : 0.20,
               "fadein_time"       : 0.08,
               "fadeout_time"       : 0.2
               
@@ -823,7 +1054,7 @@
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.3
               
               
               
@@ -841,9 +1072,9 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.04,
+              "pre_time"       : 0.38,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.4
               
               
               
@@ -855,13 +1086,13 @@
               "loop"    : 0,
               
               "zoom"      : 0.713,
-              "offset_x"      : 1.0,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
               
-              "pre_time"       : 0.08,
+              "pre_time"       : 0.60,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -875,13 +1106,13 @@
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.25,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.12,
+              "pre_time"       : 1.07,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -895,13 +1126,13 @@
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.25,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.16,
+              "pre_time"       : 1.28,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -912,10 +1143,10 @@
               "title"    : "dan drag left",
               "path"     : "FBN CLIP 32_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3565,
-              "offset_x"      : 0.25,
+              "zoom"      : 0.5565,
+              "offset_x"      : 0.9,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -952,9 +1183,9 @@
               "title"    : "ing tuba1",
               "path"     : "FBN CLIP 35_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
              
-              "zoom"      : 0.3565,
+              "zoom"      : 0.5565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
@@ -1052,10 +1283,10 @@
               "title"    : "silk burb",
               "path"     : "FBN CLIP 40_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
-              "zoom"      : 0.3565,
-              "offset_x"      : 0.25,
+              "zoom"      : 0.5565,
+              "offset_x"      : 0.1,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1216,10 +1447,10 @@
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 0.2,
+              "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.3,
+              "pre_time"       : 0.30,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1279,7 +1510,7 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.4,
               
-              "pre_time"       : 0.1,
+              "pre_time"       : 0.70,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1299,7 +1530,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.2,
+              "pre_time"       : 1.42,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1310,7 +1541,7 @@
               "title"    : "tuba man lift",
               "path"     : "FBN CLIP 66_converted.m4v",
               "type"      : "movie",
-              "loop"    : 0,
+              "loop"    : 1,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1379,7 +1610,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.04,
+              "pre_time"       : 0.28,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.2
               
@@ -1393,7 +1624,7 @@
               "loop"    : 0,
              
               "zoom"      : 0.713,
-              "offset_x"      : 0.75,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1401,7 +1632,7 @@
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.2
               
               
               
@@ -1419,7 +1650,7 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
               
-              "pre_time"       : 0.04,
+              "pre_time"       : 0.84,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -1433,7 +1664,7 @@
               "loop"    : 0,
              
               "zoom"      : 0.713,
-              "offset_x"      : 0.75,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1441,7 +1672,7 @@
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.3
               
               
               
@@ -1459,9 +1690,9 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.04,
+              "pre_time"       : 0.48,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.3
               
               
               
@@ -1479,9 +1710,9 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.08,
+              "pre_time"       : 0.53,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.2
               
               
               
@@ -1499,7 +1730,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.12,
+              "pre_time"       : 0.79,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.2
               
@@ -1510,7 +1741,7 @@
               "title"    : "nightscape",
               "path"     : "FBN CLIP 74a_converted.m4v",
               "type"      : "movie",
-              "loop"    : 1,
+              "loop"    : 0,
              
               "zoom"      : 0.713,
               "offset_x"      : 0.5,
@@ -1521,7 +1752,7 @@
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.5
               
               
               
@@ -1539,9 +1770,9 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
               
-              "pre_time"       : 0.001,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "pre_time"       : 0.02,
+              "fadein_time"       : 0.5,
+              "fadeout_time"       : 0.5
               
               
               

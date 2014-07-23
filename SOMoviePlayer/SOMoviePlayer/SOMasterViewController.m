@@ -245,8 +245,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:indexPath.row+1];
     __block NSString *title = @"";
+    __block SOMasterViewController *weakSelf = self;
      [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-         title = [[title stringByAppendingString:[[self.modelStore cueModelWithTitle:obj] title]] stringByAppendingString:@" / "];
+         title = [[title stringByAppendingString:[[weakSelf.modelStore cueModelWithTitle:obj] title]] stringByAppendingString:@" | "];
      }];
         
     cell.textLabel.text = [NSString stringWithFormat:@"%d %@",
