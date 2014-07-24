@@ -481,13 +481,18 @@
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         
         SOScreenViewController *svc = (SOScreenViewController*)obj;
-        CGRect vr = [svc visibleFrame];
         
-        if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
-            [svc setViewIsSelected:YES];
-            self.selectedCueModel = [svc getCueModel];
-        }else{
-            [svc setViewIsSelected:NO];
+        // don't test for audio cues
+        if(![[[svc getCueModel] type] isEqualToString:@"audio"]){
+        
+            CGRect vr = [svc visibleFrame];
+            
+            if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
+                [svc setViewIsSelected:YES];
+                self.selectedCueModel = [svc getCueModel];
+            }else{
+                [svc setViewIsSelected:NO];
+            }
         }
     
     }];

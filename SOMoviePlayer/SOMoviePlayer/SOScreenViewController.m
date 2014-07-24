@@ -484,7 +484,7 @@
     float w = 568.0f;
     float h = 320.0f;
 
-    CGRect fullFrame = CGRectMake(0.0, 0.0,w * z,h * z);
+    CGRect fullFrame = CGRectMake(0.0, 0.0, w * z, h * z);
     
     [screenView setFrame:fullFrame];//•not working?
     
