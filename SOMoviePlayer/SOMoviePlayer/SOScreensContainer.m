@@ -156,7 +156,11 @@
     [self.view bringSubviewToFront:svc.view];
     [self.view bringSubviewToFront:self.transport.view];
     
-
+    if([cueModel.type isEqualToString:@"audio"]){
+        [svc.view setHidden:YES];
+    }
+    
+    
     //• kill other cues?
     
 //    if(self.screenViewControllers.count > 0){
