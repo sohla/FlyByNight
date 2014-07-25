@@ -58,7 +58,18 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="SOMoviePlayer" id="tQt-TN-PWz"/>
+                    <navigationItem key="navigationItem" title="CUES" id="lqN-Tf-5Ne">
+                        <barButtonItem key="leftBarButtonItem" title="Beacon" id="VyA-jE-iej">
+                            <connections>
+                                <action selector="onBeacon:" destination="pGg-6v-bdr" id="oO8-NC-MCC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="66C-jg-mb6">
+                            <connections>
+                                <action selector="onEdit:" destination="pGg-6v-bdr" id="7xB-f2-T6i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>

@@ -64,11 +64,13 @@
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
-    [self addChildViewController:self.transport];
-    [self.transport.view setFrame:fullFrame];
-    [self.transport.view setAlpha:0.5f];
-    [self.view addSubview:self.transport.view];
-    
+
+    if(kEDIT_MODE){
+        [self addChildViewController:self.transport];
+        [self.transport.view setFrame:fullFrame];
+        [self.transport.view setAlpha:0.5f];
+        [self.view addSubview:self.transport.view];
+    }
 
 }
 -(void)dealloc{
@@ -84,8 +86,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     
-//    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-//    [[self tabBarController].tabBar setHidden:NO];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [[self tabBarController].tabBar setHidden:NO];
 }
 
 -(void)cleanup{

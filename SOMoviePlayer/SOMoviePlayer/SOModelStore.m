@@ -149,10 +149,10 @@
     
 	// form string for file name using current date to form unique file name
     NSString* newFileName = [[NSString stringWithFormat:
-                              @"%@_%d%d%d_%d%d%d",
+                              @"%@_%ld%ld%ld_%ld%ld%ld",
                               @"data",
-                              [comp year],[comp month],[comp day],
-                              [comp hour],[comp minute],[comp second]] stringByAppendingPathExtension:@"json"];
+                              (long)[comp year],(long)[comp month],(long)[comp day],
+                              (long)[comp hour],(long)[comp minute],(long)[comp second]] stringByAppendingPathExtension:@"json"];
     
     [self saveCuesAsJsonWithTitle:newFileName];
     

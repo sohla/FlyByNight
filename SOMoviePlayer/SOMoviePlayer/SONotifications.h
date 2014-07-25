@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+
+#define kEDIT_MODE false
+
 @interface SONotifications : NSObject
 
 extern NSString* const kMotionManagerReset;

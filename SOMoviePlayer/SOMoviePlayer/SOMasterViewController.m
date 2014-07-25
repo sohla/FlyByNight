@@ -55,20 +55,14 @@
     _modelStore = [[SOModelStore alloc] init];
 
     
-    NSArray * files = [self getAllBundleFilesForTypes:@[@"m4v"]];
-    
-    [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
-        
-        AVURLAsset *asset = [AVURLAsset URLAssetWithURL:obj options:nil];
-
-
-        NSLog(@"%@ %f",[[asset.URL pathComponents] lastObject],CMTimeGetSeconds(asset.duration) );
-        
-    }];
-    
-    
-
+    // get lengths
+    if(NO){
+        NSArray * files = [self getAllBundleFilesForTypes:@[@"m4v"]];
+        [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            AVURLAsset *asset = [AVURLAsset URLAssetWithURL:obj options:nil];
+            NSLog(@"%@ %f",[[asset.URL pathComponents] lastObject],CMTimeGetSeconds(asset.duration) );
+        }];
+    }
     
     [self collectAssetsWithCompletionBlock:^(NSArray *assets){
         
@@ -128,8 +122,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    [[self tabBarController].tabBar setHidden:YES];
+//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+//    [[self tabBarController].tabBar setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -243,7 +237,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:indexPath.row+1];
+    SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:(int)indexPath.row+1];
     __block NSString *title = @"";
     __block SOMasterViewController *weakSelf = self;
      [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -296,5 +290,12 @@
                                   
                               }];
 }
+- (IBAction)onBeacon:(id)sender {
+    DLog(@"");
+}
+- (IBAction)onEdit:(id)sender {
+    DLog(@"");
+}
 
 @end
+

@@ -424,6 +424,11 @@
         // lets loop movie for now
         [self fadeIn:0.0 completionBlock:nil];
         AVPlayerItem *p = [notification object];
+        
+//        CMTime duration = [p duration];
+//        CMTime back = CMTimeMakeWithSeconds(1, 1200);
+//        CMTime start = CMTimeSubtract(duration, back);
+        
         [p seekToTime:kCMTimeZero];
         [self.avPlayer play];
    
@@ -488,8 +493,13 @@
     
     [screenView setFrame:fullFrame];//•not working?
     
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0];
+    [CATransaction setDisableActions:YES];
+
     [self.playerLayer setFrame:fullFrame];
-    
+
+    [CATransaction commit];
 }
 
 -(void)scrollTo:(CGPoint)pnt{
