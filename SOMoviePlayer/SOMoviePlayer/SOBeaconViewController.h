@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SOBeaconViewController : UIViewController
+#import "SOBeaconsProtocol.h"
+
+@interface SOBeaconViewController : UIViewController <SOBeaconsProtocol>
+
 
 @end

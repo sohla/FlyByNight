@@ -10,19 +10,27 @@
 #import "SONotifications.h"
 #import "SOFloatTransformer.h"
 #import "SOScreensContainer.h"
+#import "SOBeaconsProtocol.h"
 
 
 #define kMaxAssetImages 5
 
-@interface SOMasterViewController ()
-    
+@interface SOMasterViewController () <CLLocationManagerDelegate>
+
 @property (retain, nonatomic) NSMutableArray *movieFilePaths;
 @property (retain, nonatomic) NSMutableArray *thumbNails;
 
 @property (retain, nonatomic) ALAssetsLibrary           *library;
-
 @property (strong, nonatomic) SOModelStore *modelStore;
 
+@property CLLocationManager *locationManager;
+@property NSMutableDictionary *rangedRegions;
+@property NSMutableDictionary *beacons;
+@property NSMutableArray *triggeredBeacons;
+@property (nonatomic) int currentBeacon;
+@property (strong, nonatomic) SOBeaconViewController *bvc ;
+
+@property (assign, nonatomic) id<SOBeaconsProtocol> delegate;
 
 @end
 
@@ -39,6 +47,12 @@
 {
     [super viewDidLoad];
 
+    self.bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
+    self.delegate = self.bvc;
+
+    [self setupBeaconManager];
+    
+    
     [self onEdit:nil];
     
     [self addObservers];
@@ -108,6 +122,13 @@
         
     }];
     
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:kLastBeaconRangingState]){
+        [self startRangingBeacons];
+    }
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
+
 
 }
 
@@ -134,7 +155,46 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setupBeaconManager{
+    
+    self.currentBeacon = 0;
+    
+    self.beacons = [[NSMutableDictionary alloc] init];
+    
+    self.triggeredBeacons = [[NSMutableArray alloc] init];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    // Populate the regions we will range once.
+    self.rangedRegions = [[NSMutableDictionary alloc] init];
+    
+    NSArray *supportedProximityUUIDs = @[[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"]
+                                         ];
+    
+    for (NSUUID *uuid in supportedProximityUUIDs)
+    {
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[uuid UUIDString]];
+        self.rangedRegions[region] = [NSArray array];
+    }
+    
+}
 
+-(void)startRangingBeacons{
+    DLog(@"");
+    for (CLBeaconRegion *region in self.rangedRegions){
+        [self.locationManager startRangingBeaconsInRegion:region];
+    }
+ 
+}
+-(void)stopRangingBeacons{
+    DLog(@"");
+    
+    for (CLBeaconRegion *region in self.rangedRegions){
+        [self.locationManager stopRangingBeaconsInRegion:region];
+    }
+    
+}
 //// Override to allow orientations other than the default portrait orientation.
 //- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 //    // Return YES for supported orientations
@@ -168,7 +228,17 @@
 											 selector:@selector(onTransportForward:)
 												 name:kTransportForward
 											   object:nil];
-   
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onResetBeacons:)
+												 name:kResetBeacons
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onBeaconsRangingOn:)
+												 name:kBeaconsRangingOn
+											   object:nil];
+
     
 }
 -(void)removeObservers{
@@ -184,6 +254,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kTransportBack
                                                   object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kResetBeacons
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kBeaconsRangingOn
+                                                  object:nil];
 }
 
 -(void)onTransportForward:(NSNotification *)notification{
@@ -197,6 +275,31 @@
     
     [self.modelStore saveLatest];
     
+}
+
+-(void)onResetBeacons:(NSNotification *)notification{
+    
+    DLog(@"RESET");
+    [self.triggeredBeacons removeAllObjects];
+    self.currentBeacon = 0;
+    
+    [self.delegate currentBeacon:[NSNumber numberWithInt:0]];
+    
+}
+
+-(void)onBeaconsRangingOn:(NSNotification *)notification{
+
+    UISwitch *sw = (UISwitch*)[notification object];
+    
+    if(sw.isOn){
+        [self startRangingBeacons];
+    }else{
+        [self stopRangingBeacons];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(sw.isOn)  forKey:kLastBeaconRangingState];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
 }
 
 -(NSArray*)getAllBundleFilesForTypes:(NSArray*)types{
@@ -239,7 +342,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+
+    // get the beacon with minor id
     SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:(int)indexPath.row+1];
+    
     __block NSString *title = @"";
     __block SOMasterViewController *weakSelf = self;
      [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -294,10 +400,7 @@
 }
 - (IBAction)onBeacon:(id)sender {
 
-    SOBeaconViewController *bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
-    
-    [self presentViewController:bvc animated:YES completion:nil];
-
+    [self presentViewController:self.bvc animated:YES completion:nil];
 
 }
 - (IBAction)onEdit:(id)sender {
@@ -315,6 +418,109 @@
     
     
 }
+
+
+#pragma mark - Location manager delegate
+
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
+    
+    
+    self.rangedRegions[region] = beacons;
+    [self.beacons removeAllObjects];
+    
+    NSMutableArray *allBeacons = [NSMutableArray array];
+    NSMutableArray *cleanBeacons = [NSMutableArray array];
+    
+    for (NSArray *regionResult in [self.rangedRegions allValues])
+    {
+        [allBeacons addObjectsFromArray:regionResult];
+        
+    }
+    
+    [allBeacons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    
+        
+        CLBeacon *beacon = (CLBeacon*)obj;
+        
+        
+        NSString *s = [NSString stringWithFormat:@"Minor : %@  Prox : %d  Rssi : %d",
+                                    [beacon minor],
+                                   [beacon proximity],
+                       [beacon rssi]];
+        
+        [cleanBeacons addObject:s];
+        
+           
+        
+    }];
+    
+    if(self.delegate){
+        if([self.delegate respondsToSelector:@selector(currentBeacons:)]){
+            [self.delegate currentBeacons:cleanBeacons];
+            
+        }
+    
+    }
+    
+
+    
+    NSSortDescriptor *rssiSD = [NSSortDescriptor sortDescriptorWithKey: @"rssi" ascending: NO];
+    NSArray *closest = [allBeacons sortedArrayUsingDescriptors:@[rssiSD]];
+    CLBeacon *beacon = [closest firstObject];
+    NSNumber *closestMinor = beacon.minor;
+    CLLocationAccuracy distance = beacon.accuracy;
+    CLProximity prox = beacon.proximity;
+    NSString *proxStr = @"-";
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    NSArray *proxs = @[@"unknown",@"Immediate",@"Near",@"Far"];
+    proxStr = proxs[prox];
+    
+    if(closestMinor != NULL){
+        
+        if([self.triggeredBeacons indexOfObject:closestMinor] == NSNotFound){
+            
+            if(distance > 0.0f){
+                //     if(distance < [self.thresholdSlider value]  ){
+                if(prox == CLProximityImmediate){
+                    
+                    // must be NEXT minor
+                    if([closestMinor intValue] == self.currentBeacon + 1){
+                        
+                        self.currentBeacon = [closestMinor intValue];
+                        [self.triggeredBeacons addObject:closestMinor];
+                        
+                        NSLog(@"TRIGGER %@",closestMinor);
+                        
+                        [self.delegate currentBeacon:closestMinor];
+                        
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
+
+//                        self.triggerLabel.text = [NSString stringWithFormat:@"%d",self.currentBeacon];
+                        
+                    }
+                    
+                }
+            }
+        }else{
+            
+        }
+        
+        
+    }else{
+        
+//        self.minorLabel.text = [NSString stringWithFormat:@"-"];
+//        self.distanceLabel.text = [NSString stringWithFormat:@"-"];
+//        self.proxLabel.text = [NSString stringWithFormat:@"-"];
+        
+    }
+    
+}
+
+
+
+
 
 @end
 

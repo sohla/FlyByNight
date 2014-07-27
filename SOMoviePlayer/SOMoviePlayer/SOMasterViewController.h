@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+
 #import "SOModelStore.h"
 #import "SOBeaconViewController.h"
 
-@interface SOMasterViewController : UITableViewController
+@interface SOMasterViewController : UITableViewController 
+
 
 @end

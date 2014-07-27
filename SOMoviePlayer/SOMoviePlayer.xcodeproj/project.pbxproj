@@ -186,6 +186,57 @@
 		F0AECD0E18B1882B00263C32 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0D18B1882B00263C32 /* CoreMotion.framework */; };
 		F0B8DBF6198507DC00976135 /* SOBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */; };
 		F0B8DBF7198507DC00976135 /* SOBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */; };
+		F0B8DBF919850B3400976135 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DBF819850B3400976135 /* CoreLocation.framework */; };
+		F0B8DBFB19850B3D00976135 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */; };
+		F0B8DBFE1985121400976135 /* SOBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */; };
+		F0B8DBFF1985121400976135 /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEFF1939FCBC00EAB7F9 /* NSArray+JSONModel.m */; };
+		F0B8DC001985121400976135 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEFC1939FCBC00EAB7F9 /* JSONModelError.m */; };
+		F0B8DC011985121400976135 /* SOSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */; };
+		F0B8DC021985121400976135 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF031939FCBC00EAB7F9 /* JSONAPI.m */; };
+		F0B8DC031985121400976135 /* SOFloatTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FE3DED1944A1C40029DAEF /* SOFloatTransformer.m */; };
+		F0B8DC041985121400976135 /* SOMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */; };
+		F0B8DC051985121400976135 /* SOMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F072F5E719315DBD009EC2F5 /* SOMotionManager.m */; };
+		F0B8DC061985121400976135 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEFA1939FCBC00EAB7F9 /* JSONModelClassProperty.m */; };
+		F0B8DC071985121400976135 /* SOScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FE7404191E3037008B7E45 /* SOScreenView.m */; };
+		F0B8DC081985121400976135 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF071939FCBC00EAB7F9 /* JSONModel+networking.m */; };
+		F0B8DC091985121400976135 /* SOPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */; };
+		F0B8DC0A1985121400976135 /* SOFloatPropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD848D193DFAEA00F5DD2F /* SOFloatPropViewController.m */; };
+		F0B8DC0B1985121400976135 /* SOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCD518B171DB00263C32 /* SOAppDelegate.m */; };
+		F0B8DC0C1985121400976135 /* SONotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F04417A218BA0C2400572780 /* SONotifications.m */; };
+		F0B8DC0D1985121400976135 /* SOScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FE740819206C36008B7E45 /* SOScreenViewController.m */; };
+		F0B8DC0E1985121400976135 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCD118B171DB00263C32 /* main.m */; };
+		F0B8DC0F1985121400976135 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF051939FCBC00EAB7F9 /* JSONHTTPClient.m */; };
+		F0B8DC101985121400976135 /* SOCueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */; };
+		F0B8DC111985121400976135 /* SOScreenTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = F068CE921938065A009B9297 /* SOScreenTransport.m */; };
+		F0B8DC121985121400976135 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF41939FCBC00EAB7F9 /* JSONModel+CoreData.m */; };
+		F0B8DC131985121400976135 /* SOBeaconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOBeaconModel.m */; };
+		F0B8DC141985121400976135 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF61939FCBC00EAB7F9 /* JSONModel.m */; };
+		F0B8DC151985121400976135 /* SOModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */; };
+		F0B8DC161985121400976135 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF0C1939FCBC00EAB7F9 /* JSONValueTransformer.m */; };
+		F0B8DC171985121400976135 /* SOScreensContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */; };
+		F0B8DC181985121400976135 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF0A1939FCBC00EAB7F9 /* JSONKeyMapper.m */; };
+		F0B8DC191985121400976135 /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF81939FCBC00EAB7F9 /* JSONModelArray.m */; };
+		F0B8DC1B1985121400976135 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */; };
+		F0B8DC1C1985121400976135 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DBF819850B3400976135 /* CoreLocation.framework */; };
+		F0B8DC1D1985121400976135 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417D418BD1BF400572780 /* AssetsLibrary.framework */; };
+		F0B8DC1E1985121400976135 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417BB18BC2FA400572780 /* AVFoundation.framework */; };
+		F0B8DC1F1985121400976135 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0D18B1882B00263C32 /* CoreMotion.framework */; };
+		F0B8DC201985121400976135 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0118B1785500263C32 /* MediaPlayer.framework */; };
+		F0B8DC211985121400976135 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC718B171DB00263C32 /* CoreGraphics.framework */; };
+		F0B8DC221985121400976135 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC918B171DB00263C32 /* UIKit.framework */; };
+		F0B8DC231985121400976135 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
+		F0B8DC351985121400976135 /* allCues.json in Resources */ = {isa = PBXBuildFile; fileRef = F07F16191951017D00E36A70 /* allCues.json */; };
+		F0B8DC481985121400976135 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D718BD2D7900572780 /* default@2x.png */; };
+		F0B8DC581985121400976135 /* SOFloatPropViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */; };
+		F0B8DC651985121400976135 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCE018B171DC00263C32 /* Images.xcassets */; };
+		F0B8DC661985121400976135 /* 64.wav in Resources */ = {isa = PBXBuildFile; fileRef = F037EFB9198036E30050DFA4 /* 64.wav */; };
+		F0B8DC791985121400976135 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCCE18B171DB00263C32 /* InfoPlist.strings */; };
+		F0B8DC7C1985121400976135 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
+		F0B8DC7D1985121400976135 /* stripeTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDE193BF98F00829C20 /* stripeTest.mov */; };
+		F0B8DC941985121400976135 /* dataT.json in Resources */ = {isa = PBXBuildFile; fileRef = F0FE3DEA1944A00D0029DAEF /* dataT.json */; };
+		F0B8DC9C1985121400976135 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCD718B171DB00263C32 /* Main.storyboard */; };
+		F0B8DC9E1985121400976135 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D618BD2D7900572780 /* default.png */; };
+		F0B8DCAD1985121400976135 /* SOBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */; };
 		F0C2DEEF1939F51100EAB7F9 /* SOModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */; };
 		F0C2DF0D1939FCBC00EAB7F9 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF41939FCBC00EAB7F9 /* JSONModel+CoreData.m */; };
 		F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF61939FCBC00EAB7F9 /* JSONModel.m */; };
@@ -412,6 +463,11 @@
 		F0B8DBF3198507DC00976135 /* SOBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOBeaconViewController.h; sourceTree = "<group>"; };
 		F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOBeaconViewController.m; sourceTree = "<group>"; };
 		F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOBeaconViewController.xib; sourceTree = "<group>"; };
+		F0B8DBF819850B3400976135 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		F0B8DCC91985121400976135 /* SOMoviePlayer copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SOMoviePlayer copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0B8DCCA1985121400976135 /* SOMoviePlayer copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SOMoviePlayer copy-Info.plist"; path = "/Users/soh_la/Develop/iOS/Projects/SOMoviePlayer/SOMoviePlayer/SOMoviePlayer copy-Info.plist"; sourceTree = "<absolute>"; };
+		F0B8DCCB1985131000976135 /* SOBeaconsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOBeaconsProtocol.h; sourceTree = "<group>"; };
 		F0C2DEED1939F51100EAB7F9 /* SOModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOModelStore.h; sourceTree = "<group>"; };
 		F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOModelStore.m; sourceTree = "<group>"; };
 		F0C2DEF31939FCBC00EAB7F9 /* JSONModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+CoreData.h"; sourceTree = "<group>"; };
@@ -532,6 +588,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0B8DBFB19850B3D00976135 /* CoreBluetooth.framework in Frameworks */,
+				F0B8DBF919850B3400976135 /* CoreLocation.framework in Frameworks */,
 				F04417D518BD1BF400572780 /* AssetsLibrary.framework in Frameworks */,
 				F04417BC18BC2FA400572780 /* AVFoundation.framework in Frameworks */,
 				F0AECD0E18B1882B00263C32 /* CoreMotion.framework in Frameworks */,
@@ -549,6 +607,22 @@
 				F0AECCE818B171DC00263C32 /* XCTest.framework in Frameworks */,
 				F0AECCEA18B171DC00263C32 /* UIKit.framework in Frameworks */,
 				F0AECCE918B171DC00263C32 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0B8DC1A1985121400976135 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0B8DC1B1985121400976135 /* CoreBluetooth.framework in Frameworks */,
+				F0B8DC1C1985121400976135 /* CoreLocation.framework in Frameworks */,
+				F0B8DC1D1985121400976135 /* AssetsLibrary.framework in Frameworks */,
+				F0B8DC1E1985121400976135 /* AVFoundation.framework in Frameworks */,
+				F0B8DC1F1985121400976135 /* CoreMotion.framework in Frameworks */,
+				F0B8DC201985121400976135 /* MediaPlayer.framework in Frameworks */,
+				F0B8DC211985121400976135 /* CoreGraphics.framework in Frameworks */,
+				F0B8DC221985121400976135 /* UIKit.framework in Frameworks */,
+				F0B8DC231985121400976135 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +818,7 @@
 				F0AECCED18B171DC00263C32 /* SOMoviePlayerTests */,
 				F0AECCC418B171DB00263C32 /* Frameworks */,
 				F0AECCC318B171DB00263C32 /* Products */,
+				F0B8DCCA1985121400976135 /* SOMoviePlayer copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -752,6 +827,7 @@
 			children = (
 				F0AECCC218B171DB00263C32 /* SOMoviePlayer.app */,
 				F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */,
+				F0B8DCC91985121400976135 /* SOMoviePlayer copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -759,6 +835,8 @@
 		F0AECCC418B171DB00263C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */,
+				F0B8DBF819850B3400976135 /* CoreLocation.framework */,
 				F04417D418BD1BF400572780 /* AssetsLibrary.framework */,
 				F04417BB18BC2FA400572780 /* AVFoundation.framework */,
 				F0AECD0D18B1882B00263C32 /* CoreMotion.framework */,
@@ -784,6 +862,7 @@
 				F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */,
 				F0AECCDA18B171DB00263C32 /* SOMasterViewController.h */,
 				F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */,
+				F0B8DCCB1985131000976135 /* SOBeaconsProtocol.h */,
 				F0AECCDD18B171DB00263C32 /* SOScreensContainer.h */,
 				F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */,
 				F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */,
@@ -1039,6 +1118,23 @@
 			productReference = F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F0B8DBFC1985121400976135 /* SOMoviePlayerNoAssets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0B8DCC61985121400976135 /* Build configuration list for PBXNativeTarget "SOMoviePlayerNoAssets" */;
+			buildPhases = (
+				F0B8DBFD1985121400976135 /* Sources */,
+				F0B8DC1A1985121400976135 /* Frameworks */,
+				F0B8DC241985121400976135 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SOMoviePlayerNoAssets;
+			productName = SOMoviePlayer;
+			productReference = F0B8DCC91985121400976135 /* SOMoviePlayer copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1069,6 +1165,7 @@
 			targets = (
 				F0AECCC118B171DB00263C32 /* SOMoviePlayer */,
 				F0AECCE518B171DC00263C32 /* SOMoviePlayerTests */,
+				F0B8DBFC1985121400976135 /* SOMoviePlayerNoAssets */,
 			);
 		};
 /* End PBXProject section */
@@ -1250,6 +1347,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0B8DC241985121400976135 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0B8DC351985121400976135 /* allCues.json in Resources */,
+				F0B8DC481985121400976135 /* default@2x.png in Resources */,
+				F0B8DC581985121400976135 /* SOFloatPropViewController.xib in Resources */,
+				F0B8DC651985121400976135 /* Images.xcassets in Resources */,
+				F0B8DC661985121400976135 /* 64.wav in Resources */,
+				F0B8DC791985121400976135 /* InfoPlist.strings in Resources */,
+				F0B8DC7C1985121400976135 /* data.json in Resources */,
+				F0B8DC7D1985121400976135 /* stripeTest.mov in Resources */,
+				F0B8DC941985121400976135 /* dataT.json in Resources */,
+				F0B8DC9C1985121400976135 /* Main.storyboard in Resources */,
+				F0B8DC9E1985121400976135 /* default.png in Resources */,
+				F0B8DCAD1985121400976135 /* SOBeaconViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1293,6 +1409,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AECCF418B171DC00263C32 /* SOMoviePlayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0B8DBFD1985121400976135 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0B8DBFE1985121400976135 /* SOBeaconViewController.m in Sources */,
+				F0B8DBFF1985121400976135 /* NSArray+JSONModel.m in Sources */,
+				F0B8DC001985121400976135 /* JSONModelError.m in Sources */,
+				F0B8DC011985121400976135 /* SOSessionModel.m in Sources */,
+				F0B8DC021985121400976135 /* JSONAPI.m in Sources */,
+				F0B8DC031985121400976135 /* SOFloatTransformer.m in Sources */,
+				F0B8DC041985121400976135 /* SOMasterViewController.m in Sources */,
+				F0B8DC051985121400976135 /* SOMotionManager.m in Sources */,
+				F0B8DC061985121400976135 /* JSONModelClassProperty.m in Sources */,
+				F0B8DC071985121400976135 /* SOScreenView.m in Sources */,
+				F0B8DC081985121400976135 /* JSONModel+networking.m in Sources */,
+				F0B8DC091985121400976135 /* SOPropertiesViewController.m in Sources */,
+				F0B8DC0A1985121400976135 /* SOFloatPropViewController.m in Sources */,
+				F0B8DC0B1985121400976135 /* SOAppDelegate.m in Sources */,
+				F0B8DC0C1985121400976135 /* SONotifications.m in Sources */,
+				F0B8DC0D1985121400976135 /* SOScreenViewController.m in Sources */,
+				F0B8DC0E1985121400976135 /* main.m in Sources */,
+				F0B8DC0F1985121400976135 /* JSONHTTPClient.m in Sources */,
+				F0B8DC101985121400976135 /* SOCueModel.m in Sources */,
+				F0B8DC111985121400976135 /* SOScreenTransport.m in Sources */,
+				F0B8DC121985121400976135 /* JSONModel+CoreData.m in Sources */,
+				F0B8DC131985121400976135 /* SOBeaconModel.m in Sources */,
+				F0B8DC141985121400976135 /* JSONModel.m in Sources */,
+				F0B8DC151985121400976135 /* SOModelStore.m in Sources */,
+				F0B8DC161985121400976135 /* JSONValueTransformer.m in Sources */,
+				F0B8DC171985121400976135 /* SOScreensContainer.m in Sources */,
+				F0B8DC181985121400976135 /* JSONKeyMapper.m in Sources */,
+				F0B8DC191985121400976135 /* JSONModelArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1476,6 +1627,38 @@
 			};
 			name = Release;
 		};
+		F0B8DCC71985121400976135 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
+				INFOPLIST_FILE = "SOMoviePlayer copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "SOMoviePlayer copy";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F0B8DCC81985121400976135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
+				INFOPLIST_FILE = "SOMoviePlayer copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "SOMoviePlayer copy";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1502,6 +1685,15 @@
 			buildConfigurations = (
 				F0AECCFB18B171DC00263C32 /* Debug */,
 				F0AECCFC18B171DC00263C32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0B8DCC61985121400976135 /* Build configuration list for PBXNativeTarget "SOMoviePlayerNoAssets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0B8DCC71985121400976135 /* Debug */,
+				F0B8DCC81985121400976135 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

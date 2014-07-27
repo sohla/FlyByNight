@@ -23,5 +23,8 @@ NSString* const kTransportStop = @"kTransportStop";
 NSString* const kEditModeOn = @"kEditModeOn";
 NSString* const kEditModeOff = @"kEditModeOff";
 
+NSString* const kResetBeacons = @"kResetBeacons";
+NSString* const kBeaconsRangingOn = @"kBeaconsRangingOn";
+
 
 @end

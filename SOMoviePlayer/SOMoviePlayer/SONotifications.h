@@ -10,6 +10,7 @@
 
 
 #define kLastEditState @"kLastEditState"
+#define kLastBeaconRangingState @"kLastBeaconRangingState"
 
 
 @interface SONotifications : NSObject
@@ -25,6 +26,10 @@ extern NSString* const kTransportForward;
 extern NSString* const kTransportNext;
 extern NSString* const kEditModeOn;
 extern NSString* const kEditModeOff;
+
+extern NSString* const kResetBeacons;
+
+extern NSString* const kBeaconsRangingOn;
 
 
 @end
