@@ -20,6 +20,7 @@ NSString* const kTransportBack = @"kTransportBack";
 NSString* const kTransportForward = @"kTransportForward";
 NSString* const kTransportNext = @"kTransportNext";
 NSString* const kTransportStop = @"kTransportStop";
+NSString* const kTransportCue = @"kTransportCue";
 NSString* const kEditModeOn = @"kEditModeOn";
 NSString* const kEditModeOff = @"kEditModeOff";
 

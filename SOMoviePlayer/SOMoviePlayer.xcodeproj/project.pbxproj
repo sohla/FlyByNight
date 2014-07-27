@@ -237,6 +237,10 @@
 		F0B8DC9C1985121400976135 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCD718B171DB00263C32 /* Main.storyboard */; };
 		F0B8DC9E1985121400976135 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D618BD2D7900572780 /* default.png */; };
 		F0B8DCAD1985121400976135 /* SOBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */; };
+		F0B8DCCF1985382900976135 /* SOCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B8DCCD1985382900976135 /* SOCameraViewController.m */; };
+		F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DCCE1985382900976135 /* SOCameraViewController.xib */; };
+		F0B8DCD2198538B800976135 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DCD1198538B800976135 /* CoreVideo.framework */; };
+		F0B8DCD4198538C000976135 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DCD3198538C000976135 /* CoreMedia.framework */; };
 		F0C2DEEF1939F51100EAB7F9 /* SOModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */; };
 		F0C2DF0D1939FCBC00EAB7F9 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF41939FCBC00EAB7F9 /* JSONModel+CoreData.m */; };
 		F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF61939FCBC00EAB7F9 /* JSONModel.m */; };
@@ -465,9 +469,14 @@
 		F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOBeaconViewController.xib; sourceTree = "<group>"; };
 		F0B8DBF819850B3400976135 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		F0B8DCC91985121400976135 /* SOMoviePlayer copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SOMoviePlayer copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0B8DCC91985121400976135 /* SOMoviePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOMoviePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0B8DCCA1985121400976135 /* SOMoviePlayer copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SOMoviePlayer copy-Info.plist"; path = "/Users/soh_la/Develop/iOS/Projects/SOMoviePlayer/SOMoviePlayer/SOMoviePlayer copy-Info.plist"; sourceTree = "<absolute>"; };
 		F0B8DCCB1985131000976135 /* SOBeaconsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOBeaconsProtocol.h; sourceTree = "<group>"; };
+		F0B8DCCC1985382900976135 /* SOCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCameraViewController.h; sourceTree = "<group>"; };
+		F0B8DCCD1985382900976135 /* SOCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCameraViewController.m; sourceTree = "<group>"; };
+		F0B8DCCE1985382900976135 /* SOCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOCameraViewController.xib; sourceTree = "<group>"; };
+		F0B8DCD1198538B800976135 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		F0B8DCD3198538C000976135 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		F0C2DEED1939F51100EAB7F9 /* SOModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOModelStore.h; sourceTree = "<group>"; };
 		F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOModelStore.m; sourceTree = "<group>"; };
 		F0C2DEF31939FCBC00EAB7F9 /* JSONModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+CoreData.h"; sourceTree = "<group>"; };
@@ -614,6 +623,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0B8DCD4198538C000976135 /* CoreMedia.framework in Frameworks */,
+				F0B8DCD2198538B800976135 /* CoreVideo.framework in Frameworks */,
 				F0B8DC1B1985121400976135 /* CoreBluetooth.framework in Frameworks */,
 				F0B8DC1C1985121400976135 /* CoreLocation.framework in Frameworks */,
 				F0B8DC1D1985121400976135 /* AssetsLibrary.framework in Frameworks */,
@@ -827,7 +838,7 @@
 			children = (
 				F0AECCC218B171DB00263C32 /* SOMoviePlayer.app */,
 				F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */,
-				F0B8DCC91985121400976135 /* SOMoviePlayer copy.app */,
+				F0B8DCC91985121400976135 /* SOMoviePlayer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -835,6 +846,8 @@
 		F0AECCC418B171DB00263C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0B8DCD3198538C000976135 /* CoreMedia.framework */,
+				F0B8DCD1198538B800976135 /* CoreVideo.framework */,
 				F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */,
 				F0B8DBF819850B3400976135 /* CoreLocation.framework */,
 				F04417D418BD1BF400572780 /* AssetsLibrary.framework */,
@@ -880,6 +893,9 @@
 				F0FE3DED1944A1C40029DAEF /* SOFloatTransformer.m */,
 				F0B8DBF3198507DC00976135 /* SOBeaconViewController.h */,
 				F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */,
+				F0B8DCCC1985382900976135 /* SOCameraViewController.h */,
+				F0B8DCCD1985382900976135 /* SOCameraViewController.m */,
+				F0B8DCCE1985382900976135 /* SOCameraViewController.xib */,
 				F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */,
 				F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */,
 				F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */,
@@ -1132,7 +1148,7 @@
 			);
 			name = SOMoviePlayerNoAssets;
 			productName = SOMoviePlayer;
-			productReference = F0B8DCC91985121400976135 /* SOMoviePlayer copy.app */;
+			productReference = F0B8DCC91985121400976135 /* SOMoviePlayer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1190,6 +1206,7 @@
 				F037EFE7198036E30050DFA4 /* FBN CLIP 07_converted.m4v in Resources */,
 				F037EFCE198036E30050DFA4 /* FBN AV 28.m4v in Resources */,
 				F037EFD1198036E30050DFA4 /* FBN AV 31.m4v in Resources */,
+				F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */,
 				F037EFE4198036E30050DFA4 /* FBN CLIP 03_converted.m4v in Resources */,
 				F07F161A1951017D00E36A70 /* allCues.json in Resources */,
 				F037F008198036E30050DFA4 /* FBN CLIP 62_converted.m4v in Resources */,
@@ -1378,6 +1395,7 @@
 				F0C2DF111939FCBC00EAB7F9 /* JSONModelError.m in Sources */,
 				F0C2DF1E193A005B00EAB7F9 /* SOSessionModel.m in Sources */,
 				F0C2DF131939FCBC00EAB7F9 /* JSONAPI.m in Sources */,
+				F0B8DCCF1985382900976135 /* SOCameraViewController.m in Sources */,
 				F0FE3DEE1944A1C40029DAEF /* SOFloatTransformer.m in Sources */,
 				F0AECCDC18B171DB00263C32 /* SOMasterViewController.m in Sources */,
 				F072F5E819315DBD009EC2F5 /* SOMotionManager.m in Sources */,
@@ -1637,7 +1655,7 @@
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "SOMoviePlayer copy";
+				PRODUCT_NAME = SOMoviePlayer;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1653,7 +1671,7 @@
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "SOMoviePlayer copy";
+				PRODUCT_NAME = SOMoviePlayer;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};

@@ -12,6 +12,7 @@
 #import "SOScreenViewController.h"
 #import "SOFloatTransformer.h"
 #import "SOAppDelegate.h"
+#import "SOCameraViewController.h"
 
 // SOScreenViewManager
 //      has a bunch of screenviews
@@ -26,6 +27,7 @@
 @property (strong, nonatomic) SOScreenTransport         *transport;
 @property (weak, nonatomic) SOCueModel *selectedCueModel;
 @property (assign, nonatomic) SOBeaconModel *currentBeaconModel;
+@property (strong, nonatomic) SOCameraViewController *cvc;
 
 
 
@@ -47,9 +49,14 @@
     
     [super viewDidLoad];
     
+    self.cvc = [[SOCameraViewController alloc] initWithNibName:@"SOCameraViewController" bundle:nil];
+    [self.view addSubview:self.cvc.view];
+
+    [self.view sendSubviewToBack:self.cvc.view];
+    
     _screenViewControllers = [[NSMutableDictionary alloc] init];
     
-    [self.view setBackgroundColor:[UIColor darkGrayColor]];
+    [self.view setBackgroundColor:[UIColor blackColor]];
     
     //motion
     [self addDisplayLink];
@@ -162,6 +169,8 @@
         [svc.view setHidden:YES];
     }
     
+    [self.view sendSubviewToBack:self.cvc.view];
+
     
     //• kill other cues?
     
@@ -410,6 +419,8 @@
 }
 
 -(void)onTransportNext:(NSNotification *)notification{
+    
+    
     
    // __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor];
     int nextMinor = self.currentBeaconModel.minor + 1;

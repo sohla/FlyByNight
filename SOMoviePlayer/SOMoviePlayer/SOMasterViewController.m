@@ -12,7 +12,6 @@
 #import "SOScreensContainer.h"
 #import "SOBeaconsProtocol.h"
 
-
 #define kMaxAssetImages 5
 
 @interface SOMasterViewController () <CLLocationManagerDelegate>
@@ -46,7 +45,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+ 
+    
+    
+    
     self.bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
     self.delegate = self.bvc;
 
@@ -482,13 +484,14 @@
         if([self.triggeredBeacons indexOfObject:closestMinor] == NSNotFound){
             
             if(distance > 0.0f){
-                //     if(distance < [self.thresholdSlider value]  ){
+
                 if(prox == CLProximityImmediate){
                     
                     // must be NEXT minor
                     if([closestMinor intValue] == self.currentBeacon + 1){
                         
                         self.currentBeacon = [closestMinor intValue];
+                
                         [self.triggeredBeacons addObject:closestMinor];
                         
                         NSLog(@"TRIGGER %@",closestMinor);
@@ -497,10 +500,12 @@
                         
                         [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
 
-//                        self.triggerLabel.text = [NSString stringWithFormat:@"%d",self.currentBeacon];
                         
+                        //SOCueModel *cm = [self.modelStore cueModelAtIndex:self.currentBeacon];
+                        
+                        
+                                          
                     }
-                    
                 }
             }
         }else{
@@ -510,9 +515,6 @@
         
     }else{
         
-//        self.minorLabel.text = [NSString stringWithFormat:@"-"];
-//        self.distanceLabel.text = [NSString stringWithFormat:@"-"];
-//        self.proxLabel.text = [NSString stringWithFormat:@"-"];
         
     }
     
