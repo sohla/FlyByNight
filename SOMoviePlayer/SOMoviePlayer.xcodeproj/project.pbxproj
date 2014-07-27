@@ -184,6 +184,8 @@
 		F0AECCF418B171DC00263C32 /* SOMoviePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */; };
 		F0AECD0218B1785500263C32 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0118B1785500263C32 /* MediaPlayer.framework */; };
 		F0AECD0E18B1882B00263C32 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0D18B1882B00263C32 /* CoreMotion.framework */; };
+		F0B8DBF6198507DC00976135 /* SOBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */; };
+		F0B8DBF7198507DC00976135 /* SOBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */; };
 		F0C2DEEF1939F51100EAB7F9 /* SOModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */; };
 		F0C2DF0D1939FCBC00EAB7F9 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF41939FCBC00EAB7F9 /* JSONModel+CoreData.m */; };
 		F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF61939FCBC00EAB7F9 /* JSONModel.m */; };
@@ -407,6 +409,9 @@
 		F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOMoviePlayerTests.m; sourceTree = "<group>"; };
 		F0AECD0118B1785500263C32 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F0AECD0D18B1882B00263C32 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		F0B8DBF3198507DC00976135 /* SOBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOBeaconViewController.h; sourceTree = "<group>"; };
+		F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOBeaconViewController.m; sourceTree = "<group>"; };
+		F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOBeaconViewController.xib; sourceTree = "<group>"; };
 		F0C2DEED1939F51100EAB7F9 /* SOModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOModelStore.h; sourceTree = "<group>"; };
 		F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOModelStore.m; sourceTree = "<group>"; };
 		F0C2DEF31939FCBC00EAB7F9 /* JSONModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+CoreData.h"; sourceTree = "<group>"; };
@@ -794,6 +799,9 @@
 				F0FD848D193DFAEA00F5DD2F /* SOFloatPropViewController.m */,
 				F0FE3DEC1944A1C40029DAEF /* SOFloatTransformer.h */,
 				F0FE3DED1944A1C40029DAEF /* SOFloatTransformer.m */,
+				F0B8DBF3198507DC00976135 /* SOBeaconViewController.h */,
+				F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */,
+				F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */,
 				F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */,
 				F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */,
 				F0AECCD718B171DB00263C32 /* Main.storyboard */,
@@ -1206,6 +1214,7 @@
 				F037F01F198036E30050DFA4 /* 10 Music & Atmos.wav in Resources */,
 				F037F012198036E30050DFA4 /* FBN CLIP 71_converted.m4v in Resources */,
 				F037EFF2198036E30050DFA4 /* FBN CLIP 14_converted.m4v in Resources */,
+				F0B8DBF7198507DC00976135 /* SOBeaconViewController.xib in Resources */,
 				F037F052198036E30050DFA4 /* 72b - 73.wav in Resources */,
 				F037F00A198036E30050DFA4 /* FBN CLIP 64_converted.m4v in Resources */,
 				F037F002198036E30050DFA4 /* FBN CLIP 56_converted.m4v in Resources */,
@@ -1248,6 +1257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0B8DBF6198507DC00976135 /* SOBeaconViewController.m in Sources */,
 				F0C2DF121939FCBC00EAB7F9 /* NSArray+JSONModel.m in Sources */,
 				F0C2DF111939FCBC00EAB7F9 /* JSONModelError.m in Sources */,
 				F0C2DF1E193A005B00EAB7F9 /* SOSessionModel.m in Sources */,

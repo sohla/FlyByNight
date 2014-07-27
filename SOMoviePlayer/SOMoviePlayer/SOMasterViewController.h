@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "SOModelStore.h"
+#import "SOBeaconViewController.h"
 
 @interface SOMasterViewController : UITableViewController
 

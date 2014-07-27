@@ -293,7 +293,12 @@
                               }];
 }
 - (IBAction)onBeacon:(id)sender {
-    DLog(@"%@",self.navigationController.navigationBar.backItem.title);
+
+    SOBeaconViewController *bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
+    
+    [self presentViewController:bvc animated:YES completion:nil];
+
+
 }
 - (IBAction)onEdit:(id)sender {
     
