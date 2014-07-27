@@ -8,6 +8,7 @@
 
 #import "SONotifications.h"
 
+
 @implementation SONotifications
 
 NSString* const kMotionManagerReset = @"kMotionManagerReset";

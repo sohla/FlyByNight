@@ -20,7 +20,7 @@
 
 
 
-@property (assign, nonatomic) CADisplayLink             *displayLink;
+@property (strong, nonatomic) CADisplayLink             *displayLink;
 @property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
 @property (strong, nonatomic) SOScreenTransport         *transport;
@@ -65,7 +65,7 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
 
-    if(kEDIT_MODE){
+    if([[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
         [self addChildViewController:self.transport];
         [self.transport.view setFrame:fullFrame];
         [self.transport.view setAlpha:0.5f];
@@ -480,34 +480,35 @@
     float threshold = 100.0f;
     self.selectedCueModel = nil;
 
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        
-        SOScreenViewController *svc = (SOScreenViewController*)obj;
-        
-        // don't test for audio cues
-        if(![[[svc getCueModel] type] isEqualToString:@"audio"]){
-        
-            CGRect vr = [svc visibleFrame];
-            
-            if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
-                [svc setViewIsSelected:YES];
-                self.selectedCueModel = [svc getCueModel];
-            }else{
-                [svc setViewIsSelected:NO];
-            }
-        }
-    
-    }];
-    
-    if(self.selectedCueModel != nil){
-        [[_transport selectedLabel] setText:[self.selectedCueModel title]];
-        [[_transport editButton] setEnabled:YES];
-    }else{
-        [[_transport selectedLabel] setText:@"-"];
-        [[_transport editButton] setEnabled:NO];
-    }
-    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
 
+        [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            
+            SOScreenViewController *svc = (SOScreenViewController*)obj;
+            
+            // don't test for audio cues
+            if(![[[svc getCueModel] type] isEqualToString:@"audio"]){
+            
+                CGRect vr = [svc visibleFrame];
+                
+                if(vr.origin.x <= threshold && vr.origin.x >= -threshold){
+                    [svc setViewIsSelected:YES];
+                    self.selectedCueModel = [svc getCueModel];
+                }else{
+                    [svc setViewIsSelected:NO];
+                }
+            }
+        
+        }];
+        
+        if(self.selectedCueModel != nil){
+            [[_transport selectedLabel] setText:[self.selectedCueModel title]];
+            [[_transport editButton] setEnabled:YES];
+        }else{
+            [[_transport selectedLabel] setText:@"-"];
+            [[_transport editButton] setEnabled:NO];
+        }        
+    }
 }
 
 

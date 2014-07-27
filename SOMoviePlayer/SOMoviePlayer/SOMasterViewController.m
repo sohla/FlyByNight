@@ -39,6 +39,8 @@
 {
     [super viewDidLoad];
 
+    [self onEdit:nil];
+    
     [self addObservers];
 
     _thumbNails = [[NSMutableArray alloc] init];
@@ -291,10 +293,22 @@
                               }];
 }
 - (IBAction)onBeacon:(id)sender {
-    DLog(@"");
+    DLog(@"%@",self.navigationController.navigationBar.backItem.title);
 }
 - (IBAction)onEdit:(id)sender {
-    DLog(@"");
+    
+    BOOL state = ![[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(state)  forKey:kLastEditState];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    if(state){
+        self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode ON";
+    }else{
+        self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode OFF";
+    }
+    
+    
 }
 
 @end

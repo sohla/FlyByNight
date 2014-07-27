@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-#define kEDIT_MODE false
+#define kLastEditState @"kLastEditState"
+
 
 @interface SONotifications : NSObject
 
