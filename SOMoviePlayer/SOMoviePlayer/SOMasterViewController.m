@@ -485,7 +485,7 @@
             
             if(distance > 0.0f){
 
-                if(prox == CLProximityImmediate){
+                if(prox == CLProximityNear){
                     
                     // must be NEXT minor
                     if([closestMinor intValue] == self.currentBeacon + 1){
