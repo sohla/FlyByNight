@@ -366,6 +366,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+    
     SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
     controller.modelStore = self.modelStore;
     [self.navigationController pushViewController:controller animated:YES];
@@ -409,15 +411,16 @@
     
     BOOL state = ![[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@(state)  forKey:kLastEditState];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     
     if(state){
         self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode ON";
+        [[NSUserDefaults standardUserDefaults] setObject:@(YES)  forKey:kLastEditState];
     }else{
         self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode OFF";
+        [[NSUserDefaults standardUserDefaults] setObject:@(NO)  forKey:kLastEditState];
     }
     
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
 
@@ -490,11 +493,12 @@
                     // must be NEXT minor
                    // if([closestMinor intValue] == self.currentBeacon + 1){
                     
-                        SOBeaconModel *beaconModel = [self.modelStore beaconModelWithMinor:[closestMinor intValue]];
+                    SOBeaconModel *beaconModel = [self.modelStore beaconModelWithMinor:[closestMinor intValue]];
 
-//                        if(beaconModel.pro)
+                    if(beaconModel.prox >= prox){
+                        
                         self.currentBeacon = [closestMinor intValue];
-                
+                        
                         [self.triggeredBeacons addObject:closestMinor];
                         
                         NSLog(@"TRIGGER %@",closestMinor);
@@ -502,10 +506,12 @@
                         [self.delegate currentBeacon:closestMinor];
                         
                         [[NSNotificationCenter defaultCenter] postNotificationName:kTransportCue object:closestMinor];
-
+                        
                         
                         //SOCueModel *cm = [self.modelStore cueModelAtIndex:self.currentBeacon];
-                        
+
+                    }
+                    
                         
                                           
                    // }

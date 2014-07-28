@@ -9,6 +9,7 @@
                  "minor" : 1,
                  "threshold" : 2.3,
                  "action" : "pre",
+                 "prox" : 3,
                  "cues" : [ "safety hazards","titles","first water tap"]
                
                },{
@@ -16,6 +17,7 @@
                "minor" : 2,
                "threshold" : 2.3,
                "action" : "post",
+                 "prox" : 3,
                "cues" : [ "05","water tap to external","06","business woman","07","exit button"]
                
                  },{
@@ -23,6 +25,7 @@
                  "minor" : 3,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 3,
                  "cues" : [ "0809","door to lift","09","lift button"]
                  
                  },{
@@ -30,6 +33,7 @@
                  "minor" : 4,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 3,
                  "cues" : [ "10","close up button"]
                  
                  },{
@@ -37,20 +41,23 @@
                  "minor" : 5,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "11","lift to river","12","long shot of woman","13","following busker","14","entrance button"]
+                 "prox" : 3,
+                 "cues" : [ "12","long shot of woman","13","following busker","14","entrance button"]
                  
                  },{
                  
                  "minor" : 6,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "15a","15b","riverside entrance","ned emerging","yellow doors","door opening"]
+                 "prox" : 3,
+                "cues" : [ "15a","15b","riverside entrance","ned emerging","yellow doors","door opening"]
                  
                  },{
                  
                  "minor" : 7,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 3,
                  "cues" : [ ]
                  
                  },{
@@ -58,20 +65,23 @@
                  "minor" : 8,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "ned pink stairs","19","woman pink stairs","ned pink stairs2"]
+                 "prox" : 3,
+                 "cues" : [ "ned pink stairs"]
                  
                  },{
                  
                  "minor" : 9,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "ned further pink stairs","21","no exit"]
+                 "prox" : 3,
+                 "cues" : [ "19","woman pink stairs","ned further pink stairs","21","no exit"]
                  
                  },{
                  
                  "minor" : 10,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 3,
                  "cues" : [ "25","corridor to melbourne room","busker in door"]
                  
                  },{
@@ -79,6 +89,7 @@
                  "minor" : 11,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 3,
                  "cues" : [ "dan fish","27","room to painting","lady painting","ned escalator","ned to light boxes"]
                  
                  },{
@@ -86,6 +97,7 @@
                  "minor" : 12,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 2,
                  "cues" : [ "dan drag left","silk burb","ing tuba1","gold roof to piano","47","woman down stairs"]
                  
                  },{
@@ -93,6 +105,7 @@
                  "minor" : 13,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 2,
                  "cues" : [ "51","legs in air","torso","diva","towards water tap"]
                  
                  },{
@@ -100,6 +113,7 @@
                  "minor" : 14,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 3,
                  "cues" : [ "tuba man lift"]
                  
                  },{
@@ -107,6 +121,7 @@
                  "minor" : 15,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 2,
                  "cues" : [ "67","level 7"]
                  
                  },{
@@ -114,6 +129,7 @@
                  "minor" : 16,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 2,
                  "cues" : [ "68","gumleaves floor","68b","corridor dan"]
                  
                  },{
@@ -121,6 +137,7 @@
                  "minor" : 17,
                  "threshold" : 2.3,
                  "action" : "post",
+                 "prox" : 2,
                  "cues" : [ "69","tuba man picture","70","tuba man to lady"]
                  
                  },{
@@ -128,14 +145,16 @@
                  "minor" : 18,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "71","white lady picture","72","waiting door","73","door handle"]
+                 "prox" : 2,
+                "cues" : [ "71","white lady picture","72","waiting door","73","door handle"]
                  
                  },{
                  
                  "minor" : 19,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "cues" : [ "74","nightscape","moving away"]
+                 "prox" : 2,
+                "cues" : [ "74","nightscape","moving away"]
                  
             
                  }
@@ -515,7 +534,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.30,
+              "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.08,
               
@@ -534,7 +553,7 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 1.0,
               
-              "pre_time"       : 0.30,
+              "pre_time"       : 0.008,
               "fadein_time"       : 0.09,
               "fadeout_time"       : 0.05
               
@@ -616,7 +635,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 1.40,
+              "pre_time"       : 1.10,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.08,
  
@@ -635,7 +654,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 1.40,
+              "pre_time"       : 1.10,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               
@@ -656,7 +675,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 1.70,
+              "pre_time"       : 1.40,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.08,
 
@@ -674,7 +693,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 1.70,
+              "pre_time"       : 1.40,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.2
               
@@ -832,7 +851,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.18,
+              "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.08,
               
@@ -851,8 +870,8 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.18,
-              "fadein_time"       : 0.8,
+              "pre_time"       : 0.008,
+              "fadein_time"       : 0.008,
               "fadeout_time"       : 0.05
               
               
@@ -890,7 +909,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.001,
+              "pre_time"       : 0.94,
               "fadein_time"       : 0.5,
               "fadeout_time"       : 0.001
               
@@ -911,7 +930,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.23,
+              "pre_time"       : 1.34,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.08,
  
@@ -929,7 +948,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.23,
+              "pre_time"       : 1.34,
               "fadein_time"       : 0.03,
               "fadeout_time"       : 0.05
               
@@ -1536,7 +1555,7 @@
               "type"      : "movieaudio",
               "loop"    : 0,
               
-              "zoom"      : 0.713,
+              "zoom"      : 0.513,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               

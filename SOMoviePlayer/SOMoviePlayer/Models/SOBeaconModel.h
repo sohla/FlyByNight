@@ -19,6 +19,6 @@
 @property (strong, nonatomic) NSString *action;
 @property (strong, nonatomic) NSArray *cues;
 
-
+@property (assign, nonatomic) int prox;
 
 @end
