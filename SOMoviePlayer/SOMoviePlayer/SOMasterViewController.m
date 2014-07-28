@@ -485,11 +485,14 @@
             
             if(distance > 0.0f){
 
-                if(prox == CLProximityNear){
+                if(prox == CLProximityFar || prox == CLProximityNear){
                     
                     // must be NEXT minor
-                    if([closestMinor intValue] == self.currentBeacon + 1){
-                        
+                   // if([closestMinor intValue] == self.currentBeacon + 1){
+                    
+                        SOBeaconModel *beaconModel = [self.modelStore beaconModelWithMinor:[closestMinor intValue]];
+
+//                        if(beaconModel.pro)
                         self.currentBeacon = [closestMinor intValue];
                 
                         [self.triggeredBeacons addObject:closestMinor];
@@ -498,14 +501,14 @@
                         
                         [self.delegate currentBeacon:closestMinor];
                         
-                        [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kTransportCue object:closestMinor];
 
                         
                         //SOCueModel *cm = [self.modelStore cueModelAtIndex:self.currentBeacon];
                         
                         
                                           
-                    }
+                   // }
                 }
             }
         }else{

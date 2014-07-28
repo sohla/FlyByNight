@@ -49,9 +49,11 @@
     
     [super viewDidLoad];
     
-    self.cvc = [[SOCameraViewController alloc] initWithNibName:@"SOCameraViewController" bundle:nil];
-    [self.view addSubview:self.cvc.view];
-
+//#if !TARGET_IPHONE_SIMULATOR
+//    self.cvc = [[SOCameraViewController alloc] initWithNibName:@"SOCameraViewController" bundle:nil];
+//    [self.view addSubview:self.cvc.view];
+//#endif
+    
     [self.view sendSubviewToBack:self.cvc.view];
     
     _screenViewControllers = [[NSMutableDictionary alloc] init];
@@ -77,6 +79,7 @@
         [self.transport.view setFrame:fullFrame];
         [self.transport.view setAlpha:0.5f];
         [self.view addSubview:self.transport.view];
+        
     }
 
 }
@@ -223,9 +226,6 @@
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
         DLog(@"cueing %@",cueModel.path);
         
-        //• check type
-        
-        
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
                                              valWithPropName:@"pre_time"] floatValue];
         
@@ -299,6 +299,11 @@
 											   object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onTransportCue:)
+												 name:kTransportCue
+											   object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onEditModeOn:)
 												 name:kEditModeOn
 											   object:nil];
@@ -331,6 +336,10 @@
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kTransportNext
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kTransportCue
                                                   object:nil];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -419,33 +428,45 @@
 }
 
 -(void)onTransportNext:(NSNotification *)notification{
+
+//    // __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor];
+//    int nextMinor = self.currentBeaconModel.minor + 1;
+//
+//    // kill all running cues
+//    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        
+//        __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
+//        [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
+//            DLog(@"killing %@",cueModel.title);
+//            [self.screenViewControllers removeObjectForKey:cueModel.title];
+//        }];
+//    
+//    }];
+//    
+//    [self triggerBeacon:[self.modelStore beaconModelWithMinor:nextMinor]];
+
+    NSNumber *minor = [NSNumber numberWithInt:self.currentBeaconModel.minor + 1];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportCue object:minor];
     
+}
+
+-(void)onTransportCue:(NSNotification *)notification{
+
+    NSNumber *minor = (NSNumber*)[notification object];
+    SOBeaconModel *beaconModel = [self.modelStore beaconModelWithMinor:[minor intValue]];
     
-    
-   // __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor];
-    int nextMinor = self.currentBeaconModel.minor + 1;
-    
-    
+    // kill all running cues
     [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
-        
         [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
-            
             DLog(@"killing %@",cueModel.title);
             [self.screenViewControllers removeObjectForKey:cueModel.title];
         }];
-    
+        
     }];
-
     
-   // [self.mod.beacons valueForKeyPath:@"minor"]
-    
-    
-    [self triggerBeacon:[self.modelStore beaconModelWithMinor:nextMinor]];
-
-    
-
+    [self triggerBeacon:[self.modelStore beaconModelWithMinor:beaconModel.minor]];
     
 }
 

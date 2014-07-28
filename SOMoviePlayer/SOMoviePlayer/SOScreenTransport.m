@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (weak, nonatomic) IBOutlet UILabel *attitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *beaconLabel;
 
 
 @end
@@ -61,5 +62,13 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kEditModeOn object:nil];
 
 }
+
+-(void)currentBeacons:(NSArray*)beacons{
+    
+}
+-(void)currentBeacon:(NSNumber*)minor{
+    self.beaconLabel.text = [minor description];
+}
+
 
 @end
