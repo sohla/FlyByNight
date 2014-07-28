@@ -367,7 +367,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
-    
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
+
     SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
     controller.modelStore = self.modelStore;
     [self.navigationController pushViewController:controller animated:YES];
@@ -514,7 +516,7 @@
                     
                         
                                           
-                   // }
+                  //  }
                 }
             }
         }else{

@@ -9,15 +9,15 @@
                  "minor" : 1,
                  "threshold" : 2.3,
                  "action" : "pre",
-                 "prox" : 3,
-                 "cues" : [ "safety hazards","titles","first water tap"]
+                 "prox" : 2,
+                 "cues" : [ "titles","first water tap"]
                
                },{
                
                "minor" : 2,
                "threshold" : 2.3,
                "action" : "post",
-                 "prox" : 3,
+                 "prox" : 2,
                "cues" : [ "05","water tap to external","06","business woman","07","exit button"]
                
                  },{
@@ -25,7 +25,7 @@
                  "minor" : 3,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "prox" : 3,
+                 "prox" : 2,
                  "cues" : [ "0809","door to lift","09","lift button"]
                  
                  },{
@@ -33,7 +33,7 @@
                  "minor" : 4,
                  "threshold" : 2.3,
                  "action" : "post",
-                 "prox" : 3,
+                 "prox" : 2,
                  "cues" : [ "10","close up button"]
                  
                  },{
@@ -58,7 +58,7 @@
                  "threshold" : 2.3,
                  "action" : "post",
                  "prox" : 3,
-                 "cues" : [ ]
+                 "cues" : [ "test1","test2","test3"]
                  
                  },{
                  
@@ -218,7 +218,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.10,
+              "pre_time"       : 0.0,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.001
               
@@ -238,7 +238,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.20,
+              "pre_time"       : 0.10,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.08
               
@@ -309,7 +309,7 @@
               "loop"    : 0,
               
               "zoom"      : 0.4565,
-              "offset_x"      : 0.5,
+              "offset_x"      : 0.7,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 0.3,
@@ -547,7 +547,7 @@
               "loop"    : 0,
               
               "zoom"      : 1.0,
-              "offset_x"      : 1.0,
+              "offset_x"      : 0.3,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -784,10 +784,10 @@
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.75,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
+              "scroll_dx"      : 0.01,
               "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.60,
@@ -824,7 +824,7 @@
               "loop"    : 0,
               
               "zoom"      : 0.713,
-              "offset_x"      : 0.5,
+              "offset_x"      : 0.75,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1001,7 +1001,7 @@
               "loop"    : 1,
               
               "zoom"      : 0.3065,
-              "offset_x"      : 0.5,
+              "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1100,7 +1100,7 @@
               "loop"    : 0,
               
               "zoom"      : 0.713,
-              "offset_x"      : 0.5,
+              "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1120,7 +1120,7 @@
               "loop"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.5,
+              "offset_x"      : 0.25,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1200,7 +1200,7 @@
               "loop"    : 1,
              
               "zoom"      : 0.5565,
-              "offset_x"      : 0.5,
+              "offset_x"      : 0.8,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1300,7 +1300,7 @@
               "loop"    : 1,
               
               "zoom"      : 0.5565,
-              "offset_x"      : 0.5,
+              "offset_x"      : 0.2,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1752,7 +1752,7 @@
               "loop"    : 0,
              
               "zoom"      : 0.513,
-              "offset_x"      : 0.5,
+              "offset_x"      : 0.1,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1830,7 +1830,8 @@
               "loop"    : 0,
              
               "zoom"      : 0.513,
-              "offset_x"      : 0.5,
+              "offset_x"      : 1.0
+              ,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -1995,7 +1996,59 @@
               "pre_time"       : 0.18,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
+
+              },{
               
+              "title"    : "test1",
+              "path"     : "burstTest.mov",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              },{
+              
+              "title"    : "test2",
+              "path"     : "checkTest.mov",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              },{
+              
+              "title"    : "test3",
+              "path"     : "stripeTest.mov",
+              "type"      : "movie",
+              "loop"    : 0,
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+
               
               
           }

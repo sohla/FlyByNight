@@ -215,6 +215,9 @@
 
 -(void)triggerBeacon:(SOBeaconModel*)beaconModel{
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+
+    
     DLog(@"TRIGGER %d",beaconModel.minor);
     
     self.currentBeaconModel = beaconModel;
