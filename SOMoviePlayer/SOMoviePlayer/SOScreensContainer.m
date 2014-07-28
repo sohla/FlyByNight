@@ -497,7 +497,7 @@
     return UIInterfaceOrientationMaskLandscape;
 }
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
 }
 #pragma mark - Motion Refresher
 

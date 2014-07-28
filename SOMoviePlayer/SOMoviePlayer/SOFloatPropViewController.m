@@ -68,7 +68,7 @@
     
     if(self.valueDidChangeBlock != nil){
         float vl = self.valueDidChangeBlock([sender value]);
-        [self.valueLabel setText:[NSString stringWithFormat:@"%.2f",vl]];
+        [self.valueLabel setText:[NSString stringWithFormat:@"%.2f | %.2f",vl,[sender value]]];
     }
 }
 

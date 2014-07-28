@@ -58,19 +58,19 @@
     
 
     if ([self.motionManager isDeviceMotionAvailable]) {
-//        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
-                                                                toQueue:[NSOperationQueue currentQueue]
-                                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {
-                                                                
-                                                                if(self.firstAttitude == nil){
-                                                                    self.firstAttitude = [motion.attitude copy];
-                                                                }
-                                                                [motion.attitude multiplyByInverseOfAttitude:self.firstAttitude];
-                                                                
-                                                                self.calAtt = [motion.attitude copy];
-            
-        }];
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+//        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
+//                                                                toQueue:[NSOperationQueue currentQueue]
+//                                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {
+//                                                                
+//                                                                if(self.firstAttitude == nil){
+//                                                                    self.firstAttitude = [motion.attitude copy];
+//                                                                }
+//                                                                [motion.attitude multiplyByInverseOfAttitude:self.firstAttitude];
+//                                                                
+//                                                                self.calAtt = [motion.attitude copy];
+//            
+//        }];
     }
     
 }
@@ -92,16 +92,16 @@
 
 -(float)valueForKey:(NSString*)key{
     
-//    if(!self.firstCal){
-//        self.firstCal = YES;
-//        self.firstAttitude = [self.motionManager.deviceMotion.attitude copy];
-//    }
-//    
-//    if(self.firstAttitude){
-//        [self.motionManager.deviceMotion.attitude multiplyByInverseOfAttitude:self.firstAttitude];
-//    }
+    if(!self.firstCal){
+        self.firstCal = YES;
+        self.firstAttitude = [self.motionManager.deviceMotion.attitude copy];
+    }
     
-    CMAttitude *att = self.calAtt;//self.motionManager.deviceMotion.attitude
+    if(self.firstAttitude){
+        [self.motionManager.deviceMotion.attitude multiplyByInverseOfAttitude:self.firstAttitude];
+    }
+    
+    CMAttitude *att = self.motionManager.deviceMotion.attitude;
     
     if([key isEqualToString:@"roll"]){
         return att.roll;

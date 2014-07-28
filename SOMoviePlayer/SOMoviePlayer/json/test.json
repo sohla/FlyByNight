@@ -18,7 +18,16 @@
                "threshold" : 2.3,
                "action" : "post",
                  "prox" : 2,
-               "cues" : [ "05","water tap to external","06","business woman","07","exit button"]
+               "cues" : [ "test1"]
+                 
+                 
+                 },{
+                 
+                 "minor" : 3,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "prox" : 2,
+                 "cues" : [ "test3"]
                  
             
                  }
