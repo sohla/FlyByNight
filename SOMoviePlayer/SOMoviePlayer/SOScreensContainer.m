@@ -217,6 +217,8 @@
     
     //[[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
 
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    
     
     DLog(@"TRIGGER %d",beaconModel.minor);
     
@@ -232,10 +234,13 @@
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
                                              valWithPropName:@"pre_time"] floatValue];
         
+
+        [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [self playCue:cueModel];
-        });
+        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//            [self playCue:cueModel];
+//        });
         
     }];
     

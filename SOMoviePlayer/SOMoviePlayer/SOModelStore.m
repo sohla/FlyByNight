@@ -41,7 +41,7 @@
         
         DLog(@"Loading default data file...");
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"json"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
         [self loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
             
             if(error){
