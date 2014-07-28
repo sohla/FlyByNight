@@ -468,6 +468,7 @@
 
 - (void)onDisplayLink:(id)sender {
 
+    
     float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
     //    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
     float yawf = [[SOMotionManager sharedManager] valueForKey:@"yaw"];

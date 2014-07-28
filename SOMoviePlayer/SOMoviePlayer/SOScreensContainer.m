@@ -215,7 +215,7 @@
 
 -(void)triggerBeacon:(SOBeaconModel*)beaconModel{
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
 
     
     DLog(@"TRIGGER %d",beaconModel.minor);
@@ -520,6 +520,7 @@
         [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             
             SOScreenViewController *svc = (SOScreenViewController*)obj;
+            
             
             // don't test for audio cues
             if(![[[svc getCueModel] type] isEqualToString:@"audio"]){

@@ -241,6 +241,7 @@
 		F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DCCE1985382900976135 /* SOCameraViewController.xib */; };
 		F0B8DCD2198538B800976135 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DCD1198538B800976135 /* CoreVideo.framework */; };
 		F0B8DCD4198538C000976135 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DCD3198538C000976135 /* CoreMedia.framework */; };
+		F0B8DCD619866F9D00976135 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DCD519866F9D00976135 /* test.json */; };
 		F0C2DEEF1939F51100EAB7F9 /* SOModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */; };
 		F0C2DF0D1939FCBC00EAB7F9 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF41939FCBC00EAB7F9 /* JSONModel+CoreData.m */; };
 		F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF61939FCBC00EAB7F9 /* JSONModel.m */; };
@@ -477,6 +478,7 @@
 		F0B8DCCE1985382900976135 /* SOCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOCameraViewController.xib; sourceTree = "<group>"; };
 		F0B8DCD1198538B800976135 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		F0B8DCD3198538C000976135 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F0B8DCD519866F9D00976135 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		F0C2DEED1939F51100EAB7F9 /* SOModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOModelStore.h; sourceTree = "<group>"; };
 		F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOModelStore.m; sourceTree = "<group>"; };
 		F0C2DEF31939FCBC00EAB7F9 /* JSONModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+CoreData.h"; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				F03392EC19382C4E004FDB33 /* data.json */,
+				F0B8DCD519866F9D00976135 /* test.json */,
 				F07F16191951017D00E36A70 /* allCues.json */,
 				F0FE3DEA1944A00D0029DAEF /* dataT.json */,
 			);
@@ -1250,6 +1253,7 @@
 				F037F04C198036E30050DFA4 /* 68a.wav in Resources */,
 				F037F03A198036E30050DFA4 /* 33.wav in Resources */,
 				F037EFFC198036E30050DFA4 /* FBN CLIP 49_converted.m4v in Resources */,
+				F0B8DCD619866F9D00976135 /* test.json in Resources */,
 				F037EFEF198036E30050DFA4 /* FBN CLIP 13_converted.m4v in Resources */,
 				F037F035198036E30050DFA4 /* 29.wav in Resources */,
 				F037EFDD198036E30050DFA4 /* FBN AV 44.m4v in Resources */,

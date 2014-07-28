@@ -366,7 +366,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
 
