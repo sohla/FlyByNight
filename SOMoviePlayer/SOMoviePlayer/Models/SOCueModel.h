@@ -20,6 +20,8 @@
 
 @property (assign, nonatomic) int loop;
 
+@property (assign, nonatomic) int trigger;
+
 @property (assign, nonatomic) float zoom;
 
 @property (assign, nonatomic) float offset_x;

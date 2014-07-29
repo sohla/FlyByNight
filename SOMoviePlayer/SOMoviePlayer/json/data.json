@@ -170,6 +170,7 @@
               "path"     : "03.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -190,6 +191,7 @@
               "path"     : "ipod.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
         
         
               "zoom"      : 0.3565,
@@ -210,7 +212,8 @@
               "path"     : "noiseTest.mov",
               "type"      : "movie",
               "loop"    : 1,
-              
+              "trigger"    : 0,
+             
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
@@ -230,6 +233,7 @@
               "path"     : "FBN CLIP 03_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -251,6 +255,7 @@
               "path"     : "FBN CLIP 05_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -269,6 +274,7 @@
               "path"     : "05.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -288,6 +294,7 @@
               "path"     : "06.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -307,6 +314,7 @@
               "path"     : "FBN CLIP 06_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.4565,
               "offset_x"      : 0.7,
@@ -328,6 +336,7 @@
               "path"     : "07.wav",
               "type"      : "audio",
               "loop"    : 1,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -347,6 +356,7 @@
               "path"     : "FBN CLIP 07_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -367,7 +377,8 @@
               "path"     : "08 - 09 atmos.wav",
               "type"      : "audio",
               "loop"    : 0,
-              
+              "trigger"    : 0,
+             
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -386,6 +397,7 @@
               "path"     : "FBN CLIP 08_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -406,7 +418,8 @@
               "path"     : "09 Loop.wav",
               "type"      : "audio",
               "loop"    : 1,
-              
+              "trigger"    : 0,
+             
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -425,6 +438,7 @@
               "path"     : "FBN CLIP 09_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -445,6 +459,7 @@
               "path"     : "10 Music & Atmos.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -465,6 +480,7 @@
               "path"     : "FBN AV 10.m4v",
               "type"      : "movieaudio",
               "loop"    : 1,
+              "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -486,6 +502,7 @@
               "path"     : "11.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -505,6 +522,7 @@
               "path"     : "FBN CLIP 11_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.713,
               "offset_x"      : 0.4,
@@ -525,6 +543,7 @@
               "path"     : "12b insert.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -545,6 +564,7 @@
               "path"     : "FBN CLIP 12a_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 1.0,
               "offset_x"      : 0.3,
@@ -565,6 +585,7 @@
               "path"     : "FBN CLIP 12b_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -585,6 +606,7 @@
               "path"     : "FBN CLIP 12c_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -605,6 +627,7 @@
               "path"     : "FBN CLIP 12d_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.2565,
               "offset_x"      : 0.8,
@@ -626,6 +649,7 @@
               "path"     : "13-14 atmos.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -646,6 +670,7 @@
               "path"     : "FBN CLIP 13b_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -666,6 +691,7 @@
               "path"     : "14 Loop.wav",
               "type"      : "audio",
               "loop"    : 1,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -685,6 +711,7 @@
               "path"     : "FBN CLIP 14_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -705,7 +732,8 @@
               "path"     : "15 Room Tone.wav",
               "type"      : "audio",
               "loop"    : 0,
-              
+              "trigger"    : 0,
+             
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -724,6 +752,7 @@
               "path"     : "15.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -743,6 +772,7 @@
               "path"     : "FBN CLIP 15_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -762,6 +792,7 @@
               "path"     : "FBN AV 17A.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -782,6 +813,7 @@
               "path"     : "FBN AV 17c.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -802,7 +834,8 @@
               "path"     : "FBN AV 18.m4v",
               "type"      : "movieaudio",
               "loop"    : 1,
-              
+              "trigger"    : 0,
+             
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
@@ -822,6 +855,7 @@
               "path"     : "FBN AV 20a.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.713,
               "offset_x"      : 0.75,
@@ -842,6 +876,7 @@
               "path"     : "19.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -862,6 +897,7 @@
               "path"     : "FBN CLIP 19_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -881,6 +917,7 @@
               "path"     : "FBN AV 20a.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -901,6 +938,7 @@
               "path"     : "FBN AV 20b.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -921,6 +959,7 @@
               "path"     : "21 Loop.wav",
               "type"      : "audio",
               "loop"    : 1,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -940,6 +979,7 @@
               "path"     : "FBN CLIP 21_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -960,6 +1000,7 @@
               "path"     : "25.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -979,6 +1020,7 @@
               "path"     : "FBN CLIP 25_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -999,6 +1041,7 @@
               "path"     : "FBN AV 23.m4v",
               "type"      : "movieaudio",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3065,
               "offset_x"      : 1.0,
@@ -1019,7 +1062,8 @@
               "path"     : "FBN AV 24.m4v",
               "type"      : "movieaudio",
               "loop"    : 1,
-              
+              "trigger"    : 0,
+             
               "zoom"      : 0.3065,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
@@ -1039,6 +1083,7 @@
               "path"     : "FBN AV 26.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1059,6 +1104,7 @@
               "path"     : "27.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1078,6 +1124,7 @@
               "path"     : "FBN CLIP 27_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1098,6 +1145,7 @@
               "path"     : "FBN AV 28.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.713,
               "offset_x"      : 1.0,
@@ -1118,7 +1166,8 @@
               "path"     : "FBN AV 30.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
-              
+              "trigger"    : 0,
+
               "zoom"      : 0.3565,
               "offset_x"      : 0.25,
               "offset_y"      : 0.5,
@@ -1138,6 +1187,7 @@
               "path"     : "FBN AV 31.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1158,6 +1208,7 @@
               "path"     : "FBN AV 32.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.5565,
               "offset_x"      : 0.5,
@@ -1178,6 +1229,7 @@
               "path"     : "FBN AV 33.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1198,6 +1250,7 @@
               "path"     : "FFBN AV 35.m4v",
               "type"      : "movieaudio",
               "loop"    : 1,
+              "trigger"    : 0,
              
               "zoom"      : 0.5565,
               "offset_x"      : 0.8,
@@ -1218,6 +1271,7 @@
               "path"     : "FBN AV 36.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.55,
@@ -1238,6 +1292,7 @@
               "path"     : "FBN AV 37.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.55,
@@ -1258,6 +1313,7 @@
               "path"     : "FBN AV 38.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.55,
@@ -1278,7 +1334,8 @@
               "path"     : "FBN AV 39.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
-              
+              "trigger"    : 0,
+             
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
@@ -1298,7 +1355,8 @@
               "path"     : "FBN AV 40.m4v",
               "type"      : "movieaudio",
               "loop"    : 1,
-              
+              "trigger"    : 0,
+             
               "zoom"      : 0.5565,
               "offset_x"      : 0.2,
               "offset_y"      : 0.5,
@@ -1317,6 +1375,7 @@
               "path"     : "FBN AV 41.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1337,6 +1396,7 @@
               "path"     : "FBN AV 42.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1357,7 +1417,8 @@
               "path"     : "FBN AV 43.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
-              
+              "trigger"    : 0,
+
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
@@ -1377,6 +1438,7 @@
               "path"     : "FBN AV 44.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1396,6 +1458,7 @@
               "path"     : "FBN AV 45.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1416,6 +1479,7 @@
               "path"     : "FBN AV 46.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.713,
               "offset_x"      : 0.5,
@@ -1436,6 +1500,7 @@
               "path"     : "FBN CLIP 34_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1456,6 +1521,7 @@
               "path"     : "47-51.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1475,6 +1541,7 @@
               "path"     : "FBN CLIP 47_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1495,6 +1562,7 @@
               "path"     : "51.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1514,6 +1582,7 @@
               "path"     : "FBN CLIP 48_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.713,
               "offset_x"      : 0.5,
@@ -1534,6 +1603,7 @@
               "path"     : "FBN CLIP 51_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.713,
               "offset_x"      : 1.0,
@@ -1554,6 +1624,7 @@
               "path"     : "FBN AV 53.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.513,
               "offset_x"      : 0.5,
@@ -1574,6 +1645,7 @@
               "path"     : "FBN CLIP 64_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.25,
@@ -1594,6 +1666,7 @@
               "path"     : "FBN AV 66.m4v",
               "type"      : "movieaudio",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1614,6 +1687,7 @@
               "path"     : "67.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1633,6 +1707,7 @@
               "path"     : "FBN CLIP 67_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1653,6 +1728,7 @@
               "path"     : "68a.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1672,6 +1748,7 @@
               "path"     : "FBN CLIP 68a_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
             
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1693,6 +1770,7 @@
               "path"     : "68b.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1711,6 +1789,7 @@
               "path"     : "FBN CLIP 68b_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1731,6 +1810,7 @@
               "path"     : "69.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1750,6 +1830,7 @@
               "path"     : "FBN CLIP 69_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
              
               "zoom"      : 0.513,
               "offset_x"      : 0.1,
@@ -1770,6 +1851,7 @@
               "path"     : "70.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1789,6 +1871,7 @@
               "path"     : "FBN CLIP 70_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1809,6 +1892,7 @@
               "path"     : "71.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1828,6 +1912,7 @@
               "path"     : "FBN CLIP 71_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
              
               "zoom"      : 0.513,
               "offset_x"      : 1.0
@@ -1849,6 +1934,7 @@
               "path"     : "72a.wav",
               "type"      : "audio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1868,6 +1954,7 @@
               "path"     : "FBN CLIP 72a_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1889,6 +1976,7 @@
               "path"     : "FBN AV 72b.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1909,6 +1997,7 @@
               "path"     : "73 Loop.wav",
               "type"      : "audio",
               "loop"    : 1,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1927,6 +2016,7 @@
               "path"     : "FBN CLIP 73_converted.m4v",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -1947,6 +2037,7 @@
               "path"     : "74 - 75.wav",
               "type"      : "audio",
               "loop"    : 1,
+              "trigger"    : 0,
               
               
               "zoom"      : 0.3565,
@@ -1965,6 +2056,7 @@
               "path"     : "FBN CLIP 74a_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
+              "trigger"    : 0,
              
               "zoom"      : 0.713,
               "offset_x"      : 0.5,
@@ -1985,7 +2077,8 @@
               "path"     : "FBN CLIP 74b_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
-              
+              "trigger"    : 0,
+             
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
@@ -2003,7 +2096,8 @@
               "path"     : "burstTest.mov",
               "type"      : "movie",
               "loop"    : 1,
-              
+              "trigger"    : 0,
+             
               "zoom"      : 0.3565,
               "offset_x"      : 0.2,
               "offset_y"      : 0.5,
@@ -2020,6 +2114,7 @@
               "path"     : "checkTest.mov",
               "type"      : "movie",
               "loop"    : 1,
+              "trigger"    : 0,
               
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -2037,7 +2132,8 @@
               "path"     : "stripeTest.mov",
               "type"      : "movie",
               "loop"    : 1,
-              
+              "trigger"    : 0,
+             
               "zoom"      : 0.3565,
               "offset_x"      : 0.8,
               "offset_y"      : 0.5,
