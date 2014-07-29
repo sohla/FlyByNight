@@ -52,7 +52,7 @@
     self.bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
     self.delegate = self.bvc;
 
-    [self setupBeaconManager];
+   // [self setupBeaconManager];
     
     
     [self onEdit:nil];
@@ -366,7 +366,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
 
@@ -376,6 +376,7 @@
 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [controller triggerBeacon:[self.modelStore beaconModelWithMinor:cell.textLabel.text.intValue]];
+
 }
 
 -(void)collectAssetsWithCompletionBlock:(void(^)(NSArray*))completionBlock{

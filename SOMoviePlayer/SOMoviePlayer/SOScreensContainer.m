@@ -82,9 +82,10 @@
         
     }
 
-    _nextButton = [[UIButton alloc] initWithFrame:CGRectInset(fullFrame, 100.0f, 100.0f)];
-    [self.nextButton setTitle:@"NEXT" forState:UIControlStateNormal];
-    [self.nextButton setBackgroundColor:[UIColor blackColor]];
+    _nextButton = [[UIButton alloc] initWithFrame:CGRectOffset( CGRectInset(fullFrame, 120.0f, 120.0f), 0, 100.0)];
+    [self.nextButton setTitle:@"Touch to continue" forState:UIControlStateNormal];
+    [self.nextButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.7]];
+    [self.nextButton .layer setCornerRadius:7.0f];
     [self.nextButton addTarget:self action:@selector(onNextButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
     self.nextButton.alpha = 0.0f;
@@ -191,30 +192,6 @@
 
     [self.view bringSubviewToFront:self.nextButton];
     
-    //• kill other cues?
-    
-//    if(self.screenViewControllers.count > 0){
-//        [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//            
-//            [obj stopWithcompletionBlock:^{
-//                [self.screenViewControllers setObject:svc forKey:[cueModel title]];
-//                
-//                [self.view addSubview:svc.view];
-//                
-//                [self.view bringSubviewToFront:self.transport.view];
-//            }];
-//        }];
-//    }else{
-//        
-//        [self.screenViewControllers setObject:svc forKey:[cueModel title]];
-//        
-//        [self.view addSubview:svc.view];
-//        
-//        [self.view bringSubviewToFront:self.transport.view];
-//        
-//    }
-
-    
 }
 -(void)stopCue:(SOCueModel*)cueModel{
     
@@ -259,31 +236,8 @@
 
 -(void)triggerBeacon:(SOBeaconModel*)beaconModel{
     
-    //[[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
-
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
-//    if(![[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
-
-        
-//        [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//
-//            SOScreenViewController *svc = (SOScreenViewController*)obj;
-//            SOCueModel *cueModel = [svc getCueModel];
-//            
-//            if([svc isPlaying]){
-//                
-//                if(cueModel.trigger){
-//                    DLog(@"WE CAN TRIGGER");
-//                    [self nextButtonOn:YES];
-//                }else{
-//                }
-//                
-//            }
-//
-//        }];
-//    }
-
     DLog(@"TRIGGER %d",beaconModel.minor);
     
     self.currentBeaconModel = beaconModel;
@@ -311,7 +265,10 @@
 
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
 
+    DLog(@"removing svc for %@",[[svc getCueModel] title]);
     [self.screenViewControllers removeObjectForKey:[[svc getCueModel] title]];
+    
+    
 }
 
 
@@ -494,22 +451,6 @@
 
 -(void)onTransportNext:(NSNotification *)notification{
 
-//    // __block SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:self.currentBeaconModel.minor];
-//    int nextMinor = self.currentBeaconModel.minor + 1;
-//
-//    // kill all running cues
-//    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        
-//        __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
-//        [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
-//            DLog(@"killing %@",cueModel.title);
-//            [self.screenViewControllers removeObjectForKey:cueModel.title];
-//        }];
-//    
-//    }];
-//    
-//    [self triggerBeacon:[self.modelStore beaconModelWithMinor:nextMinor]];
-
     NSNumber *minor = [NSNumber numberWithInt:self.currentBeaconModel.minor + 1];
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportCue object:minor];
     
@@ -518,6 +459,12 @@
 -(void)onTransportCue:(NSNotification *)notification{
 
     NSNumber *minor = (NSNumber*)[notification object];
+    
+    // stupid hack for skipping a cue
+    if([minor intValue] == 7){
+        minor = [NSNumber numberWithInt:8];
+    }
+    
     SOBeaconModel *beaconModel = [self.modelStore beaconModelWithMinor:[minor intValue]];
     
     // kill all running cues

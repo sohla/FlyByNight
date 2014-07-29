@@ -178,6 +178,8 @@
 
 -(void)destroyPlayer{
     
+    DLog(@"killing player for %@",self.cueModel.title);
+
     AVPlayerLayer *avPlayerLayer = self.playerLayer;
     
     if(avPlayerLayer != nil){
@@ -339,10 +341,14 @@
         float fadeValue = (totalTime * 1000.0f) - fadeTime;
         NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMake(fadeValue,1000)]];
         self.fadeOutObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeOutFime queue:NULL usingBlock:^(){
-            float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
-                                                 valWithPropName:@"fadeout_time"] floatValue];
+//            float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
+//                                                 valWithPropName:@"fadeout_time"] floatValue];
 
-            [weakSelf fadeOut:fadeout_time completionBlock:nil];
+//            [weakSelf fadeOut:fadeout_time completionBlock:nil];
+            
+            [weakSelf stopWithcompletionBlock:^{
+                
+            }];
         }];
     }
     
@@ -437,7 +443,6 @@
         [self.avPlayer play];
    
     }else{
-        
         [self destroyPlayer];
         [self.delegate onScreenViewPlayerDidEnd:self];
 

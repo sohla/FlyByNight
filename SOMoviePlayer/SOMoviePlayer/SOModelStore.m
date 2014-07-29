@@ -41,7 +41,7 @@
         
         DLog(@"Loading default data file...");
         //data_2014729_12111
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_2014729_12111" ofType:@"json"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_2014729_1525" ofType:@"json"];
         [self loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
             
             if(error){
