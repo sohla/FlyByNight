@@ -411,8 +411,9 @@
 }
 - (IBAction)onEdit:(id)sender {
     
-    BOOL state = ![[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState];
+    BOOL state = [[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState];
     
+    state = !state;
     
     if(state){
         self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode ON";

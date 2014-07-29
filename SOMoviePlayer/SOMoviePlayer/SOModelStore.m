@@ -40,8 +40,8 @@
  //   if(![[NSUserDefaults standardUserDefaults] stringForKey:kLastFileSaved] ) {
         
         DLog(@"Loading default data file...");
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_2014729_12111" ofType:@"json"];
+        //data_2014729_12111
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"json"];
         [self loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
             
             if(error){

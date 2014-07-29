@@ -29,7 +29,7 @@
 @property (assign, nonatomic) SOBeaconModel *currentBeaconModel;
 @property (strong, nonatomic) SOCameraViewController *cvc;
 
-
+@property (strong, nonatomic) UIButton *nextButton;
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
@@ -82,6 +82,14 @@
         
     }
 
+    _nextButton = [[UIButton alloc] initWithFrame:CGRectInset(fullFrame, 100.0f, 100.0f)];
+    [self.nextButton setTitle:@"NEXT" forState:UIControlStateNormal];
+    [self.nextButton setBackgroundColor:[UIColor blackColor]];
+    [self.nextButton addTarget:self action:@selector(onNextButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.nextButton];
+    self.nextButton.alpha = 0.0f;
+
+    
 }
 -(void)dealloc{
     DLog(@"");
@@ -174,6 +182,7 @@
     
     [self.view sendSubviewToBack:self.cvc.view];
 
+    [self.view bringSubviewToFront:self.nextButton];
     
     //• kill other cues?
     
@@ -211,6 +220,34 @@
     }
 }
 
+-(void)nextButtonOn:(BOOL)isOn{
+    
+    if(isOn){
+        
+        self.nextButton.alpha = 0.0f;
+        
+        [UIView animateWithDuration:1.0f delay:4.0f options:0 animations:^{
+            self.nextButton.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            
+        }];
+        
+    }else{
+
+        self.nextButton.alpha = 1.0f;
+        [UIView animateWithDuration:0.4f animations:^{
+            self.nextButton.alpha = 0.0f;
+        }];
+
+    }
+}
+-(void)onNextButton:(id)sender{
+
+    DLog(@"");
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
+    [self nextButtonOn:NO];
+}
+
 #pragma mark - Beacon
 
 -(void)triggerBeacon:(SOBeaconModel*)beaconModel{
@@ -219,11 +256,30 @@
 
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
-    
+//    if(![[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
+
+        
+        [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+
+            SOScreenViewController *svc = (SOScreenViewController*)obj;
+            SOCueModel *cueModel = [svc getCueModel];
+            
+            if([svc isPlaying]){
+                
+                if(cueModel.trigger){
+                    DLog(@"WE CAN TRIGGER");
+                    [self nextButtonOn:YES];
+                }else{
+                }
+                
+            }
+
+        }];
+//    }
+
     DLog(@"TRIGGER %d",beaconModel.minor);
     
     self.currentBeaconModel = beaconModel;
-//    SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:minor];
     
     // if we are a movie
     [beaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -233,14 +289,8 @@
         
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
                                              valWithPropName:@"pre_time"] floatValue];
-        
 
         [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
-        
-        
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, pre_time * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//            [self playCue:cueModel];
-//        });
         
     }];
     

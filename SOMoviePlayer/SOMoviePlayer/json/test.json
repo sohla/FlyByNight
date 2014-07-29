@@ -61,7 +61,7 @@
               "path"     : "checkTest.mov",
               "type"      : "movie",
               "loop"    : 1,
-              "trigger"    : 0,
+              "trigger"    : 1,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,

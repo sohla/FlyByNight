@@ -207,6 +207,10 @@
     
 }
 
+-(BOOL)isPlaying{
+    return ([self.avPlayer rate] != 0.0);
+}
+
 -(void)begin{
     [self.avPlayer play];
 }

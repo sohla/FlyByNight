@@ -41,5 +41,6 @@
 -(void)setViewIsSelected:(BOOL)selected;
 
 
+-(BOOL)isPlaying;
 
 @end
