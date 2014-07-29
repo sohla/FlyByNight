@@ -182,6 +182,13 @@
     
     [self.view sendSubviewToBack:self.cvc.view];
 
+    
+    if(cueModel.trigger){
+        DLog(@"WE CAN TRIGGER");
+        [self nextButtonOn:YES withDelay:cueModel.trigger];
+    }else{
+    }
+
     [self.view bringSubviewToFront:self.nextButton];
     
     //• kill other cues?
@@ -220,13 +227,13 @@
     }
 }
 
--(void)nextButtonOn:(BOOL)isOn{
+-(void)nextButtonOn:(BOOL)isOn withDelay:(float)delay{
     
     if(isOn){
         
         self.nextButton.alpha = 0.0f;
         
-        [UIView animateWithDuration:1.0f delay:4.0f options:0 animations:^{
+        [UIView animateWithDuration:1.0f delay:delay options:0 animations:^{
             self.nextButton.alpha = 1.0f;
         } completion:^(BOOL finished) {
             
@@ -245,7 +252,7 @@
 
     DLog(@"");
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
-    [self nextButtonOn:NO];
+    [self nextButtonOn:NO withDelay:0.0f];
 }
 
 #pragma mark - Beacon
@@ -259,22 +266,22 @@
 //    if(![[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
 
         
-        [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-
-            SOScreenViewController *svc = (SOScreenViewController*)obj;
-            SOCueModel *cueModel = [svc getCueModel];
-            
-            if([svc isPlaying]){
-                
-                if(cueModel.trigger){
-                    DLog(@"WE CAN TRIGGER");
-                    [self nextButtonOn:YES];
-                }else{
-                }
-                
-            }
-
-        }];
+//        [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//
+//            SOScreenViewController *svc = (SOScreenViewController*)obj;
+//            SOCueModel *cueModel = [svc getCueModel];
+//            
+//            if([svc isPlaying]){
+//                
+//                if(cueModel.trigger){
+//                    DLog(@"WE CAN TRIGGER");
+//                    [self nextButtonOn:YES];
+//                }else{
+//                }
+//                
+//            }
+//
+//        }];
 //    }
 
     DLog(@"TRIGGER %d",beaconModel.minor);
