@@ -180,18 +180,18 @@
     
     DLog(@"killing player for %@",self.cueModel.title);
 
-    AVPlayerLayer *avPlayerLayer = self.playerLayer;
+//    AVPlayerLayer *avPlayerLayer = self.playerLayer;
     
-    if(avPlayerLayer != nil){
-        [avPlayerLayer removeFromSuperlayer];
-        _playerLayer = nil;
+    if(self.playerLayer != nil){
+        [self.playerLayer removeFromSuperlayer];
+        self.playerLayer = nil;
     }
     
     
-    AVPlayer *avFrontPlayer = self.avPlayer;
+//    AVPlayer *avFrontPlayer = self.avPlayer;
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:AVPlayerItemDidPlayToEndTimeNotification
-                                                  object:avFrontPlayer];
+                                                  object:self.avPlayer];
     
     
     if(self.avPlayer != nil){
@@ -287,6 +287,9 @@
         } completion:^(BOOL finished) {
             if(block) block();
         }];
+    }else{
+        if(block) block();
+        
     }
     
 }

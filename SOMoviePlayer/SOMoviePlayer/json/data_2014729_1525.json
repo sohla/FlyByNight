@@ -256,12 +256,12 @@
       "loop" : 0
     },
     {
-      "offset_x" : 0.4,
-      "title" : "lift to river",
+      "offset_x" : 0.5,
+      "title" : "look around",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
       "type" : "movie",
-      "path" : "FBN CLIP 11_converted.m4v",
+      "path" : "TITLE CARD 03 - LOOK AROUND _converted.m4v",
       "trigger" : 0,
       "zoom" : 0.713,
       "scroll_dx" : 1,
@@ -535,7 +535,7 @@
       "trigger" : 0,
       "zoom" : 0.3565,
       "scroll_dx" : 0,
-      "fadeout_time" : 0.3,
+      "fadeout_time" : 0.6,
       "fadein_time" : 0.5,
       "scroll_dy" : 0,
       "loop" : 0
@@ -906,7 +906,7 @@
       "offset_y" : 0.5,
       "pre_time" : 0.44,
       "type" : "movieaudio",
-      "path" : "FBN AV 42.m4v",
+      "path" : "FBN AV 42 short.m4v",
       "trigger" : 0,
       "zoom" : 0.4565,
       "scroll_dx" : 1,
@@ -1390,9 +1390,9 @@
       "trigger" : 0,
       "zoom" : 0.713,
       "scroll_dx" : 1,
-      "fadeout_time" : 0.5,
+      "fadeout_time" : 0.8,
       "fadein_time" : 0.05,
-      "scroll_dy" : 0.3,
+      "scroll_dy" : 0.5,
       "loop" : 0
     },
     {
@@ -1405,8 +1405,8 @@
       "trigger" : 0,
       "zoom" : 0.3565,
       "scroll_dx" : 1,
-      "fadeout_time" : 0.05,
-      "fadein_time" : 0.05,
+      "fadeout_time" : 0.8,
+      "fadein_time" : 0.6,
       "scroll_dy" : 0,
       "loop" : 0
     },
@@ -1454,7 +1454,22 @@
       "fadein_time" : 0.05,
       "scroll_dy" : 0,
       "loop" : 1
-    }
+            },
+            {
+            "offset_x" : 0.5,
+            "title" : "thankyou",
+            "offset_y" : 0.5,
+            "pre_time" : 0.24,
+            "type" : "movie",
+            "path" : "TITLE CARD 04 - THANK YOU_converted.m4v",
+            "trigger" : 0,
+            "zoom" : 0.3565,
+            "scroll_dx" : 1,
+            "fadeout_time" : 0.5,
+            "fadein_time" : 0.5,
+            "scroll_dy" : 0,
+            "loop" : 0
+            }
   ],
   "beacons" : [
     {
@@ -1507,6 +1522,7 @@
       "action" : "post",
       "minor" : 5,
       "cues" : [
+        "look around",
         "12",
         "long shot of woman",
         "13",
@@ -1599,7 +1615,8 @@
                 "dan drag right",
                 "tuba vacuum",
                 "reaching",
-                "gold roof to piano"
+                "gold roof to piano",
+                "woman down stairs"
                 
                 
       ],
@@ -1682,7 +1699,8 @@
       "cues" : [
         "74",
         "nightscape",
-        "moving away"
+        "moving away",
+                "thankyou"
       ],
       "threshold" : 2.3,
       "prox" : 2

@@ -340,6 +340,7 @@
 }
 -(void)removeObservers{
 
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kMotionManagerReset
                                                   object:nil];
@@ -471,8 +472,11 @@
     [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
+
         [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
+        
             DLog(@"killing %@",cueModel.title);
+            
             [self.screenViewControllers removeObjectForKey:cueModel.title];
         }];
         
