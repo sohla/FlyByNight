@@ -28,6 +28,7 @@
 @property NSMutableArray *triggeredBeacons;
 @property (nonatomic) int currentBeacon;
 @property (strong, nonatomic) SOBeaconViewController *bvc ;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @property (assign, nonatomic) id<SOBeaconsProtocol> delegate;
 
@@ -52,10 +53,10 @@
     self.bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
     self.delegate = self.bvc;
 
-   // [self setupBeaconManager];
+    [self setupBeaconManager];
     
     
-    [self onEdit:nil];
+    [self updateEditButton];
     
     [self addObservers];
 
@@ -412,23 +413,25 @@
 }
 - (IBAction)onEdit:(id)sender {
     
-    BOOL state = [[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState];
+    BOOL state = ![[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState];
+
+    [[NSUserDefaults standardUserDefaults] setObject:@(state)  forKey:kLastEditState];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    state = !state;
+    [self updateEditButton];
+}
+
+-(void)updateEditButton{
+
+    BOOL state = [[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState];
     
     if(state){
         self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode ON";
-        [[NSUserDefaults standardUserDefaults] setObject:@(YES)  forKey:kLastEditState];
     }else{
         self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode OFF";
-        [[NSUserDefaults standardUserDefaults] setObject:@(NO)  forKey:kLastEditState];
     }
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
+
 }
-
-
 #pragma mark - Location manager delegate
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{

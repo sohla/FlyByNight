@@ -247,16 +247,49 @@
         
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
         DLog(@"cueing %@",cueModel.path);
-        
+
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
                                              valWithPropName:@"pre_time"] floatValue];
+        
+        if([cueModel.type isEqualToString:@"cam"]){
 
-        [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
+            [self performSelector:@selector(playCam:) withObject:cueModel afterDelay:pre_time];
+            
+        }else{
+            
+            [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
+        }
         
     }];
     
 }
 
+-(void)playCam:(SOCueModel *)cueModel{
+
+    self.cvc = [[SOCameraViewController alloc] initWithNibName:@"SOCameraViewController" bundle:nil];
+    [self.view addSubview:self.cvc.view];
+    
+    self.cvc.view.alpha = 0.0f;
+    
+    [UIView animateWithDuration:5.0f
+                          delay: 0.0f
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.cvc.view.alpha = 1.0f;
+                     }
+                     completion:nil];
+
+    
+    [UIView animateWithDuration:5.0f
+                          delay: (cueModel.fadeout_time * 10.0f)
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.cvc.view.alpha = 1.0f;
+                     }
+                     completion:nil];
+
+    
+}
 #pragma mark - ScreenView Protocol
 
 -(void)onScreenViewPlayerDidBegin:(SOScreenViewController*)svc{

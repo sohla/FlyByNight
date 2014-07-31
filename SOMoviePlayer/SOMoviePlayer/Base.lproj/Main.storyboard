@@ -73,6 +73,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="editButton" destination="66C-jg-mb6" id="omx-Xh-UyY"/>
                         <outlet property="view" destination="mLL-gJ-YKr" id="ttI-ua-9Qm"/>
                     </connections>
                 </tableViewController>

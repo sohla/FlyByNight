@@ -1102,13 +1102,28 @@
       "pre_time" : 0.001,
       "type" : "movieaudio",
       "path" : "FBN AV 66.m4v",
-      "trigger" : 40,
+      "trigger" : 0,
       "zoom" : 0.3565,
       "scroll_dx" : 0,
-      "fadeout_time" : 0.05,
-      "fadein_time" : 0.05,
+      "fadeout_time" : 0.4,
+      "fadein_time" : 0.5,
       "scroll_dy" : 0,
-      "loop" : 1
+      "loop" : 0
+            },
+            {
+            "offset_x" : 0.5,
+            "title" : "liftup",
+            "offset_y" : 0.5,
+            "pre_time" : 0.27,
+            "type" : "movie",
+            "path" : "liftup.m4v",
+            "trigger" : 5,
+            "zoom" : 0.3565,
+            "scroll_dx" : 0,
+            "fadeout_time" : 0.3,
+            "fadein_time" : 0.3,
+            "scroll_dy" : 0,
+            "loop" : 1
     },
     {
       "offset_x" : 0.5,
@@ -1405,7 +1420,7 @@
       "trigger" : 0,
       "zoom" : 0.3565,
       "scroll_dx" : 1,
-      "fadeout_time" : 0.8,
+      "fadeout_time" : 0.4,
       "fadein_time" : 0.6,
       "scroll_dy" : 0,
       "loop" : 0
@@ -1457,11 +1472,11 @@
             },
             {
             "offset_x" : 0.5,
-            "title" : "thankyou",
+            "title" : "camera",
             "offset_y" : 0.5,
-            "pre_time" : 0.24,
-            "type" : "movie",
-            "path" : "TITLE CARD 04 - THANK YOU_converted.m4v",
+            "pre_time" : 0.20,
+            "type" : "cam",
+            "path" : "stripeTest.mov",
             "trigger" : 0,
             "zoom" : 0.3565,
             "scroll_dx" : 1,
@@ -1469,6 +1484,66 @@
             "fadein_time" : 0.5,
             "scroll_dy" : 0,
             "loop" : 0
+            },
+            {
+            "offset_x" : 0.5,
+            "title" : "thankyou",
+            "offset_y" : 0.5,
+            "pre_time" : 0.68,
+            "type" : "movie",
+            "path" : "TITLE CARD 04 - THANK YOU_converted.m4v",
+            "trigger" : 0,
+            "zoom" : 0.3565,
+            "scroll_dx" : 0,
+            "fadeout_time" : 0.5,
+            "fadein_time" : 0.2,
+            "scroll_dy" : 0,
+            "loop" : 0
+            },
+            {
+            "offset_x" : 0.5,
+            "title" : "flybynight",
+            "offset_y" : 0.5,
+            "pre_time" : 0.72,
+            "type" : "movie",
+            "path" : "TITLE CARD 05 - This has been Fly By Night_converted.m4v",
+            "trigger" : 0,
+            "zoom" : 0.3565,
+            "scroll_dx" : 0,
+            "fadeout_time" : 0.2,
+            "fadein_time" : 0.2,
+            "scroll_dy" : 0,
+            "loop" : 0
+            },
+            {
+            "offset_x" : 0.5,
+            "title" : "return",
+            "offset_y" : 0.5,
+            "pre_time" : 0.77,
+            "type" : "movie",
+            "path" : "TITLE CARD 06 - Now we return to the start_converted.m4v",
+            "trigger" : 0,
+            "zoom" : 0.3565,
+            "scroll_dx" : 0,
+            "fadeout_time" : 0.2,
+            "fadein_time" : 0.2,
+            "scroll_dy" : 0,
+            "loop" : 0
+            },
+            {
+            "offset_x" : 0.5,
+            "title" : "building",
+            "offset_y" : 0.5,
+            "pre_time" : 0.82,
+            "type" : "movie",
+            "path" : "TITLE CARD 07 - follow the building around to_converted.m4v",
+            "trigger" : 0,
+            "zoom" : 0.3565,
+            "scroll_dx" : 0,
+            "fadeout_time" : 0.2,
+            "fadein_time" : 0.2,
+            "scroll_dy" : 0,
+            "loop" : 1
             }
   ],
   "beacons" : [
@@ -1640,7 +1715,8 @@
       "action" : "post",
       "minor" : 14,
       "cues" : [
-        "tuba man lift"
+        "tuba man lift",
+        "liftup"
       ],
       "threshold" : 2.3,
       "prox" : 3
@@ -1700,7 +1776,11 @@
         "74",
         "nightscape",
         "moving away",
-                "thankyou"
+                "camera",
+                "thankyou",
+                "flybynight",
+                "return",
+                "building"
       ],
       "threshold" : 2.3,
       "prox" : 2

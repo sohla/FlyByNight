@@ -29,6 +29,14 @@
 		F01DE5661987DA2100DE7D48 /* TITLE CARD 03 - LOOK AROUND _converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5641987DA2100DE7D48 /* TITLE CARD 03 - LOOK AROUND _converted.m4v */; };
 		F01DE5681987DEA500DE7D48 /* TITLE CARD 04 - THANK YOU_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5671987DEA500DE7D48 /* TITLE CARD 04 - THANK YOU_converted.m4v */; };
 		F01DE5691987DEA500DE7D48 /* TITLE CARD 04 - THANK YOU_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5671987DEA500DE7D48 /* TITLE CARD 04 - THANK YOU_converted.m4v */; };
+		F01DE56B1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE56A1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v */; };
+		F01DE56C1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE56A1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v */; };
+		F01DE56E1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE56D1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v */; };
+		F01DE56F1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE56D1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v */; };
+		F01DE5711987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5701987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v */; };
+		F01DE5721987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5701987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v */; };
+		F01DE5741987F07B00DE7D48 /* liftup.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5731987F07B00DE7D48 /* liftup.m4v */; };
+		F01DE5751987F07B00DE7D48 /* liftup.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5731987F07B00DE7D48 /* liftup.m4v */; };
 		F022FFE0193BF98F00829C20 /* burstTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDB193BF98F00829C20 /* burstTest.mov */; };
 		F022FFE1193BF98F00829C20 /* checkTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDC193BF98F00829C20 /* checkTest.mov */; };
 		F022FFE2193BF98F00829C20 /* noiseTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDD193BF98F00829C20 /* noiseTest.mov */; };
@@ -310,6 +318,10 @@
 		F01DE5611987D9BE00DE7D48 /* FBN AV 42 short.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN AV 42 short.m4v"; sourceTree = "<group>"; };
 		F01DE5641987DA2100DE7D48 /* TITLE CARD 03 - LOOK AROUND _converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD 03 - LOOK AROUND _converted.m4v"; sourceTree = "<group>"; };
 		F01DE5671987DEA500DE7D48 /* TITLE CARD 04 - THANK YOU_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD 04 - THANK YOU_converted.m4v"; sourceTree = "<group>"; };
+		F01DE56A1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD 05 - This has been Fly By Night_converted.m4v"; sourceTree = "<group>"; };
+		F01DE56D1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD 06 - Now we return to the start_converted.m4v"; sourceTree = "<group>"; };
+		F01DE5701987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD 07 - follow the building around to_converted.m4v"; sourceTree = "<group>"; };
+		F01DE5731987F07B00DE7D48 /* liftup.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = liftup.m4v; sourceTree = "<group>"; };
 		F022FFDB193BF98F00829C20 /* burstTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = burstTest.mov; sourceTree = "<group>"; };
 		F022FFDC193BF98F00829C20 /* checkTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = checkTest.mov; sourceTree = "<group>"; };
 		F022FFDD193BF98F00829C20 /* noiseTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = noiseTest.mov; sourceTree = "<group>"; };
@@ -703,6 +715,10 @@
 		F037EF33198036E20050DFA4 /* FinalAssets */ = {
 			isa = PBXGroup;
 			children = (
+				F01DE5731987F07B00DE7D48 /* liftup.m4v */,
+				F01DE5701987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v */,
+				F01DE56D1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v */,
+				F01DE56A1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v */,
 				F01DE5671987DEA500DE7D48 /* TITLE CARD 04 - THANK YOU_converted.m4v */,
 				F01DE5641987DA2100DE7D48 /* TITLE CARD 03 - LOOK AROUND _converted.m4v */,
 				F01DE55A1987C58A00DE7D48 /* TITLE CARD 01 - WELCOME_converted.m4v */,
@@ -1280,6 +1296,7 @@
 				F037EFED198036E30050DFA4 /* FBN CLIP 12c_converted.m4v in Resources */,
 				F037EFE5198036E30050DFA4 /* FBN CLIP 05_converted.m4v in Resources */,
 				F04417D918BD2D7900572780 /* default@2x.png in Resources */,
+				F01DE56E1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v in Resources */,
 				F037EFFA198036E30050DFA4 /* FBN CLIP 47_converted.m4v in Resources */,
 				F037F011198036E30050DFA4 /* FBN CLIP 70_converted.m4v in Resources */,
 				F037EFFB198036E30050DFA4 /* FBN CLIP 48_converted.m4v in Resources */,
@@ -1303,6 +1320,7 @@
 				F037F04A198036E30050DFA4 /* 66.wav in Resources */,
 				F037F04C198036E30050DFA4 /* 68a.wav in Resources */,
 				F037F03A198036E30050DFA4 /* 33.wav in Resources */,
+				F01DE5741987F07B00DE7D48 /* liftup.m4v in Resources */,
 				F037EFFC198036E30050DFA4 /* FBN CLIP 49_converted.m4v in Resources */,
 				F0B8DCD619866F9D00976135 /* test.json in Resources */,
 				F037EFEF198036E30050DFA4 /* FBN CLIP 13_converted.m4v in Resources */,
@@ -1339,9 +1357,11 @@
 				F022FFE3193BF98F00829C20 /* stripeTest.mov in Resources */,
 				F037F044198036E30050DFA4 /* 44.wav in Resources */,
 				F037F00E198036E30050DFA4 /* FBN CLIP 68a_converted.m4v in Resources */,
+				F01DE5711987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v in Resources */,
 				F037F04B198036E30050DFA4 /* 67.wav in Resources */,
 				F037EFFE198036E30050DFA4 /* FBN CLIP 51_converted.m4v in Resources */,
 				F037F006198036E30050DFA4 /* FBN CLIP 60_converted.m4v in Resources */,
+				F01DE56B1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v in Resources */,
 				F037EFEA198036E30050DFA4 /* FBN CLIP 11_converted.m4v in Resources */,
 				F037F02F198036E30050DFA4 /* 23.wav in Resources */,
 				F037EFDB198036E30050DFA4 /* FBN AV 42.m4v in Resources */,
@@ -1432,10 +1452,12 @@
 			files = (
 				F01DE5631987D9BE00DE7D48 /* FBN AV 42 short.m4v in Resources */,
 				F01DE55C1987C58A00DE7D48 /* TITLE CARD 01 - WELCOME_converted.m4v in Resources */,
+				F01DE56C1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v in Resources */,
 				F0B8DC351985121400976135 /* allCues.json in Resources */,
 				F0B8DC481985121400976135 /* default@2x.png in Resources */,
 				F0B8DC581985121400976135 /* SOFloatPropViewController.xib in Resources */,
 				F0B8DC651985121400976135 /* Images.xcassets in Resources */,
+				F01DE5721987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v in Resources */,
 				F01DE5661987DA2100DE7D48 /* TITLE CARD 03 - LOOK AROUND _converted.m4v in Resources */,
 				F01DE5601987C60600DE7D48 /* TITLE CARD 02 - FOLLOW ME_converted.m4v in Resources */,
 				F01DE5381987C0FF00DE7D48 /* FBN CLIP 15 4th Pass_converted.m4v in Resources */,
@@ -1451,6 +1473,8 @@
 				F0B8DC941985121400976135 /* dataT.json in Resources */,
 				F0B8DC9C1985121400976135 /* Main.storyboard in Resources */,
 				F01DE5411987C50F00DE7D48 /* FBN CLIP 69 clouds 4th Pass_converted.m4v in Resources */,
+				F01DE5751987F07B00DE7D48 /* liftup.m4v in Resources */,
+				F01DE56F1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v in Resources */,
 				F0B8DC9E1985121400976135 /* default.png in Resources */,
 				F0B8DCAD1985121400976135 /* SOBeaconViewController.xib in Resources */,
 			);
