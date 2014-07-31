@@ -85,6 +85,17 @@
     
     [self collectAssetsWithCompletionBlock:^(NSArray *assets){
         
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
+        
+        SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
+        controller.modelStore = self.modelStore;
+        [self.navigationController pushViewController:controller animated:NO];
+        
+        [controller triggerBeacon:[self.modelStore beaconModelWithMinor:1]];
+
         // collect all the paths
         [assets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
             // limit assets count : device could have hundreds of movies!
@@ -125,21 +136,25 @@
         
     }];
     
-    //[self.tableView reloadData];
-    
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:kLastBeaconRangingState]){
         [self startRangingBeacons];
     }
 
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
-//   double delayInSeconds = 1.0f;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
+   
+//    double delayInSeconds = 0.3f;
 //    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
 //    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 //        
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+//        [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 //        
 //        
 //    });
+
+    
 
 }
 
@@ -380,7 +395,7 @@
 
     SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
     controller.modelStore = self.modelStore;
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [controller triggerBeacon:[self.modelStore beaconModelWithMinor:cell.textLabel.text.intValue]];

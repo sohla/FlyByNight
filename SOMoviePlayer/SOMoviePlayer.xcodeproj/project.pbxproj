@@ -39,6 +39,8 @@
 		F01DE5751987F07B00DE7D48 /* liftup.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5731987F07B00DE7D48 /* liftup.m4v */; };
 		F01DE578198A49CD00DE7D48 /* 47.wav in Resources */ = {isa = PBXBuildFile; fileRef = F01DE577198A49CD00DE7D48 /* 47.wav */; };
 		F01DE579198A49CD00DE7D48 /* 47.wav in Resources */ = {isa = PBXBuildFile; fileRef = F01DE577198A49CD00DE7D48 /* 47.wav */; };
+		F01DE57C198A652F00DE7D48 /* 51B.wav in Resources */ = {isa = PBXBuildFile; fileRef = F01DE57B198A652F00DE7D48 /* 51B.wav */; };
+		F01DE57D198A652F00DE7D48 /* 51B.wav in Resources */ = {isa = PBXBuildFile; fileRef = F01DE57B198A652F00DE7D48 /* 51B.wav */; };
 		F022FFE0193BF98F00829C20 /* burstTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDB193BF98F00829C20 /* burstTest.mov */; };
 		F022FFE1193BF98F00829C20 /* checkTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDC193BF98F00829C20 /* checkTest.mov */; };
 		F022FFE2193BF98F00829C20 /* noiseTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDD193BF98F00829C20 /* noiseTest.mov */; };
@@ -325,6 +327,7 @@
 		F01DE5701987E9C100DE7D48 /* TITLE CARD 07 - follow the building around to_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD 07 - follow the building around to_converted.m4v"; sourceTree = "<group>"; };
 		F01DE5731987F07B00DE7D48 /* liftup.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = liftup.m4v; sourceTree = "<group>"; };
 		F01DE577198A49CD00DE7D48 /* 47.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 47.wav; sourceTree = "<group>"; };
+		F01DE57B198A652F00DE7D48 /* 51B.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 51B.wav; sourceTree = "<group>"; };
 		F022FFDB193BF98F00829C20 /* burstTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = burstTest.mov; sourceTree = "<group>"; };
 		F022FFDC193BF98F00829C20 /* checkTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = checkTest.mov; sourceTree = "<group>"; };
 		F022FFDD193BF98F00829C20 /* noiseTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = noiseTest.mov; sourceTree = "<group>"; };
@@ -490,7 +493,7 @@
 		F07F16191951017D00E36A70 /* allCues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allCues.json; sourceTree = "<group>"; };
 		F09B75F6197BD5F900C4356A /* SOBeaconModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOBeaconModel.h; sourceTree = "<group>"; };
 		F09B75F7197BD5F900C4356A /* SOBeaconModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOBeaconModel.m; sourceTree = "<group>"; };
-		F0AECCC218B171DB00263C32 /* SOMoviePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOMoviePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0AECCC218B171DB00263C32 /* FlyByNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyByNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCC518B171DB00263C32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0AECCC718B171DB00263C32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F0AECCC918B171DB00263C32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -871,6 +874,7 @@
 				F037EFB6198036E30050DFA4 /* 46.wav */,
 				F037EFB7198036E30050DFA4 /* 47-51.wav */,
 				F037F0551980461F0050DFA4 /* 51.wav */,
+				F01DE57B198A652F00DE7D48 /* 51B.wav */,
 				F037EFB8198036E30050DFA4 /* 53.wav */,
 				F037EFB9198036E30050DFA4 /* 64.wav */,
 				F037EFBA198036E30050DFA4 /* 66.wav */,
@@ -903,7 +907,7 @@
 		F0AECCC318B171DB00263C32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F0AECCC218B171DB00263C32 /* SOMoviePlayer.app */,
+				F0AECCC218B171DB00263C32 /* FlyByNight.app */,
 				F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */,
 				F0B8DCC91985121400976135 /* SOMoviePlayer.app */,
 			);
@@ -1180,7 +1184,7 @@
 			);
 			name = SOMoviePlayer;
 			productName = SOMoviePlayer;
-			productReference = F0AECCC218B171DB00263C32 /* SOMoviePlayer.app */;
+			productReference = F0AECCC218B171DB00263C32 /* FlyByNight.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F0AECCE518B171DC00263C32 /* SOMoviePlayerTests */ = {
@@ -1384,6 +1388,7 @@
 				F037EFE1198036E30050DFA4 /* FBN AV 66.m4v in Resources */,
 				F037EFD3198036E30050DFA4 /* FBN AV 33.m4v in Resources */,
 				F037EFEB198036E30050DFA4 /* FBN CLIP 12a_converted.m4v in Resources */,
+				F01DE57C198A652F00DE7D48 /* 51B.wav in Resources */,
 				F037EFF5198036E30050DFA4 /* FBN CLIP 21_converted.m4v in Resources */,
 				F0FE3DEB1944A00D0029DAEF /* dataT.json in Resources */,
 				F037F026198036E30050DFA4 /* 15 Room Tone.wav in Resources */,
@@ -1479,6 +1484,7 @@
 				F0B8DC941985121400976135 /* dataT.json in Resources */,
 				F0B8DC9C1985121400976135 /* Main.storyboard in Resources */,
 				F01DE5411987C50F00DE7D48 /* FBN CLIP 69 clouds 4th Pass_converted.m4v in Resources */,
+				F01DE57D198A652F00DE7D48 /* 51B.wav in Resources */,
 				F01DE5751987F07B00DE7D48 /* liftup.m4v in Resources */,
 				F01DE56F1987E99F00DE7D48 /* TITLE CARD 06 - Now we return to the start_converted.m4v in Resources */,
 				F0B8DC9E1985121400976135 /* default.png in Resources */,
@@ -1687,7 +1693,7 @@
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/SOMoviePlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FlyByNight;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -1705,7 +1711,7 @@
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/SOMoviePlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FlyByNight;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;

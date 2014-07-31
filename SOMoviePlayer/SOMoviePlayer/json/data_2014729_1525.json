@@ -496,7 +496,7 @@
       "loop" : 1
     },
     {
-      "offset_x" : 0.75,
+      "offset_x" : 0.5,
       "title" : "ned pink stairs",
       "offset_y" : 0.5,
       "pre_time" : 0.60,
@@ -563,11 +563,11 @@
       "type" : "movieaudio",
       "path" : "FBN AV 20b.m4v",
       "trigger" : 0,
-      "zoom" : 0.3565,
-      "scroll_dx" : 0,
+      "zoom" : 0.4565,
+      "scroll_dx" : 0.3,
       "fadeout_time" : 0.001,
       "fadein_time" : 0.5,
-      "scroll_dy" : 0,
+      "scroll_dy" : 0.3,
       "loop" : 0
     },
     {
@@ -1042,7 +1042,7 @@
       "pre_time" : 2.00,
       "type" : "movie",
       "path" : "FBN CLIP 47_converted.m4v",
-      "trigger" : 40,
+      "trigger" : 45,
       "zoom" : 0.3565,
       "scroll_dx" : 0,
       "fadeout_time" : 0.8,
@@ -1056,7 +1056,7 @@
       "offset_y" : 0.5,
       "pre_time" : 0.001,
       "type" : "audio",
-      "path" : "51.wav",
+      "path" : "51B.wav",
       "trigger" : 0,
       "zoom" : 0.3565,
       "scroll_dx" : 0,
@@ -1138,13 +1138,13 @@
       "fadeout_time" : 0.4,
       "fadein_time" : 0.5,
       "scroll_dy" : 0,
-      "loop" : 0
+      "loop" : 1
             },
             {
             "offset_x" : 0.5,
             "title" : "liftup",
             "offset_y" : 0.5,
-            "pre_time" : 0.45,
+            "pre_time" : 0.60,
             "type" : "movie",
             "path" : "liftup.m4v",
             "trigger" : 5,
@@ -1269,10 +1269,10 @@
       "path" : "FBN CLIP 69 clouds 4th Pass_converted.m4v",
       "trigger" : 0,
       "zoom" : 0.513,
-      "scroll_dx" : 0,
+      "scroll_dx" : 0.2,
       "fadeout_time" : 0.2,
       "fadein_time" : 0.2,
-      "scroll_dy" : 0.0,
+      "scroll_dy" : 0.2,
       "loop" : 0
     },
     {
@@ -1329,10 +1329,10 @@
       "path" : "FBN CLIP 71_converted.m4v",
       "trigger" : 0,
       "zoom" : 0.513,
-      "scroll_dx" : 0.0,
+      "scroll_dx" : 0.2,
       "fadeout_time" : 0.3,
       "fadein_time" : 0.2,
-      "scroll_dy" : 0.0,
+      "scroll_dy" : 0.2,
       "loop" : 0
     },
     {
@@ -1692,7 +1692,6 @@
       "action" : "post",
       "minor" : 10,
       "cues" : [
-        "24",
         "25",
         "corridor to melbourne room"
       ],

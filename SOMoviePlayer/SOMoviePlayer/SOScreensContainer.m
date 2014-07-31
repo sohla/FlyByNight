@@ -317,6 +317,7 @@
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
+    [swipeGesture setNumberOfTouchesRequired:2];
     [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer: swipeGesture];
 
