@@ -266,8 +266,11 @@
 
 -(void)playCam:(SOCueModel *)cueModel{
 
+#if !TARGET_IPHONE_SIMULATOR
+
     self.cvc = [[SOCameraViewController alloc] initWithNibName:@"SOCameraViewController" bundle:nil];
     [self.view addSubview:self.cvc.view];
+#endif
     
     self.cvc.view.alpha = 0.0f;
     
@@ -532,11 +535,11 @@
 
 #pragma mark - Orientation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
-    return YES;
+    return NO;
 }
 
 - (BOOL)shouldAutorotate{
-    return YES;
+    return NO;
 }
 
 - (NSUInteger)supportedInterfaceOrientations{

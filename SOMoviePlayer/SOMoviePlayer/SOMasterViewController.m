@@ -125,13 +125,21 @@
         
     }];
     
+    //[self.tableView reloadData];
+    
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:kLastBeaconRangingState]){
         [self startRangingBeacons];
     }
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
-
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
+//   double delayInSeconds = 1.0f;
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        
+//        
+//        
+//    });
 
 }
 
@@ -140,7 +148,6 @@
 //    [self performSegueWithIdentifier:@"showDetail" sender:self];
 //    [self addObservers];
  
-    
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
