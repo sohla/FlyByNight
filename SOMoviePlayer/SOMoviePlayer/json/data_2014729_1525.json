@@ -496,7 +496,7 @@
       "loop" : 1
     },
     {
-      "offset_x" : 0.5,
+      "offset_x" : 0.2,
       "title" : "ned pink stairs",
       "offset_y" : 0.5,
       "pre_time" : 0.60,
@@ -504,8 +504,8 @@
       "path" : "FBN AV 20a.m4v",
       "trigger" : 22,
       "zoom" : 0.4565,
-      "scroll_dx" : 0.3,
-      "fadeout_time" : 0.3,
+      "scroll_dx" : 0.2,
+      "fadeout_time" : 0.2,
       "fadein_time" : 0.05,
       "scroll_dy" : 0.3,
       "loop" : 1
@@ -556,7 +556,7 @@
       "loop" : 0
     },
     {
-      "offset_x" : 0.5,
+      "offset_x" : 0.9,
       "title" : "ned further pink stairs",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
@@ -564,10 +564,10 @@
       "path" : "FBN AV 20b.m4v",
       "trigger" : 0,
       "zoom" : 0.4565,
-      "scroll_dx" : 0.3,
+      "scroll_dx" : 0.2,
       "fadeout_time" : 0.001,
       "fadein_time" : 0.5,
-      "scroll_dy" : 0.3,
+      "scroll_dy" : 0.2,
       "loop" : 0
     },
     {
@@ -706,7 +706,7 @@
       "loop" : 0
     },
     {
-      "offset_x" : 1,
+      "offset_x" : 0.8,
       "title" : "lady painting",
       "offset_y" : 0.5,
       "pre_time" : 0.53,
@@ -721,7 +721,7 @@
       "loop" : 0
     },
             {
-            "offset_x" : 0.5,
+            "offset_x" : 0.3,
             "title" : "look around2",
             "offset_y" : 0.5,
             "pre_time" : 0.53,
@@ -1066,7 +1066,7 @@
       "loop" : 0
     },
     {
-      "offset_x" : 0.5,
+      "offset_x" : 0.4,
       "title" : "legs in air",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
@@ -1081,7 +1081,7 @@
       "loop" : 0
     },
     {
-      "offset_x" : 1,
+      "offset_x" : 0.9,
       "title" : "torso",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
@@ -1096,7 +1096,7 @@
       "loop" : 1
     },
     {
-      "offset_x" : 0.5,
+      "offset_x" : 0.4,
       "title" : "diva",
       "offset_y" : 0.5,
       "pre_time" : 0.7,
@@ -1549,7 +1549,7 @@
             "offset_x" : 0.5,
             "title" : "return",
             "offset_y" : 0.5,
-            "pre_time" : 0.57,
+            "pre_time" : 0.56,
             "type" : "movie",
             "path" : "TITLE CARD 06 - Now we return to the start_converted.m4v",
             "trigger" : 0,
@@ -1564,7 +1564,7 @@
             "offset_x" : 0.5,
             "title" : "building",
             "offset_y" : 0.5,
-            "pre_time" : 0.62,
+            "pre_time" : 0.60,
             "type" : "movie",
             "path" : "TITLE CARD 07 - follow the building around to_converted.m4v",
             "trigger" : 0,
