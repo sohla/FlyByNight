@@ -84,7 +84,7 @@
         
     }
 
-    _nextButton = [[UIButton alloc] initWithFrame:CGRectOffset( CGRectInset(fullFrame, 120.0f, 120.0f), 0, 100.0)];
+    _nextButton = [[UIButton alloc] initWithFrame:CGRectOffset( CGRectInset(self.view.frame, 120.0f, 120.0f), 0, 100.0)];
     [self.nextButton setTitle:@"Touch to continue" forState:UIControlStateNormal];
     [self.nextButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.7]];
     [self.nextButton .layer setCornerRadius:7.0f];
