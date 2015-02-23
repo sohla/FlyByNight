@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F0AECCC118B171DB00263C32"
-               BuildableName = "SOMoviePlayer.app"
+               BuildableName = "FlyByNight.app"
                BlueprintName = "SOMoviePlayer"
                ReferencedContainer = "container:SOMoviePlayer.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F0AECCC118B171DB00263C32"
-            BuildableName = "SOMoviePlayer.app"
+            BuildableName = "FlyByNight.app"
             BlueprintName = "SOMoviePlayer"
             ReferencedContainer = "container:SOMoviePlayer.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F0AECCC118B171DB00263C32"
-            BuildableName = "SOMoviePlayer.app"
+            BuildableName = "FlyByNight.app"
             BlueprintName = "SOMoviePlayer"
             ReferencedContainer = "container:SOMoviePlayer.xcodeproj">
          </BuildableReference>
@@ -97,7 +97,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F0AECCC118B171DB00263C32"
-            BuildableName = "SOMoviePlayer.app"
+            BuildableName = "FlyByNight.app"
             BlueprintName = "SOMoviePlayer"
             ReferencedContainer = "container:SOMoviePlayer.xcodeproj">
          </BuildableReference>

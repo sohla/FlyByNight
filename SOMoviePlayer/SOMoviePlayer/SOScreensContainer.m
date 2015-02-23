@@ -19,8 +19,6 @@
 
 @interface SOScreensContainer ()
 
-
-
 @property (strong, nonatomic) CADisplayLink             *displayLink;
 @property (strong, nonatomic) NSMutableDictionary       *screenViewControllers;
 
@@ -49,6 +47,10 @@
     
     [super viewDidLoad];
     
+    
+//    [[NSUserDefaults standardUserDefaults] setObject:@(YES)  forKey:kLastEditState];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+
 //#if !TARGET_IPHONE_SIMULATOR
 //    self.cvc = [[SOCameraViewController alloc] initWithNibName:@"SOCameraViewController" bundle:nil];
 //    [self.view addSubview:self.cvc.view];
