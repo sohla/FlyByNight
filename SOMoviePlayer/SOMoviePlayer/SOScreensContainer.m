@@ -85,7 +85,7 @@
     }
 
     _nextButton = [[UIButton alloc] initWithFrame:CGRectOffset( CGRectInset(self.view.frame, 120.0f, 120.0f), 0, 100.0)];
-    [self.nextButton setTitle:@"Tap to continue" forState:UIControlStateNormal];
+    [self.nextButton setTitle:@"Shake to continue" forState:UIControlStateNormal];
     [self.nextButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.7]];
     [self.nextButton .layer setCornerRadius:7.0f];
     [self.nextButton addTarget:self action:@selector(onNextButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -236,16 +236,16 @@
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
 
-//    if (motion == UIEventSubtypeMotionShake){
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
-//        [self nextButtonOn:NO withDelay:0.0f];
-//        
-//        // play a sound
-//        SystemSoundID completeSound;
-//        NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"harp" ofType:@"mp3"]];
-//        AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
-//        AudioServicesPlaySystemSound (completeSound);
-//    }
+    if (motion == UIEventSubtypeMotionShake){
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
+        [self nextButtonOn:NO withDelay:0.0f];
+        
+        // play a sound
+        SystemSoundID completeSound;
+        NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"harp" ofType:@"mp3"]];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
+        AudioServicesPlaySystemSound (completeSound);
+    }
 }
 
 -(void)onNextButton:(id)sender{
