@@ -183,7 +183,7 @@
     [jsonString writeToFile:path atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     
     
-    DLog(@"%@",jsonString);
+    //DLog(@"%@",jsonString);
 
 }
 

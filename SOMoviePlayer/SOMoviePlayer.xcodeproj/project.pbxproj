@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F00504231AEE62F4009C9BEC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504221AEE62F4009C9BEC /* CoreData.framework */; };
+		F00504251AEE6301009C9BEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504241AEE6301009C9BEC /* SystemConfiguration.framework */; };
+		F00504271AEE6312009C9BEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504261AEE6312009C9BEC /* libz.dylib */; };
+		F00504291AEE6322009C9BEC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504281AEE6322009C9BEC /* libsqlite3.dylib */; };
+		F005042B1AEE6339009C9BEC /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */; };
+		F005043A1AEE6379009C9BEC /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504381AEE6379009C9BEC /* libAdIdAccess.a */; };
+		F005043C1AEE68A5009C9BEC /* SOCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B8DCCD1985382900976135 /* SOCameraViewController.m */; };
+		F005043D1AEE68C8009C9BEC /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504381AEE6379009C9BEC /* libAdIdAccess.a */; };
+		F005043E1AEE68D5009C9BEC /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */; };
+		F005043F1AEE6921009C9BEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504261AEE6312009C9BEC /* libz.dylib */; };
+		F00504401AEE6924009C9BEC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504281AEE6322009C9BEC /* libsqlite3.dylib */; };
+		F00504411AEE6929009C9BEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504241AEE6301009C9BEC /* SystemConfiguration.framework */; };
+		F00504421AEE692C009C9BEC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504221AEE62F4009C9BEC /* CoreData.framework */; };
 		F01DE52E19873A7500DE7D48 /* data_2014729_12111.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */; };
 		F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */; };
 		F01DE5311987A01900DE7D48 /* data_2014729_1525.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5301987A01900DE7D48 /* data_2014729_1525.json */; };
@@ -312,6 +325,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F00504221AEE62F4009C9BEC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F00504241AEE6301009C9BEC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F00504261AEE6312009C9BEC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F00504281AEE6322009C9BEC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = GoogleAnalytics/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		F005042E1AEE6379009C9BEC /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		F005042F1AEE6379009C9BEC /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		F00504301AEE6379009C9BEC /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		F00504311AEE6379009C9BEC /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		F00504321AEE6379009C9BEC /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		F00504331AEE6379009C9BEC /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		F00504341AEE6379009C9BEC /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		F00504351AEE6379009C9BEC /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		F00504361AEE6379009C9BEC /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		F00504371AEE6379009C9BEC /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		F00504381AEE6379009C9BEC /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
 		F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_12111.json; sourceTree = "<group>"; };
 		F01DE5301987A01900DE7D48 /* data_2014729_1525.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_1525.json; sourceTree = "<group>"; };
 		F01DE5361987C0FF00DE7D48 /* FBN CLIP 15 4th Pass_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 15 4th Pass_converted.m4v"; sourceTree = "<group>"; };
@@ -652,6 +681,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F005042B1AEE6339009C9BEC /* libGoogleAnalyticsServices.a in Frameworks */,
+				F00504291AEE6322009C9BEC /* libsqlite3.dylib in Frameworks */,
+				F00504271AEE6312009C9BEC /* libz.dylib in Frameworks */,
+				F00504251AEE6301009C9BEC /* SystemConfiguration.framework in Frameworks */,
+				F005043A1AEE6379009C9BEC /* libAdIdAccess.a in Frameworks */,
+				F00504231AEE62F4009C9BEC /* CoreData.framework in Frameworks */,
 				F0B8DBFB19850B3D00976135 /* CoreBluetooth.framework in Frameworks */,
 				F0B8DBF919850B3400976135 /* CoreLocation.framework in Frameworks */,
 				F04417D518BD1BF400572780 /* AssetsLibrary.framework in Frameworks */,
@@ -679,22 +714,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0B8DCD4198538C000976135 /* CoreMedia.framework in Frameworks */,
+				F005043D1AEE68C8009C9BEC /* libAdIdAccess.a in Frameworks */,
 				F0B8DCD2198538B800976135 /* CoreVideo.framework in Frameworks */,
+				F005043E1AEE68D5009C9BEC /* libGoogleAnalyticsServices.a in Frameworks */,
 				F0B8DC1B1985121400976135 /* CoreBluetooth.framework in Frameworks */,
 				F0B8DC1C1985121400976135 /* CoreLocation.framework in Frameworks */,
+				F00504411AEE6929009C9BEC /* SystemConfiguration.framework in Frameworks */,
 				F0B8DC1D1985121400976135 /* AssetsLibrary.framework in Frameworks */,
 				F0B8DC1E1985121400976135 /* AVFoundation.framework in Frameworks */,
 				F0B8DC1F1985121400976135 /* CoreMotion.framework in Frameworks */,
+				F005043F1AEE6921009C9BEC /* libz.dylib in Frameworks */,
 				F0B8DC201985121400976135 /* MediaPlayer.framework in Frameworks */,
 				F0B8DC211985121400976135 /* CoreGraphics.framework in Frameworks */,
 				F0B8DC221985121400976135 /* UIKit.framework in Frameworks */,
+				F00504401AEE6924009C9BEC /* libsqlite3.dylib in Frameworks */,
 				F0B8DC231985121400976135 /* Foundation.framework in Frameworks */,
+				F00504421AEE692C009C9BEC /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F005042C1AEE6379009C9BEC /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				F005042D1AEE6379009C9BEC /* Headers */,
+				F00504381AEE6379009C9BEC /* libAdIdAccess.a */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		F005042D1AEE6379009C9BEC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F005042E1AEE6379009C9BEC /* GAI.h */,
+				F005042F1AEE6379009C9BEC /* GAIDictionaryBuilder.h */,
+				F00504301AEE6379009C9BEC /* GAIEcommerceFields.h */,
+				F00504311AEE6379009C9BEC /* GAIEcommerceProduct.h */,
+				F00504321AEE6379009C9BEC /* GAIEcommerceProductAction.h */,
+				F00504331AEE6379009C9BEC /* GAIEcommercePromotion.h */,
+				F00504341AEE6379009C9BEC /* GAIFields.h */,
+				F00504351AEE6379009C9BEC /* GAILogger.h */,
+				F00504361AEE6379009C9BEC /* GAITrackedViewController.h */,
+				F00504371AEE6379009C9BEC /* GAITracker.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		F022FFDA193BF98F00829C20 /* testMovies */ = {
 			isa = PBXGroup;
 			children = (
@@ -897,6 +964,7 @@
 		F0AECCB918B171DB00263C32 = {
 			isa = PBXGroup;
 			children = (
+				F005042C1AEE6379009C9BEC /* GoogleAnalytics */,
 				F0C2DEF11939FCBC00EAB7F9 /* JSONModel */,
 				F0AECCCB18B171DB00263C32 /* SOMoviePlayer */,
 				F0AECCED18B171DC00263C32 /* SOMoviePlayerTests */,
@@ -919,6 +987,11 @@
 		F0AECCC418B171DB00263C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */,
+				F00504281AEE6322009C9BEC /* libsqlite3.dylib */,
+				F00504261AEE6312009C9BEC /* libz.dylib */,
+				F00504241AEE6301009C9BEC /* SystemConfiguration.framework */,
+				F00504221AEE62F4009C9BEC /* CoreData.framework */,
 				F0B8DCD3198538C000976135 /* CoreMedia.framework */,
 				F0B8DCD1198538B800976135 /* CoreVideo.framework */,
 				F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */,
@@ -1552,6 +1625,7 @@
 				F0B8DC001985121400976135 /* JSONModelError.m in Sources */,
 				F0B8DC011985121400976135 /* SOSessionModel.m in Sources */,
 				F0B8DC021985121400976135 /* JSONAPI.m in Sources */,
+				F005043C1AEE68A5009C9BEC /* SOCameraViewController.m in Sources */,
 				F0B8DC031985121400976135 /* SOFloatTransformer.m in Sources */,
 				F0B8DC041985121400976135 /* SOMasterViewController.m in Sources */,
 				F0B8DC051985121400976135 /* SOMotionManager.m in Sources */,
@@ -1697,6 +1771,10 @@
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/SOMoviePlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleAnalytics",
+				);
 				PRODUCT_NAME = FlyByNight;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1715,6 +1793,10 @@
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/SOMoviePlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleAnalytics",
+				);
 				PRODUCT_NAME = FlyByNight;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1771,7 +1853,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleAnalytics",
+				);
 				PRODUCT_NAME = SOMoviePlayer;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -1787,7 +1873,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleAnalytics",
+				);
 				PRODUCT_NAME = SOMoviePlayer;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;

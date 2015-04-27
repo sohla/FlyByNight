@@ -12,6 +12,9 @@
 #import "SOScreensContainer.h"
 #import "SOBeaconsProtocol.h"
 
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+
 #define kMaxAssetImages 5
 
 @interface SOMasterViewController () <CLLocationManagerDelegate>
@@ -47,7 +50,12 @@
 {
     [super viewDidLoad];
  
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_masterView"     // Event category (required)
+                                                          action:@"view_loaded"  // Event action (required)
+                                                           label:@"hello world"          // Event label
+                                                           value:nil] build]];    // Event value
     
     
     self.bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
