@@ -2,6 +2,6 @@
 
 /SOMoviePlayer/SOMoviePlayer.xcodeproj/project.xcworkspace/xcuserdata/soh_la.xcuserdatad/UserInterfaceState.xcuserstate
 
-/SOMoviePlayer/SOMoviePlayer/FinalAudio/
+*.mov
 
-/SOMoviePlayer/SOMoviePlayer/testMovies/
+*.wav

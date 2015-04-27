@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F0AECCC118B171DB00263C32"
-               BuildableName = "SOMoviePlayer.app"
+               BuildableName = "FlyByNight.app"
                BlueprintName = "SOMoviePlayer"
                ReferencedContainer = "container:SOMoviePlayer.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F0AECCC118B171DB00263C32"
-            BuildableName = "SOMoviePlayer.app"
+            BuildableName = "FlyByNight.app"
             BlueprintName = "SOMoviePlayer"
             ReferencedContainer = "container:SOMoviePlayer.xcodeproj">
          </BuildableReference>
@@ -62,17 +62,29 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F0AECCC118B171DB00263C32"
-            BuildableName = "SOMoviePlayer.app"
+            BuildableName = "FlyByNight.app"
             BlueprintName = "SOMoviePlayer"
             ReferencedContainer = "container:SOMoviePlayer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-         <AdditionalOption
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "NSAutoreleaseFreedObjectCheckEnabled"
+            value = "YES"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "NSZombieEnabled"
             value = "YES"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "NSDebugEnabled"
+            value = "YES"
             isEnabled = "YES">
-         </AdditionalOption>
+         </EnvironmentVariable>
+      </EnvironmentVariables>
+      <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -85,7 +97,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F0AECCC118B171DB00263C32"
-            BuildableName = "SOMoviePlayer.app"
+            BuildableName = "FlyByNight.app"
             BlueprintName = "SOMoviePlayer"
             ReferencedContainer = "container:SOMoviePlayer.xcodeproj">
          </BuildableReference>

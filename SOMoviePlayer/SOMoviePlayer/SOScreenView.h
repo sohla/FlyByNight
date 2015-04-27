@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SOScreenView : UIView
+@interface SOScreenView : UIView <UIGestureRecognizerDelegate>
 
 
 -(void)setProgress:(float)progress;

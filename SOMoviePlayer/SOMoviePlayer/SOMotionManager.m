@@ -11,6 +11,11 @@
 @interface SOMotionManager ()
 
 @property (strong, nonatomic) CMMotionManager           *motionManager;
+@property (strong, nonatomic) CMAttitude *firstAttitude;
+@property (strong, nonatomic) CMAttitude *calAtt;
+
+@property (nonatomic) BOOL firstCal;
+
 
 @end
 
@@ -51,10 +56,22 @@
     
     self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
     
+
     if ([self.motionManager isDeviceMotionAvailable]) {
         [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+//        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
+//                                                                toQueue:[NSOperationQueue currentQueue]
+//                                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {
+//                                                                
+//                                                                if(self.firstAttitude == nil){
+//                                                                    self.firstAttitude = [motion.attitude copy];
+//                                                                }
+//                                                                [motion.attitude multiplyByInverseOfAttitude:self.firstAttitude];
+//                                                                
+//                                                                self.calAtt = [motion.attitude copy];
+//            
+//        }];
     }
-    
     
 }
 
@@ -67,20 +84,33 @@
 
 -(void)reset{
     
+    DLog(@"");
     [self destroyMotionManager];
+    self.firstCal = NO;
     [self buildMotionManager];
 }
 
 -(float)valueForKey:(NSString*)key{
     
+    if(!self.firstCal){
+        self.firstCal = YES;
+        self.firstAttitude = [self.motionManager.deviceMotion.attitude copy];
+    }
+    
+    if(self.firstAttitude){
+        [self.motionManager.deviceMotion.attitude multiplyByInverseOfAttitude:self.firstAttitude];
+    }
+    
+    CMAttitude *att = self.motionManager.deviceMotion.attitude;
+    
     if([key isEqualToString:@"roll"]){
-        return self.motionManager.deviceMotion.attitude.roll;
+        return att.roll;
     }
     if([key isEqualToString:@"pitch"]){
-        return self.motionManager.deviceMotion.attitude.pitch;
+        return att.pitch;
     }
     if([key isEqualToString:@"yaw"]){
-        return self.motionManager.deviceMotion.attitude.yaw;
+        return att.yaw;
     }
     if([key isEqualToString:@"heading"]){
         return self.motionManager.deviceMotion.magneticField.field.y;

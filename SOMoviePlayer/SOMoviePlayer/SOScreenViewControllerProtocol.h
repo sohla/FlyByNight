@@ -12,6 +12,8 @@
 
 @protocol SOScreenViewControllerProtocol <NSObject>
 
+
+
 -(void)onScreenViewPlayerDidBegin:(SOScreenViewController*)svc;
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc;
 

@@ -1,0 +1,70 @@
+{
+    
+    "cues" : [{
+        "title"    : "drinking tap",
+        "path"     : "checkTest.mov",
+        "type"      : "movie",
+        
+        
+        "zoom"      : 0.713,
+        "offset_x"      : 0.5,
+        "offset_y"      : 0.5,
+
+        "scroll_dx"      : 1.0,
+        "scroll_dy"      : 1.0,
+        
+        "pre_time"       : 1000.0,
+
+        
+        "targets"          : [
+        
+                           "another cue",
+                           "and one more cue"
+        
+                            ]
+              },{
+
+        "title"         : "another cue",
+        "path"     : "burstTest.mov",
+        "type"      : "movie",
+
+              "zoom"      : 0.713,
+        "offset_x"      : 1.0,
+        "offset_y"      : 0.5,
+
+        "scroll_dx"      : 1.0,
+        "scroll_dy"      : 1.0,
+
+        "pre_time"       : 1000.0,
+
+
+        "targets"          : [
+                            ]
+
+              },{
+
+        "title"    : "and one more cue",
+        "path"     : "stripeTest.mov",
+        "type"      : "movie",
+
+            "zoom"      : 0.713,
+        "offset_x"      : 0.5,
+        "offset_y"      : 1.0,
+
+        "scroll_dx"      : 1.0,
+        "scroll_dy"      : 1.0,
+
+        "pre_time"       : 1000.0,
+
+
+        "targets"          : [
+
+                            ]
+
+              
+              
+              
+              }]
+    
+    
+}

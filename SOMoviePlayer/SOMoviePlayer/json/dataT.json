@@ -1,0 +1,109 @@
+{
+    
+    
+    beacons : [
+    
+        {
+               "id" : 1,
+               "threshold" : 2.3,
+               "action" : "pre"
+               "cues" : [ "drinking tap"]
+               
+    
+        },{
+
+               "id" : 2,
+               "threshold" : 2.3,
+               "action" : "post"
+               "cues" : [ "another cue","and one more cue"]
+
+        }
+               
+    
+    ];
+    
+    
+    
+    
+    "transformers" : {
+        
+        "zoom"          : "0.5 + (val * 1.5f)",
+        "offset_x"      : "((val * 2.0f) - 1.0f) * pi",
+        "offset_y"      : "((val * 2.0f) - 1.0f) * pi",
+        
+        "scroll_dx"      : "val * pi",
+        "scroll_dy"      : "val * pi",
+        
+        "pre_time"       : "val"
+        
+    },
+
+    "cues" : [{
+        "title"         : "drinking tap",
+        "path"     : "checkTest.mov",
+        "type"      : "movie",
+        
+        
+        "zoom"      : 1.0,
+        "offset_x"      : 0.0,
+        "offset_y"      : 0.0,
+
+        "scroll_dx"      : 1.0,
+        "scroll_dy"      : 1.0,
+        
+        "pre_time"       : 1000.0,
+
+              
+              
+              
+              
+        
+        "targets"          : [
+        
+                           "another cue",
+                           "and one more cue"
+        
+                            ]
+              },{
+
+        "title"         : "another cue",
+        "path"     : "burstTest.mov",
+        "type"      : "movie",
+
+              "zoom"      : 1.0,
+        "offset_x"      : 0.0,
+        "offset_y"      : 0.0,
+
+        "scroll_dx"      : 1.0,
+        "scroll_dy"      : 1.0,
+
+        "pre_time"       : 1000.0,
+
+
+        "targets"          : [
+                            ]
+
+              },{
+
+        "title"         : "and one more cue",
+        "path"     : "stripeTest.mov",
+        "type"      : "movie",
+
+            "zoom"      : 1.0,
+        "offset_x"      : 0.0,
+        "offset_y"      : 0.0,
+
+        "scroll_dx"      : 1.0,
+        "scroll_dy"      : 1.0,
+
+        "pre_time"       : 1000.0,
+
+
+        "targets"          : [
+
+                            ]
+
+              }]
+    
+    
+}

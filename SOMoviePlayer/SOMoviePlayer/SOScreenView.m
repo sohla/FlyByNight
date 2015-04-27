@@ -32,10 +32,10 @@
         CGRect rect  = {0.0f,0.0f,frame.size.width,2.0f};
         _progressView = [[UIView alloc] initWithFrame:rect];
         
-        [self.progressView setBackgroundColor:[UIColor greenColor]];
+        [self.progressView setBackgroundColor:[UIColor blackColor] ];
         
         [self addSubview:self.progressView];
-        
+
 
     }
     return self;
@@ -43,21 +43,23 @@
 
 - (void)drawRect:(CGRect)rect{
     
-    CGContextRef    context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 3.0f);
-    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+    if(NO){
+        
+        CGContextRef    context = UIGraphicsGetCurrentContext();
+        CGContextSetLineWidth(context, 3.0f);
+        CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
 
-    CGPoint topLeft = {0.0f, 0.0f};
-    CGPoint bottomRight = {self.bounds.size.width, self.bounds.size.height};
-    
-    CGContextMoveToPoint(context, topLeft.x, topLeft.y);
-    CGContextAddLineToPoint(context, bottomRight.x, bottomRight.y);
-    
-    CGContextMoveToPoint(context, topLeft.x, bottomRight.y);
-    CGContextAddLineToPoint(context, bottomRight.x, topLeft.y);
-    
-    CGContextStrokePath(context);
-
+        CGPoint topLeft = {0.0f, 0.0f};
+        CGPoint bottomRight = {self.bounds.size.width, self.bounds.size.height};
+        
+        CGContextMoveToPoint(context, topLeft.x, topLeft.y);
+        CGContextAddLineToPoint(context, bottomRight.x, bottomRight.y);
+        
+        CGContextMoveToPoint(context, topLeft.x, bottomRight.y);
+        CGContextAddLineToPoint(context, bottomRight.x, topLeft.y);
+        
+        CGContextStrokePath(context);
+    }
 }
 
 -(UIColor*)randomColor{
@@ -69,8 +71,9 @@
 
 -(void)setProgress:(float)progress{
    
-    CGRect rect  = {0.0f,self.frame.size.height - 2.0f,self.frame.size.width * progress,2.0f};
+    CGRect rect  = {0.0f,self.frame.size.height,self.frame.size.width * progress,2.0f};
     [self.progressView setFrame:rect];
 }
+
 
 @end

@@ -11,6 +11,9 @@
 @interface SOScreenTransport ()
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+@property (weak, nonatomic) IBOutlet UILabel *attitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *beaconLabel;
+@property (weak, nonatomic) IBOutlet UILabel *batteryLevel;
 
 @end
 
@@ -30,8 +33,53 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.backButton.layer.cornerRadius = self.backButton.frame.size.width / 2.0f;
-    self.forwardButton.layer.cornerRadius = self.forwardButton.frame.size.width / 2.0f;
+    
+    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(batteryLevelChanged:)
+                                                 name:UIDeviceBatteryLevelDidChangeNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(batteryStateChanged:)
+                                                 name:UIDeviceBatteryStateDidChangeNotification object:nil];
+    
+    
+    [self updateBatteryLevel];
+}
+
+- (void)batteryLevelChanged:(NSNotification *)notification
+{
+    [self updateBatteryLevel];
+}
+
+- (void)batteryStateChanged:(NSNotification *)notification
+{
+    [self updateBatteryLevel];
+    [self updateBatteryState];
+}
+- (void)updateBatteryLevel
+{
+    float batteryLevel = [UIDevice currentDevice].batteryLevel;
+    if (batteryLevel < 0.0) {
+        // -1.0 means battery state is UIDeviceBatteryStateUnknown
+        self.batteryLevel.text = NSLocalizedString(@"Unknown", @"");
+    }
+    else {
+        static NSNumberFormatter *numberFormatter = nil;
+        if (numberFormatter == nil) {
+            numberFormatter = [[NSNumberFormatter alloc] init];
+            [numberFormatter setNumberStyle:NSNumberFormatterPercentStyle];
+            [numberFormatter setMaximumFractionDigits:1];
+        }
+        
+        NSNumber *levelObj = [NSNumber numberWithFloat:batteryLevel];
+        NSString *levelStr = [numberFormatter stringFromNumber:levelObj];
+        self.batteryLevel.text = [NSString stringWithFormat:@"Batt : %@",levelStr];
+    }
+}
+
+- (void)updateBatteryState{
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,5 +94,28 @@
 - (IBAction)onForwardButton:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportForward object:sender];
 }
+- (IBAction)onStopButton:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportStop object:sender];
+}
+- (IBAction)onNextButton:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:sender];
+}
+
+-(void)updateAttitudeWithRoll:(float)roll andYaw:(float)yaw{
+    self.attitudeLabel.text = [NSString stringWithFormat:@"roll %.2f yaw %.2f",roll,yaw];
+}
+
+-(IBAction)onEditButton:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kEditModeOn object:nil];
+
+}
+
+-(void)currentBeacons:(NSArray*)beacons{
+    
+}
+-(void)currentBeacon:(NSNumber*)minor{
+    self.beaconLabel.text = [minor description];
+}
+
 
 @end
