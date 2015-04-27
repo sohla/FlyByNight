@@ -190,6 +190,13 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFk-e8-YqN">
+                                <rect key="frame" x="54" y="12" width="189" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -197,6 +204,7 @@
                     <connections>
                         <outlet property="attitudeLabel" destination="ggH-Td-hrV" id="NgP-57-REr"/>
                         <outlet property="backButton" destination="vUF-mk-gvK" id="YeU-5f-qEb"/>
+                        <outlet property="batteryLevel" destination="rFk-e8-YqN" id="zo2-wn-22P"/>
                         <outlet property="beaconLabel" destination="XXg-Fe-z9k" id="fdc-5n-9nA"/>
                         <outlet property="editButton" destination="NCc-J2-RWJ" id="e1I-sz-1NE"/>
                         <outlet property="forwardButton" destination="y96-ye-7et" id="OE3-fO-7bA"/>

@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (weak, nonatomic) IBOutlet UILabel *attitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beaconLabel;
-
+@property (weak, nonatomic) IBOutlet UILabel *batteryLevel;
 
 @end
 
@@ -33,6 +33,53 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
+    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(batteryLevelChanged:)
+                                                 name:UIDeviceBatteryLevelDidChangeNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(batteryStateChanged:)
+                                                 name:UIDeviceBatteryStateDidChangeNotification object:nil];
+    
+    
+    [self updateBatteryLevel];
+}
+
+- (void)batteryLevelChanged:(NSNotification *)notification
+{
+    [self updateBatteryLevel];
+}
+
+- (void)batteryStateChanged:(NSNotification *)notification
+{
+    [self updateBatteryLevel];
+    [self updateBatteryState];
+}
+- (void)updateBatteryLevel
+{
+    float batteryLevel = [UIDevice currentDevice].batteryLevel;
+    if (batteryLevel < 0.0) {
+        // -1.0 means battery state is UIDeviceBatteryStateUnknown
+        self.batteryLevel.text = NSLocalizedString(@"Unknown", @"");
+    }
+    else {
+        static NSNumberFormatter *numberFormatter = nil;
+        if (numberFormatter == nil) {
+            numberFormatter = [[NSNumberFormatter alloc] init];
+            [numberFormatter setNumberStyle:NSNumberFormatterPercentStyle];
+            [numberFormatter setMaximumFractionDigits:1];
+        }
+        
+        NSNumber *levelObj = [NSNumber numberWithFloat:batteryLevel];
+        NSString *levelStr = [numberFormatter stringFromNumber:levelObj];
+        self.batteryLevel.text = [NSString stringWithFormat:@"Batt : %@",levelStr];
+    }
+}
+
+- (void)updateBatteryState{
 }
 
 - (void)didReceiveMemoryWarning

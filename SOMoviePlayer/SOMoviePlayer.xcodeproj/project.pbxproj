@@ -290,6 +290,7 @@
 		F0C2DF171939FCBC00EAB7F9 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF0C1939FCBC00EAB7F9 /* JSONValueTransformer.m */; };
 		F0C2DF1B1939FD1B00EAB7F9 /* SOCueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */; };
 		F0C2DF1E193A005B00EAB7F9 /* SOSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */; };
+		F0F2EB351AEDF4C9007EB4AF /* harp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F0F2EB341AEDF4C9007EB4AF /* harp.mp3 */; };
 		F0FD848A193DE95400F5DD2F /* SOPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */; };
 		F0FD848B193DE95400F5DD2F /* SOPropertiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */; };
 		F0FD848F193DFAEA00F5DD2F /* SOFloatPropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD848D193DFAEA00F5DD2F /* SOFloatPropViewController.m */; };
@@ -630,6 +631,7 @@
 		F0E569D819356A680098F7EB /* FBN CLIP 72_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 72_converted.m4v"; sourceTree = "<group>"; };
 		F0E569D919356A680098F7EB /* FBN CLIP 73_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 73_converted.m4v"; sourceTree = "<group>"; };
 		F0E569DA19356A680098F7EB /* FBN CLIP 74_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 74_converted.m4v"; sourceTree = "<group>"; };
+		F0F2EB341AEDF4C9007EB4AF /* harp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = harp.mp3; sourceTree = "<group>"; };
 		F0FD8487193DE95400F5DD2F /* SOPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPropertiesViewController.h; sourceTree = "<group>"; };
 		F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPropertiesViewController.m; sourceTree = "<group>"; };
 		F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOPropertiesViewController.xib; sourceTree = "<group>"; };
@@ -981,6 +983,7 @@
 		F0AECCCC18B171DB00263C32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F0F2EB341AEDF4C9007EB4AF /* harp.mp3 */,
 				F037EF33198036E20050DFA4 /* FinalAssets */,
 				F037EF88198036E30050DFA4 /* FinalAudio */,
 				F022FFDA193BF98F00829C20 /* testMovies */,
@@ -1399,6 +1402,7 @@
 				F01DE5621987D9BE00DE7D48 /* FBN AV 42 short.m4v in Resources */,
 				F01DE5401987C50F00DE7D48 /* FBN CLIP 69 clouds 4th Pass_converted.m4v in Resources */,
 				F037EFCC198036E30050DFA4 /* FBN AV 24.m4v in Resources */,
+				F0F2EB351AEDF4C9007EB4AF /* harp.mp3 in Resources */,
 				F037F02C198036E30050DFA4 /* 20a.wav in Resources */,
 				F0AECCD918B171DB00263C32 /* Main.storyboard in Resources */,
 				F037F02A198036E30050DFA4 /* 18 Loop.wav in Resources */,
