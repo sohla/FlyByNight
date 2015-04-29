@@ -29,6 +29,11 @@
 
 @property (strong, nonatomic) UIButton *nextButton;
 
+@property (nonatomic) Boolean isPaused;
+
+@property (strong, nonatomic) UIViewController *pauseViewController;
+
+
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
 
@@ -76,6 +81,11 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
 
+    _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
+    [self.pauseViewController.view setFrame:fullFrame];
+    [self.pauseViewController.view setBackgroundColor:[UIColor clearColor]];
+    
+    
     if([[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
         [self addChildViewController:self.transport];
         [self.transport.view setFrame:fullFrame];
@@ -178,6 +188,7 @@
 
     [self.view bringSubviewToFront:svc.view];
     [self.view bringSubviewToFront:self.transport.view];
+    [self.view bringSubviewToFront:self.pauseViewController.view];
     
     if([cueModel.type isEqualToString:@"audio"]){
         [svc.view setHidden:YES];
@@ -342,6 +353,16 @@
     [swipeGesture setNumberOfTouchesRequired:2];
     [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer: swipeGesture];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(onTap:)];
+    
+    [tapGesture setNumberOfTapsRequired:1];
+    [tapGesture setNumberOfTouchesRequired:1];
+    
+    [self.view addGestureRecognizer:tapGesture];
+    
 
 }
 -(void)removeGestures{
@@ -434,12 +455,31 @@
 
 }
 
-#pragma mark - Gestures & Notifications
--(void)onEditModeOff:(NSNotification *)notification{
+-(void)pauseAllCues{
+
+    [self setIsPaused:YES];
+    
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        SOScreenViewController *svc = (SOScreenViewController*)obj;
+        [svc pause];
+    }];
+    
+}
+
+-(void)playAllCues{
+    
+    [self setIsPaused:NO];
 
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj play];
     }];
+
+}
+
+#pragma mark - Gestures & Notifications
+-(void)onEditModeOff:(NSNotification *)notification{
+
+    [self playAllCues];
     
     [self addDisplayLink];
 }
@@ -448,12 +488,8 @@
 
     [self removeDisplayLink];
     
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        
-        SOScreenViewController *svc = (SOScreenViewController*)obj;
-        [svc pause];
-    }];
-
+    [self pauseAllCues];
+    
     SOPropertiesViewController *props = [[SOPropertiesViewController alloc] initWithNibName:@"SOPropertiesViewController" bundle:nil];
     
     [props setCueModel:self.selectedCueModel];
@@ -472,11 +508,28 @@
                      completion:nil];
     
 }
+- (void)onTap:(UIGestureRecognizer *)gestureRecognizer{
 
+    DLog(@"** TAP **");
+    
+    if([self isPaused]){
+        [self playAllCues];
+//        [self.pauseViewController.view removeFromSuperview];
+
+        
+    }else{
+//        [self.view addSubview:self.pauseViewController.view];
+
+        [self pauseAllCues];
+        
+    }
+    
+    
+}
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
     [self cleanup];
-    [self.navigationController popViewControllerAnimated:NO];
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
  //   [self dismissViewControllerAnimated:NO completion:nil];
     
