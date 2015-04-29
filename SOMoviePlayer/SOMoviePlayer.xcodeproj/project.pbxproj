@@ -193,6 +193,8 @@
 		F04417D518BD1BF400572780 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417D418BD1BF400572780 /* AssetsLibrary.framework */; };
 		F04417D818BD2D7900572780 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D618BD2D7900572780 /* default.png */; };
 		F04417D918BD2D7900572780 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D718BD2D7900572780 /* default@2x.png */; };
+		F04C40DE1AF0682A00BDCFE6 /* SOLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C40DD1AF0682A00BDCFE6 /* SOLogger.m */; };
+		F04C40DF1AF0682A00BDCFE6 /* SOLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F04C40DD1AF0682A00BDCFE6 /* SOLogger.m */; };
 		F068CE941938065A009B9297 /* SOScreenTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = F068CE921938065A009B9297 /* SOScreenTransport.m */; };
 		F072F5E819315DBD009EC2F5 /* SOMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F072F5E719315DBD009EC2F5 /* SOMotionManager.m */; };
 		F07F161A1951017D00E36A70 /* allCues.json in Resources */ = {isa = PBXBuildFile; fileRef = F07F16191951017D00E36A70 /* allCues.json */; };
@@ -496,6 +498,8 @@
 		F04417D418BD1BF400572780 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		F04417D618BD2D7900572780 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		F04417D718BD2D7900572780 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		F04C40DC1AF0682A00BDCFE6 /* SOLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOLogger.h; sourceTree = "<group>"; };
+		F04C40DD1AF0682A00BDCFE6 /* SOLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOLogger.m; sourceTree = "<group>"; };
 		F068CE911938065A009B9297 /* SOScreenTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOScreenTransport.h; sourceTree = "<group>"; };
 		F068CE921938065A009B9297 /* SOScreenTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOScreenTransport.m; sourceTree = "<group>"; };
 		F072F5E619315DBD009EC2F5 /* SOMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOMotionManager.h; sourceTree = "<group>"; };
@@ -1018,6 +1022,8 @@
 				F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */,
 				F0B8DCCC1985382900976135 /* SOCameraViewController.h */,
 				F0B8DCCD1985382900976135 /* SOCameraViewController.m */,
+				F04C40DC1AF0682A00BDCFE6 /* SOLogger.h */,
+				F04C40DD1AF0682A00BDCFE6 /* SOLogger.m */,
 				F0B8DCCE1985382900976135 /* SOCameraViewController.xib */,
 				F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */,
 				F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */,
@@ -1565,6 +1571,7 @@
 				F0AECCDF18B171DC00263C32 /* SOScreensContainer.m in Sources */,
 				F0C2DF161939FCBC00EAB7F9 /* JSONKeyMapper.m in Sources */,
 				F0C2DF0F1939FCBC00EAB7F9 /* JSONModelArray.m in Sources */,
+				F04C40DE1AF0682A00BDCFE6 /* SOLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1609,6 +1616,7 @@
 				F0B8DC171985121400976135 /* SOScreensContainer.m in Sources */,
 				F0B8DC181985121400976135 /* JSONKeyMapper.m in Sources */,
 				F0B8DC191985121400976135 /* JSONModelArray.m in Sources */,
+				F04C40DF1AF0682A00BDCFE6 /* SOLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
