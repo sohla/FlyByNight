@@ -477,6 +477,27 @@
 }
 
 #pragma mark - Gestures & Notifications
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+
+    
+    DLog(@"** Touch **");
+    
+    if([self isPaused]){
+        [self playAllCues];
+                [self.pauseViewController.view removeFromSuperview];
+        
+        
+    }else{
+                [self.view addSubview:self.pauseViewController.view];
+        
+        [self pauseAllCues];
+        
+    }
+
+    
+}
+
+
 -(void)onEditModeOff:(NSNotification *)notification{
 
     [self playAllCues];
@@ -510,20 +531,8 @@
 }
 - (void)onTap:(UIGestureRecognizer *)gestureRecognizer{
 
-    DLog(@"** TAP **");
-    
-    if([self isPaused]){
-        [self playAllCues];
-//        [self.pauseViewController.view removeFromSuperview];
+    DLog(@"** Tap **");
 
-        
-    }else{
-//        [self.view addSubview:self.pauseViewController.view];
-
-        [self pauseAllCues];
-        
-    }
-    
     
 }
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{

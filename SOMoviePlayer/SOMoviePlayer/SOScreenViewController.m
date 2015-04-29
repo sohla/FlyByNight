@@ -48,7 +48,6 @@
         
 //        self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
         //DLog(@"w:%f h:%f",frame.size.width,frame.size.height);
-
         float w = 568.0f;
         float h = 320.0f;
         
