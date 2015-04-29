@@ -210,21 +210,18 @@
     
     if(isOn){
         
-        [self becomeFirstResponder];
-
         self.nextButton.alpha = 0.0f;
 
         [UIView animateWithDuration:1.0f delay:delay options:0 animations:^{
             self.nextButton.alpha = 1.0f;
         } completion:^(BOOL finished) {
-            
+            self.nextButton.selected = YES;
         }];
         
     }else{
 
-        [self resignFirstResponder];
-
         self.nextButton.alpha = 1.0f;
+        self.nextButton.selected = NO;
         
         [UIView animateWithDuration:0.4f animations:^{
             self.nextButton.alpha = 0.0f;
@@ -236,7 +233,9 @@
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
 
-    if (motion == UIEventSubtypeMotionShake){
+    if (motion == UIEventSubtypeMotionShake && self.nextButton.selected){
+        
+        DLog(@"*");
         [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
         [self nextButtonOn:NO withDelay:0.0f];
         
@@ -269,7 +268,7 @@
     [beaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
-        DLog(@"cueing %@",cueModel.path);
+        DLog(@"cueing : %@",cueModel.path);
 
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
                                              valWithPropName:@"pre_time"] floatValue];
@@ -319,7 +318,7 @@
 #pragma mark - ScreenView Protocol
 
 -(void)onScreenViewPlayerDidBegin:(SOScreenViewController*)svc{
-    DLog(@"");
+    //DLog(@"");
 }
 
 -(void)onScreenViewPlayerDidEnd:(SOScreenViewController*)svc{
@@ -535,7 +534,7 @@
 
         [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
         
-            DLog(@"killing %@",cueModel.title);
+            DLog(@"killing : %@",cueModel.title);
             
             [self.screenViewControllers removeObjectForKey:cueModel.title];
         }];

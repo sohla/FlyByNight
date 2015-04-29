@@ -155,6 +155,8 @@
     self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     
+    DLog(@"building player for : %@",self.cueModel.title);
+    
     [screenView.layer addSublayer:self.playerLayer];
     
     if([self.cueModel.type isEqualToString:@"movie"]){
@@ -178,7 +180,7 @@
 
 -(void)destroyPlayer{
     
-    DLog(@"killing player for %@",self.cueModel.title);
+    DLog(@"killing player for : %@",self.cueModel.title);
 
 //    AVPlayerLayer *avPlayerLayer = self.playerLayer;
     
@@ -304,7 +306,7 @@
         self.avPlayer.volume = 0.0;
     }
 
-    DLog(@"%f",self.avPlayer.volume);
+    //DLog(@"%f",self.avPlayer.volume);
 }
 #pragma mark - Player Observers
 
