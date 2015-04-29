@@ -50,7 +50,8 @@
 {
     [super viewDidLoad];
  
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-17569614-3"];
+
     
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_masterView"     // Event category (required)
                                                           action:@"view_loaded"  // Event action (required)

@@ -31,7 +31,8 @@
     // Initialize tracker. Replace with your tracking ID.
     //Tracking ID
     //UA-17569614-3
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-17569614-3"];
+    //UA-62350876-1
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-62350876-1"];
 
     // Need motion 
     [[SOMotionManager sharedManager] buildMotionManager];

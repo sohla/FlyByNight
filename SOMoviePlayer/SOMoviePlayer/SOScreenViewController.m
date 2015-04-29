@@ -295,12 +295,16 @@
 }
 
 -(void)fadeAudio{
+
+    self.avPlayer.volume -= 0.2;
     
     if(self.avPlayer.volume > 0.0){
-        self.avPlayer.volume -= 0.2;
-        DLog(@"%f",self.avPlayer.volume);
         [self performSelector:@selector(fadeAudio) withObject:nil afterDelay:0.002];
+    }else{
+        self.avPlayer.volume = 0.0;
     }
+
+    DLog(@"%f",self.avPlayer.volume);
 }
 #pragma mark - Player Observers
 
