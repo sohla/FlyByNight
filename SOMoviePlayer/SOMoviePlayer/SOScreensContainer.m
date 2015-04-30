@@ -13,6 +13,8 @@
 #import "SOFloatTransformer.h"
 #import "SOAppDelegate.h"
 #import "SOCameraViewController.h"
+#import "SOTouchView.h";
+
 
 // SOScreenViewManager
 //      has a bunch of screenviews
@@ -31,7 +33,8 @@
 
 @property (nonatomic) Boolean isPaused;
 
-@property (strong, nonatomic) UIViewController *pauseViewController;
+//@property (strong, nonatomic) UIViewController *pauseViewController;
+@property (strong, nonatomic) SOTouchView *touchView;
 
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
@@ -81,9 +84,11 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
 
-    _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
-    [self.pauseViewController.view setFrame:fullFrame];
-    [self.pauseViewController.view setBackgroundColor:[UIColor clearColor]];
+//    _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
+//    [self.pauseViewController.view setFrame:self.view.frame];
+//    [self.view addSubview:self.pauseViewController.view];
+    _touchView = [[SOTouchView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:self.touchView];
     
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
@@ -151,7 +156,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(BOOL)canBecomeFirstResponder{
+    return YES;
+}
 #pragma mark - Motion Manager
 
 -(void)addDisplayLink{
@@ -188,7 +195,7 @@
 
     [self.view bringSubviewToFront:svc.view];
     [self.view bringSubviewToFront:self.transport.view];
-    [self.view bringSubviewToFront:self.pauseViewController.view];
+    [self.view bringSubviewToFront:self.touchView];
     
     if([cueModel.type isEqualToString:@"audio"]){
         [svc.view setHidden:YES];
@@ -204,6 +211,7 @@
     }
 
     [self.view bringSubviewToFront:self.nextButton];
+    
     
 }
 -(void)stopCue:(SOCueModel*)cueModel{
@@ -354,14 +362,14 @@
     [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer: swipeGesture];
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self
-                                          action:@selector(onTap:)];
-    
-    [tapGesture setNumberOfTapsRequired:1];
-    [tapGesture setNumberOfTouchesRequired:1];
-    
-    [self.view addGestureRecognizer:tapGesture];
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+//                                          initWithTarget:self
+//                                          action:@selector(onTap:)];
+//    
+//    [tapGesture setNumberOfTapsRequired:1];
+//    [tapGesture setNumberOfTouchesRequired:1];
+//    
+//    [self.view addGestureRecognizer:tapGesture];
     
 
 }
@@ -482,17 +490,17 @@
     
     DLog(@"** Touch **");
     
-    if([self isPaused]){
-        [self playAllCues];
-                [self.pauseViewController.view removeFromSuperview];
-        
-        
-    }else{
-                [self.view addSubview:self.pauseViewController.view];
-        
-        [self pauseAllCues];
-        
-    }
+//    if([self isPaused]){
+//        [self playAllCues];
+//                [self.pauseViewController.view removeFromSuperview];
+//        
+//        
+//    }else{
+//                [self.view addSubview:self.pauseViewController.view];
+//        
+//        [self pauseAllCues];
+//        
+//    }
 
     
 }
@@ -531,7 +539,7 @@
 }
 - (void)onTap:(UIGestureRecognizer *)gestureRecognizer{
 
-    DLog(@"** Tap **");
+    DLog(@"** Tap **"); ///// make a custom touch view
 
     
 }

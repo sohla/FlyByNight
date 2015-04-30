@@ -18,6 +18,10 @@
 		F00504401AEE6924009C9BEC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504281AEE6322009C9BEC /* libsqlite3.dylib */; };
 		F00504411AEE6929009C9BEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504241AEE6301009C9BEC /* SystemConfiguration.framework */; };
 		F00504421AEE692C009C9BEC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504221AEE62F4009C9BEC /* CoreData.framework */; };
+		F013B39C1AF1A90700D43B8D /* SOPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */; };
+		F013B39D1AF1A90700D43B8D /* SOPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */; };
+		F013B3A01AF1A99800D43B8D /* SOTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39F1AF1A99800D43B8D /* SOTouchView.m */; };
+		F013B3A11AF1A99800D43B8D /* SOTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39F1AF1A99800D43B8D /* SOTouchView.m */; };
 		F01DE52E19873A7500DE7D48 /* data_2014729_12111.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */; };
 		F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */; };
 		F01DE5311987A01900DE7D48 /* data_2014729_1525.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5301987A01900DE7D48 /* data_2014729_1525.json */; };
@@ -323,6 +327,10 @@
 		F00504351AEE6379009C9BEC /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
 		F00504361AEE6379009C9BEC /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		F00504371AEE6379009C9BEC /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		F013B39A1AF1A90700D43B8D /* SOPauseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPauseViewController.h; sourceTree = "<group>"; };
+		F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPauseViewController.m; sourceTree = "<group>"; };
+		F013B39E1AF1A99800D43B8D /* SOTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOTouchView.h; sourceTree = "<group>"; };
+		F013B39F1AF1A99800D43B8D /* SOTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOTouchView.m; sourceTree = "<group>"; };
 		F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_12111.json; sourceTree = "<group>"; };
 		F01DE5301987A01900DE7D48 /* data_2014729_1525.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_1525.json; sourceTree = "<group>"; };
 		F01DE5361987C0FF00DE7D48 /* FBN CLIP 15 4th Pass_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 15 4th Pass_converted.m4v"; sourceTree = "<group>"; };
@@ -1024,6 +1032,10 @@
 				F0B8DCCD1985382900976135 /* SOCameraViewController.m */,
 				F04C40DC1AF0682A00BDCFE6 /* SOLogger.h */,
 				F04C40DD1AF0682A00BDCFE6 /* SOLogger.m */,
+				F013B39E1AF1A99800D43B8D /* SOTouchView.h */,
+				F013B39F1AF1A99800D43B8D /* SOTouchView.m */,
+				F013B39A1AF1A90700D43B8D /* SOPauseViewController.h */,
+				F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */,
 				F0B8DCCE1985382900976135 /* SOCameraViewController.xib */,
 				F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */,
 				F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */,
@@ -1550,6 +1562,7 @@
 				F0B8DCCF1985382900976135 /* SOCameraViewController.m in Sources */,
 				F0FE3DEE1944A1C40029DAEF /* SOFloatTransformer.m in Sources */,
 				F0AECCDC18B171DB00263C32 /* SOMasterViewController.m in Sources */,
+				F013B3A01AF1A99800D43B8D /* SOTouchView.m in Sources */,
 				F072F5E819315DBD009EC2F5 /* SOMotionManager.m in Sources */,
 				F0C2DF101939FCBC00EAB7F9 /* JSONModelClassProperty.m in Sources */,
 				F0FE7405191E3037008B7E45 /* SOScreenView.m in Sources */,
@@ -1567,6 +1580,7 @@
 				F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */,
 				F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */,
 				F0C2DEEF1939F51100EAB7F9 /* SOModelStore.m in Sources */,
+				F013B39C1AF1A90700D43B8D /* SOPauseViewController.m in Sources */,
 				F0C2DF171939FCBC00EAB7F9 /* JSONValueTransformer.m in Sources */,
 				F0AECCDF18B171DC00263C32 /* SOScreensContainer.m in Sources */,
 				F0C2DF161939FCBC00EAB7F9 /* JSONKeyMapper.m in Sources */,
@@ -1595,6 +1609,7 @@
 				F005043C1AEE68A5009C9BEC /* SOCameraViewController.m in Sources */,
 				F0B8DC031985121400976135 /* SOFloatTransformer.m in Sources */,
 				F0B8DC041985121400976135 /* SOMasterViewController.m in Sources */,
+				F013B3A11AF1A99800D43B8D /* SOTouchView.m in Sources */,
 				F0B8DC051985121400976135 /* SOMotionManager.m in Sources */,
 				F0B8DC061985121400976135 /* JSONModelClassProperty.m in Sources */,
 				F0B8DC071985121400976135 /* SOScreenView.m in Sources */,
@@ -1612,6 +1627,7 @@
 				F0B8DC131985121400976135 /* SOBeaconModel.m in Sources */,
 				F0B8DC141985121400976135 /* JSONModel.m in Sources */,
 				F0B8DC151985121400976135 /* SOModelStore.m in Sources */,
+				F013B39D1AF1A90700D43B8D /* SOPauseViewController.m in Sources */,
 				F0B8DC161985121400976135 /* JSONValueTransformer.m in Sources */,
 				F0B8DC171985121400976135 /* SOScreensContainer.m in Sources */,
 				F0B8DC181985121400976135 /* JSONKeyMapper.m in Sources */,
