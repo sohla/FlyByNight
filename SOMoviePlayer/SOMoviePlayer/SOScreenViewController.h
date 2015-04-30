@@ -32,7 +32,7 @@
 -(void)play;
 -(void)pause;
 -(void)stopWithcompletionBlock:(void (^)()) block;
-
+-(void)killWithcompletionBlock:(void (^)()) block;
 -(void)jumpBack:(float)secs;
 -(void)jumpForward:(float)secs;
 

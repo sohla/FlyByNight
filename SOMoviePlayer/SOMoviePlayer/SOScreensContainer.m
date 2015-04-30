@@ -31,7 +31,6 @@
 
 @property (strong, nonatomic) UIButton *nextButton;
 
-@property (nonatomic) Boolean isPaused;
 
 @property (strong, nonatomic) UIViewController *pauseViewController;
 @property (strong, nonatomic) SOTouchView *touchView;
@@ -86,6 +85,7 @@
 
     _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
     [self.pauseViewController.view setFrame:self.view.frame];
+    [self.pauseViewController.view setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.8]];
     [self.view addSubview:self.pauseViewController.view];
     [self.pauseViewController.view setHidden:YES];
     
@@ -485,8 +485,6 @@
 
 -(void)pauseAllCues{
 
-    [self setIsPaused:YES];
-    
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         SOScreenViewController *svc = (SOScreenViewController*)obj;
         [svc pause];
@@ -496,8 +494,6 @@
 
 -(void)playAllCues{
     
-    [self setIsPaused:NO];
-
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [(SOScreenViewController*)obj play];
     }];
@@ -508,9 +504,18 @@
 
 -(void)onPauseCue:(NSNotification *)notification{
     
+  //  [self pauseAllCues];
     
-    // kill any future cues
     __weak SOScreensContainer *weakSelf = self;
+
+    // destroy all those players
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [obj killWithcompletionBlock:^{
+            [weakSelf.screenViewControllers removeObjectForKey:key];
+        }];
+    }];
+ 
+    // kill any future cues
     [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         __block SOCueModel *cueModel = [weakSelf.modelStore cueModelWithTitle:obj];
         [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf
@@ -518,17 +523,10 @@
                                                    object:cueModel];
     }];
 
-    // destroy all those players
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [obj stopWithcompletionBlock:^{
-            [self.screenViewControllers removeObjectForKey:key];
-        }];
-    }];
-    
     [self.pauseViewController.view setHidden:NO];
     [self.view bringSubviewToFront:self.pauseViewController.view];
     [self.view bringSubviewToFront:self.touchView];
-
+    
 }
 
 -(void)onContinueCue:(NSNotification *)notification{
@@ -541,9 +539,22 @@
 
     // re-start where we are
     [self triggerBeacon:self.currentBeaconModel];
-    
-    [self.pauseViewController.view setHidden:YES];
     [self.view bringSubviewToFront:self.touchView];
+
+   
+    [UIView animateWithDuration:0.8
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         [self.pauseViewController.view setAlpha:0.0];
+                     }
+                     completion:^(BOOL finished){
+                         [self.pauseViewController.view setHidden:YES];
+                         [self.pauseViewController.view setAlpha:1.0];
+                     }
+     ];
+    
+    
 
 }
 

@@ -245,6 +245,17 @@
 
 }
 
+-(void)killWithcompletionBlock:(void (^)()) block{
+    
+    __weak SOScreenViewController *weakSelf = self;
+    
+    [weakSelf fadeOut:0.3 completionBlock:^{
+        [weakSelf destroyPlayer];
+        block();
+    }];
+    
+}
+
 -(void)jumpBack:(float)secs{
     
     CMTime current = [self.avPlayer currentTime];
