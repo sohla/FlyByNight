@@ -28,13 +28,9 @@
 @property (weak, nonatomic) SOCueModel *selectedCueModel;
 @property (assign, nonatomic) SOBeaconModel *currentBeaconModel;
 @property (strong, nonatomic) SOCameraViewController *cvc;
-
 @property (strong, nonatomic) UIButton *nextButton;
-
-
 @property (strong, nonatomic) UIViewController *pauseViewController;
 @property (strong, nonatomic) SOTouchView *touchView;
-@property (nonatomic) int pausedMinor;
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
@@ -173,19 +169,13 @@
 }
 
 -(void)removeDisplayLink{
-
     
     if(self.displayLink!=nil)
         [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         self.displayLink = nil;
-    
-
 }
 
-
-
 -(void)playCue:(SOCueModel*)cueModel{
-
     
     SOScreenViewController *svc = [[SOScreenViewController alloc] initWithFrame:self.view.bounds];
     [svc setDelegate:self];
@@ -205,7 +195,6 @@
     
     [self.view sendSubviewToBack:self.cvc.view];
 
-    
     if(cueModel.trigger){
         DLog(@"WE CAN TRIGGER");
         [self nextButtonOn:YES withDelay:cueModel.trigger];
@@ -213,9 +202,8 @@
     }
 
     [self.view bringSubviewToFront:self.nextButton];
-    
-    
 }
+
 -(void)stopCue:(SOCueModel*)cueModel{
     
     SOScreenViewController *svc = [self.screenViewControllers objectForKey:cueModel.title];
@@ -356,7 +344,6 @@
 - (void)addGestures{
 
     // gestures
-
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
@@ -364,16 +351,6 @@
     [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer: swipeGesture];
     
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
-//                                          initWithTarget:self
-//                                          action:@selector(onTap:)];
-//    
-//    [tapGesture setNumberOfTapsRequired:1];
-//    [tapGesture setNumberOfTouchesRequired:1];
-//    
-//    [self.view addGestureRecognizer:tapGesture];
-    
-
 }
 -(void)removeGestures{
     
@@ -540,7 +517,6 @@
     // re-start where we are
     [self triggerBeacon:self.currentBeaconModel];
     [self.view bringSubviewToFront:self.touchView];
-
    
     [UIView animateWithDuration:0.8
                           delay: 0.0
@@ -553,9 +529,6 @@
                          [self.pauseViewController.view setAlpha:1.0];
                      }
      ];
-    
-    
-
 }
 
 -(void)onEditModeOff:(NSNotification *)notification{
@@ -565,7 +538,6 @@
     [self addDisplayLink];
 }
 -(void)onEditModeOn:(NSNotification *)notification{
-
 
     [self removeDisplayLink];
     
@@ -646,18 +618,12 @@
     
     // kill all running cues
     [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
-
         [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
-        
             DLog(@"killing : %@",cueModel.title);
-            
             [self.screenViewControllers removeObjectForKey:cueModel.title];
         }];
-        
     }];
-    
     [self triggerBeacon:[self.modelStore beaconModelWithMinor:beaconModel.minor]];
     
 }
