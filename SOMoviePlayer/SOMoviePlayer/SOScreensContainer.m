@@ -16,8 +16,6 @@
 #import "SOTouchView.h"
 
 
-// SOScreenViewManager
-//      has a bunch of screenviews
 
 @interface SOScreensContainer ()
 
@@ -480,8 +478,6 @@
 #pragma mark - Gestures & Notifications
 
 -(void)onPauseCue:(NSNotification *)notification{
-    
-  //  [self pauseAllCues];
     
     __weak SOScreensContainer *weakSelf = self;
 
