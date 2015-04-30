@@ -13,7 +13,7 @@
 #import "SOFloatTransformer.h"
 #import "SOAppDelegate.h"
 #import "SOCameraViewController.h"
-#import "SOTouchView.h";
+#import "SOTouchView.h"
 
 
 // SOScreenViewManager
@@ -33,7 +33,7 @@
 
 @property (nonatomic) Boolean isPaused;
 
-//@property (strong, nonatomic) UIViewController *pauseViewController;
+@property (strong, nonatomic) UIViewController *pauseViewController;
 @property (strong, nonatomic) SOTouchView *touchView;
 
 
@@ -84,9 +84,11 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
 
-//    _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
-//    [self.pauseViewController.view setFrame:self.view.frame];
-//    [self.view addSubview:self.pauseViewController.view];
+    _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
+    [self.pauseViewController.view setFrame:self.view.frame];
+    [self.view addSubview:self.pauseViewController.view];
+    [self.pauseViewController.view setHidden:YES];
+    
     _touchView = [[SOTouchView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:self.touchView];
     
@@ -505,10 +507,19 @@
 #pragma mark - Gestures & Notifications
 
 -(void)onPauseCue:(NSNotification *)notification{
+    
+    [self.pauseViewController.view setHidden:NO];
+    [self.view bringSubviewToFront:self.pauseViewController.view];
+    [self.view bringSubviewToFront:self.touchView];
+
     [self pauseAllCues];
 }
 
 -(void)onContinueCue:(NSNotification *)notification{
+    
+    [self.pauseViewController.view setHidden:YES];
+    [self.view bringSubviewToFront:self.touchView];
+
     [self playAllCues];
 }
 
