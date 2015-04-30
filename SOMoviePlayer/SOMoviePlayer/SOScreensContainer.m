@@ -35,7 +35,7 @@
 
 @property (strong, nonatomic) UIViewController *pauseViewController;
 @property (strong, nonatomic) SOTouchView *touchView;
-
+@property (nonatomic) int pausedMinor;
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
@@ -508,19 +508,43 @@
 
 -(void)onPauseCue:(NSNotification *)notification{
     
+    
+    // kill any future cues
+    __weak SOScreensContainer *weakSelf = self;
+    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        __block SOCueModel *cueModel = [weakSelf.modelStore cueModelWithTitle:obj];
+        [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf
+                                                 selector:@selector(playCue:)
+                                                   object:cueModel];
+    }];
+
+    // destroy all those players
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [obj stopWithcompletionBlock:^{
+            [self.screenViewControllers removeObjectForKey:key];
+        }];
+    }];
+    
     [self.pauseViewController.view setHidden:NO];
     [self.view bringSubviewToFront:self.pauseViewController.view];
     [self.view bringSubviewToFront:self.touchView];
 
-    [self pauseAllCues];
 }
 
 -(void)onContinueCue:(NSNotification *)notification{
     
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        SOScreenViewController *svc = (SOScreenViewController*)obj;
+//        DLog(@"%@ is still running",[[svc getCueModel] title]);
+//        
+//    }];
+
+    // re-start where we are
+    [self triggerBeacon:self.currentBeaconModel];
+    
     [self.pauseViewController.view setHidden:YES];
     [self.view bringSubviewToFront:self.touchView];
 
-    [self playAllCues];
 }
 
 -(void)onEditModeOff:(NSNotification *)notification{

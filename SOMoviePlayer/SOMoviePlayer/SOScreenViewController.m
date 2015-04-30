@@ -206,6 +206,9 @@
         
         [self.avPlayer pause];
         _avPlayer = nil;
+        
+//        [self.delegate onScreenViewPlayerDidEnd:self];
+
     }
     
 }
@@ -232,8 +235,11 @@
     float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:self.cueModel.fadeout_time]
                                              valWithPropName:@"fadeout_time"] floatValue];
 
-     [self fadeOut:fadeout_time completionBlock:^{
-        [self destroyPlayer];
+    
+    __weak SOScreenViewController *weakSelf = self;
+    
+     [weakSelf fadeOut:fadeout_time completionBlock:^{
+        [weakSelf destroyPlayer];
         block();
     }];
 
