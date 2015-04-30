@@ -23,6 +23,8 @@ NSString* const kTransportStop = @"kTransportStop";
 NSString* const kTransportCue = @"kTransportCue";
 NSString* const kEditModeOn = @"kEditModeOn";
 NSString* const kEditModeOff = @"kEditModeOff";
+NSString* const kContinueCue = @"kContinueCue";
+NSString* const kPauseCue = @"kPauseCue";
 
 NSString* const kResetBeacons = @"kResetBeacons";
 NSString* const kBeaconsRangingOn = @"kBeaconsRangingOn";

@@ -422,7 +422,17 @@
 											 selector:@selector(onEditModeOff:)
 												 name:kEditModeOff
 											   object:nil];
-    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onPauseCue:)
+                                                 name:kPauseCue
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onContinueCue:)
+                                                 name:kContinueCue
+                                               object:nil];
+
 
 
 }
@@ -461,6 +471,14 @@
                                                     name:kEditModeOff
                                                   object:nil];
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kPauseCue
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kContinueCue
+                                                  object:nil];
+
 }
 
 -(void)pauseAllCues{
@@ -485,26 +503,14 @@
 }
 
 #pragma mark - Gestures & Notifications
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 
-    
-    DLog(@"** Touch **");
-    
-//    if([self isPaused]){
-//        [self playAllCues];
-//                [self.pauseViewController.view removeFromSuperview];
-//        
-//        
-//    }else{
-//                [self.view addSubview:self.pauseViewController.view];
-//        
-//        [self pauseAllCues];
-//        
-//    }
-
-    
+-(void)onPauseCue:(NSNotification *)notification{
+    [self pauseAllCues];
 }
 
+-(void)onContinueCue:(NSNotification *)notification{
+    [self playAllCues];
+}
 
 -(void)onEditModeOff:(NSNotification *)notification{
 
@@ -537,12 +543,7 @@
                      completion:nil];
     
 }
-- (void)onTap:(UIGestureRecognizer *)gestureRecognizer{
 
-    DLog(@"** Tap **"); ///// make a custom touch view
-
-    
-}
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
     [self cleanup];

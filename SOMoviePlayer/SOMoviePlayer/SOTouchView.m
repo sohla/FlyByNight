@@ -7,17 +7,29 @@
 //
 
 #import "SOTouchView.h"
+#import "SONotifications.h"
+
+
+@interface SOTouchView ()
+
+@property (nonatomic) Boolean isPaused;
+@end
 
 @implementation SOTouchView
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    DLog(@"");
+
+    self.isPaused = !self.isPaused;
+
+    if(self.isPaused){
+        [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
+    }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kContinueCue object:nil];
+    }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    DLog(@"");
 }
 
 @end
