@@ -79,11 +79,13 @@
 
     _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
     [self.pauseViewController.view setFrame:self.view.frame];
-    [self.pauseViewController.view setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.8]];
     [self.view addSubview:self.pauseViewController.view];
-    [self.pauseViewController.view setHidden:YES];
+    [self.pauseViewController.view setTransform:CGAffineTransformMakeTranslation(-self.view.frame.size.width, 0.0)];
+     
     
-    _touchView = [[SOTouchView alloc] initWithFrame:self.view.frame];
+    
+    CGRect touchRect = CGRectInset(self.view.frame, 30.0, 30.0);
+    _touchView = [[SOTouchView alloc] initWithFrame:touchRect];
     [self.view addSubview:self.touchView];
     
     
@@ -342,13 +344,20 @@
 - (void)addGestures{
 
     // gestures
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]
+    UISwipeGestureRecognizer *swipeRightGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
-    [swipeGesture setNumberOfTouchesRequired:2];
-    [swipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
-    [self.view addGestureRecognizer: swipeGesture];
-    
+    [swipeRightGesture setNumberOfTouchesRequired:1];
+    [swipeRightGesture setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer: swipeRightGesture];
+
+    UISwipeGestureRecognizer *swipeLeftGesture = [[UISwipeGestureRecognizer alloc]
+                                              initWithTarget:self
+                                              action:@selector(onSwipeLeft:)];
+    [swipeLeftGesture setNumberOfTouchesRequired:1];
+    [swipeLeftGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer: swipeLeftGesture];
+
 }
 -(void)removeGestures{
     
@@ -479,6 +488,22 @@
 
 -(void)onPauseCue:(NSNotification *)notification{
     
+    
+    [self.view bringSubviewToFront:self.pauseViewController.view];
+    [self.view bringSubviewToFront:self.touchView];
+    
+    [UIView animateWithDuration:0.3
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         [self.pauseViewController.view setTransform:CGAffineTransformMakeTranslation(0.0, 0.0)];
+                     }
+                     completion:^(BOOL finished){
+                     }
+     ];
+
+    
+    
     __weak SOScreensContainer *weakSelf = self;
 
     // destroy all those players
@@ -496,10 +521,13 @@
                                                    object:cueModel];
     }];
 
-    [self.pauseViewController.view setHidden:NO];
-    [self.view bringSubviewToFront:self.pauseViewController.view];
-    [self.view bringSubviewToFront:self.touchView];
+//    [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+//    [self setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+//    [self presentViewController:self.pauseViewController animated:YES completion:^{}];
+
+
     
+
 }
 
 -(void)onContinueCue:(NSNotification *)notification{
@@ -514,17 +542,16 @@
     [self triggerBeacon:self.currentBeaconModel];
     [self.view bringSubviewToFront:self.touchView];
    
-    [UIView animateWithDuration:0.8
+    [UIView animateWithDuration:0.3
                           delay: 0.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         [self.pauseViewController.view setAlpha:0.0];
+                         [self.pauseViewController.view setTransform:CGAffineTransformMakeTranslation(-self.view.bounds.size.width, 0.0)];
                      }
                      completion:^(BOOL finished){
-                         [self.pauseViewController.view setHidden:YES];
-                         [self.pauseViewController.view setAlpha:1.0];
                      }
      ];
+    
 }
 
 -(void)onEditModeOff:(NSNotification *)notification{
@@ -557,13 +584,39 @@
                      completion:nil];
     
 }
+- (void)onSwipeLeft:(UIGestureRecognizer *)gestureRecognizer{
 
+    DLog(@"");
+    [[NSNotificationCenter defaultCenter] postNotificationName:kContinueCue object:nil];
+
+
+}
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
-    [self cleanup];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    DLog(@"");
     
- //   [self dismissViewControllerAnimated:NO completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
+
+//    __weak SOScreensContainer *weakSelf = self;
+//    
+//    // destroy all those players
+//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [obj killWithcompletionBlock:^{
+//            [weakSelf.screenViewControllers removeObjectForKey:key];
+//        }];
+//    }];
+//    
+//    // kill any future cues
+//    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        __block SOCueModel *cueModel = [weakSelf.modelStore cueModelWithTitle:obj];
+//        [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf
+//                                                 selector:@selector(playCue:)
+//                                                   object:cueModel];
+//    }];
+//
+//    [self cleanup];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+    
     
 }
 

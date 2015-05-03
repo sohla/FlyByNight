@@ -23,13 +23,13 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 
-    self.isPaused = !self.isPaused;
-    
-    if(self.isPaused){
-        [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
-    }else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:kContinueCue object:nil];
-    }
+//    self.isPaused = !self.isPaused;
+//    
+//    if(self.isPaused){
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
+//    }else{
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kContinueCue object:nil];
+//    }
 
 }
 

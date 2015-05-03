@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>01B4D067-F5B4-4723-A765-587A6C3245CB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>SOMoviePlayer</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4032AC0C205CAF7C657848B19499BED9CD3C75F7</key>
 		<string>github.com:sohla/SOMoviePlayer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SOMoviePlayer/SOMoviePlayer.xcodeproj</string>
+	<string>SOMoviePlayer/SOMoviePlayer.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4032AC0C205CAF7C657848B19499BED9CD3C75F7</key>
