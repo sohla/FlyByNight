@@ -528,7 +528,7 @@
     {
       "offset_x" : 0.5,
       "title" : "woman pink stairs",
-      "offset_y" : 0.5,
+      "offset_y" : 0.7349138,
       "pre_time" : 0.008,
       "type" : "movie",
       "path" : "FBN CLIP 19 4th Pass_converted.m4v",
@@ -537,7 +537,7 @@
       "scroll_dx" : 0,
       "fadeout_time" : 0.6,
       "fadein_time" : 0.5,
-      "scroll_dy" : 0,
+      "scroll_dy" : 1,
       "loop" : 0
     },
     {
@@ -720,36 +720,51 @@
       "scroll_dy" : 1,
       "loop" : 0
     },
+    {
+    "offset_x" : 0.3,
+    "title" : "look around2",
+    "offset_y" : 0.5,
+    "pre_time" : 0.53,
+    "type" : "movie",
+    "path" : "TITLE CARD 03 - LOOK AROUND _converted.m4v",
+    "trigger" : 0,
+    "zoom" : 0.713,
+    "scroll_dx" : 1,
+    "fadeout_time" : 0.05,
+    "fadein_time" : 0.05,
+    "scroll_dy" : 1,
+    "loop" : 0
+    },
             {
             "offset_x" : 0.3,
-            "title" : "look around2",
+            "title" : "look around3",
             "offset_y" : 0.5,
-            "pre_time" : 0.53,
+            "pre_time" : 0.001,
             "type" : "movie",
             "path" : "TITLE CARD 03 - LOOK AROUND _converted.m4v",
             "trigger" : 0,
             "zoom" : 0.713,
-            "scroll_dx" : 1,
+            "scroll_dx" : 0,
             "fadeout_time" : 0.05,
             "fadein_time" : 0.05,
             "scroll_dy" : 1,
             "loop" : 0
             },
-            {
-            "offset_x" : 0.5,
-            "title" : "ned escalator no exit",
-            "offset_y" : 0.5,
-            "pre_time" : 1,
-            "type" : "movie",
-            "path" : "FBN CLIP 30 4th Pass_converted.m4v",
-            "trigger" : 0,
-            "zoom" : 0.3565,
-            "scroll_dx" : 0,
-            "fadeout_time" : 0.09,
-            "fadein_time" : 0.05,
-            "scroll_dy" : 0,
-            "loop" : 0
-            },
+    {
+    "offset_x" : 0.5,
+    "title" : "ned escalator no exit",
+    "offset_y" : 0.5,
+    "pre_time" : 1,
+    "type" : "movie",
+    "path" : "FBN CLIP 30 4th Pass_converted.m4v",
+    "trigger" : 0,
+    "zoom" : 0.3565,
+    "scroll_dx" : 0,
+    "fadeout_time" : 0.09,
+    "fadein_time" : 0.05,
+    "scroll_dy" : 0,
+    "loop" : 0
+    },
     {
       "offset_x" : 0.25,
       "title" : "ned escalator",
@@ -1671,6 +1686,7 @@
       "minor" : 8,
       "cues" : [
         "19",
+        "look around3",
         "woman pink stairs",
         "ned pink stairs"
       ],

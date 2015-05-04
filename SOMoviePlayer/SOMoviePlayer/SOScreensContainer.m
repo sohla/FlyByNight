@@ -30,6 +30,9 @@
 @property (strong, nonatomic) UIViewController *pauseViewController;
 @property (strong, nonatomic) SOTouchView *touchView;
 
+@property (strong, nonatomic)UISwipeGestureRecognizer *swipeRightGesture;
+@property (strong, nonatomic)UISwipeGestureRecognizer *swipeLeftGesture;
+
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
 
@@ -84,9 +87,9 @@
      
     
     
-    CGRect touchRect = CGRectInset(self.view.frame, 30.0, 30.0);
-    _touchView = [[SOTouchView alloc] initWithFrame:touchRect];
-    [self.view addSubview:self.touchView];
+//    CGRect touchRect = CGRectInset(self.view.frame, 30.0, 30.0);
+//    _touchView = [[SOTouchView alloc] initWithFrame:touchRect];
+//    [self.view addSubview:self.touchView];
     
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
@@ -128,21 +131,9 @@
     
     DLog(@"");
     
-    // need to destroy player and it's observers
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [(SOScreenViewController*)obj destroyPlayer];
-//    }];
-    
     [self removeGestures];
-    
     [self removeObservers];
-    
-//    [self removeDisplayLink];
-
-//    [self.screenViewControllers removeAllObjects];
-//    self.screenViewControllers = nil;
-
-}
+    }
 - (void)viewDidUnload{
     
     [self cleanup];
@@ -187,7 +178,7 @@
 
     [self.view bringSubviewToFront:svc.view];
     [self.view bringSubviewToFront:self.transport.view];
-    [self.view bringSubviewToFront:self.touchView];
+//    [self.view bringSubviewToFront:self.touchView];
     
     if([cueModel.type isEqualToString:@"audio"]){
         [svc.view setHidden:YES];
@@ -344,19 +335,29 @@
 - (void)addGestures{
 
     // gestures
-    UISwipeGestureRecognizer *swipeRightGesture = [[UISwipeGestureRecognizer alloc]
+    _swipeRightGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeRight:)];
-    [swipeRightGesture setNumberOfTouchesRequired:1];
-    [swipeRightGesture setDirection:UISwipeGestureRecognizerDirectionRight];
-    [self.view addGestureRecognizer: swipeRightGesture];
+    [self.swipeRightGesture setNumberOfTouchesRequired:1];
+    [self.swipeRightGesture setDirection:UISwipeGestureRecognizerDirectionRight];
 
-    UISwipeGestureRecognizer *swipeLeftGesture = [[UISwipeGestureRecognizer alloc]
+    [self.view addGestureRecognizer:self.swipeRightGesture];
+
+    _swipeLeftGesture = [[UISwipeGestureRecognizer alloc]
                                               initWithTarget:self
                                               action:@selector(onSwipeLeft:)];
-    [swipeLeftGesture setNumberOfTouchesRequired:1];
-    [swipeLeftGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [self.view addGestureRecognizer: swipeLeftGesture];
+    [self.swipeLeftGesture setNumberOfTouchesRequired:1];
+    [self.swipeLeftGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
+    
+    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc]
+                                                initWithTarget:self action:@selector(onDoubleTap:)];
+    
+    [doubleTapGesture setNumberOfTapsRequired:2];
+    [doubleTapGesture setNumberOfTouchesRequired:1];
+    
+    [self.view addGestureRecognizer:doubleTapGesture];
+    
+    
 
 }
 -(void)removeGestures{
@@ -467,6 +468,27 @@
 
 }
 
+-(void)killAllCues{
+
+    __weak SOScreensContainer *weakSelf = self;
+    
+    // destroy all those players
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [obj killWithcompletionBlock:^{
+            [weakSelf.screenViewControllers removeObjectForKey:key];
+        }];
+    }];
+    
+    // kill any future cues
+    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        __block SOCueModel *cueModel = [weakSelf.modelStore cueModelWithTitle:obj];
+        [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf
+                                                 selector:@selector(playCue:)
+                                                   object:cueModel];
+    }];
+    
+}
+
 -(void)pauseAllCues{
 
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -490,7 +512,7 @@
     
     
     [self.view bringSubviewToFront:self.pauseViewController.view];
-    [self.view bringSubviewToFront:self.touchView];
+//    [self.view bringSubviewToFront:self.touchView];
     
     [UIView animateWithDuration:0.3
                           delay: 0.0
@@ -503,44 +525,14 @@
      ];
 
     
-    
-    __weak SOScreensContainer *weakSelf = self;
-
-    // destroy all those players
-    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [obj killWithcompletionBlock:^{
-            [weakSelf.screenViewControllers removeObjectForKey:key];
-        }];
-    }];
- 
-    // kill any future cues
-    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        __block SOCueModel *cueModel = [weakSelf.modelStore cueModelWithTitle:obj];
-        [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf
-                                                 selector:@selector(playCue:)
-                                                   object:cueModel];
-    }];
-
-//    [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-//    [self setModalPresentationStyle:UIModalPresentationOverCurrentContext];
-//    [self presentViewController:self.pauseViewController animated:YES completion:^{}];
-
-
-    
-
+    [self killAllCues];
 }
 
 -(void)onContinueCue:(NSNotification *)notification{
     
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        SOScreenViewController *svc = (SOScreenViewController*)obj;
-//        DLog(@"%@ is still running",[[svc getCueModel] title]);
-//        
-//    }];
-
     // re-start where we are
     [self triggerBeacon:self.currentBeaconModel];
-    [self.view bringSubviewToFront:self.touchView];
+//    [self.view bringSubviewToFront:self.touchView];
    
     [UIView animateWithDuration:0.3
                           delay: 0.0
@@ -557,11 +549,12 @@
 -(void)onEditModeOff:(NSNotification *)notification{
 
     [self playAllCues];
-    
     [self addDisplayLink];
 }
 -(void)onEditModeOn:(NSNotification *)notification{
 
+    DLog(@"");
+    
     [self removeDisplayLink];
     
     [self pauseAllCues];
@@ -583,40 +576,35 @@
                      }
                      completion:nil];
     
+
+}
+
+- (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
+        
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
+    
+    [self killAllCues];
+    
+    [self cleanup];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 - (void)onSwipeLeft:(UIGestureRecognizer *)gestureRecognizer{
 
     DLog(@"");
     [[NSNotificationCenter defaultCenter] postNotificationName:kContinueCue object:nil];
 
+    [self.view addGestureRecognizer:self.swipeRightGesture];
+    [self.view removeGestureRecognizer:self.swipeLeftGesture];
 
 }
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
     DLog(@"");
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
-
-//    __weak SOScreensContainer *weakSelf = self;
-//    
-//    // destroy all those players
-//    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//        [obj killWithcompletionBlock:^{
-//            [weakSelf.screenViewControllers removeObjectForKey:key];
-//        }];
-//    }];
-//    
-//    // kill any future cues
-//    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        __block SOCueModel *cueModel = [weakSelf.modelStore cueModelWithTitle:obj];
-//        [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf
-//                                                 selector:@selector(playCue:)
-//                                                   object:cueModel];
-//    }];
-//
-//    [self cleanup];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
     
+    [self.view addGestureRecognizer:self.swipeLeftGesture];
+    [self.view removeGestureRecognizer:self.swipeRightGesture];
     
 }
 
@@ -643,8 +631,6 @@
             }
         }];
     }];
-
-
 }
 
 -(void)onTransportNext:(NSNotification *)notification{
