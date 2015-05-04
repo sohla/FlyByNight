@@ -410,8 +410,11 @@
     controller.modelStore = self.modelStore;
     [self.navigationController pushViewController:controller animated:NO];
 
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [controller triggerBeacon:[self.modelStore beaconModelWithMinor:cell.textLabel.text.intValue]];
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    NSString *text = cell.textLabel.text;
+//    NSRange range = [text rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]];
+//    NSString *digit = [text substringWithRange:range];
+    [controller triggerBeacon:[self.modelStore beaconModelWithMinor:(int)indexPath.row+1]];
 
 }
 
