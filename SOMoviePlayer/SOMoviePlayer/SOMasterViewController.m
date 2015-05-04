@@ -465,8 +465,11 @@
     
     if(state){
         self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode ON";
+        self.navigationController.navigationBar.topItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:0.0 green:183.0/255.0 blue:122.0/255.0 alpha:1.0];
     }else{
         self.navigationController.navigationBar.topItem.rightBarButtonItem.title = @"Edit Mode OFF";
+        self.navigationController.navigationBar.topItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+
     }
 
 }

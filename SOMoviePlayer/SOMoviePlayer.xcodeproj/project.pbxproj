@@ -172,6 +172,8 @@
 		F022FFE2193BF98F00829C20 /* noiseTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDD193BF98F00829C20 /* noiseTest.mov */; };
 		F022FFE3193BF98F00829C20 /* stripeTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDE193BF98F00829C20 /* stripeTest.mov */; };
 		F022FFE4193BF98F00829C20 /* testsig.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F022FFDF193BF98F00829C20 /* testsig.m4v */; };
+		F029C92F1AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
+		F029C9301AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
 		F03392ED19382C4E004FDB33 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
 		F037EFC5198036E30050DFA4 /* FBN AV 10.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F037EF34198036E20050DFA4 /* FBN AV 10.m4v */; };
 		F037EFC6198036E30050DFA4 /* FBN AV 17A.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F037EF35198036E20050DFA4 /* FBN AV 17A.m4v */; };
@@ -277,7 +279,6 @@
 		F0AECCD918B171DB00263C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCD718B171DB00263C32 /* Main.storyboard */; };
 		F0AECCDC18B171DB00263C32 /* SOMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */; };
 		F0AECCDF18B171DC00263C32 /* SOScreensContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */; };
-		F0AECCE118B171DC00263C32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCE018B171DC00263C32 /* Images.xcassets */; };
 		F0AECCE818B171DC00263C32 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCE718B171DC00263C32 /* XCTest.framework */; };
 		F0AECCE918B171DC00263C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
 		F0AECCEA18B171DC00263C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC918B171DB00263C32 /* UIKit.framework */; };
@@ -329,7 +330,6 @@
 		F0B8DC351985121400976135 /* allCues.json in Resources */ = {isa = PBXBuildFile; fileRef = F07F16191951017D00E36A70 /* allCues.json */; };
 		F0B8DC481985121400976135 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D718BD2D7900572780 /* default@2x.png */; };
 		F0B8DC581985121400976135 /* SOFloatPropViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */; };
-		F0B8DC651985121400976135 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCE018B171DC00263C32 /* Images.xcassets */; };
 		F0B8DC791985121400976135 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCCE18B171DB00263C32 /* InfoPlist.strings */; };
 		F0B8DC7C1985121400976135 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
 		F0B8DC941985121400976135 /* dataT.json in Resources */ = {isa = PBXBuildFile; fileRef = F0FE3DEA1944A00D0029DAEF /* dataT.json */; };
@@ -480,6 +480,7 @@
 		F022FFDD193BF98F00829C20 /* noiseTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = noiseTest.mov; sourceTree = "<group>"; };
 		F022FFDE193BF98F00829C20 /* stripeTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = stripeTest.mov; sourceTree = "<group>"; };
 		F022FFDF193BF98F00829C20 /* testsig.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = testsig.m4v; sourceTree = "<group>"; };
+		F029C92E1AF70487004DB423 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F037EF34198036E20050DFA4 /* FBN AV 10.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN AV 10.m4v"; sourceTree = "<group>"; };
 		F037EF35198036E20050DFA4 /* FBN AV 17A.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN AV 17A.m4v"; sourceTree = "<group>"; };
@@ -596,7 +597,6 @@
 		F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOMasterViewController.m; sourceTree = "<group>"; };
 		F0AECCDD18B171DB00263C32 /* SOScreensContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreensContainer.h; sourceTree = "<group>"; };
 		F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOScreensContainer.m; sourceTree = "<group>"; };
-		F0AECCE018B171DC00263C32 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SOMoviePlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCE718B171DC00263C32 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F0AECCEF18B171DC00263C32 /* SOMoviePlayerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOMoviePlayerTests-Info.plist"; sourceTree = "<group>"; };
@@ -1109,7 +1109,7 @@
 				F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */,
 				F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */,
 				F0AECCD718B171DB00263C32 /* Main.storyboard */,
-				F0AECCE018B171DC00263C32 /* Images.xcassets */,
+				F029C92E1AF70487004DB423 /* Images.xcassets */,
 				F0C2DF181939FCFF00EAB7F9 /* Models */,
 				F0AECCCC18B171DB00263C32 /* Supporting Files */,
 			);
@@ -1484,7 +1484,6 @@
 				F037EFEF198036E30050DFA4 /* FBN CLIP 13_converted.m4v in Resources */,
 				F037EFDD198036E30050DFA4 /* FBN AV 44.m4v in Resources */,
 				F037EFF8198036E30050DFA4 /* FBN CLIP 27_converted.m4v in Resources */,
-				F0AECCE118B171DC00263C32 /* Images.xcassets in Resources */,
 				F037EFDF198036E30050DFA4 /* FBN AV 46.m4v in Resources */,
 				F013B4171AF1EB4A00D43B8D /* 26.m4a in Resources */,
 				F037F005198036E30050DFA4 /* FBN CLIP 59_converted.m4v in Resources */,
@@ -1512,6 +1511,7 @@
 				F01DE56B1987E94E00DE7D48 /* TITLE CARD 05 - This has been Fly By Night_converted.m4v in Resources */,
 				F037EFEA198036E30050DFA4 /* FBN CLIP 11_converted.m4v in Resources */,
 				F037EFDB198036E30050DFA4 /* FBN AV 42.m4v in Resources */,
+				F029C92F1AF70487004DB423 /* Images.xcassets in Resources */,
 				F013B4311AF1EB4A00D43B8D /* 39.m4a in Resources */,
 				F037F00C198036E30050DFA4 /* FBN CLIP 67_converted.m4v in Resources */,
 				F013B4191AF1EB4A00D43B8D /* 27.m4a in Resources */,
@@ -1626,7 +1626,6 @@
 				F013B42C1AF1EB4A00D43B8D /* 36.m4a in Resources */,
 				F0B8DC581985121400976135 /* SOFloatPropViewController.xib in Resources */,
 				F013B41A1AF1EB4A00D43B8D /* 27.m4a in Resources */,
-				F0B8DC651985121400976135 /* Images.xcassets in Resources */,
 				F013B44A1AF1EB4A00D43B8D /* 53.m4a in Resources */,
 				F013B4421AF1EB4A00D43B8D /* 47-51.m4a in Resources */,
 				F013B4381AF1EB4A00D43B8D /* 42.m4a in Resources */,
@@ -1655,6 +1654,7 @@
 				F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
 				F013B41E1AF1EB4A00D43B8D /* 29.m4a in Resources */,
 				F0B8DC941985121400976135 /* dataT.json in Resources */,
+				F029C9301AF70487004DB423 /* Images.xcassets in Resources */,
 				F013B40A1AF1EB4A00D43B8D /* 19.m4a in Resources */,
 				F013B4441AF1EB4A00D43B8D /* 47.m4a in Resources */,
 				F013B3F41AF1EB4A00D43B8D /* 10 SFX Loop.m4a in Resources */,
