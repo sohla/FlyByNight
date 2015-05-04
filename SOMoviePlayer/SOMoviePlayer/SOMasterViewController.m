@@ -71,7 +71,7 @@
 
     _thumbNails = [[NSMutableArray alloc] init];
     
-    [self.tableView setRowHeight:88.0];
+//    [self.tableView setRowHeight:88.0];
     
     self.movieFilePaths = [NSMutableArray arrayWithArray:[self getAllBundleFilesForTypes:@[@"m4v",@"mov",@"wav"]]];
 
@@ -390,7 +390,7 @@
          title = [[title stringByAppendingString:[[weakSelf.modelStore cueModelWithTitle:obj] title]] stringByAppendingString:@" | "];
      }];
         
-    cell.textLabel.text = [NSString stringWithFormat:@"%d %@",
+    cell.textLabel.text = [NSString stringWithFormat:@"Chapter %d  :  %@",
                            beacon.minor,
                            title
                            ];
