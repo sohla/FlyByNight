@@ -527,6 +527,7 @@
 }
 -(void)onPauseCue:(NSNotification *)notification{
     
+    
     [self.view bringSubviewToFront:self.pauseViewController.view];
     [self.view bringSubviewToFront:self.touchView];
     
@@ -716,6 +717,31 @@
 //    float heading = [[SOMotionManager sharedManager] valueForKey:@"heading"];
 
     [self.transport updateAttitudeWithRoll:roll andYaw:yawf];
+    
+    // positioning for audio
+    [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        
+        SOScreenViewController *svc = (SOScreenViewController*)obj;
+        
+        
+        // don't test for audio cues
+        if(![[[svc getCueModel] type] isEqualToString:@"audio"]){
+            
+            CGRect vf = [svc visibleFrame];
+            float pan = (vf.origin.x / vf.size.width) * -1.0;
+            float vol = 1.0 - fabsf(pan);
+            //vol = log10f(vol * 10.0);
+            DLog(@"vol:%f pan:%f ",vol,pan);
+            
+            
+
+            [svc setVolume:vol];
+        }
+        
+    }];
+
+    
+    
     
     // hack for picking a current svc by where it's scrollview is positioned
     float threshold = 100.0f;

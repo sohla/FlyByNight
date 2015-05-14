@@ -40,7 +40,7 @@
               
               {
               "title"    : "test1",
-              "path"     : "burstTest.mov",
+              "path"     : "checkTest.mov",
               "type"      : "movie",
               "loop"    : 1,
               "trigger"    : 0,
@@ -58,7 +58,7 @@
               },{
               
               "title"    : "test2",
-              "path"     : "checkTest.mov",
+              "path"     : "burstTest2.mov",
               "type"      : "movie",
               "loop"    : 1,
               "trigger"    : 1,

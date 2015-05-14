@@ -39,6 +39,7 @@
 -(CGRect)visibleFrame;
 
 -(void)setViewIsSelected:(BOOL)selected;
+-(void)setVolume:(float)vol;
 
 
 -(BOOL)isPlaying;

@@ -324,6 +324,15 @@
 
     //DLog(@"%f",self.avPlayer.volume);
 }
+
+-(void)setVolume:(float)vol{
+    
+    if(vol < 0.0) vol = 0.0;
+    if(vol > 1.0) vol = 1.0;
+    
+    self.avPlayer.volume = vol;
+}
+
 #pragma mark - Player Observers
 
 -(void)addPlayerObservers{
