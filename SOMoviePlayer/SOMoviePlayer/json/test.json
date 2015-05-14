@@ -10,7 +10,7 @@
                  "threshold" : 2.3,
                  "action" : "pre",
                  "prox" : 2,
-                 "cues" : [ "test2"]
+                 "cues" : [ "test1","test3"]
                
                },{
                
@@ -41,7 +41,7 @@
               {
               "title"    : "test1",
               "path"     : "checkTest.mov",
-              "type"      : "movie",
+              "type"      : "night",
               "loop"    : 1,
               "trigger"    : 0,
              
@@ -77,7 +77,7 @@
               
               "title"    : "test3",
               "path"     : "stripeTest.mov",
-              "type"      : "movie",
+              "type"      : "day",
               "loop"    : 1,
               "trigger"    : 0,
              

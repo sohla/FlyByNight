@@ -258,6 +258,11 @@
 
 -(void)triggerBeacon:(SOBeaconModel*)beaconModel{
     
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
+    NSInteger currentHour = [components hour];
+
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
     DLog(@"TRIGGER %d",beaconModel.minor);
@@ -276,6 +281,22 @@
         if([cueModel.type isEqualToString:@"cam"]){
 
             [self performSelector:@selector(playCam:) withObject:cueModel afterDelay:pre_time];
+            
+        }else if([cueModel.type isEqualToString:@"day"]){
+
+            //check time
+            if(currentHour >= 6 && currentHour <= 18){
+                [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
+            }
+            
+            
+        }else if([cueModel.type isEqualToString:@"night"]){
+
+            // check time
+            if(currentHour > 18 && currentHour < 6){
+                [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
+            }
+            
             
         }else{
             
@@ -731,10 +752,7 @@
             float pan = (vf.origin.x / vf.size.width) * -1.0;
             float vol = 1.0 - fabsf(pan);
             //vol = log10f(vol * 10.0);
-            DLog(@"vol:%f pan:%f ",vol,pan);
-            
-            
-
+            //DLog(@"vol:%f pan:%f ",vol,pan);
             [svc setVolume:vol];
         }
         
