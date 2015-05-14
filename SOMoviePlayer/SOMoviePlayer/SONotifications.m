@@ -25,6 +25,7 @@ NSString* const kEditModeOn = @"kEditModeOn";
 NSString* const kEditModeOff = @"kEditModeOff";
 NSString* const kContinueCue = @"kContinueCue";
 NSString* const kPauseCue = @"kPauseCue";
+NSString* const kGotoCues = @"kGotoCues";
 
 NSString* const kResetBeacons = @"kResetBeacons";
 NSString* const kBeaconsRangingOn = @"kBeaconsRangingOn";

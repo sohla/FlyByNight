@@ -27,6 +27,7 @@ extern NSString* const kTransportNext;
 extern NSString* const kTransportCue;
 extern NSString* const kContinueCue;
 extern NSString* const kPauseCue;
+extern NSString* const kGotoCues;
 
 
 extern NSString* const kEditModeOn;
