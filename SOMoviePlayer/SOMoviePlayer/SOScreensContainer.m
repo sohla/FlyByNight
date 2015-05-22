@@ -746,7 +746,7 @@
         
         
         // don't test for audio cues
-        if(![[[svc getCueModel] type] isEqualToString:@"audio"]){
+        if([[[svc getCueModel] type] isEqualToString:@"moviepan"]){
             
             CGRect vf = [svc visibleFrame];
             float pan = (vf.origin.x / vf.size.width) * -1.0;

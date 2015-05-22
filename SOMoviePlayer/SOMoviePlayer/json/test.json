@@ -59,7 +59,7 @@
               
               "title"    : "test2",
               "path"     : "burstTest2.mov",
-              "type"      : "movie",
+              "type"      : "moviepan",
               "loop"    : 1,
               "trigger"    : 1,
              
