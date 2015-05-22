@@ -80,6 +80,8 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
 
+    
+    //• pause should be at rootVC to control all things!
     _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
     [self.pauseViewController.view setFrame:self.view.frame];
     [self.view addSubview:self.pauseViewController.view];
@@ -107,7 +109,6 @@
     [self.nextButton addTarget:self action:@selector(onNextButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
     self.nextButton.alpha = 0.0f;
-
     
 }
 -(void)dealloc{
