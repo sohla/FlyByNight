@@ -112,13 +112,13 @@
     "pre_time" : 1.30,
     "type" : "movie",
     "path" : "FBN CLIP 5_a_converted.m4v",
-    "trigger" : 0,
+    "trigger" : 1,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
     "fadeout_time" : 0.08,
     "fadein_time" : 0.05,
     "scroll_dy" : 0,
-    "loop" : 0
+    "loop" : 1
     },
     {
     "offset_x" : 0.5,
@@ -127,13 +127,13 @@
     "pre_time" : 1.39,
     "type" : "movie",
     "path" : "FBN CLIP 7_a x2_converted.m4v",
-    "trigger" : 1,
+    "trigger" : 0,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
     "fadeout_time" : 0.08,
     "fadein_time" : 0.05,
     "scroll_dy" : 0,
-    "loop" : 1
+    "loop" : 0
     },
     {
     "offset_x" : 0.5,
@@ -1677,8 +1677,7 @@
         "3a",
         "follow me",
         "4a",
-        "5a",
-        "7a"
+        "5a"
     
                 ],
       "threshold" : 2.3,
@@ -1688,6 +1687,7 @@
       "action" : "post",
       "minor" : 2,
       "cues" : [
+        "7a",
         "8a",
         "9a"
       ],

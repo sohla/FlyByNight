@@ -518,7 +518,17 @@
     }];
     
 }
-
+/*
+    get all cues
+ 
+    calc latest : previous cue length or current cue pre_time + current cue length
+ 
+    end???
+ 
+ 
+ 
+ 
+ */
 -(void)pauseAllCues{
 
     [self.screenViewControllers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
