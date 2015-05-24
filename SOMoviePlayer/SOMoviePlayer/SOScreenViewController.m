@@ -161,9 +161,16 @@
     if([self.cueModel.type isEqualToString:@"movie"]){
         [self.avPlayer setVolume:0.0f];
     }
+    if([self.cueModel.type isEqualToString:@"day"]){
+        [self.avPlayer setVolume:0.0f];
+    }
+    if([self.cueModel.type isEqualToString:@"night"]){
+        [self.avPlayer setVolume:0.0f];
+    }
     
     [self.playerLayer setFrame:fullFrame];
 
+    //[self.playerLayer setTransform:CATransform3DMakeRotation(3.14/2, 0, 0, 1)];
     //loop
     //[self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
 
