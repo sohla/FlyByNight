@@ -170,7 +170,8 @@
     
     [self.playerLayer setFrame:fullFrame];
 
-    //[self.playerLayer setTransform:CATransform3DMakeRotation(3.14/2, 0, 0, 1)];
+//    [self.playerLayer setTransform:CATransform3DMakeRotation(3.14/2, 0, 0, 1)];
+//    [self.playerLayer setTransform:CATransform3DMakeRotation(3.14, 0, 1, 0)];
     //loop
     //[self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
 
