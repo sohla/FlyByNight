@@ -107,7 +107,7 @@
         //**
         if(YES){ // auto-start
             [self.navigationController pushViewController:controller animated:NO];
-            [controller triggerBeacon:[self.modelStore beaconModelWithMinor:2]];
+            [controller triggerBeacon:[self.modelStore beaconModelWithMinor:1]];
         }
 
         // collect all the paths
