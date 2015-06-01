@@ -30,9 +30,6 @@
 @property (strong, nonatomic) UIViewController *pauseViewController;
 @property (strong, nonatomic) SOTouchView *touchView;
 
-//@property (strong, nonatomic)UISwipeGestureRecognizer *swipeRightGesture;
-//@property (strong, nonatomic)UISwipeGestureRecognizer *swipeLeftGesture;
-
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
 
@@ -356,31 +353,6 @@
 
 - (void)addGestures{
 
-    // gestures
-//    _swipeRightGesture = [[UISwipeGestureRecognizer alloc]
-//                                              initWithTarget:self
-//                                              action:@selector(onSwipeRight:)];
-//    [self.swipeRightGesture setNumberOfTouchesRequired:1];
-//    [self.swipeRightGesture setDirection:UISwipeGestureRecognizerDirectionRight];
-//
-//    [self.view addGestureRecognizer:self.swipeRightGesture];
-//
-//    _swipeLeftGesture = [[UISwipeGestureRecognizer alloc]
-//                                              initWithTarget:self
-//                                              action:@selector(onSwipeLeft:)];
-//    [self.swipeLeftGesture setNumberOfTouchesRequired:1];
-//    [self.swipeLeftGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
-    
-//    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc]
-//                                                initWithTarget:self action:@selector(onDoubleTap:)];
-//    
-//    [doubleTapGesture setNumberOfTapsRequired:2];
-//    [doubleTapGesture setNumberOfTouchesRequired:1];
-//    
-//    [self.view addGestureRecognizer:doubleTapGesture];
-    
-    
-
 }
 -(void)removeGestures{
     
@@ -627,35 +599,6 @@
     
 
 }
-
-//- (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer{
-//        
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
-//    
-//    [self killAllCues];
-//    
-//    [self cleanup];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-//    
-//}
-//- (void)onSwipeLeft:(UIGestureRecognizer *)gestureRecognizer{
-//
-//    DLog(@"");
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kContinueCue object:nil];
-//
-//    [self.view addGestureRecognizer:self.swipeRightGesture];
-//    [self.view removeGestureRecognizer:self.swipeLeftGesture];
-//
-//}
-//- (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
-//    
-//    DLog(@"");
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
-//    
-//    [self.view addGestureRecognizer:self.swipeLeftGesture];
-//    [self.view removeGestureRecognizer:self.swipeRightGesture];
-//    
-//}
 
 -(void)onMotionManagerReset:(NSNotification *)notification{
     [[SOMotionManager sharedManager] reset];

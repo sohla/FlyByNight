@@ -102,10 +102,12 @@
         SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
         controller.modelStore = self.modelStore;
         
-        
+        //**
+        // start
+        //**
         if(YES){ // auto-start
             [self.navigationController pushViewController:controller animated:NO];
-            [controller triggerBeacon:[self.modelStore beaconModelWithMinor:12]];
+            [controller triggerBeacon:[self.modelStore beaconModelWithMinor:2]];
         }
 
         // collect all the paths
