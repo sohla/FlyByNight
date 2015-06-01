@@ -18,6 +18,8 @@
 		F00504401AEE6924009C9BEC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504281AEE6322009C9BEC /* libsqlite3.dylib */; };
 		F00504411AEE6929009C9BEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504241AEE6301009C9BEC /* SystemConfiguration.framework */; };
 		F00504421AEE692C009C9BEC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504221AEE62F4009C9BEC /* CoreData.framework */; };
+		F00AA99C1B1BE3C6003927F5 /* data_010615.json in Resources */ = {isa = PBXBuildFile; fileRef = F00AA99B1B1BE3C6003927F5 /* data_010615.json */; };
+		F00AA99D1B1BE3C6003927F5 /* data_010615.json in Resources */ = {isa = PBXBuildFile; fileRef = F00AA99B1B1BE3C6003927F5 /* data_010615.json */; };
 		F013B39C1AF1A90700D43B8D /* SOPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */; };
 		F013B39D1AF1A90700D43B8D /* SOPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */; };
 		F013B3A01AF1A99800D43B8D /* SOTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39F1AF1A99800D43B8D /* SOTouchView.m */; };
@@ -287,6 +289,7 @@
 		F00504351AEE6379009C9BEC /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
 		F00504361AEE6379009C9BEC /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		F00504371AEE6379009C9BEC /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		F00AA99B1B1BE3C6003927F5 /* data_010615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_010615.json; sourceTree = "<group>"; };
 		F013B39A1AF1A90700D43B8D /* SOPauseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPauseViewController.h; sourceTree = "<group>"; };
 		F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPauseViewController.m; sourceTree = "<group>"; };
 		F013B39E1AF1A99800D43B8D /* SOTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOTouchView.h; sourceTree = "<group>"; };
@@ -617,6 +620,7 @@
 				F01DE5301987A01900DE7D48 /* data_2014729_1525.json */,
 				F013B4631AF1EB6500D43B8D /* data_2014729_1525m4a.json */,
 				F066F3771B0EB8FB00C85727 /* data_220515.json */,
+				F00AA99B1B1BE3C6003927F5 /* data_010615.json */,
 				F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */,
 				F03392EC19382C4E004FDB33 /* data.json */,
 				F0B8DCD519866F9D00976135 /* test.json */,
@@ -1068,6 +1072,7 @@
 				F07F161A1951017D00E36A70 /* allCues.json in Resources */,
 				F066F3C01B12091D00C85727 /* FBN CLIP 48_a_converted.m4v in Resources */,
 				F066F3521B0EB81800C85727 /* 27.m4a in Resources */,
+				F00AA99C1B1BE3C6003927F5 /* data_010615.json in Resources */,
 				F066F3A31B11FD2300C85727 /* FBN AV 20a.m4v in Resources */,
 				F066F36B1B0EB81800C85727 /* 64.m4a in Resources */,
 				F066F3BA1B1205B100C85727 /* FBN CLIP 46_a_converted.m4v in Resources */,
@@ -1227,6 +1232,7 @@
 				F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
 				F0B8DC941985121400976135 /* dataT.json in Resources */,
 				F029C9301AF70487004DB423 /* Images.xcassets in Resources */,
+				F00AA99D1B1BE3C6003927F5 /* data_010615.json in Resources */,
 				F0B8DC9C1985121400976135 /* Main.storyboard in Resources */,
 				F0B8DC9E1985121400976135 /* default.png in Resources */,
 				F0B8DCAD1985121400976135 /* SOBeaconViewController.xib in Resources */,
