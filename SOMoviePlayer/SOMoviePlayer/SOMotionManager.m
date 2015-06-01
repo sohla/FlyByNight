@@ -81,6 +81,8 @@
 
 -(void)destroyMotionManager{
 
+    [self.motionManager stopDeviceMotionUpdates];
+    
     if(self.motionManager!=nil)
         self.motionManager = nil;
     

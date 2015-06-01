@@ -636,11 +636,6 @@
 
     NSNumber *minor = (NSNumber*)[notification object];
     
-    // stupid hack for skipping a cue
-    if([minor intValue] == 7){
-        minor = [NSNumber numberWithInt:8];
-    }
-    
     SOBeaconModel *beaconModel = [self.modelStore beaconModelWithMinor:[minor intValue]];
     
     // kill all running cues
