@@ -12,7 +12,7 @@
 
 @interface SOSessionModel : JSONModel
 
-
+@property (assign, nonatomic) int start;
 @property (strong, nonatomic) NSArray<SOCueModel>* cues;
 @property (strong, nonatomic) NSArray<SOBeaconModel>* beacons;
 

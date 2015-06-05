@@ -105,9 +105,13 @@
         //**
         // start
         //**
+        
+        int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
+
+        
         if(YES){ // auto-start
             [self.navigationController pushViewController:controller animated:NO];
-            [controller triggerBeacon:[self.modelStore beaconModelWithMinor:1]];
+            [controller triggerBeacon:[self.modelStore beaconModelWithMinor:start]];
         }
 
         // collect all the paths

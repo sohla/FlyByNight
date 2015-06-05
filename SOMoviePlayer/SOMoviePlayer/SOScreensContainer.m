@@ -99,10 +99,16 @@
         
     }
 
-    _nextButton = [[UIButton alloc] initWithFrame:CGRectOffset( CGRectInset(self.view.frame, 120.0f, 120.0f), 0, 100.0)];
-    [self.nextButton setTitle:@"Shake to continue" forState:UIControlStateNormal];
+    
+    CGFloat size = 40.0;
+    CGRect rect = CGRectMake(0.0, 0.0, size*2, size);
+    _nextButton = [[UIButton alloc] initWithFrame:rect];
+    CGPoint p = {self.view.center.x, self.view.frame.size.height - size};
+    [self.nextButton setCenter:p];
+    [self.nextButton setTitle:@"Shake" forState:UIControlStateNormal];
+    [self.nextButton setTitleColor:[UIColor colorWithRed:0.839 green:0.788 blue:0.518 alpha:1] forState:UIControlStateNormal];
     [self.nextButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.7]];
-    [self.nextButton .layer setCornerRadius:7.0f];
+    [self.nextButton .layer setCornerRadius:size/2.0];
     [self.nextButton addTarget:self action:@selector(onNextButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
     self.nextButton.alpha = 0.0f;

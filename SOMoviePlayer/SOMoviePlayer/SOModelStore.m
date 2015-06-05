@@ -85,6 +85,7 @@
 
 }
 
+
 -(SOBeaconModel*)beaconModelWithMinor:(int)minor{
     
     NSArray *minors = [self.sessionModel.beacons   valueForKeyPath:@"minor"];

@@ -170,7 +170,10 @@
     
     [self.playerLayer setFrame:fullFrame];
 
-//    [self.playerLayer setTransform:CATransform3DMakeRotation(3.14/2, 0, 0, 1)];
+    
+//    if([self.cueModel.title isEqualToString:@"19"]){
+//        [self.playerLayer setTransform:CATransform3DMakeRotation(3.14/2, 0, 0, 1)];
+//    }
 //    [self.playerLayer setTransform:CATransform3DMakeRotation(3.14, 0, 1, 0)];
     //loop
     //[self.avPlayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
@@ -383,10 +386,11 @@
         float fadeValue = (totalTime * 1000.0f) - fadeTime;
         NSArray *fadeOutFime = @[[NSValue valueWithCMTime:CMTimeMake(fadeValue,1000)]];
         self.fadeOutObserver = [self.avPlayer addBoundaryTimeObserverForTimes:fadeOutFime queue:NULL usingBlock:^(){
-//            float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
-//                                                 valWithPropName:@"fadeout_time"] floatValue];
+            float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
+                                                 valWithPropName:@"fadeout_time"] floatValue];
 
-//            [weakSelf fadeOut:fadeout_time completionBlock:nil];
+            DLog(@"");
+            [weakSelf fadeOut:fadeout_time completionBlock:nil];
             
             [weakSelf stopWithcompletionBlock:^{
                 

@@ -1,5 +1,6 @@
 {
-  "cues" : [
+
+    "cues" : [
             
     {
     "offset_x" : 0.5,
@@ -111,7 +112,7 @@
     "offset_x" : 0.5,
     "title" : "4a",
     "offset_y" : 0.5,
-    "pre_time" : 0.59,
+    "pre_time" : 0.60,
     "type" : "movie",
     "path" : "FBN CLIP 4_a_converted.m4v",
     "trigger" : 0,
@@ -128,7 +129,7 @@
     "offset_y" : 0.5,
     "pre_time" : 0.87,
     "type" : "movie",
-    "path" : "FBN CLIP 5_a_converted.m4v",
+    "path" : "FBN CLIP 5_a 2_converted.m4v",
     "trigger" : 1,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
@@ -207,7 +208,7 @@
     "trigger" : 0,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
-    "fadeout_time" : 0.08,
+    "fadeout_time" : 0.5,
     "fadein_time" : 0.05,
     "scroll_dy" : 0,
     "loop" : 0
@@ -216,14 +217,14 @@
     "offset_x" : 1.0,
     "title" : "12a",
     "offset_y" : 0.5,
-    "pre_time" : 0.001,
+    "pre_time" : 0.28,
     "type" : "movie",
     "path" : "FBN CLIP 12_a 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.6,
     "scroll_dx" : 0.713,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
+    "fadein_time" : 0.3,
     "scroll_dy" : 0.713,
     "loop" : 0
     },
@@ -231,14 +232,14 @@
     "offset_x" : 0.5,
     "title" : "13a",
     "offset_y" : 0.5,
-    "pre_time" : 0.001,
+    "pre_time" : 0.28,
     "type" : "movie",
     "path" : "FBN CLIP 13_a 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.23,
     "scroll_dx" : 0.713,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
+    "fadein_time" : 0.8,
     "scroll_dy" : 0.713,
     "loop" : 0
     },
@@ -246,14 +247,14 @@
     "offset_x" : 0.5,
     "title" : "13b",
     "offset_y" : 0.5,
-    "pre_time" : 1.05,
+    "pre_time" : 1.33,
     "type" : "movie",
     "path" : "FBN CLIP 13_b 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.3565,
     "scroll_dx" : 0.0,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
+    "fadein_time" : 0.2,
     "scroll_dy" : 0.0,
     "loop" : 0
     },
@@ -261,7 +262,7 @@
     "offset_x" : 0.5,
     "title" : "14a",
     "offset_y" : 0.5,
-    "pre_time" : 1.61,
+    "pre_time" : 1.87,
     "type" : "movie",
     "path" : "FBN CLIP 14_a 2_converted.m4v",
     "trigger" : 1,
@@ -291,7 +292,7 @@
     "offset_x" : 0.5,
     "title" : "18a",
     "offset_y" : 0.5,
-    "pre_time" : 1.16,
+    "pre_time" : 1.30,
     "type" : "movie",
     "path" : "FBN CLIP 18_a 2_converted.m4v",
     "trigger" : 1,
@@ -310,25 +311,25 @@
     "type" : "movie",
     "path" : "FBN CLIP 18_b 2_converted.m4v",
     "trigger" : 0,
-    "zoom" : 0.3565,
-    "scroll_dx" : 0.0,
-    "fadeout_time" : 0.08,
+    "zoom" : 0.5565,
+    "scroll_dx" : 0.5,
+    "fadeout_time" : 4.0,
     "fadein_time" : 0.05,
-    "scroll_dy" : 0.0,
-    "loop" : 1
+    "scroll_dy" : 0.5,
+    "loop" : 0
     },
     {
-    "offset_x" : 0.3,
+    "offset_x" : 0.5,
     "title" : "look down",
     "offset_y" : 0.5,
-    "pre_time" : 0.001,
+    "pre_time" : 0.10,
     "type" : "movie",
     "path" : "TITLE CARD LOOK DOWN_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.513,
     "scroll_dx" : 0.0,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
+    "fadein_time" : 0.2,
     "scroll_dy" : 1.0,
     "loop" : 0
     },
@@ -336,14 +337,14 @@
     "offset_x" : 0.5,
     "title" : "19",
     "offset_y" : 0.7349138,
-    "pre_time" : 0.008,
+    "pre_time" : 0.10,
     "type" : "movie",
     "path" : "FBN CLIP 19 4th Pass_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
+    "fadein_time" : 0.4,
     "scroll_dy" : 1,
     "loop" : 0
     },
@@ -351,7 +352,7 @@
     "offset_x" : 0.5,
     "title" : "20a",
     "offset_y" : 0.5,
-    "pre_time" : 0.65,
+    "pre_time" : 0.75,
     "type" : "movie",
     "path" : "FBN CLIP 20_a 2_converted.m4v",
     "trigger" : 0,
@@ -366,7 +367,7 @@
     "offset_x" : 0.5,
     "title" : "21a",
     "offset_y" : 0.5,
-    "pre_time" : 0.85,
+    "pre_time" : 0.95,
     "type" : "movie",
     "path" : "FBN CLIP 21_a 2_converted.m4v",
     "trigger" : 1,
@@ -387,7 +388,7 @@
     "trigger" : 0,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
-    "fadeout_time" : 0.08,
+    "fadeout_time" : 0.18,
     "fadein_time" : 0.05,
     "scroll_dy" : 0,
     "loop" : 0
@@ -396,14 +397,14 @@
     "offset_x" : 0.5,
     "title" : "26a",
     "offset_y" : 0.5,
-    "pre_time" : 0.43,
+    "pre_time" : 0.42,
     "type" : "movie",
     "path" : "FBN CLIP 26_a 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
+    "fadein_time" : 0.13,
     "scroll_dy" : 0,
     "loop" : 0
     },
@@ -411,7 +412,7 @@
     "offset_x" : 0.5,
     "title" : "26aa",
     "offset_y" : 0.5,
-    "pre_time" : 0.81,
+    "pre_time" : 0.80,
     "type" : "movie",
     "path" : "FBN CLIP 26a_a 2_converted.m4v",
     "trigger" : 0,
@@ -426,14 +427,14 @@
     "offset_x" : 0.5,
     "title" : "28a",
     "offset_y" : 0.5,
-    "pre_time" : 1.07,
+    "pre_time" : 1.048,
     "type" : "movie",
     "path" : "FBN CLIP 28_a 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.2,
+    "fadein_time" : 0.1,
     "scroll_dy" : 0,
     "loop" : 0
     },
@@ -441,7 +442,7 @@
     "offset_x" : 0.5,
     "title" : "28b",
     "offset_y" : 0.5,
-    "pre_time" : 1.47,
+    "pre_time" : 1.43,
     "type" : "movie",
     "path" : "FBN CLIP 28_bv 2_converted.m4v",
     "trigger" : 1,
@@ -457,7 +458,7 @@
     "title" : "29a",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
-    "type" : "moviepan",
+    "type" : "movie",
     "path" : "FBN CLIP 29_a 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.4565,
@@ -471,14 +472,14 @@
     "offset_x" : 0.333,
     "title" : "30a",
     "offset_y" : 0.5,
-    "pre_time" : 0.17,
-    "type" : "moviepan",
+    "pre_time" : 0.16,
+    "type" : "movie",
     "path" : "FBN CLIP 30_a 2_converted.m4v",
     "trigger" : 0,
-    "zoom" : 0.4565,
+    "zoom" : 0.3565,
     "scroll_dx" : 0,
-    "fadeout_time" : 0.5,
-    "fadein_time" : 0.2,
+    "fadeout_time" : 0.1,
+    "fadein_time" : 0.15,
     "scroll_dy" : 0,
     "loop" : 0
     },
@@ -486,14 +487,14 @@
     "offset_x" : 0.333,
     "title" : "31a",
     "offset_y" : 0.5,
-    "pre_time" : 0.24,
-    "type" : "moviepan",
+    "pre_time" : 0.23,
+    "type" : "movie",
     "path" : "FBN CLIP 31_a 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.4565,
     "scroll_dx" : 0,
     "fadeout_time" : 0.5,
-    "fadein_time" : 0.2,
+    "fadein_time" : 0.6,
     "scroll_dy" : 0,
     "loop" : 0
     },
@@ -502,12 +503,12 @@
     "title" : "31a2",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
-    "type" : "moviepan",
+    "type" : "movie",
     "path" : "FBN CLIP 31_av 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.4565,
     "scroll_dx" : 0,
-    "fadeout_time" : 0.05,
+    "fadeout_time" : 0.8,
     "fadein_time" : 0.02,
     "scroll_dy" : 0,
     "loop" : 0
@@ -516,14 +517,14 @@
     "offset_x" : 0.333,
     "title" : "32",
     "offset_y" : 0.5,
-    "pre_time" : 0.001,
+    "pre_time" : 0.79,
     "type" : "moviepan",
     "path" : "FBN AV 32.m4v",
     "trigger" : 0,
     "zoom" : 0.4565,
     "scroll_dx" : 1,
     "fadeout_time" : 0.5,
-    "fadein_time" : 0.8,
+    "fadein_time" : 0.14,
     "scroll_dy" : 0,
     "loop" : 0
     },
@@ -531,7 +532,7 @@
     "offset_x" : 0.333,
     "title" : "41",
     "offset_y" : 0.5,
-    "pre_time" : 0.13,
+    "pre_time" : 0.92,
     "type" : "moviepan",
     "path" : "FBN AV 41.m4v",
     "trigger" : 0,
@@ -546,14 +547,14 @@
     "offset_x" : 1.0,
     "title" : "42",
     "offset_y" : 0.5,
-    "pre_time" : 0.001,
+    "pre_time" : 0.79,
     "type" : "moviepan",
     "path" : "FBN AV 42 short.m4v",
     "trigger" : 0,
     "zoom" : 0.4565,
     "scroll_dx" : 1,
     "fadeout_time" : 0.5,
-    "fadein_time" : 0.8,
+    "fadein_time" : 0.14,
     "scroll_dy" : 0,
     "loop" : 0
     },
@@ -561,7 +562,7 @@
     "offset_x" : 0.666,
     "title" : "33",
     "offset_y" : 0.5,
-    "pre_time" : 0.001,
+    "pre_time" : 0.79,
     "type" : "moviepan",
     "path" : "FBN AV 33.m4v",
     "trigger" : 0,
@@ -576,7 +577,7 @@
     "offset_x" : 0.666,
     "title" : "39",
     "offset_y" : 0.5,
-    "pre_time" : 0.10,
+    "pre_time" : 0.89,
     "type" : "moviepan",
     "path" : "FBN AV 39.m4v",
     "trigger" : 0,
@@ -591,7 +592,7 @@
     "offset_x" : 0.666,
     "title" : "38",
     "offset_y" : 0.5,
-    "pre_time" : 0.35,
+    "pre_time" : 1.14,
     "type" : "moviepan",
     "path" : "FBN AV 38.m4v",
     "trigger" : 0,
@@ -606,7 +607,7 @@
     "offset_x" : 0.5,
     "title" : "46",
     "offset_y" : 0.5,
-    "pre_time" : 1.26,
+    "pre_time" : 2.05,
     "type" : "movieaudio",
     "path" : "FBN AV 46.m4v",
     "trigger" : 0,
@@ -621,7 +622,7 @@
     "offset_x" : 0.5,
     "title" : "34",
     "offset_y" : 0.5,
-    "pre_time" : 1.86,
+    "pre_time" : 2.65,
     "type" : "movie",
     "path" : "FBN CLIP 34_converted.m4v",
     "trigger" : 0,
@@ -758,7 +759,7 @@
     "title" : "53",
     "offset_y" : 0.5,
     "pre_time" : 0.6,
-    "type" : "movieaudio",
+    "type" : "movie",
     "path" : "FBN CLIP 53_a 2_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.513,
@@ -772,7 +773,7 @@
     "offset_x" : 0.25,
     "title" : "64",
     "offset_y" : 0.5,
-    "pre_time" : 1.23,
+    "pre_time" : 1.3,
     "type" : "movie",
     "path" : "FBN CLIP 64_a 2_converted.m4v",
     "trigger" : 0,
@@ -1011,21 +1012,13 @@
                   "10a"
                   ]
     },
-    {
+   {
         "action" : "post",
         "minor" : 5,
         "threshold" : 2.3,
         "prox" : 2,
         "cues" : [
-                  "11a"
-                  ]
-    },
-   {
-        "action" : "post",
-        "minor" : 6,
-        "threshold" : 2.3,
-        "prox" : 2,
-        "cues" : [
+                  "11a",
                   "12a",
                   "13a",
                   "13b",
@@ -1034,7 +1027,7 @@
    },
    {
    "action" : "post",
-   "minor" : 7,
+   "minor" : 6,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
@@ -1044,19 +1037,11 @@
    },
    {
    "action" : "post",
-   "minor" : 8,
+   "minor" : 7,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
-             "18b"
-             ]
-   },
-   {
-   "action" : "post",
-   "minor" : 9,
-   "threshold" : 2.3,
-   "prox" : 2,
-   "cues" : [
+             "18b",
              "look down",
              "19",
              "20a",
@@ -1065,7 +1050,7 @@
    },
    {
    "action" : "post",
-   "minor" : 10,
+   "minor" : 8,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
@@ -1078,43 +1063,22 @@
    },
    {
    "action" : "post",
-   "minor" : 11,
+   "minor" : 9,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
-             "29a",
-             "30a",
-             "31a"
-             ]
-   },
-   {
-   "action" : "post",
-   "minor" : 12,
-   "threshold" : 2.3,
-   "prox" : 2,
-   "cues" : [
-             "31a2"
-             ]
-   },
-   {
-   "action" : "post",
-   "minor" : 13,
-   "threshold" : 2.3,
-   "prox" : 2,
-   "cues" : [
+             "31a2",
              "32",
              "41",
              "42",
              "33",
              "39",
-             "38",
-             "46",
-             "34"
+             "38"
              ]
    },
    {
    "action" : "post",
-   "minor" : 14,
+   "minor" : 10,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
@@ -1126,7 +1090,7 @@
    },
    {
    "action" : "post",
-   "minor" : 15,
+   "minor" : 11,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
@@ -1141,7 +1105,7 @@
    },
    {
    "action" : "post",
-   "minor" : 16,
+   "minor" : 12,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
@@ -1151,7 +1115,7 @@
    },
    {
    "action" : "post",
-   "minor" : 17,
+   "minor" : 13,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
@@ -1162,7 +1126,7 @@
    },
    {
    "action" : "post",
-   "minor" : 18,
+   "minor" : 14,
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
@@ -1175,8 +1139,12 @@
              "building"
             
              ]
-   },
+   }
    
                
-  ]
+  ],
+
+"start" : 1
+    
+
 }
