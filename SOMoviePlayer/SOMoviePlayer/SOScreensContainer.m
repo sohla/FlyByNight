@@ -105,7 +105,7 @@
     _nextButton = [[UIButton alloc] initWithFrame:rect];
     CGPoint p = {self.view.center.x, self.view.frame.size.height - size};
     [self.nextButton setCenter:p];
-    [self.nextButton setTitle:@"Shake" forState:UIControlStateNormal];
+    [self.nextButton setTitle:@"tap" forState:UIControlStateNormal];
     [self.nextButton setTitleColor:[UIColor colorWithRed:0.839 green:0.788 blue:0.518 alpha:1] forState:UIControlStateNormal];
     [self.nextButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.7]];
     [self.nextButton .layer setCornerRadius:size/2.0];
@@ -540,12 +540,14 @@
     
     [self.view bringSubviewToFront:self.pauseViewController.view];
     [self.view bringSubviewToFront:self.touchView];
+    [self.pauseViewController.view setAlpha:0.0];
     
     [UIView animateWithDuration:0.3
                           delay: 0.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.pauseViewController.view setTransform:CGAffineTransformMakeTranslation(0.0, 0.0)];
+                         [self.pauseViewController.view setAlpha:1.0];
                      }
                      completion:^(BOOL finished){
                      }
@@ -560,12 +562,14 @@
     // re-start where we are
     [self triggerBeacon:self.currentBeaconModel];
     [self.view bringSubviewToFront:self.touchView];
-   
+    [self.pauseViewController.view setAlpha:1.0];
+
     [UIView animateWithDuration:0.3
                           delay: 0.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [self.pauseViewController.view setTransform:CGAffineTransformMakeTranslation(-self.view.bounds.size.width, 0.0)];
+                         [self.pauseViewController.view setAlpha:0.0];
                      }
                      completion:^(BOOL finished){
                      }

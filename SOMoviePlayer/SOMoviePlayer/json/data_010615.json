@@ -28,7 +28,7 @@
     "zoom" : 0.3565,
     "scroll_dx" : 0,
     "fadeout_time" : 0.02,
-    "fadein_time" : 0.02,
+    "fadein_time" : 0.06,
     "scroll_dy" : 0,
     "loop" : 1
     },

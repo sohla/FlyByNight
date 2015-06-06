@@ -50,6 +50,20 @@
 {
     [super viewDidLoad];
  
+//    UIView *splashView = [[UIView alloc] initWithFrame:self.view.frame];
+//    [splashView setBackgroundColor:[UIColor blackColor]];
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectInset(self.view.frame, 150.0, 100.0)];
+//    [label setBackgroundColor:[UIColor blackColor]];
+//    [label setTextColor:[UIColor whiteColor]];
+//    [label setText:@"loading..."];
+//    [splashView addSubview:label];
+//    [self.view addSubview:splashView];
+//    [self.view bringSubviewToFront:splashView];
+
+    
+    [self.view setHidden:YES];
+    [self.navigationController.view setHidden:YES];
+    
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-17569614-3"];
 
     
@@ -146,7 +160,10 @@
                     [thumbs addObject:[UIImage imageWithCGImage:imageRef]];
                 }
                 dispatch_sync(dispatch_get_main_queue(), ^{
+                    [blockSelf.view setHidden:NO];
+                    [blockSelf.navigationController.view setHidden:NO];
                     [blockSelf.tableView reloadData];
+
                 });
             }];
         });
