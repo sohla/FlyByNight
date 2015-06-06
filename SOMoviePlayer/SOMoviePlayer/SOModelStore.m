@@ -44,6 +44,8 @@
 //        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_2014729_1525m4a" ofType:@"json"];
 //        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_220515" ofType:@"json"];
         NSString *path = [[NSBundle mainBundle] pathForResource:@"data_010615" ofType:@"json"];
+        
+        
         [self loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
             
             if(error){
@@ -52,8 +54,30 @@
                 
                 [self saveLatest];
 
-                //DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"minor"]);
+                //** get all used assets
+                
+                NSMutableArray *assetsUsed = [[NSMutableArray alloc] init];
+//                DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"cues"]);
             
+                NSArray *cueTitles = [self.sessionModel.beacons   valueForKeyPath:@"cues"];
+                
+                [cueTitles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                   
+                    
+                    NSArray *titles = obj;
+                    
+                    [titles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                       
+                        
+                        NSString *path = [[self cueModelWithTitle:obj] valueForKey:@"path"];
+                        
+                        [assetsUsed addObject:path];
+                    }];
+                    
+                    
+                }];
+                DLog(@"%@",assetsUsed);
+                
 //                DLog(@"%@",[self beaconModelWithMinor:2]);
                 
                 //DLog(@"%@",[self cueModelWithTitle:@"drinking tap"]);
