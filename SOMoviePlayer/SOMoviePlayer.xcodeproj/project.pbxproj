@@ -11,7 +11,6 @@
 		F00504251AEE6301009C9BEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504241AEE6301009C9BEC /* SystemConfiguration.framework */; };
 		F00504271AEE6312009C9BEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504261AEE6312009C9BEC /* libz.dylib */; };
 		F00504291AEE6322009C9BEC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504281AEE6322009C9BEC /* libsqlite3.dylib */; };
-		F005042B1AEE6339009C9BEC /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */; };
 		F005043C1AEE68A5009C9BEC /* SOCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B8DCCD1985382900976135 /* SOCameraViewController.m */; };
 		F005043E1AEE68D5009C9BEC /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */; };
 		F005043F1AEE6921009C9BEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504261AEE6312009C9BEC /* libz.dylib */; };
@@ -72,6 +71,7 @@
 		F029C92F1AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
 		F029C9301AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
 		F03392ED19382C4E004FDB33 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
+		F04409051B293F26004F4326 /* libCocoaLumberjack-iOS-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F04408F71B293E42004F4326 /* libCocoaLumberjack-iOS-Static.a */; };
 		F04417A318BA0C2400572780 /* SONotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F04417A218BA0C2400572780 /* SONotifications.m */; };
 		F04417BC18BC2FA400572780 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417BB18BC2FA400572780 /* AVFoundation.framework */; };
 		F04417D518BD1BF400572780 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417D418BD1BF400572780 /* AssetsLibrary.framework */; };
@@ -268,6 +268,76 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F04408EE1B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCB3185114EB418E001CFBEE;
+			remoteInfo = CocoaLumberjack;
+		};
+		F04408F01B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BF0F1A81D8B700692297;
+			remoteInfo = CocoaLumberjackSwift;
+		};
+		F04408F21B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BFA71A81DF5600692297;
+			remoteInfo = "CocoaLumberjack-iOS";
+		};
+		F04408F41B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BFC21A81DFA200692297;
+			remoteInfo = "CocoaLumberjackSwift-iOS";
+		};
+		F04408F61B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BFD71A81E06E00692297;
+			remoteInfo = "CocoaLumberjack-iOS-Static";
+		};
+		F04408F81B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCB318CA14ED6C3B001CFBEE;
+			remoteInfo = FmwkTest;
+		};
+		F04408FA1B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55CCBEFF19BA679200957A39;
+			remoteInfo = SwiftTest;
+		};
+		F04408FC1B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BF5F1A81DD2E00692297;
+			remoteInfo = iOSSwiftTest;
+		};
+		F04408FE1B293E42004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BFF21A81E0C700692297;
+			remoteInfo = iOSLibStaticTest;
+		};
+		F04409031B293F18004F4326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 18F3BFD61A81E06E00692297;
+			remoteInfo = "CocoaLumberjack-iOS-Static";
+		};
 		F0AECCEB18B171DC00263C32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F0AECCBA18B171DB00263C32 /* Project object */;
@@ -333,6 +403,7 @@
 		F029C92E1AF70487004DB423 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreenViewControllerProtocol.h; sourceTree = "<group>"; };
+		F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../../CocoaLumberjack/Lumberjack.xcodeproj; sourceTree = "<group>"; };
 		F04417A118BA0C2400572780 /* SONotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SONotifications.h; sourceTree = "<group>"; };
 		F04417A218BA0C2400572780 /* SONotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SONotifications.m; sourceTree = "<group>"; };
 		F04417BB18BC2FA400572780 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -521,7 +592,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F005042B1AEE6339009C9BEC /* libGoogleAnalyticsServices.a in Frameworks */,
+				F04409051B293F26004F4326 /* libCocoaLumberjack-iOS-Static.a in Frameworks */,
 				F00504291AEE6322009C9BEC /* libsqlite3.dylib in Frameworks */,
 				F00504271AEE6312009C9BEC /* libz.dylib in Frameworks */,
 				F00504251AEE6301009C9BEC /* SystemConfiguration.framework in Frameworks */,
@@ -601,6 +672,22 @@
 				F0FE3DEA1944A00D0029DAEF /* dataT.json */,
 			);
 			path = json;
+			sourceTree = "<group>";
+		};
+		F04408E31B293E42004F4326 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F04408EF1B293E42004F4326 /* CocoaLumberjack.framework */,
+				F04408F11B293E42004F4326 /* CocoaLumberjackSwift.framework */,
+				F04408F31B293E42004F4326 /* CocoaLumberjack.framework */,
+				F04408F51B293E42004F4326 /* CocoaLumberjackSwift.framework */,
+				F04408F71B293E42004F4326 /* libCocoaLumberjack-iOS-Static.a */,
+				F04408F91B293E42004F4326 /* FmwkTest.app */,
+				F04408FB1B293E42004F4326 /* SwiftTest.app */,
+				F04408FD1B293E42004F4326 /* iOSSwiftTest.app */,
+				F04408FF1B293E42004F4326 /* iOSLibStaticTest.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F066F2351B0EB81800C85727 /* FinalAssetsM4V */ = {
@@ -761,6 +848,7 @@
 		F0AECCC418B171DB00263C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */,
 				F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */,
 				F00504281AEE6322009C9BEC /* libsqlite3.dylib */,
 				F00504261AEE6312009C9BEC /* libz.dylib */,
@@ -958,6 +1046,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F04409041B293F18004F4326 /* PBXTargetDependency */,
 			);
 			name = SOMoviePlayer;
 			productName = SOMoviePlayer;
@@ -1028,6 +1117,12 @@
 			mainGroup = F0AECCB918B171DB00263C32;
 			productRefGroup = F0AECCC318B171DB00263C32 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F04408E31B293E42004F4326 /* Products */;
+					ProjectRef = F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F0AECCC118B171DB00263C32 /* SOMoviePlayer */,
@@ -1036,6 +1131,72 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F04408EF1B293E42004F4326 /* CocoaLumberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjack.framework;
+			remoteRef = F04408EE1B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F04408F11B293E42004F4326 /* CocoaLumberjackSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjackSwift.framework;
+			remoteRef = F04408F01B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F04408F31B293E42004F4326 /* CocoaLumberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjack.framework;
+			remoteRef = F04408F21B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F04408F51B293E42004F4326 /* CocoaLumberjackSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjackSwift.framework;
+			remoteRef = F04408F41B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F04408F71B293E42004F4326 /* libCocoaLumberjack-iOS-Static.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCocoaLumberjack-iOS-Static.a";
+			remoteRef = F04408F61B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F04408F91B293E42004F4326 /* FmwkTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = FmwkTest.app;
+			remoteRef = F04408F81B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F04408FB1B293E42004F4326 /* SwiftTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftTest.app;
+			remoteRef = F04408FA1B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F04408FD1B293E42004F4326 /* iOSSwiftTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = iOSSwiftTest.app;
+			remoteRef = F04408FC1B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F04408FF1B293E42004F4326 /* iOSLibStaticTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = iOSLibStaticTest.app;
+			remoteRef = F04408FE1B293E42004F4326 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F0AECCC018B171DB00263C32 /* Resources */ = {
@@ -1311,6 +1472,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F04409041B293F18004F4326 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CocoaLumberjack-iOS-Static";
+			targetProxy = F04409031B293F18004F4326 /* PBXContainerItemProxy */;
+		};
 		F0AECCEC18B171DC00263C32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F0AECCC118B171DB00263C32 /* SOMoviePlayer */;
@@ -1419,6 +1585,7 @@
 		F0AECCF818B171DC00263C32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1427,13 +1594,11 @@
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/SOMoviePlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/GoogleAnalytics",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = FlyByNight;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = /Users/soh_la/Develop/iOS/Projects/CocoaLumberjack/Classes;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1441,6 +1606,7 @@
 		F0AECCF918B171DC00263C32 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1449,13 +1615,11 @@
 				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/SOMoviePlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/GoogleAnalytics",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = FlyByNight;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = /Users/soh_la/Develop/iOS/Projects/CocoaLumberjack/Classes;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

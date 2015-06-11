@@ -7,6 +7,7 @@
 //
 
 #import "SOAppDelegate.h"
+#import "CocoaLumberjack.h"
 
 @interface SOAppDelegate  ()
 
@@ -18,7 +19,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    // Need motion 
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+     
+//    NSString * applicationDocumentsDirectory = [[[[NSFileManager defaultManager]
+//                                                  URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path];
+//    DDLogFileManagerDefault *documentsFileManager = [[DDLogFileManagerDefault alloc]
+//                                                     initWithLogsDirectory:applicationDocumentsDirectory];
+//    DDFileLogger *fileLogger = [[DDFileLogger alloc]
+//                                initWithLogFileManager:documentsFileManager];
+    
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    
+    [DDLog addLogger:fileLogger];
+    // Need motion
     [[SOMotionManager sharedManager] buildMotionManager];
     
     
