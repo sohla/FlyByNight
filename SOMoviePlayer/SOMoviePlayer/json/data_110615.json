@@ -328,8 +328,8 @@
       "trigger" : 0,
       "zoom" : 0.713,
       "scroll_dx" : 1.0,
-      "fadeout_time" : 4.0,
-      "fadein_time" : 0.05,
+      "fadeout_time" : 0.3,
+      "fadein_time" : 0.2,
       "scroll_dy" : 0.5,
       "loop" : 0
       },
@@ -351,15 +351,15 @@
     {
     "offset_x" : 0.5,
     "title" : "19",
-    "offset_y" : 0.728,
+    "offset_y" : 0.72,
     "pre_time" : 0.10,
     "type" : "movie",
     "path" : "FBN CLIP 19 4th Pass_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.3565,
     "scroll_dx" : 0.0,
-    "fadeout_time" : 0.08,
-    "fadein_time" : 0.4,
+    "fadeout_time" : 0.3,
+    "fadein_time" : 0.2,
     "scroll_dy" : 1,
     "loop" : 0
     },
@@ -1184,7 +1184,7 @@
                
   ],
 
-"start" : 12
+"start" : 1
     
 
 }
