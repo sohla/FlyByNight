@@ -95,7 +95,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportForward object:sender];
 }
 - (IBAction)onStopButton:(UIButton *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportStop object:sender];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:sender];
+
+
 }
 - (IBAction)onNextButton:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:sender];

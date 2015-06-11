@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface SOMotionManager : NSObject
+@interface SOMotionManager : NSObject <CLLocationManagerDelegate>
 
 + (SOMotionManager*)sharedManager;
 

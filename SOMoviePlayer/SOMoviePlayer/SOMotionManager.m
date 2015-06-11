@@ -11,11 +11,14 @@
 @interface SOMotionManager ()
 
 @property (strong, nonatomic) CMMotionManager           *motionManager;
+@property (strong, nonatomic) CLLocationManager         *locationManager;
+
 @property (strong, nonatomic) CMAttitude *firstAttitude;
 @property (strong, nonatomic) CMAttitude *calAtt;
 
-@property (nonatomic) BOOL firstCal;
+//@property (nonatomic) BOOL firstCal;
 
+@property (nonatomic) float heading;
 
 @end
 
@@ -54,6 +57,11 @@
         _motionManager = [[CMMotionManager alloc] init];
     }
     
+    if(self.locationManager == nil){
+        _locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    
     self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
     
 //CMAttitudeReferenceFrameXArbitraryCorrectedZVertical
@@ -77,6 +85,12 @@
 //        }];
     }
     
+    
+    
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [self.locationManager setDelegate:self];
+    [self.locationManager startUpdatingHeading];
+    
 }
 
 -(void)destroyMotionManager{
@@ -92,20 +106,20 @@
     
     DLog(@"");
     [self destroyMotionManager];
-    self.firstCal = NO;
+    //self.firstCal = NO;
     [self buildMotionManager];
 }
 
 -(float)valueForKey:(NSString*)key{
     
-    if(!self.firstCal){
-        self.firstCal = YES;
-        self.firstAttitude = [self.motionManager.deviceMotion.attitude copy];
-    }
-    
-    if(self.firstAttitude){
-        [self.motionManager.deviceMotion.attitude multiplyByInverseOfAttitude:self.firstAttitude];
-    }
+//    if(!self.firstCal){
+//        self.firstCal = YES;
+//        self.firstAttitude = [self.motionManager.deviceMotion.attitude copy];
+//    }
+//    
+//    if(self.firstAttitude){
+//        [self.motionManager.deviceMotion.attitude multiplyByInverseOfAttitude:self.firstAttitude];
+//    }
     
     CMAttitude *att = self.motionManager.deviceMotion.attitude;
     
@@ -116,6 +130,8 @@
         return att.pitch;
     }
     if([key isEqualToString:@"yaw"]){
+        
+        //DLog(@"%f %f %f",att.yaw,self.heading,self.firstAttitude.yaw);
         return att.yaw;
     }
     if([key isEqualToString:@"heading"]){
@@ -125,5 +141,9 @@
     
     return 0.0f;
     
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
+        self.heading = (newHeading.magneticHeading / 360.0) * ( -2.0 * M_PI) + M_PI;
 }
 @end

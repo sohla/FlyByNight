@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SOMotionManager.h"
+#import "SONotifications.h"
 
 @interface SOAppDelegate : UIResponder <UIApplicationDelegate>
 
