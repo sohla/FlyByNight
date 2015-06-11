@@ -44,7 +44,7 @@
 //        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_2014729_1525m4a" ofType:@"json"];
 //        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_220515" ofType:@"json"];
 
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_010615" ofType:@"json"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"data_110615" ofType:@"json"];
         
         
         [self loadJSONCuesWithPath:path completionBlock:^(NSError *error) {
