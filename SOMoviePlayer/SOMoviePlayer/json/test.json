@@ -10,7 +10,7 @@
                  "threshold" : 2.3,
                  "action" : "pre",
                  "prox" : 2,
-                 "cues" : [ "test1","test3"]
+                 "cues" : [ "test1"]
                
                },{
                
@@ -41,20 +41,20 @@
               {
               "title"    : "test1",
               "path"     : "checkTest.mov",
-              "type"      : "night",
-              "loop"    : 1,
+              "type"      : "movie",
+              "loop"    : 0,
               "trigger"    : 0,
              
               "zoom"      : 0.3565,
-              "offset_x"      : 0.2,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
+              "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
-              "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.05
+              "fadein_time"       : 0.4,
+              "fadeout_time"       : 0.2
               },{
               
               "title"    : "test2",
@@ -77,7 +77,7 @@
               
               "title"    : "test3",
               "path"     : "stripeTest.mov",
-              "type"      : "day",
+              "type"      : "movie",
               "loop"    : 1,
               "trigger"    : 0,
              
@@ -98,6 +98,9 @@
 
               
             ]
+    ,
+    
+    "start" : 1
     
     
 }
