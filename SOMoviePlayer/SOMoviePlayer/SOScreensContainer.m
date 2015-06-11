@@ -70,9 +70,9 @@
 
     [self addGestures];
     
-    CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                  self.view.frame.size.height,
-                                  self.view.frame.size.width);
+//    CGRect fullFrame = CGRectMake(0.0, 0.0,
+//                                  self.view.frame.size.height,
+//                                  self.view.frame.size.width);
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
@@ -93,7 +93,7 @@
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
         [self addChildViewController:self.transport];
-        [self.transport.view setFrame:fullFrame];
+        [self.transport.view setFrame:self.view.frame];
         [self.transport.view setAlpha:0.5f];
         [self.view addSubview:self.transport.view];
         
