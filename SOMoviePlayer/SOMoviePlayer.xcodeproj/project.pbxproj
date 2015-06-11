@@ -283,16 +283,6 @@
 		F00504261AEE6312009C9BEC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F00504281AEE6322009C9BEC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = GoogleAnalytics/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		F005042E1AEE6379009C9BEC /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		F005042F1AEE6379009C9BEC /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		F00504301AEE6379009C9BEC /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
-		F00504311AEE6379009C9BEC /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
-		F00504321AEE6379009C9BEC /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
-		F00504331AEE6379009C9BEC /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
-		F00504341AEE6379009C9BEC /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		F00504351AEE6379009C9BEC /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		F00504361AEE6379009C9BEC /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		F00504371AEE6379009C9BEC /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		F00AA99B1B1BE3C6003927F5 /* data_010615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_010615.json; sourceTree = "<group>"; };
 		F00AA99E1B1BF94F003927F5 /* FBN CLIP 1_a 2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 1_a 2_converted.m4v"; sourceTree = "<group>"; };
 		F00AA9A01B1BF9A2003927F5 /* FBN CLIP 2_a 2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 2_a 2_converted.m4v"; sourceTree = "<group>"; };
@@ -584,31 +574,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F005042C1AEE6379009C9BEC /* GoogleAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				F005042D1AEE6379009C9BEC /* Headers */,
-			);
-			path = GoogleAnalytics;
-			sourceTree = "<group>";
-		};
-		F005042D1AEE6379009C9BEC /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				F005042E1AEE6379009C9BEC /* GAI.h */,
-				F005042F1AEE6379009C9BEC /* GAIDictionaryBuilder.h */,
-				F00504301AEE6379009C9BEC /* GAIEcommerceFields.h */,
-				F00504311AEE6379009C9BEC /* GAIEcommerceProduct.h */,
-				F00504321AEE6379009C9BEC /* GAIEcommerceProductAction.h */,
-				F00504331AEE6379009C9BEC /* GAIEcommercePromotion.h */,
-				F00504341AEE6379009C9BEC /* GAIFields.h */,
-				F00504351AEE6379009C9BEC /* GAILogger.h */,
-				F00504361AEE6379009C9BEC /* GAITrackedViewController.h */,
-				F00504371AEE6379009C9BEC /* GAITracker.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
 		F022FFDA193BF98F00829C20 /* testMovies */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,7 +739,6 @@
 		F0AECCB918B171DB00263C32 = {
 			isa = PBXGroup;
 			children = (
-				F005042C1AEE6379009C9BEC /* GoogleAnalytics */,
 				F0C2DEF11939FCBC00EAB7F9 /* JSONModel */,
 				F0AECCCB18B171DB00263C32 /* SOMoviePlayer */,
 				F0AECCED18B171DC00263C32 /* SOMoviePlayerTests */,

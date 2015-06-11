@@ -12,8 +12,6 @@
 #import "SOScreensContainer.h"
 #import "SOBeaconsProtocol.h"
 
-#import "GAI.h"
-#import "GAIDictionaryBuilder.h"
 
 #define kMaxAssetImages 5
 
@@ -63,15 +61,6 @@
     
     [self.view setHidden:YES];
     [self.navigationController.view setHidden:YES];
-    
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-17569614-3"];
-
-    
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_masterView"     // Event category (required)
-                                                          action:@"view_loaded"  // Event action (required)
-                                                           label:@"hello world"          // Event label
-                                                           value:nil] build]];    // Event value
-    
     
     self.bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
     self.delegate = self.bvc;
