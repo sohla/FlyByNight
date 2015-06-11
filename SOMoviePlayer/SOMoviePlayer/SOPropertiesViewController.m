@@ -43,15 +43,15 @@
     [self.scrollView setContentSize:self.contentView.frame.size];
     [self.scrollView addSubview:self.contentView];
 
-    [self.titleLabel setText:[self.cueModel title]];
-    [self.assetLabel setText:[self.cueModel path]];
+    [self.titleLabel setText:[NSString stringWithFormat:@"Title : %@",[self.cueModel title]]];
+    [self.assetLabel setText:[NSString stringWithFormat:@"Path : %@",[self.cueModel path]]];
     
     NSString *path = [self.cueModel path];
     NSString *fullPath = [[NSBundle mainBundle] pathForResource:[path stringByDeletingPathExtension]
                                                          ofType:[path pathExtension]];
     NSURL *sourceMovieURL = [NSURL fileURLWithPath:fullPath];
     AVURLAsset *sourceAsset = [AVURLAsset URLAssetWithURL:sourceMovieURL options:nil];
-    [self.lengthLabel setText:[NSString stringWithFormat:@"%.2f",CMTimeGetSeconds(sourceAsset.duration)]];
+    [self.lengthLabel setText:[NSString stringWithFormat:@"Length : %.2f",CMTimeGetSeconds(sourceAsset.duration)]];
     
     //• loop thru
     
@@ -85,7 +85,6 @@
             NSNumber *uiVal = [SOFloatTransformer transformValue:[NSNumber numberWithFloat:val] valWithPropName:propName];
            return [uiVal floatValue];
         }];
-        
         [self.contentView addSubview:propVC.view];
         [self addChildViewController:propVC];
     

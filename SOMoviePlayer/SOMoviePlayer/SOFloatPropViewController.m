@@ -34,6 +34,8 @@
     if (self) {
         [self setTitle:title];
         [self.view setFrame:CGRectOffset(self.view.frame, pnt.x, pnt.y)];
+        [self.slider.layer setCornerRadius:self.slider.frame.size.height/2.0];
+
     }
     return self;
 
