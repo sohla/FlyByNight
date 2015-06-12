@@ -36,6 +36,7 @@ extern NSString* const kEditModeOff;
 extern NSString* const kResetBeacons;
 
 extern NSString* const kBeaconsRangingOn;
+extern NSString* const kLogBatteryLevel;
 
 
 @end

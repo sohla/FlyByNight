@@ -392,7 +392,7 @@
             float fadeout_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:weakSelf.cueModel.fadeout_time]
                                                  valWithPropName:@"fadeout_time"] floatValue];
 
-            DLog(@"%f %f %@ %f",totalTime,fadeTime, fadeOutFime[0],fadeout_time);
+            //DLog(@"%f %f %@ %f",totalTime,fadeTime, fadeOutFime[0],fadeout_time);
             [weakSelf fadeOut:fadeout_time completionBlock:nil];
             
             [weakSelf stopWithcompletionBlock:^{

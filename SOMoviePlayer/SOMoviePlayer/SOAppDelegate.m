@@ -19,25 +19,35 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    // Setup Lumberjack logging
+    //
+    
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
      
-//    NSString * applicationDocumentsDirectory = [[[[NSFileManager defaultManager]
-//                                                  URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path];
-//    DDLogFileManagerDefault *documentsFileManager = [[DDLogFileManagerDefault alloc]
-//                                                     initWithLogsDirectory:applicationDocumentsDirectory];
-//    DDFileLogger *fileLogger = [[DDFileLogger alloc]
-//                                initWithLogFileManager:documentsFileManager];
-    
     DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
     fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
     fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
     
     [DDLog addLogger:fileLogger];
+    
+    
+    // Install notification to report batterly level from anywhere
+    //
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onLogBatteryLevel:)
+                                                 name:kLogBatteryLevel
+                                               object:nil];
+
+    
+    
+    DLog(@"Fly by Night");
+    DLog(@"device name : %@",[[UIDevice currentDevice] name]);
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLogBatteryLevel object:@"app start"];
+
     // Need motion
     [[SOMotionManager sharedManager] buildMotionManager];
-    
-    
     
     return YES;
 }
@@ -72,9 +82,42 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kLogBatteryLevel
+                                                  object:nil];
+
     [[SOMotionManager sharedManager] destroyMotionManager];
 
 }
 
+-(void)onLogBatteryLevel:(NSNotification *)notification{
+
+    NSString *msg = [notification object];
+    
+    NSString *levelStr = @"";
+    
+    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    
+    float batteryLevel = [UIDevice currentDevice].batteryLevel;
+    if (batteryLevel < 0.0) {
+        // -1.0 means battery state is UIDeviceBatteryStateUnknown
+        levelStr = NSLocalizedString(@"Unknown", @"");
+    }
+    else {
+        static NSNumberFormatter *numberFormatter = nil;
+        if (numberFormatter == nil) {
+            numberFormatter = [[NSNumberFormatter alloc] init];
+            [numberFormatter setNumberStyle:NSNumberFormatterPercentStyle];
+            [numberFormatter setMaximumFractionDigits:1];
+        }
+        
+        NSNumber *levelObj = [NSNumber numberWithFloat:batteryLevel];
+        NSString *levelStr = [numberFormatter stringFromNumber:levelObj];
+        levelStr = [NSString stringWithFormat:@"Batt : %@",levelStr];
+    }
+    
+    DLog(@"Battery Level [%@] : %@",msg,levelStr);
+   
+}
 
 @end

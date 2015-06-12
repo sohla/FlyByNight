@@ -196,6 +196,7 @@
     }else{
     }
 
+    
     [self.view bringSubviewToFront:self.nextButton];
 }
 
@@ -266,10 +267,11 @@
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
     NSInteger currentHour = [components hour];
 
-    
+    // we should remove any events still on our queue from previous trigger
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
-    DLog(@"TRIGGER %d",beaconModel.minor);
+    
+    DLog(@"• TRIGGER %d",beaconModel.minor);
     
     self.currentBeaconModel = beaconModel;
     
@@ -301,14 +303,33 @@
                 [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
             }
             
-            
+        }else if([cueModel.title isEqualToString:@"flybynight"]){
+            [self performSelector:@selector(endReached:) withObject:cueModel afterDelay:pre_time];
+        }else if([cueModel.title isEqualToString:@"socialPage"]){
+            [self performSelector:@selector(socialReached:) withObject:cueModel afterDelay:pre_time];
         }else{
-            
+            // default behaviour
             [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
         }
         
     }];
     
+}
+
+-(void)endReached:(SOCueModel *)cueModel{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLogBatteryLevel object:@"flybynight end"];
+    
+    if(self.cvc){
+        DLog(@"killing camera");
+        [self.cvc.view removeFromSuperview];
+        self.cvc = nil;
+    }
+}
+-(void)socialReached:(SOCueModel *)cueModel{
+ 
+    DLog(@"Social Page");
+
 }
 
 -(void)playCam:(SOCueModel *)cueModel{
