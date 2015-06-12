@@ -38,6 +38,8 @@
                                              selector:@selector(onLogBatteryLevel:)
                                                  name:kLogBatteryLevel
                                                object:nil];
+    
+
 
     
     
@@ -90,14 +92,14 @@
 
 }
 
+
 -(void)onLogBatteryLevel:(NSNotification *)notification{
 
     NSString *msg = [notification object];
-    
     NSString *levelStr = @"";
-    
+
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
-    
+
     float batteryLevel = [UIDevice currentDevice].batteryLevel;
     if (batteryLevel < 0.0) {
         // -1.0 means battery state is UIDeviceBatteryStateUnknown
@@ -112,11 +114,12 @@
         }
         
         NSNumber *levelObj = [NSNumber numberWithFloat:batteryLevel];
-        NSString *levelStr = [numberFormatter stringFromNumber:levelObj];
-        levelStr = [NSString stringWithFormat:@"Batt : %@",levelStr];
+        levelStr = [NSString stringWithFormat:@"Batt : %@",[numberFormatter stringFromNumber:levelObj]];
     }
     
     DLog(@"Battery Level [%@] : %@",msg,levelStr);
+    
+    [UIDevice currentDevice].batteryMonitoringEnabled = NO;
    
 }
 
