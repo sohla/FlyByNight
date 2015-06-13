@@ -47,139 +47,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
-//    UIView *splashView = [[UIView alloc] initWithFrame:self.view.frame];
-//    [splashView setBackgroundColor:[UIColor blackColor]];
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectInset(self.view.frame, 150.0, 100.0)];
-//    [label setBackgroundColor:[UIColor blackColor]];
-//    [label setTextColor:[UIColor whiteColor]];
-//    [label setText:@"loading..."];
-//    [splashView addSubview:label];
-//    [self.view addSubview:splashView];
-//    [self.view bringSubviewToFront:splashView];
 
-    
+    // hide ui
     [self.view setHidden:YES];
     [self.navigationController.view setHidden:YES];
-    
-    self.bvc = [[SOBeaconViewController alloc] initWithNibName:@"SOBeaconViewController" bundle:nil];
-    self.delegate = self.bvc;
-
-    [self setupBeaconManager];
-    
     
     [self updateEditButton];
     
     [self addObservers];
 
-    _thumbNails = [[NSMutableArray alloc] init];
-    
-//    [self.tableView setRowHeight:88.0];
-    
+    // get assets and data
     self.movieFilePaths = [NSMutableArray arrayWithArray:[self getAllBundleFilesForTypes:@[@"m4v",@"mov",@"wav"]]];
-
-    __block NSMutableArray *paths = self.movieFilePaths;
-    __block NSMutableArray *thumbs = self.thumbNails;
-    __block SOMasterViewController *blockSelf = self;
-    
-  
     _modelStore = [[SOModelStore alloc] init];
 
-    
-    // get lengths
-    if(NO){
-        NSArray * files = [self getAllBundleFilesForTypes:@[@"m4v"]];
-        [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            AVURLAsset *asset = [AVURLAsset URLAssetWithURL:obj options:nil];
-            NSLog(@"%@ %f",[[asset.URL pathComponents] lastObject],CMTimeGetSeconds(asset.duration) );
-        }];
-    }
-    
     [self collectAssetsWithCompletionBlock:^(NSArray *assets){
         
-        
+        // show ui
+        [self.view setHidden:NO];
+        [self.navigationController.view setHidden:NO];
+        [self.tableView reloadData];
+
         [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
-        
+
+        // create our screens manager
         SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
         controller.modelStore = self.modelStore;
         
-        //**
         // start
-        //**
-        
         int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
-
-        
-        if(YES){ // auto-start
-            [self.navigationController pushViewController:controller animated:NO];
-            [controller triggerBeacon:[self.modelStore beaconModelWithMinor:start]];
-        }
-
-        // collect all the paths
-        [assets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-            // limit assets count : device could have hundreds of movies!
-            if(idx > kMaxAssetImages){
-                *stop = YES;
-            }else{
-                NSURL *url = (NSURL*)obj;
-                [paths addObject:url];
-            }
-        }];
-        
-        // now lets get all the images
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-        dispatch_async(queue, ^{
-            
-            
-            [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-                NSURL *url = (NSURL*)obj;
-                AVAsset *asset = [AVAsset assetWithURL:url];
-                AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
-                [imageGenerator setMaximumSize:(CGSize){90.0,60.0}];
-                
-                CMTime time = CMTimeMake(1, 1);
-                CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-                UIImage *image = [UIImage imageWithCGImage:imageRef];
-                
-                
-                // need to check if image has been generated
-                if(image){
-                    [thumbs addObject:[UIImage imageWithCGImage:imageRef]];
-                }
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    [blockSelf.view setHidden:NO];
-                    [blockSelf.navigationController.view setHidden:NO];
-                    [blockSelf.tableView reloadData];
-
-                });
-            }];
-        });
-       
+        [self.navigationController pushViewController:controller animated:NO];
+        [controller triggerBeacon:[self.modelStore beaconModelWithMinor:start]];
         
     }];
     
-    
-    if([[NSUserDefaults standardUserDefaults] boolForKey:kLastBeaconRangingState]){
-        [self startRangingBeacons];
-    }
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
-   
-//    double delayInSeconds = 0.3f;
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-//        [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
-//        
-//        
-//    });
-
-    
-
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -508,10 +408,10 @@
         CLBeacon *beacon = (CLBeacon*)obj;
         
         
-        NSString *s = [NSString stringWithFormat:@"Minor : %@  Prox : %d  Rssi : %d",
+        NSString *s = [NSString stringWithFormat:@"Minor : %@  Prox : %ld  Rssi : %ld",
                                     [beacon minor],
-                                   [beacon proximity],
-                       [beacon rssi]];
+                                   (long)[beacon proximity],
+                       (long)[beacon rssi]];
         
         [cleanBeacons addObject:s];
         
