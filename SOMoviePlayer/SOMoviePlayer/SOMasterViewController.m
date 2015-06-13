@@ -119,11 +119,9 @@
     // Populate the regions we will range once.
     self.rangedRegions = [[NSMutableDictionary alloc] init];
     
-    NSArray *supportedProximityUUIDs = @[[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"]
-                                         ];
+    NSArray *supportedProximityUUIDs = @[[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"]];
     
-    for (NSUUID *uuid in supportedProximityUUIDs)
-    {
+    for (NSUUID *uuid in supportedProximityUUIDs){
         CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[uuid UUIDString]];
         self.rangedRegions[region] = [NSArray array];
     }
@@ -322,10 +320,6 @@
     controller.modelStore = self.modelStore;
     [self.navigationController pushViewController:controller animated:NO];
 
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    NSString *text = cell.textLabel.text;
-//    NSRange range = [text rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]];
-//    NSString *digit = [text substringWithRange:range];
     [controller triggerBeacon:[self.modelStore beaconModelWithMinor:(int)indexPath.row+1]];
 
 }
@@ -396,17 +390,12 @@
     NSMutableArray *allBeacons = [NSMutableArray array];
     NSMutableArray *cleanBeacons = [NSMutableArray array];
     
-    for (NSArray *regionResult in [self.rangedRegions allValues])
-    {
+    for (NSArray *regionResult in [self.rangedRegions allValues]){
         [allBeacons addObjectsFromArray:regionResult];
-        
     }
     
     [allBeacons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    
-        
         CLBeacon *beacon = (CLBeacon*)obj;
-        
         
         NSString *s = [NSString stringWithFormat:@"Minor : %@  Prox : %ld  Rssi : %ld",
                                     [beacon minor],
@@ -414,8 +403,6 @@
                        (long)[beacon rssi]];
         
         [cleanBeacons addObject:s];
-        
-           
         
     }];
     
@@ -426,8 +413,6 @@
         }
     
     }
-    
-
     
     NSSortDescriptor *rssiSD = [NSSortDescriptor sortDescriptorWithKey: @"rssi" ascending: NO];
     NSArray *closest = [allBeacons sortedArrayUsingDescriptors:@[rssiSD]];
@@ -468,13 +453,7 @@
                         [[NSNotificationCenter defaultCenter] postNotificationName:kTransportCue object:closestMinor];
                         
                         
-                        //SOCueModel *cm = [self.modelStore cueModelAtIndex:self.currentBeacon];
-
                     }
-                    
-                        
-                                          
-                  //  }
                 }
             }
         }else{
