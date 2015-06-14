@@ -36,8 +36,8 @@
 -(void)loadCues{
 
     
- //   if(YES) {
-    if(![[NSUserDefaults standardUserDefaults] stringForKey:kLastFileSaved] ) {
+    if(YES) {
+ //   if(![[NSUserDefaults standardUserDefaults] stringForKey:kLastFileSaved] ) {
         
         DLog(@"Loading default data file...");
 //        NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"json"];

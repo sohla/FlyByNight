@@ -36,6 +36,7 @@
         
         [self addSubview:self.progressView];
 
+        [self.progressView setHidden:YES];
 
     }
     return self;

@@ -113,6 +113,8 @@
     [self.view addSubview:self.nextButton];
     self.nextButton.alpha = 0.0f;
     
+    [self.nextButton setHidden:YES];
+    
 }
 -(void)dealloc{
     DLog(@"");
@@ -291,7 +293,7 @@
         }else if([cueModel.type isEqualToString:@"day"]){
 
             //check time
-            if(currentHour >= 6 && currentHour <= 18){
+            if(currentHour >= 6 && currentHour <= 17){
                 [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
             }
             
