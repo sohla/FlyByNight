@@ -64,13 +64,13 @@
     
     self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
     
-//CMAttitudeReferenceFrameXArbitraryCorrectedZVertical
-    
     
     if ([self.motionManager isDeviceMotionAvailable]) {
         
-        DLog(@"Device Motion : CMAttitudeReferenceFrameXArbitraryZVertical");
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+        DLog(@"Device Motion : CMAttitudeReferenceFrameXArbitraryCorrectedZVertical");
+        
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
+
 //        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
 //                                                                toQueue:[NSOperationQueue currentQueue]
 //                                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {

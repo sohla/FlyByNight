@@ -146,11 +146,11 @@
     "type" : "movie",
     "path" : "FBN CLIP 7_a 3_converted.m4v",
     "trigger" : 0,
-    "zoom" : 0.3565,
-    "scroll_dx" : 0,
+    "zoom" : 0.5565,
+    "scroll_dx" : 1,
     "fadeout_time" : 0.04,
     "fadein_time" : 0.05,
-    "scroll_dy" : 0,
+    "scroll_dy" : 1,
     "loop" : 0
     },
     {
@@ -214,7 +214,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.75,
+    "offset_x" : 0.70,
     "title" : "12a",
     "offset_y" : 0.5,
     "pre_time" : 0.28,
@@ -229,7 +229,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.25,
+    "offset_x" : 0.20,
     "title" : "13a",
     "offset_y" : 0.5,
     "pre_time" : 0.28,
@@ -304,7 +304,7 @@
     "loop" : 1
     },
     {
-    "offset_x" : 0.5,
+    "offset_x" : 0.6,
     "title" : "18b",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
@@ -319,7 +319,7 @@
     "loop" : 1
     },
       {
-      "offset_x" : 1.0,
+      "offset_x" : 0.1,
       "title" : "18c",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
@@ -454,7 +454,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.5,
+    "offset_x" : 0.46,
     "title" : "28a",
     "offset_y" : 0.5,
     "pre_time" : 1.04,
@@ -469,7 +469,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.5,
+    "offset_x" : 0.46,
     "title" : "28b",
     "offset_y" : 0.5,
     "pre_time" : 1.48,
@@ -633,38 +633,38 @@
     "scroll_dy" : 0,
     "loop" : 0
     },
-              {
-              "offset_x" : 0.5,
-              "title" : "46turnaround",
-              "offset_y" : 0.41,
-              "pre_time" : 2.00,
-              "type" : "movie",
-              "path" : "TITLE CARD TURN AROUND 3_converted.m4v",
-              "trigger" : 0,
-              "zoom" : 0.5565,
-              "scroll_dx" : 1,
-              "fadeout_time" : 0.10,
-              "fadein_time" : 0.5,
-              "scroll_dy" : 0,
-              "loop" : 1
-              },
-              {
-              "offset_x" : 1.0,
-              "title" : "46blank",
-              "offset_y" : 0.41,
-              "pre_time" : 2.00,
-              "type" : "movie",
-              "path" : "whiteblank_converted.m4v",
-              "trigger" : 0,
-              "zoom" : 0.9565,
-              "scroll_dx" : 1,
-              "fadeout_time" : 0.10,
-              "fadein_time" : 0.5,
-              "scroll_dy" : 0,
-              "loop" : 1
-              },
+      {
+      "offset_x" : 0.4,
+      "title" : "46turnaround",
+      "offset_y" : 0.41,
+      "pre_time" : 2.00,
+      "type" : "movie",
+      "path" : "TITLE CARD TURN AROUND 3_converted.m4v",
+      "trigger" : 0,
+      "zoom" : 0.5565,
+      "scroll_dx" : 1,
+      "fadeout_time" : 0.10,
+      "fadein_time" : 0.5,
+      "scroll_dy" : 0,
+      "loop" : 1
+      },
+      {
+      "offset_x" : 0.9,
+      "title" : "46blank",
+      "offset_y" : 0.41,
+      "pre_time" : 2.00,
+      "type" : "movie",
+      "path" : "whiteblank_converted.m4v",
+      "trigger" : 0,
+      "zoom" : 0.9565,
+      "scroll_dx" : 1,
+      "fadeout_time" : 0.10,
+      "fadein_time" : 0.5,
+      "scroll_dy" : 0,
+      "loop" : 1
+      },
     {
-    "offset_x" : 1.0,
+    "offset_x" : 0.9,
     "title" : "46a",
     "offset_y" : 0.31,
     "pre_time" : 2.05,
@@ -679,7 +679,7 @@
     "loop" : 1
     },
     {
-    "offset_x" : 1.0,
+    "offset_x" : 0.9,
     "title" : "46b",
     "offset_y" : 0.58,
     "pre_time" : 2.05,
@@ -694,7 +694,7 @@
     "loop" : 0
     },
       {
-      "offset_x" : 1.0,
+      "offset_x" : 0.9,
       "title" : "46c",
       "offset_y" : 0.58,
       "pre_time" : 2.39,
@@ -709,7 +709,7 @@
       "loop" : 1
       },
       {
-      "offset_x" : 1.0,
+      "offset_x" : 0.9,
       "title" : "46a2",
       "offset_y" : 0.31,
       "pre_time" : 2.39,
@@ -905,17 +905,17 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.5,
+    "offset_x" : 0.35,
     "title" : "71a",
     "offset_y" : 0.5,
-    "pre_time" : 0.001,
+    "pre_time" : 0.97,
     "type" : "movie",
     "path" : "FBN CLIP 71_a 2_converted.m4v",
     "trigger" : 1,
     "zoom" : 0.5565,
     "scroll_dx" : 0.3,
     "fadeout_time" : 0.05,
-    "fadein_time" : 0.09,
+    "fadein_time" : 0.16,
     "scroll_dy" : 0.3,
     "loop" : 1
     },
@@ -1224,7 +1224,7 @@
                
   ],
 
-"start" : 9
+"start" : 1
     
 
 }

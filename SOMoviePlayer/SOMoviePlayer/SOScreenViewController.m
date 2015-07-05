@@ -45,7 +45,6 @@
     self = [super init];
     if (self) {
 
-        
 //        self.offset = 0.0f;//(arc4random() % 4 / 4.0) * M_PI ;
         //DLog(@"w:%f h:%f",frame.size.width,frame.size.height);
         float w = 568.0f;
@@ -237,6 +236,7 @@
 
 -(void)play{
     [self.avPlayer play];
+//    [self.avPlayer setRate:2];
 }
 
 
@@ -590,11 +590,15 @@
     yawX = yawX + offset_x;
     rollY = rollY + offset_y;
     
+    if(yawX < M_PI){
+        yawX += M_PI*2;
+    }
     // check bourndries
     if(yawX >= M_PI){
         yawX -= M_PI*2;
     }
-    
+
+
     //• droll boundry check not done
     
     
