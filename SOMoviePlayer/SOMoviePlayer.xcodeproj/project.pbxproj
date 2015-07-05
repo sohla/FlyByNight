@@ -58,6 +58,14 @@
 		F029C92F1AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
 		F029C9301AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
 		F03392ED19382C4E004FDB33 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
+		F037A5D41B49668D006521BB /* calibrate1.json in Resources */ = {isa = PBXBuildFile; fileRef = F037A5D31B49668D006521BB /* calibrate1.json */; };
+		F037A5D51B49668D006521BB /* calibrate1.json in Resources */ = {isa = PBXBuildFile; fileRef = F037A5D31B49668D006521BB /* calibrate1.json */; };
+		F037A5E11B496CCC006521BB /* SOCalibrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */; };
+		F037A5E21B496CCC006521BB /* SOCalibrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */; };
+		F037A5E31B496CCC006521BB /* SOCalibrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F037A5E01B496CCC006521BB /* SOCalibrationViewController.xib */; };
+		F037A5E41B496CCC006521BB /* SOCalibrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F037A5E01B496CCC006521BB /* SOCalibrationViewController.xib */; };
+		F037A5E71B497162006521BB /* SOGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = F037A5E61B497162006521BB /* SOGridView.m */; };
+		F037A5E81B497162006521BB /* SOGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = F037A5E61B497162006521BB /* SOGridView.m */; };
 		F0421CFD1B2DA5AE0072F72A /* FBN CLIP 18_b 5_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0421CFC1B2DA5AE0072F72A /* FBN CLIP 18_b 5_converted.m4v */; };
 		F0421D071B2DA7B20072F72A /* FBN CLIP 28_b 2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0421D061B2DA7B20072F72A /* FBN CLIP 28_b 2_converted.m4v */; };
 		F0421D091B2DBCDD0072F72A /* whiteblank_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0421D081B2DBCDD0072F72A /* whiteblank_converted.m4v */; };
@@ -413,6 +421,12 @@
 		F022FFDF193BF98F00829C20 /* testsig.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = testsig.m4v; sourceTree = "<group>"; };
 		F029C92E1AF70487004DB423 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		F037A5D31B49668D006521BB /* calibrate1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calibrate1.json; sourceTree = "<group>"; };
+		F037A5DE1B496CCC006521BB /* SOCalibrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCalibrationViewController.h; sourceTree = "<group>"; };
+		F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCalibrationViewController.m; sourceTree = "<group>"; };
+		F037A5E01B496CCC006521BB /* SOCalibrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOCalibrationViewController.xib; sourceTree = "<group>"; };
+		F037A5E51B497162006521BB /* SOGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOGridView.h; sourceTree = "<group>"; };
+		F037A5E61B497162006521BB /* SOGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOGridView.m; sourceTree = "<group>"; };
 		F0421CFC1B2DA5AE0072F72A /* FBN CLIP 18_b 5_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 18_b 5_converted.m4v"; sourceTree = "<group>"; };
 		F0421D061B2DA7B20072F72A /* FBN CLIP 28_b 2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 28_b 2_converted.m4v"; sourceTree = "<group>"; };
 		F0421D081B2DBCDD0072F72A /* whiteblank_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = whiteblank_converted.m4v; sourceTree = "<group>"; };
@@ -718,6 +732,7 @@
 				F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */,
 				F03392EC19382C4E004FDB33 /* data.json */,
 				F0B8DCD519866F9D00976135 /* test.json */,
+				F037A5D31B49668D006521BB /* calibrate1.json */,
 				F07F16191951017D00E36A70 /* allCues.json */,
 				F0FE3DEA1944A00D0029DAEF /* dataT.json */,
 			);
@@ -975,12 +990,17 @@
 				F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */,
 				F0B8DCCC1985382900976135 /* SOCameraViewController.h */,
 				F0B8DCCD1985382900976135 /* SOCameraViewController.m */,
+				F037A5DE1B496CCC006521BB /* SOCalibrationViewController.h */,
+				F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */,
 				F04C40DC1AF0682A00BDCFE6 /* SOLogger.h */,
 				F04C40DD1AF0682A00BDCFE6 /* SOLogger.m */,
 				F013B39E1AF1A99800D43B8D /* SOTouchView.h */,
 				F013B39F1AF1A99800D43B8D /* SOTouchView.m */,
+				F037A5E51B497162006521BB /* SOGridView.h */,
+				F037A5E61B497162006521BB /* SOGridView.m */,
 				F013B39A1AF1A90700D43B8D /* SOPauseViewController.h */,
 				F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */,
+				F037A5E01B496CCC006521BB /* SOCalibrationViewController.xib */,
 				F0B8DCCE1985382900976135 /* SOCameraViewController.xib */,
 				F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */,
 				F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */,
@@ -1336,6 +1356,7 @@
 				F022FFE2193BF98F00829C20 /* noiseTest.mov in Resources */,
 				F04409141B29B54C004F4326 /* FBN CLIP 5_a 3_converted.m4v in Resources */,
 				F066F3701B0EB81800C85727 /* 69.m4a in Resources */,
+				F037A5E31B496CCC006521BB /* SOCalibrationViewController.xib in Resources */,
 				F066F3371B0EB81800C85727 /* TITLE CARD 07 - follow the building around to_converted.m4v in Resources */,
 				F066F36D1B0EB81800C85727 /* 67.m4a in Resources */,
 				F066F3541B0EB81800C85727 /* 29.m4a in Resources */,
@@ -1364,6 +1385,7 @@
 				F022FFE4193BF98F00829C20 /* testsig.m4v in Resources */,
 				F044092A1B29C100004F4326 /* FBN CLIP 28_a 3_converted.m4v in Resources */,
 				F066F3441B0EB81800C85727 /* 14 Loop.m4a in Resources */,
+				F037A5D41B49668D006521BB /* calibrate1.json in Resources */,
 				F066F3551B0EB81800C85727 /* 30.m4a in Resources */,
 				F066F37D1B0EBA5A00C85727 /* TITLE CARD PAUSE SCREEN_converted.m4v in Resources */,
 				F066F3411B0EB81800C85727 /* 12.m4a in Resources */,
@@ -1468,11 +1490,13 @@
 				F0B8DC7C1985121400976135 /* data.json in Resources */,
 				F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
 				F0B8DC941985121400976135 /* dataT.json in Resources */,
+				F037A5E41B496CCC006521BB /* SOCalibrationViewController.xib in Resources */,
 				F029C9301AF70487004DB423 /* Images.xcassets in Resources */,
 				F00AA99D1B1BE3C6003927F5 /* data_010615.json in Resources */,
 				F0B8DC9C1985121400976135 /* Main.storyboard in Resources */,
 				F0B8DC9E1985121400976135 /* default.png in Resources */,
 				F0B8DCAD1985121400976135 /* SOBeaconViewController.xib in Resources */,
+				F037A5D51B49668D006521BB /* calibrate1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1497,6 +1521,7 @@
 				F0FE7405191E3037008B7E45 /* SOScreenView.m in Sources */,
 				F0C2DF151939FCBC00EAB7F9 /* JSONModel+networking.m in Sources */,
 				F0FD848A193DE95400F5DD2F /* SOPropertiesViewController.m in Sources */,
+				F037A5E11B496CCC006521BB /* SOCalibrationViewController.m in Sources */,
 				F0FD848F193DFAEA00F5DD2F /* SOFloatPropViewController.m in Sources */,
 				F0AECCD618B171DB00263C32 /* SOAppDelegate.m in Sources */,
 				F04417A318BA0C2400572780 /* SONotifications.m in Sources */,
@@ -1506,6 +1531,7 @@
 				F0C2DF1B1939FD1B00EAB7F9 /* SOCueModel.m in Sources */,
 				F068CE941938065A009B9297 /* SOScreenTransport.m in Sources */,
 				F0C2DF0D1939FCBC00EAB7F9 /* JSONModel+CoreData.m in Sources */,
+				F037A5E71B497162006521BB /* SOGridView.m in Sources */,
 				F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */,
 				F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */,
 				F0C2DEEF1939F51100EAB7F9 /* SOModelStore.m in Sources */,
@@ -1544,6 +1570,7 @@
 				F0B8DC071985121400976135 /* SOScreenView.m in Sources */,
 				F0B8DC081985121400976135 /* JSONModel+networking.m in Sources */,
 				F0B8DC091985121400976135 /* SOPropertiesViewController.m in Sources */,
+				F037A5E21B496CCC006521BB /* SOCalibrationViewController.m in Sources */,
 				F0B8DC0A1985121400976135 /* SOFloatPropViewController.m in Sources */,
 				F0B8DC0B1985121400976135 /* SOAppDelegate.m in Sources */,
 				F0B8DC0C1985121400976135 /* SONotifications.m in Sources */,
@@ -1553,6 +1580,7 @@
 				F0B8DC101985121400976135 /* SOCueModel.m in Sources */,
 				F0B8DC111985121400976135 /* SOScreenTransport.m in Sources */,
 				F0B8DC121985121400976135 /* JSONModel+CoreData.m in Sources */,
+				F037A5E81B497162006521BB /* SOGridView.m in Sources */,
 				F0B8DC131985121400976135 /* SOBeaconModel.m in Sources */,
 				F0B8DC141985121400976135 /* JSONModel.m in Sources */,
 				F0B8DC151985121400976135 /* SOModelStore.m in Sources */,

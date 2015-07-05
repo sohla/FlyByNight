@@ -21,5 +21,7 @@
 -(SOBeaconModel*)beaconModelWithMinor:(int)minor;
 -(SOCueModel*)cueModelAtIndex:(int)index;
 -(SOCueModel*)cueModelWithTitle:(NSString*)title;
+-(SOBeaconModel*)loadCalibration;
+
 
 @end

@@ -11,7 +11,7 @@
 #import "SOFloatTransformer.h"
 #import "SOScreensContainer.h"
 #import "SOBeaconsProtocol.h"
-
+#import "SOCalibrationViewController.h"
 
 #define kMaxAssetImages 5
 
@@ -33,6 +33,8 @@
 
 @property (assign, nonatomic) id<SOBeaconsProtocol> delegate;
 
+
+@property (retain, nonatomic) SOCalibrationViewController *calibrationVC;
 @end
 
 
@@ -80,17 +82,21 @@
         
     }];
     
+    _calibrationVC = [[SOCalibrationViewController alloc] initWithNibName:@"SOCalibrationViewController" bundle:nil];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     
 //    [self performSegueWithIdentifier:@"showDetail" sender:self];
 //    [self addObservers];
+    
  
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
 //    [self removeObservers];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -350,6 +356,16 @@
                                   
                               }];
 }
+
+- (IBAction)onCalibrate:(id)sender {
+
+    
+    [self.navigationController presentViewController:self.calibrationVC animated:YES completion:^{
+        
+    }];
+
+}
+
 - (IBAction)onBeacon:(id)sender {
 
     [self presentViewController:self.bvc animated:YES completion:nil];
