@@ -150,8 +150,6 @@
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
     AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
     
-    
-    
     self.avPlayer = [AVPlayer playerWithPlayerItem:item];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     
