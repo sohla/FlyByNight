@@ -800,21 +800,6 @@
     },
     {
     "offset_x" : 0.5,
-    "title" : "47audio",
-    "offset_y" : 0.5,
-    "pre_time" : 1.53,
-    "type" : "audio",
-    "path" : "47.m4a",
-    "trigger" : 0,
-    "zoom" : 0.3565,
-    "scroll_dx" : 0,
-    "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
-    "scroll_dy" : 0,
-    "loop" : 0
-    },
-    {
-    "offset_x" : 0.5,
     "title" : "47a",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
@@ -1288,7 +1273,7 @@
                
   ],
 
-"start" : 14
+"start" : 1
     
 
 }

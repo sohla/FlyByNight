@@ -284,29 +284,4 @@
     return array;
 }
 
--(SOBeaconModel*)loadCalibration{
-    
-    SOSessionModel *sm;
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"calibrate1" ofType:@"json"];
-
-    NSURL *url = [NSURL fileURLWithPath:path];
-    if(url == nil){
-        DLog(@"Error getting calibration file with URL");
-    }
-    
-    NSError *err;
-    NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:&err];
-        
-    if(err){
-        DLog(@"Error getting data from calibration file with URL");
-
-    }else{
-    
-        sm = [[SOSessionModel alloc] initWithData:data error:&err];
-        return sm.beacons[0];
-    
-    }
-    return nil;
-}
 @end
