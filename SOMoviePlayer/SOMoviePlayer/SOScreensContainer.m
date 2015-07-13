@@ -57,7 +57,7 @@
 //    [self.view addSubview:self.cvc.view];
 //#endif
     
-    [self.view sendSubviewToBack:self.cvc.view];
+//    [self.view sendSubviewToBack:self.cvc.view];
     
     _screenViewControllers = [[NSMutableDictionary alloc] init];
     
@@ -190,7 +190,7 @@
         [svc.view setHidden:YES];
     }
     
-    [self.view sendSubviewToBack:self.cvc.view];
+    //[self.view sendSubviewToBack:self.cvc.view];
 
     if(cueModel.trigger){
         DLog(@"WE CAN TRIGGER");
@@ -306,7 +306,8 @@
             }
             
         }else if([cueModel.title isEqualToString:@"flybynight"]){
-            [self performSelector:@selector(endReached:) withObject:cueModel afterDelay:pre_time];
+            [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
+            [self performSelector:@selector(endReached:) withObject:cueModel afterDelay:pre_time + 5.0];
         }else if([cueModel.title isEqualToString:@"socialPage"]){
             [self performSelector:@selector(socialReached:) withObject:cueModel afterDelay:pre_time];
         }else{
@@ -323,9 +324,21 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kLogBatteryLevel object:@"flybynight end"];
     
     if(self.cvc){
+    
         DLog(@"killing camera");
-        [self.cvc.view removeFromSuperview];
-        self.cvc = nil;
+        [UIView animateWithDuration:0.3
+                              delay: 0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             self.cvc.view.alpha = 0.0f;
+                         }
+                         completion:^(BOOL finished){
+                             [self.cvc.view removeFromSuperview];
+                             self.cvc = nil;
+                         }];
+
+        
+        
     }
 }
 -(void)socialReached:(SOCueModel *)cueModel{
@@ -353,13 +366,13 @@
                      completion:nil];
 
     
-    [UIView animateWithDuration:5.0f
-                          delay: (cueModel.fadeout_time * 10.0f)
-                        options: UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         self.cvc.view.alpha = 1.0f;
-                     }
-                     completion:nil];
+//    [UIView animateWithDuration:5.0f
+//                          delay: (cueModel.fadeout_time * 10.0f)
+//                        options: UIViewAnimationOptionCurveEaseInOut
+//                     animations:^{
+//                         self.cvc.view.alpha = 0.0f;
+//                     }
+//                     completion:nil];
 
     
 }
@@ -551,7 +564,7 @@
 -(void)onGotoCues:(NSNotification *)notification{
 
     // do we need to pause?
-    [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
     
     [self killAllCues];
     [self cleanup];
