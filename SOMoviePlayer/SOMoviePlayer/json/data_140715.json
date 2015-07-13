@@ -143,7 +143,7 @@
       "title" : "this way audio",
       "offset_y" : 0.5,
       "pre_time" : 0.52,
-      "type" : "movieaudio",
+      "type" : "audio",
       "path" : "03b TC This Way (NS)_converted.m4a",
       "trigger" : 0,
       "zoom" : 0.3565,
