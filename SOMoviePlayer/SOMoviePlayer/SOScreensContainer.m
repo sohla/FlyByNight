@@ -109,7 +109,9 @@
     [self.view addSubview:self.nextButton];
     self.nextButton.alpha = 0.0f;
     
+#if !TARGET_IPHONE_SIMULATOR
     [self.nextButton setHidden:YES];
+#endif
     
 }
 -(void)dealloc{
