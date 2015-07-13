@@ -244,11 +244,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
         [self nextButtonOn:NO withDelay:0.0f];
         
-        // play a sound
-        SystemSoundID completeSound;
-        NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 Shake SFX_converted" ofType:@"m4a"]];
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
-        AudioServicesPlaySystemSound (completeSound);
     }
 }
 
@@ -257,6 +252,13 @@
     DLog(@"");
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
     [self nextButtonOn:NO withDelay:0.0f];
+
+    // play a sound
+    SystemSoundID completeSound;
+    NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 Shake SFX_converted" ofType:@"m4a"]];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
+    AudioServicesPlaySystemSound (completeSound);
+
 }
 
 #pragma mark - Beacon
