@@ -287,14 +287,34 @@
 -(void)fadeIn:(float)seconds completionBlock:(void (^)()) block{
 
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
-    sv.alpha = 0.0f;
+    
+    self.avPlayer.volume = 0.0f;
+    
+    if([self.cueModel.type isEqualToString:@"audio"]){
+        [self fadeInAudio];
+    }
+    if([self.cueModel.type isEqualToString:@"movieaudio"]){
+        [self fadeInAudio];
+    }
 
-    [UIView animateWithDuration:seconds animations:^{
+    
+    if(seconds > 0.0){
+        
+        sv.alpha = 0.0f;
+
+        [UIView animateWithDuration:seconds animations:^{
+            sv.alpha = 1.0f;
+            //self.avPlayer.volume = 1.0f;
+        } completion:^(BOOL finished) {
+            if(block) block();
+        }];
+
+    }else{
+
         sv.alpha = 1.0f;
-        //self.avPlayer.volume = 1.0f;
-    } completion:^(BOOL finished) {
         if(block) block();
-    }];
+
+    }
     
 }
 
@@ -303,37 +323,66 @@
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
     sv.alpha = 1.0f;
     
-    if([self.cueModel.type isEqualToString:@"audio"]){
-        [self fadeAudio];
-    }
-    if([self.cueModel.type isEqualToString:@"movieaudio"]){
-        [self fadeAudio];
-    }
     
     if(seconds > 0.0){
         [UIView animateWithDuration:seconds animations:^{
             
             sv.alpha = 0.0f;
         } completion:^(BOOL finished) {
+
+            if([self.cueModel.type isEqualToString:@"audio"]){
+                [self fadeOutAudio];
+            }
+            if([self.cueModel.type isEqualToString:@"movieaudio"]){
+                [self fadeOutAudio];
+            }
+
             if(block) block();
+
+        
         }];
     }else{
+
+        sv.alpha = 0.0f;
+
+        if([self.cueModel.type isEqualToString:@"audio"]){
+            [self fadeOutAudio];
+        }
+        if([self.cueModel.type isEqualToString:@"movieaudio"]){
+            [self fadeOutAudio];
+        }
+
         if(block) block();
         
     }
     
 }
 
--(void)fadeAudio{
+-(void)fadeOutAudio{
 
-    self.avPlayer.volume -= 0.2;
+    float seconds = 2.0;
+    self.avPlayer.volume -= (0.1 / seconds);
     
     if(self.avPlayer.volume > 0.0){
-        [self performSelector:@selector(fadeAudio) withObject:nil afterDelay:0.002];
+        [self performSelector:@selector(fadeOutAudio) withObject:nil afterDelay:0.1];
     }else{
         self.avPlayer.volume = 0.0;
     }
 
+    //DLog(@"%f",self.avPlayer.volume);
+}
+
+-(void)fadeInAudio{
+    
+    float seconds = 1.0;
+    self.avPlayer.volume += (0.1 / seconds);
+    
+    if(self.avPlayer.volume < 1.0){
+        [self performSelector:@selector(fadeInAudio) withObject:nil afterDelay:0.1];
+    }else{
+        self.avPlayer.volume = 1.0;
+    }
+    
     //DLog(@"%f",self.avPlayer.volume);
 }
 
