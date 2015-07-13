@@ -82,6 +82,7 @@
     _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
     [self.pauseViewController.view setFrame:self.view.frame];
     [self.view addSubview:self.pauseViewController.view];
+    [self.pauseViewController.view setAlpha:0.0f];
     [self.pauseViewController.view setTransform:CGAffineTransformMakeTranslation(-self.view.frame.size.width, 0.0)];
      
     
@@ -242,13 +243,13 @@
 
     if (motion == UIEventSubtypeMotionShake && self.nextButton.selected){
         
-        DLog(@"*");
+        DLog(@"Shake detected");
         [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
         [self nextButtonOn:NO withDelay:0.0f];
         
         // play a sound
         SystemSoundID completeSound;
-        NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"harp" ofType:@"mp3"]];
+        NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 Shake SFX_converted" ofType:@"m4a"]];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
         AudioServicesPlaySystemSound (completeSound);
     }
