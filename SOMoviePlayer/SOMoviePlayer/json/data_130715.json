@@ -1067,7 +1067,7 @@
     "fadeout_time" : 0.2,
     "fadein_time" : 0.2,
     "scroll_dy" : 0,
-    "loop" : 1
+    "loop" : 0
     },
       {
       "offset_x" : 0.5,
