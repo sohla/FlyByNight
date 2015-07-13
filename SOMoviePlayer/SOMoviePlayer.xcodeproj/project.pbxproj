@@ -120,6 +120,7 @@
 		F08D50731B538B4500062D4E /* TITLE CARD - credits endboard_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50721B538B4500062D4E /* TITLE CARD - credits endboard_converted.m4v */; };
 		F08D50751B53A0C400062D4E /* data_130715.json in Resources */ = {isa = PBXBuildFile; fileRef = F08D50741B53A0C400062D4E /* data_130715.json */; };
 		F08D50781B53A52500062D4E /* 00 Shake SFX_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D50771B53A52500062D4E /* 00 Shake SFX_converted.m4a */; };
+		F08D507A1B53F00F00062D4E /* data_140715.json in Resources */ = {isa = PBXBuildFile; fileRef = F08D50791B53F00F00062D4E /* data_140715.json */; };
 		F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOBeaconModel.m */; };
 		F0AECCC618B171DB00263C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
 		F0AECCC818B171DB00263C32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC718B171DB00263C32 /* CoreGraphics.framework */; };
@@ -414,6 +415,7 @@
 		F08D50721B538B4500062D4E /* TITLE CARD - credits endboard_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD - credits endboard_converted.m4v"; sourceTree = "<group>"; };
 		F08D50741B53A0C400062D4E /* data_130715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_130715.json; sourceTree = "<group>"; };
 		F08D50771B53A52500062D4E /* 00 Shake SFX_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "00 Shake SFX_converted.m4a"; sourceTree = "<group>"; };
+		F08D50791B53F00F00062D4E /* data_140715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_140715.json; sourceTree = "<group>"; };
 		F09B75F6197BD5F900C4356A /* SOBeaconModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOBeaconModel.h; sourceTree = "<group>"; };
 		F09B75F7197BD5F900C4356A /* SOBeaconModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOBeaconModel.m; sourceTree = "<group>"; };
 		F0AECCC218B171DB00263C32 /* FlyByNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyByNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -589,6 +591,7 @@
 				F04409091B29B311004F4326 /* data_110615.json */,
 				F04EFB721B2BF4970085938B /* data_130615.json */,
 				F08D50741B53A0C400062D4E /* data_130715.json */,
+				F08D50791B53F00F00062D4E /* data_140715.json */,
 				F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */,
 				F03392EC19382C4E004FDB33 /* data.json */,
 				F0B8DCD519866F9D00976135 /* test.json */,
@@ -1086,6 +1089,7 @@
 			files = (
 				F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */,
 				F07F161A1951017D00E36A70 /* allCues.json in Resources */,
+				F08D507A1B53F00F00062D4E /* data_140715.json in Resources */,
 				F044090A1B29B311004F4326 /* data_110615.json in Resources */,
 				F04409481B29CDE7004F4326 /* FBN CLIP 68_a 3_converted.m4v in Resources */,
 				F04409401B29CABA004F4326 /* FBN CLIP 53_a 3_converted.m4v in Resources */,
