@@ -187,7 +187,11 @@
     if([cueModel.type isEqualToString:@"audio"]){
         [svc.view setHidden:YES];
     }
-    
+
+    if([cueModel.type isEqualToString:@"audiopan"]){
+        [svc.view setHidden:YES];
+    }
+
     //[self.view sendSubviewToBack:self.cvc.view];
 
     if(cueModel.trigger){
@@ -242,22 +246,25 @@
         
         DLog(@"Shake detected");
         [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
+        [self playShakeSound];
         [self nextButtonOn:NO withDelay:0.0f];
         
     }
 }
+-(void)playShakeSound{
 
--(void)onNextButton:(id)sender{
-
-    DLog(@"");
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
-    [self nextButtonOn:NO withDelay:0.0f];
-
-    // play a sound
     SystemSoundID completeSound;
     NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 Shake SFX_converted" ofType:@"m4a"]];
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
     AudioServicesPlaySystemSound (completeSound);
+
+}
+-(void)onNextButton:(id)sender{
+
+    DLog(@"");
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
+    [self playShakeSound];
+    [self nextButtonOn:NO withDelay:0.0f];
 
 }
 
@@ -746,7 +753,8 @@
         
         
         // don't test for audio cues
-        if([[[svc getCueModel] type] isEqualToString:@"moviepan"]){
+        if([[[svc getCueModel] type] isEqualToString:@"moviepan"] ||
+           [[[svc getCueModel] type] isEqualToString:@"audiopan"]){
             
             CGRect vf = [svc visibleFrame];
             float pan = (vf.origin.x / vf.size.width) * -1.0;

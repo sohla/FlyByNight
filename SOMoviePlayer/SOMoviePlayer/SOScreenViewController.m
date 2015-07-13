@@ -323,34 +323,28 @@
     SOScreenView *sv = (SOScreenView*)[self.scrollView viewWithTag:999];
     sv.alpha = 1.0f;
     
-    
+    if([self.cueModel.type isEqualToString:@"audio"]){
+        [self fadeOutAudio];
+    }
+    if([self.cueModel.type isEqualToString:@"movieaudio"]){
+        [self fadeOutAudio];
+    }
+
     if(seconds > 0.0){
+
         [UIView animateWithDuration:seconds animations:^{
             
             sv.alpha = 0.0f;
+
         } completion:^(BOOL finished) {
 
-            if([self.cueModel.type isEqualToString:@"audio"]){
-                [self fadeOutAudio];
-            }
-            if([self.cueModel.type isEqualToString:@"movieaudio"]){
-                [self fadeOutAudio];
-            }
-
             if(block) block();
-
         
         }];
     }else{
 
         sv.alpha = 0.0f;
 
-        if([self.cueModel.type isEqualToString:@"audio"]){
-            [self fadeOutAudio];
-        }
-        if([self.cueModel.type isEqualToString:@"movieaudio"]){
-            [self fadeOutAudio];
-        }
 
         if(block) block();
         
