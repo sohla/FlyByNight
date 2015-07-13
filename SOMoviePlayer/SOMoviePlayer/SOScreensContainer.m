@@ -70,15 +70,10 @@
 
     [self addGestures];
     
-//    CGRect fullFrame = CGRectMake(0.0, 0.0,
-//                                  self.view.frame.size.height,
-//                                  self.view.frame.size.width);
-
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _transport = [sb instantiateViewControllerWithIdentifier:@"transportVCID"];
 
     
-    //• pause should be at rootVC to control all things!
     _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
     [self.pauseViewController.view setFrame:self.view.frame];
     [self.view addSubview:self.pauseViewController.view];
@@ -307,11 +302,16 @@
             }
             
         }else if([cueModel.title isEqualToString:@"flybynight"]){
+            
             [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
             [self performSelector:@selector(endReached:) withObject:cueModel afterDelay:pre_time + 5.0];
+        
         }else if([cueModel.title isEqualToString:@"socialPage"]){
+            
             [self performSelector:@selector(socialReached:) withObject:cueModel afterDelay:pre_time];
+        
         }else{
+            
             // default behaviour
             [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
         }
