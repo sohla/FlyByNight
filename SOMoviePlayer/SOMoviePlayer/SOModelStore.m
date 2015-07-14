@@ -28,12 +28,12 @@
     self = [super init];
     if (self) {
 
-        [self loadCues];
+//        [self loadCues];
     }
     return self;
 }
 
--(void)loadCues{
+-(void)loadCuesWithCompletionBlock:(void(^)())completionBlock{
 
     
     if(YES) {
@@ -79,6 +79,7 @@
                 }];
                 DLog(@"%@",assetsUsed);
                 
+                completionBlock();
 //                DLog(@"%@",[self beaconModelWithMinor:2]);
                 
                 //DLog(@"%@",[self cueModelWithTitle:@"drinking tap"]);

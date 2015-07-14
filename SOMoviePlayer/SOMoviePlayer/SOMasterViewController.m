@@ -20,7 +20,6 @@
 @property (retain, nonatomic) NSMutableArray *movieFilePaths;
 @property (retain, nonatomic) NSMutableArray *thumbNails;
 
-@property (retain, nonatomic) ALAssetsLibrary           *library;
 @property (strong, nonatomic) SOModelStore *modelStore;
 
 @property CLLocationManager *locationManager;
@@ -51,8 +50,8 @@
     [super viewDidLoad];
 
     // hide ui
-    [self.view setHidden:YES];
-    [self.navigationController.view setHidden:YES];
+//    [self.view setHidden:YES];
+//    [self.navigationController.view setHidden:YES];
     
     [self updateEditButton];
     
@@ -62,27 +61,25 @@
     self.movieFilePaths = [NSMutableArray arrayWithArray:[self getAllBundleFilesForTypes:@[@"m4v",@"mov",@"wav"]]];
     _modelStore = [[SOModelStore alloc] init];
 
-    [self collectAssetsWithCompletionBlock:^(NSArray *assets){
+    _calibrationVC = [[SOCalibrationViewController alloc] initWithNibName:@"SOCalibrationViewController" bundle:nil];
+
+    
+    [[self modelStore] loadCuesWithCompletionBlock:^{
         
-        // show ui
-        [self.view setHidden:NO];
-        [self.navigationController.view setHidden:NO];
         [self.tableView reloadData];
-
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
-
+        
         // create our screens manager
         SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
         controller.modelStore = self.modelStore;
-        
+
         // start
         int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
         [self.navigationController pushViewController:controller animated:NO];
         [controller triggerBeacon:[self.modelStore beaconModelWithMinor:start]];
-        
+
     }];
-    
-    _calibrationVC = [[SOCalibrationViewController alloc] initWithNibName:@"SOCalibrationViewController" bundle:nil];
     
 }
 
@@ -311,33 +308,6 @@
 
     [controller triggerBeacon:[self.modelStore beaconModelWithMinor:(int)indexPath.row+1]];
 
-}
-
--(void)collectAssetsWithCompletionBlock:(void(^)(NSArray*))completionBlock{
-    
-    _library = [[ALAssetsLibrary alloc] init];
-    __block NSMutableArray *assets = [NSMutableArray array];
-    
-    [self.library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
-                                usingBlock:^(ALAssetsGroup *group, BOOL *stop){
-                                    
-                                    ALAssetsFilter *allVideosFilter = [ALAssetsFilter allVideos];
-                                    [group setAssetsFilter:allVideosFilter];
-                                    
-                                    [group enumerateAssetsUsingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
-                                        
-                                        if (alAsset){
-                                            ALAssetRepresentation *representation =[alAsset defaultRepresentation];
-                                            NSURL *url = [representation url];
-                                            [assets addObject:url];
-                                        }else{
-                                            completionBlock(assets);
-                                        }
-                                    }];
-                                }
-                              failureBlock:^(NSError *error){
-                                  
-                              }];
 }
 
 - (IBAction)onCalibrate:(id)sender {

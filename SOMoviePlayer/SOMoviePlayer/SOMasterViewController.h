@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 

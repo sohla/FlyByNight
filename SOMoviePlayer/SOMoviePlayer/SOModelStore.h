@@ -17,6 +17,7 @@
 +(NSArray*)arrayOfFloatPropertiesForClass:(Class)c;
 
 -(void)saveLatest;
+-(void)loadCuesWithCompletionBlock:(void(^)())completionBlock;
 
 -(SOBeaconModel*)beaconModelWithMinor:(int)minor;
 -(SOCueModel*)cueModelAtIndex:(int)index;
