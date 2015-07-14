@@ -53,6 +53,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self onSliderChanged:self.slider];
     
+    [super viewWillAppear:animated];
+    
 }
 - (void)didReceiveMemoryWarning
 {

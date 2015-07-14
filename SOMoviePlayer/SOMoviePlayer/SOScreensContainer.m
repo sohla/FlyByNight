@@ -123,12 +123,16 @@
     
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [[self tabBarController].tabBar setHidden:YES];
+    
+    [super viewWillAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [[self tabBarController].tabBar setHidden:NO];
+    
+    [super viewWillDisappear:animated];
 }
 
 -(void)cleanup{

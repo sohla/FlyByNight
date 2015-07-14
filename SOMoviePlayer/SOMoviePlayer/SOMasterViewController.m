@@ -86,23 +86,6 @@
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    
-//    [self performSegueWithIdentifier:@"showDetail" sender:self];
-//    [self addObservers];
-    
- 
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-//    [self removeObservers];
-
-}
--(void)viewWillAppear:(BOOL)animated{
-    
-//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-//    [[self tabBarController].tabBar setHidden:YES];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -462,7 +445,7 @@
                         
                         [self.triggeredBeacons addObject:closestMinor];
                         
-                        NSLog(@"TRIGGER %@",closestMinor);
+                        NSLog(@"TRIGGER %@ %@",proxStr,closestMinor);
                         
                         [self.delegate currentBeacon:closestMinor];
                         

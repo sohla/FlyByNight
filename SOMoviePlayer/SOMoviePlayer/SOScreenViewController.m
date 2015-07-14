@@ -71,19 +71,15 @@
 
 #pragma mark - Views
 
--(void)viewWillAppear:(BOOL)animated{
-    
-}
 
 -(void)viewDidDisappear:(BOOL)animated{
 
     [self removeDisplayLink];
     
     [self destroyPlayer];
+    
+    [super viewDidDisappear:animated];
 
-}
-
--(void)viewWillDisappear:(BOOL)animated{
 }
 
 

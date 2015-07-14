@@ -31,10 +31,14 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [self addDisplayLink];
-
+    
+    [super viewDidAppear:animated];
+    
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [self removeDisplayLink];
+    
+    [super viewDidDisappear:animated];
     
 }
 - (void)didReceiveMemoryWarning {
