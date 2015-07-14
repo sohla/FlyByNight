@@ -150,6 +150,7 @@
 		F08D51021B5551C700062D4E /* 68 Lvl7 (NS)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D51011B5551C700062D4E /* 68 Lvl7 (NS)_converted.m4a */; };
 		F08D51041B5551DE00062D4E /* FBN CLIP 71_a 2_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D51031B5551DE00062D4E /* FBN CLIP 71_a 2_converted_sync.m4v */; };
 		F08D51061B55528200062D4E /* 72 EXT (NS)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D51051B55528200062D4E /* 72 EXT (NS)_converted.m4a */; };
+		F08D51081B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D51071B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a */; };
 		F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOBeaconModel.m */; };
 		F0AECCC618B171DB00263C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
 		F0AECCC818B171DB00263C32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC718B171DB00263C32 /* CoreGraphics.framework */; };
@@ -472,6 +473,7 @@
 		F08D51011B5551C700062D4E /* 68 Lvl7 (NS)_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "68 Lvl7 (NS)_converted.m4a"; sourceTree = "<group>"; };
 		F08D51031B5551DE00062D4E /* FBN CLIP 71_a 2_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 71_a 2_converted_sync.m4v"; sourceTree = "<group>"; };
 		F08D51051B55528200062D4E /* 72 EXT (NS)_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "72 EXT (NS)_converted.m4a"; sourceTree = "<group>"; };
+		F08D51071B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "00 TC Atmos (loop)_converted.m4a"; sourceTree = "<group>"; };
 		F09B75F6197BD5F900C4356A /* SOBeaconModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOBeaconModel.h; sourceTree = "<group>"; };
 		F09B75F7197BD5F900C4356A /* SOBeaconModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOBeaconModel.m; sourceTree = "<group>"; };
 		F0AECCC218B171DB00263C32 /* FlyByNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyByNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -753,6 +755,7 @@
 		F08D50761B53A49200062D4E /* FinalAssetsM4A */ = {
 			isa = PBXGroup;
 			children = (
+				F08D51071B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a */,
 				F08D50771B53A52500062D4E /* 00 Shake SFX_converted.m4a */,
 				F08D50811B53F4DE00062D4E /* 01 Welcome_converted.m4a */,
 				F08D50851B53F85D00062D4E /* 02b TC Behind You_converted.m4a */,
@@ -1296,6 +1299,7 @@
 				F0B8DBF7198507DC00976135 /* SOBeaconViewController.xib in Resources */,
 				F08D51061B55528200062D4E /* 72 EXT (NS)_converted.m4a in Resources */,
 				F01DE52E19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
+				F08D51081B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

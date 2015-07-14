@@ -15,6 +15,7 @@
 @property (strong, nonatomic)UISwipeGestureRecognizer *swipeRightGesture;
 @property (strong, nonatomic)UISwipeGestureRecognizer *swipeLeftGesture;
 
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 @end
 
 @implementation SOTouchView
@@ -25,6 +26,14 @@
     if (self) {
 
         [self addGestures];
+        
+        NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 TC Atmos (loop)_converted" ofType:@"m4a"]];
+
+        
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:NULL];
+        [[self audioPlayer] setNumberOfLoops:-1];
+        
+
     }
     return self;
 }
@@ -34,6 +43,7 @@
 -(void)dealloc{
     
     [self removeGestures];
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -94,6 +104,8 @@
 - (void)onSwipeLeft:(UIGestureRecognizer *)gestureRecognizer{
     
     DLog(@"");
+    [[self audioPlayer] stop];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kContinueCue object:nil];
     
     [self addGestureRecognizer:self.swipeRightGesture];
@@ -103,6 +115,8 @@
 - (void)onSwipeRight:(UIGestureRecognizer *)gestureRecognizer{
     
     DLog(@"");
+    [[self audioPlayer] play];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:kPauseCue object:nil];
     
     [self addGestureRecognizer:self.swipeLeftGesture];
