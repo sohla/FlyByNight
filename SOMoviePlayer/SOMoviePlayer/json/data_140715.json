@@ -659,7 +659,7 @@
     "zoom" : 0.3565,
     "scroll_dx" : 0.0,
     "fadeout_time" : 0.2,
-    "fadein_time" : 0.09,
+    "fadein_time" : 0.3,
     "scroll_dy" : 1,
     "loop" : 0
     },
@@ -978,21 +978,21 @@
       "scroll_dy" : 0,
       "loop" : 1
       },
-              {
-              "offset_x" : 0.4,
-              "title" : "45turnaroundblank",
-              "offset_y" : 0.41,
-              "pre_time" : 1.629,
-              "type" : "movie",
-              "path" : "TITLE CARD - white background_converted.m4v",
-              "trigger" : 0,
-              "zoom" : 0.9565,
-              "scroll_dx" : 1,
-              "fadeout_time" : 0.10,
-              "fadein_time" : 0.2,
-              "scroll_dy" : 0,
-              "loop" : 0
-              },
+      {
+      "offset_x" : 0.4,
+      "title" : "45turnaroundblank",
+      "offset_y" : 0.41,
+      "pre_time" : 1.629,
+      "type" : "movie",
+      "path" : "TITLE CARD - white background_converted.m4v",
+      "trigger" : 0,
+      "zoom" : 0.9565,
+      "scroll_dx" : 1,
+      "fadeout_time" : 0.10,
+      "fadein_time" : 0.2,
+      "scroll_dy" : 0,
+      "loop" : 0
+      },
       {
       "offset_x" : 0.9,
       "title" : "45blank",
@@ -1164,7 +1164,7 @@
       "offset_y" : 0.5,
       "pre_time" : 0.001,
       "type" : "audio",
-      "path" : "47c Atmos _converted.m4a",
+      "path" : "47c Atmos110_converted.m4a",
       "trigger" : 0,
       "zoom" : 0.713,
       "scroll_dx" : 1.0,
@@ -1216,10 +1216,25 @@
     "zoom" : 0.513,
     "scroll_dx" : 1,
     "fadeout_time" : 0.05,
-    "fadein_time" : 0.08,
+    "fadein_time" : 0.16,
     "scroll_dy" : 0.4,
     "loop" : 0
     },
+      {
+      "offset_x" : 0.5,
+      "title" : "53black",
+      "offset_y" : 0.5,
+      "pre_time" : 0.595,
+      "type" : "movie",
+      "path" : "TITLE CARD - black background_converted.m4v",
+      "trigger" : 0,
+      "zoom" : 0.3565,
+      "scroll_dx" : 0,
+      "fadeout_time" : 0.05,
+      "fadein_time" : 0.09,
+      "scroll_dy" : 0,
+      "loop" : 0
+      },
       {
       "offset_x" : 0.4,
       "title" : "53 audio",
@@ -1659,6 +1674,7 @@
              "50a",
              "51 audio",
              "53",
+             "53black",
              "53 audio",
              "64",
              "64 audio",
@@ -1711,7 +1727,7 @@
                
   ],
 
-
+"start" : 1
     
 
 }

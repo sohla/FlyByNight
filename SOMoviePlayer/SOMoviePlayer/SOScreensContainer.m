@@ -754,7 +754,6 @@
         
         SOScreenViewController *svc = (SOScreenViewController*)obj;
         
-        
         // don't test for audio cues
         if([[[svc getCueModel] type] isEqualToString:@"moviepan"] ||
            [[[svc getCueModel] type] isEqualToString:@"audiopan"]){

@@ -16,6 +16,9 @@
 @property (strong, nonatomic) CMAttitude *firstAttitude;
 @property (strong, nonatomic) CMAttitude *calAtt;
 
+@property float storedYaw;
+@property float storedRoll;
+
 //@property (nonatomic) BOOL firstCal;
 
 @property (nonatomic) float heading;
@@ -123,8 +126,12 @@
     
     CMAttitude *att = self.motionManager.deviceMotion.attitude;
     
+    self.storedRoll = att.roll;//self.storedRoll - (0.025 * (self.storedRoll - att.roll));
+    self.storedYaw = att.yaw;//self.storedYaw - (0.025 * (self.storedYaw - att.yaw));
+    
+    
     if([key isEqualToString:@"roll"]){
-        return att.roll;
+        return self.storedRoll;
     }
     if([key isEqualToString:@"pitch"]){
         return att.pitch;
@@ -132,7 +139,7 @@
     if([key isEqualToString:@"yaw"]){
         
         //DLog(@"%f %f %f",att.yaw,self.heading,self.firstAttitude.yaw);
-        return att.yaw;
+        return self.storedYaw;
     }
     if([key isEqualToString:@"heading"]){
         return self.motionManager.deviceMotion.magneticField.field.y;

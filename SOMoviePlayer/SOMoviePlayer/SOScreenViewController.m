@@ -132,8 +132,8 @@
     float h = 320.0f;
 
     CGRect fullFrame = CGRectMake(0.0, 0.0,
-                                    h * [self.cueModel zoom],
-                                    w * [self.cueModel zoom]);
+                                    floorf(h * [self.cueModel zoom]),
+                                    floorf(w * [self.cueModel zoom]));
 
     
     SOScreenView *screenView = [[SOScreenView alloc] initWithFrame:fullFrame];
@@ -565,7 +565,6 @@
 }
 
 - (void)onDisplayLink:(id)sender {
-
     
     float roll = [[SOMotionManager sharedManager] valueForKey:@"roll"];
     //    float pitch = [[SOMotionManager sharedManager] valueForKey:@"pitch"];
@@ -588,7 +587,7 @@
     float w = 568.0f;
     float h = 320.0f;
 
-    CGRect fullFrame = CGRectMake(0.0, 0.0, w * z, h * z);
+    CGRect fullFrame = CGRectMake(0.0, 0.0, floorf(w * z), floorf(h * z));
     
     [screenView setFrame:fullFrame];//•not working?
     
@@ -625,6 +624,9 @@
     
     (rollY < 0.0f) ? rollY *= -1.0f : rollY;
     
+    
+    
+    
 
     // add the offsets
     yawX = yawX + offset_x;
@@ -652,8 +654,8 @@
     float zoomY = (ypers * 0.5f * (zoom - 1.0));//-60.0f
 
     // put it all together
-    xpers = zoomX - (yawX * xpers);
-    ypers = zoomY + (rollY * ypers) + (ypers * 0.25f * scroll_dy);
+    xpers = floorf(zoomX - (yawX * xpers));
+    ypers = floorf(zoomY + (rollY * ypers) + (ypers * 0.25f * scroll_dy));
 
 //    DLog(@"%f :%f",xpers,ypers);
     
