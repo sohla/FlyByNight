@@ -86,7 +86,6 @@
     _touchView = [[SOTouchView alloc] initWithFrame:touchRect];
     [self.view addSubview:self.touchView];
     
-    
     if([[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
         [self addChildViewController:self.transport];
         [self.transport.view setFrame:self.view.frame];
@@ -800,11 +799,11 @@
         }];
         
         if(self.selectedCueModel != nil){
-            [[_transport selectedLabel] setText:[self.selectedCueModel title]];
-            [[_transport editButton] setEnabled:YES];
+            [[self.transport selectedLabel] setText:[self.selectedCueModel title]];
+            [[self.transport editButton] setEnabled:YES];
         }else{
-            [[_transport selectedLabel] setText:@"-"];
-            [[_transport editButton] setEnabled:NO];
+            [[self.transport selectedLabel] setText:@"-"];
+            [[self.transport editButton] setEnabled:NO];
         }        
     }
 }

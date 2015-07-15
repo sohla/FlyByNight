@@ -292,6 +292,9 @@
     if([self.cueModel.type isEqualToString:@"movieaudio"]){
         [self fadeInAudio];
     }
+    if([self.cueModel.type isEqualToString:@"audiopan"]){
+        [self fadeInAudio];
+    }
 
     
     if(seconds > 0.0){
@@ -350,7 +353,7 @@
 
 -(void)fadeOutAudio{
 
-    float seconds = 2.0;
+    float seconds = 4.0;
     self.avPlayer.volume -= (0.1 / seconds);
     
     if(self.avPlayer.volume > 0.0){
@@ -364,7 +367,7 @@
 
 -(void)fadeInAudio{
     
-    float seconds = 1.0;
+    float seconds = 2.0;
     self.avPlayer.volume += (0.1 / seconds);
     
     if(self.avPlayer.volume < 1.0){
