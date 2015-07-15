@@ -50,8 +50,8 @@
     [super viewDidLoad];
 
     // hide ui
-//    [self.view setHidden:YES];
-//    [self.navigationController.view setHidden:YES];
+    [self.view setHidden:YES];
+    [self.navigationController.view setHidden:YES];
     
     [self updateEditButton];
     
@@ -74,10 +74,14 @@
         SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
         controller.modelStore = self.modelStore;
 
+        
         // start
         int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
         [self.navigationController pushViewController:controller animated:NO];
         [controller triggerBeacon:[self.modelStore beaconModelWithMinor:start]];
+
+        [self.view setHidden:NO];
+        [self.navigationController.view setHidden:NO];
 
     }];
     

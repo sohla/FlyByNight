@@ -87,7 +87,6 @@
 		F08D50801B53F3EA00062D4E /* FBN CLIP 1_a 2_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D507F1B53F3EA00062D4E /* FBN CLIP 1_a 2_converted_sync.m4v */; };
 		F08D50821B53F4DE00062D4E /* 01 Welcome_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D50811B53F4DE00062D4E /* 01 Welcome_converted.m4a */; };
 		F08D50841B53F7FC00062D4E /* FBN CLIP 2_a 3_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50831B53F7FC00062D4E /* FBN CLIP 2_a 3_converted_sync.m4v */; };
-		F08D50861B53F85D00062D4E /* 02b TC Behind You_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D50851B53F85D00062D4E /* 02b TC Behind You_converted.m4a */; };
 		F08D50881B53FDDC00062D4E /* FBN CLIP 3_a 3_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50871B53FDDC00062D4E /* FBN CLIP 3_a 3_converted_sync.m4v */; };
 		F08D508A1B53FEE700062D4E /* TITLE CARD - This Way_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50891B53FEE700062D4E /* TITLE CARD - This Way_converted.m4v */; };
 		F08D508C1B53FF9800062D4E /* 03b TC This Way (NS)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D508B1B53FF9800062D4E /* 03b TC This Way (NS)_converted.m4a */; };
@@ -133,7 +132,6 @@
 		F08D50E01B5543FC00062D4E /* FBN CLIP 33_a 3_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50DF1B5543FC00062D4E /* FBN CLIP 33_a 3_converted_sync.m4v */; };
 		F08D50E21B55441F00062D4E /* FBN CLIP 39_a 3_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50E11B55441F00062D4E /* FBN CLIP 39_a 3_converted_sync.m4v */; };
 		F08D50E41B55443900062D4E /* FBN CLIP 38_a 3_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50E31B55443900062D4E /* FBN CLIP 38_a 3_converted_sync.m4v */; };
-		F08D50E61B5544E300062D4E /* 45 Atmos_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D50E51B5544E300062D4E /* 45 Atmos_converted.m4a */; };
 		F08D50E81B55458500062D4E /* FBN CLIP 46_a 2_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50E71B55458500062D4E /* FBN CLIP 46_a 2_converted_sync.m4v */; };
 		F08D50EA1B5545D900062D4E /* FBN CLIP 46_b 2_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50E91B5545D900062D4E /* FBN CLIP 46_b 2_converted_sync.m4v */; };
 		F08D50EC1B5545FA00062D4E /* FBN CLIP 46_c 3_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D50EB1B5545FA00062D4E /* FBN CLIP 46_c 3_converted_sync.m4v */; };
@@ -237,6 +235,9 @@
 		F0C2DF171939FCBC00EAB7F9 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF0C1939FCBC00EAB7F9 /* JSONValueTransformer.m */; };
 		F0C2DF1B1939FD1B00EAB7F9 /* SOCueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */; };
 		F0C2DF1E193A005B00EAB7F9 /* SOSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */; };
+		F0DADB0F1B56924F00727A87 /* 02b TC Behind You (32)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F0DADB0E1B56924F00727A87 /* 02b TC Behind You (32)_converted.m4a */; };
+		F0DADB191B56928B00727A87 /* 45 atmos v2_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F0DADB181B56928B00727A87 /* 45 atmos v2_converted.m4a */; };
+		F0DADB1B1B56932B00727A87 /* 47c Atmos _converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F0DADB1A1B56932B00727A87 /* 47c Atmos _converted.m4a */; };
 		F0F0F4421B042BCE00E8597E /* burstTest2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0F0F4411B042BCE00E8597E /* burstTest2.mov */; };
 		F0FC586E1B5357ED00BA6288 /* TITLE CARD - Behind You_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0FC586D1B5357ED00BA6288 /* TITLE CARD - Behind You_converted.m4v */; };
 		F0FC58741B5368CD00BA6288 /* FBN CLIP 23_a 4_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0FC58731B5368CD00BA6288 /* FBN CLIP 23_a 4_converted.m4v */; };
@@ -410,7 +411,6 @@
 		F08D507F1B53F3EA00062D4E /* FBN CLIP 1_a 2_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 1_a 2_converted_sync.m4v"; sourceTree = "<group>"; };
 		F08D50811B53F4DE00062D4E /* 01 Welcome_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "01 Welcome_converted.m4a"; sourceTree = "<group>"; };
 		F08D50831B53F7FC00062D4E /* FBN CLIP 2_a 3_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 2_a 3_converted_sync.m4v"; sourceTree = "<group>"; };
-		F08D50851B53F85D00062D4E /* 02b TC Behind You_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "02b TC Behind You_converted.m4a"; sourceTree = "<group>"; };
 		F08D50871B53FDDC00062D4E /* FBN CLIP 3_a 3_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 3_a 3_converted_sync.m4v"; sourceTree = "<group>"; };
 		F08D50891B53FEE700062D4E /* TITLE CARD - This Way_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD - This Way_converted.m4v"; sourceTree = "<group>"; };
 		F08D508B1B53FF9800062D4E /* 03b TC This Way (NS)_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "03b TC This Way (NS)_converted.m4a"; sourceTree = "<group>"; };
@@ -456,7 +456,6 @@
 		F08D50DF1B5543FC00062D4E /* FBN CLIP 33_a 3_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 33_a 3_converted_sync.m4v"; sourceTree = "<group>"; };
 		F08D50E11B55441F00062D4E /* FBN CLIP 39_a 3_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 39_a 3_converted_sync.m4v"; sourceTree = "<group>"; };
 		F08D50E31B55443900062D4E /* FBN CLIP 38_a 3_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 38_a 3_converted_sync.m4v"; sourceTree = "<group>"; };
-		F08D50E51B5544E300062D4E /* 45 Atmos_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "45 Atmos_converted.m4a"; sourceTree = "<group>"; };
 		F08D50E71B55458500062D4E /* FBN CLIP 46_a 2_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 46_a 2_converted_sync.m4v"; sourceTree = "<group>"; };
 		F08D50E91B5545D900062D4E /* FBN CLIP 46_b 2_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 46_b 2_converted_sync.m4v"; sourceTree = "<group>"; };
 		F08D50EB1B5545FA00062D4E /* FBN CLIP 46_c 3_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 46_c 3_converted_sync.m4v"; sourceTree = "<group>"; };
@@ -541,6 +540,9 @@
 		F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCueModel.m; sourceTree = "<group>"; };
 		F0C2DF1C193A005B00EAB7F9 /* SOSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSessionModel.h; sourceTree = "<group>"; };
 		F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSessionModel.m; sourceTree = "<group>"; };
+		F0DADB0E1B56924F00727A87 /* 02b TC Behind You (32)_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "02b TC Behind You (32)_converted.m4a"; sourceTree = "<group>"; };
+		F0DADB181B56928B00727A87 /* 45 atmos v2_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "45 atmos v2_converted.m4a"; sourceTree = "<group>"; };
+		F0DADB1A1B56932B00727A87 /* 47c Atmos _converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "47c Atmos _converted.m4a"; sourceTree = "<group>"; };
 		F0F0F4411B042BCE00E8597E /* burstTest2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = burstTest2.mov; sourceTree = "<group>"; };
 		F0FC586D1B5357ED00BA6288 /* TITLE CARD - Behind You_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD - Behind You_converted.m4v"; sourceTree = "<group>"; };
 		F0FC58731B5368CD00BA6288 /* FBN CLIP 23_a 4_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 23_a 4_converted.m4v"; sourceTree = "<group>"; };
@@ -758,7 +760,7 @@
 				F08D51071B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a */,
 				F08D50771B53A52500062D4E /* 00 Shake SFX_converted.m4a */,
 				F08D50811B53F4DE00062D4E /* 01 Welcome_converted.m4a */,
-				F08D50851B53F85D00062D4E /* 02b TC Behind You_converted.m4a */,
+				F0DADB0E1B56924F00727A87 /* 02b TC Behind You (32)_converted.m4a */,
 				F08D508B1B53FF9800062D4E /* 03b TC This Way (NS)_converted.m4a */,
 				F08D508D1B5401C700062D4E /* 04 Travel (NS)_converted.m4a */,
 				F08D50931B540CFD00062D4E /* 07 (NS)_converted.m4a */,
@@ -776,8 +778,9 @@
 				F08D50CF1B5538E300062D4E /* 26a4 Lvl3_converted.m4a */,
 				F08D50D31B55398500062D4E /* 28a Pianting (NS)_converted.m4a */,
 				F08D50D71B553B4000062D4E /* 31 Lvl 3 Travel & Atmos (NS)_converted.m4a */,
-				F08D50E51B5544E300062D4E /* 45 Atmos_converted.m4a */,
+				F0DADB181B56928B00727A87 /* 45 atmos v2_converted.m4a */,
 				F08D50ED1B554ADB00062D4E /* 47a NS_converted.m4a */,
+				F0DADB1A1B56932B00727A87 /* 47c Atmos _converted.m4a */,
 				F08D50F11B554E3100062D4E /* 51 Music (NS) v2_converted.m4a */,
 				F08D50F51B554E9500062D4E /* 53 Diva (NS)_converted.m4a */,
 				F08D50F71B554ECB00062D4E /* 64 Lvl1 (NS)_converted.m4a */,
@@ -1171,7 +1174,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F08D50E61B5544E300062D4E /* 45 Atmos_converted.m4a in Resources */,
 				F08D50DA1B5542F200062D4E /* FBN CLIP 32_a 3_converted_sync.m4v in Resources */,
 				F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */,
 				F07F161A1951017D00E36A70 /* allCues.json in Resources */,
@@ -1195,7 +1197,6 @@
 				F08D509C1B5411C000062D4E /* FBN CLIP 10_a 2_converted_sync.m4v in Resources */,
 				F08D50901B54021100062D4E /* FBN CLIP 5_a 3_converted_sync.m4v in Resources */,
 				F08D508E1B5401C700062D4E /* 04 Travel (NS)_converted.m4a in Resources */,
-				F08D50861B53F85D00062D4E /* 02b TC Behind You_converted.m4a in Resources */,
 				F08D50EA1B5545D900062D4E /* FBN CLIP 46_b 2_converted_sync.m4v in Resources */,
 				F08D50C01B54268600062D4E /* FBN CLIP 19 4th PASS_converted_sync.m4v in Resources */,
 				F08D50FA1B554F0400062D4E /* FBN CLIP 66_a 3_converted_sync.m4v in Resources */,
@@ -1238,6 +1239,7 @@
 				F04EFB711B2BF3A40085938B /* TITLE CARD TURN AROUND_converted.m4v in Resources */,
 				F08D50841B53F7FC00062D4E /* FBN CLIP 2_a 3_converted_sync.m4v in Resources */,
 				F08D50F61B554E9500062D4E /* 53 Diva (NS)_converted.m4a in Resources */,
+				F0DADB1B1B56932B00727A87 /* 47c Atmos _converted.m4a in Resources */,
 				F04409101B29B3F0004F4326 /* TITLE CARD TURN AROUND 3_converted.m4v in Resources */,
 				F0FD8490193DFAEA00F5DD2F /* SOFloatPropViewController.xib in Resources */,
 				F08D51021B5551C700062D4E /* 68 Lvl7 (NS)_converted.m4a in Resources */,
@@ -1254,6 +1256,7 @@
 				F00AA9C31B1C0D8B003927F5 /* FBN CLIP 26_a 2_converted.m4v in Resources */,
 				F08D50F41B554E6000062D4E /* FBN CLIP 53_a 3_converted_sync.m4v in Resources */,
 				F08D509A1B540DF800062D4E /* FBN CLIP 9_a 3_converted_sync.m4v in Resources */,
+				F0DADB0F1B56924F00727A87 /* 02b TC Behind You (32)_converted.m4a in Resources */,
 				F08D50961B540D9B00062D4E /* FBN CLIP 8_a 4_converted_sync.m4v in Resources */,
 				F08D50EE1B554ADB00062D4E /* 47a NS_converted.m4a in Resources */,
 				F08D50E41B55443900062D4E /* FBN CLIP 38_a 3_converted_sync.m4v in Resources */,
@@ -1298,6 +1301,7 @@
 				F013B4641AF1EB6500D43B8D /* data_2014729_1525m4a.json in Resources */,
 				F0B8DBF7198507DC00976135 /* SOBeaconViewController.xib in Resources */,
 				F08D51061B55528200062D4E /* 72 EXT (NS)_converted.m4a in Resources */,
+				F0DADB191B56928B00727A87 /* 45 atmos v2_converted.m4a in Resources */,
 				F01DE52E19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
 				F08D51081B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a in Resources */,
 			);

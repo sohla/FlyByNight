@@ -99,7 +99,7 @@
       "offset_y" : 0.5,
       "pre_time" : 0.22,
       "type" : "audiopan",
-      "path" : "02b TC Behind You_converted.m4a",
+      "path" : "02b TC Behind You (32)_converted.m4a",
       "trigger" : 0,
       "zoom" : 0.3565,
       "scroll_dx" : 1,
@@ -999,7 +999,7 @@
       "offset_y" : 0.41,
       "pre_time" : 1.63,
       "type" : "audio",
-      "path" : "45 Atmos_converted.m4a",
+      "path" : "45 atmos v2_converted.m4a",
       "trigger" : 0,
       "zoom" : 0.9565,
       "scroll_dx" : 1,
@@ -1143,6 +1143,21 @@
     "scroll_dy" : 0.5,
     "loop" : 0
     },
+      {
+      "offset_x" : 0.5,
+      "title" : "49a audio",
+      "offset_y" : 0.5,
+      "pre_time" : 0.001,
+      "type" : "audio",
+      "path" : "47c Atmos _converted.m4a",
+      "trigger" : 0,
+      "zoom" : 0.713,
+      "scroll_dx" : 1.0,
+      "fadeout_time" : 0.08,
+      "fadein_time" : 0.05,
+      "scroll_dy" : 0.5,
+      "loop" : 0
+      },
     {
     "offset_x" : 1.0,
     "title" : "50a",
@@ -1624,6 +1639,7 @@
    "prox" : 2,
    "cues" : [
              "49a",
+             "49a audio",
              "50a",
              "51 audio",
              "53",
@@ -1679,7 +1695,7 @@
                
   ],
 
-"start" : 1
+"start" : 10
     
 
 }
