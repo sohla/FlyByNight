@@ -1311,17 +1311,47 @@
     "loop" : 1
     },
     {
+  "offset_x" : 0.5,
+  "title" : "67a",
+  "offset_y" : 0.5,
+  "pre_time" : 0.001,
+  "type" : "movieaudio",
+  "path" : "FBN CLIP 67_a_converted_sync.m4v",
+  "trigger" : 0,
+  "zoom" : 0.3565,
+  "scroll_dx" : 0,
+  "fadeout_time" : 0.01,
+  "fadein_time" : 0.09,
+  "scroll_dy" : 0,
+  "loop" : 0
+  },
+  {
+  "offset_x" : 0.5,
+  "title" : "67a audio",
+  "offset_y" : 0.5,
+  "pre_time" : 0.001,
+  "type" : "audio",
+  "path" : "67 Lift (NS)_converted.m4a",
+  "trigger" : 0,
+  "zoom" : 0.3565,
+  "scroll_dx" : 0,
+  "fadeout_time" : 0.01,
+  "fadein_time" : 0.09,
+  "scroll_dy" : 0,
+  "loop" : 0
+  },
+    {
     "offset_x" : 0.5,
-    "title" : "67a",
+    "title" : "67a2",
     "offset_y" : 0.5,
-    "pre_time" : 0.001,
+    "pre_time" : 0.11,
     "type" : "movieaudio",
     "path" : "FBN CLIP 67_a 2_converted_sync.m4v",
     "trigger" : 1,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
-    "fadeout_time" : 0.05,
-    "fadein_time" : 0.09,
+    "fadeout_time" : 0.015,
+    "fadein_time" : 0.01,
     "scroll_dy" : 0,
     "loop" : 1
     },
@@ -1689,7 +1719,9 @@
    "threshold" : 2.3,
    "prox" : 2,
    "cues" : [
-             "67a"
+             "67a",
+             "67a audio",
+             "67a2"
              
              ]
    },
@@ -1727,7 +1759,7 @@
                
   ],
 
-"start" : 1
+"start" : 13
     
 
 }
