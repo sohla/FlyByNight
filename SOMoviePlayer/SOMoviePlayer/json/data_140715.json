@@ -909,7 +909,7 @@
     "offset_y" : 0.5,
     "pre_time" : 0.40,
     "type" : "moviepan",
-    "path" : "FBN CLIP 42_a 3_converted_sync.m4v",
+    "path" : "FBN CLIP 42_a 3_short_converted_sync.m4v",
     "trigger" : 0,
     "zoom" : 0.4565,
     "scroll_dx" : 1,
@@ -982,11 +982,11 @@
       "offset_x" : 0.4,
       "title" : "45turnaroundblank",
       "offset_y" : 0.41,
-      "pre_time" : 1.629,
+      "pre_time" : 1.6299,
       "type" : "movie",
       "path" : "TITLE CARD - black background_converted.m4v",
       "trigger" : 0,
-      "zoom" : 0.9565,
+      "zoom" : 1.0,
       "scroll_dx" : 1,
       "fadeout_time" : 0.10,
       "fadein_time" : 0.2,
@@ -1415,21 +1415,21 @@
     "scroll_dy" : 0,
     "loop" : 0
     },
-              {
-              "offset_x" : 0.5,
-              "title" : "7273 audio",
-              "offset_y" : 0.5,
-              "pre_time" : 0.001,
-              "type" : "audio",
-              "path" : "72 EXT (NS)_converted.m4a",
-              "trigger" : 0,
-              "zoom" : 0.3565,
-              "scroll_dx" : 0,
-              "fadeout_time" : 0.05,
-              "fadein_time" : 0.09,
-              "scroll_dy" : 0,
-              "loop" : 0
-              },
+      {
+      "offset_x" : 0.5,
+      "title" : "7273 audio",
+      "offset_y" : 0.5,
+      "pre_time" : 0.001,
+      "type" : "audio",
+      "path" : "72 EXT (NS)_converted.m4a",
+      "trigger" : 0,
+      "zoom" : 0.3565,
+      "scroll_dx" : 0,
+      "fadeout_time" : 0.05,
+      "fadein_time" : 0.09,
+      "scroll_dy" : 0,
+      "loop" : 0
+      },
     {
     "offset_x" : 0.5,
     "title" : "73a",
@@ -1759,7 +1759,7 @@
                
   ],
 
-"start" : 13
+"start" : 1
     
 
 }
