@@ -18,6 +18,7 @@
 
 @property float storedYaw;
 @property float storedRoll;
+@property float storedHeading;
 
 //@property (nonatomic) BOOL firstCal;
 
@@ -62,7 +63,10 @@
     
     if(self.locationManager == nil){
         _locationManager = [[CLLocationManager alloc] init];
+        [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
+        
     }
+    
     
     
     self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
@@ -74,6 +78,10 @@
         
         [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
 
+        
+//        self.firstAttitude = [self.motionManager.deviceMotion.attitude copy];
+        
+        
 //        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
 //                                                                toQueue:[NSOperationQueue currentQueue]
 //                                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {
@@ -93,6 +101,7 @@
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [self.locationManager setDelegate:self];
     [self.locationManager startUpdatingHeading];
+    [self.locationManager startUpdatingLocation];
     
 }
 
@@ -100,9 +109,16 @@
 
     [self.motionManager stopDeviceMotionUpdates];
     
+    
+    [self.locationManager stopUpdatingHeading];
+    [self.locationManager stopUpdatingLocation];
+    
     if(self.motionManager!=nil)
         self.motionManager = nil;
-    
+
+    if(self.locationManager!=nil)
+        self.locationManager = nil;
+
 }
 
 -(void)reset{
@@ -128,6 +144,7 @@
     
     self.storedRoll = att.roll;//self.storedRoll - (0.025 * (self.storedRoll - att.roll));
     self.storedYaw = att.yaw;//self.storedYaw - (0.025 * (self.storedYaw - att.yaw));
+    self.storedHeading = self.storedHeading - (0.025 * (self.storedHeading - self.heading));
     
     
     if([key isEqualToString:@"roll"]){
@@ -138,7 +155,7 @@
     }
     if([key isEqualToString:@"yaw"]){
         
-        //DLog(@"%f %f %f",att.yaw,self.heading,self.firstAttitude.yaw);
+//        DLog(@"%f %f %f",att.yaw, self.heading,self.firstAttitude.yaw);
         return self.storedYaw;
     }
     if([key isEqualToString:@"heading"]){

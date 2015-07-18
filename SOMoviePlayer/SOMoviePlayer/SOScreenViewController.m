@@ -257,7 +257,7 @@
     
     __weak SOScreenViewController *weakSelf = self;
     
-    [weakSelf fadeOut:0.3 completionBlock:^{
+    [weakSelf fadeOut:0.1 completionBlock:^{
         [weakSelf destroyPlayer];
         block();
     }];
