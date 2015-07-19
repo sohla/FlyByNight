@@ -145,6 +145,7 @@
 		F08D51061B55528200062D4E /* 72 EXT (NS)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D51051B55528200062D4E /* 72 EXT (NS)_converted.m4a */; };
 		F08D51081B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F08D51071B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a */; };
 		F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOBeaconModel.m */; };
+		F09FEC701B5B26A200623A0F /* data_190715.json in Resources */ = {isa = PBXBuildFile; fileRef = F09FEC6F1B5B26A200623A0F /* data_190715.json */; };
 		F0AECCC618B171DB00263C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
 		F0AECCC818B171DB00263C32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC718B171DB00263C32 /* CoreGraphics.framework */; };
 		F0AECCCA18B171DB00263C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC918B171DB00263C32 /* UIKit.framework */; };
@@ -474,6 +475,7 @@
 		F08D51071B555AE700062D4E /* 00 TC Atmos (loop)_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "00 TC Atmos (loop)_converted.m4a"; sourceTree = "<group>"; };
 		F09B75F6197BD5F900C4356A /* SOBeaconModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOBeaconModel.h; sourceTree = "<group>"; };
 		F09B75F7197BD5F900C4356A /* SOBeaconModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOBeaconModel.m; sourceTree = "<group>"; };
+		F09FEC6F1B5B26A200623A0F /* data_190715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_190715.json; sourceTree = "<group>"; };
 		F0AECCC218B171DB00263C32 /* FlyByNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyByNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCC518B171DB00263C32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0AECCC718B171DB00263C32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -658,6 +660,7 @@
 				F04EFB721B2BF4970085938B /* data_130615.json */,
 				F08D50741B53A0C400062D4E /* data_130715.json */,
 				F08D50791B53F00F00062D4E /* data_140715.json */,
+				F09FEC6F1B5B26A200623A0F /* data_190715.json */,
 				F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */,
 				F03392EC19382C4E004FDB33 /* data.json */,
 				F0B8DCD519866F9D00976135 /* test.json */,
@@ -1216,6 +1219,7 @@
 				F08D50FA1B554F0400062D4E /* FBN CLIP 66_a 3_converted_sync.m4v in Resources */,
 				F08D50BC1B54229000062D4E /* FBN CLIP 18_b 3_converted_sync.m4v in Resources */,
 				F0FC587A1B536FD000BA6288 /* TITLE CARD - white background_converted.m4v in Resources */,
+				F09FEC701B5B26A200623A0F /* data_190715.json in Resources */,
 				F08D50CC1B55384100062D4E /* 23a Lvl3_converted.m4a in Resources */,
 				F08D50A61B54145800062D4E /* FBN CLIP 12_a 2_converted_sync.m4v in Resources */,
 				F08D50941B540CFD00062D4E /* 07 (NS)_converted.m4a in Resources */,
