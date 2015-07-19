@@ -117,6 +117,8 @@
     if(fullPath != nil){
         NSURL *url = [NSURL fileURLWithPath:fullPath];
         [self buildPlayerWithURL:url];
+    }else{
+        DLog(@"Error : Couldn't open %@",path);
     }
     
     [self scrollTo:(CGPoint){0.0,M_PI_2}];
@@ -353,7 +355,7 @@
 
 -(void)fadeOutAudio{
 
-    float seconds = 4.0;
+    float seconds = 3.2;
     self.avPlayer.volume -= (0.1 / seconds);
     
     if(self.avPlayer.volume > 0.0){
