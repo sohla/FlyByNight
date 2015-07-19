@@ -109,7 +109,7 @@
       "loop" : 0
       },
 {
-    "offset_x" : 1.0,
+    "offset_x" : 0.96,
     "title" : "3a",
     "offset_y" : 0.5,
     "pre_time" : 0.22,
@@ -199,7 +199,7 @@
     "loop" : 1
     },
     {
-    "offset_x" : 0.5,
+    "offset_x" : 0.07,
     "title" : "7a",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
@@ -364,7 +364,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.70,
+      "offset_x" : 0.45,
       "title" : "12a",
       "offset_y" : 0.5,
       "pre_time" : 0.33,
@@ -379,7 +379,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.20,
+    "offset_x" : 0.95,
     "title" : "13a",
     "offset_y" : 0.5,
     "pre_time" : 0.33,
@@ -499,7 +499,7 @@
     "loop" : 1
     },
     {
-    "offset_x" : 0.6,
+    "offset_x" : 0.67,
     "title" : "18b1",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
@@ -514,7 +514,7 @@
     "loop" : 0
     },
       {
-      "offset_x" : 0.6,
+      "offset_x" : 0.67,
       "title" : "18b2",
       "offset_y" : 0.5,
       "pre_time" : 0.101,
@@ -529,7 +529,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.6,
+      "offset_x" : 0.67,
       "title" : "18b3",
       "offset_y" : 0.5,
       "pre_time" : 0.201,
@@ -544,7 +544,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.1,
+      "offset_x" : 0.17,
       "title" : "18c",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
@@ -559,7 +559,7 @@
       "loop" : 1
       },
       {
-      "offset_x" : 0.1,
+      "offset_x" : 0.17,
       "title" : "18c1 audio",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
@@ -574,7 +574,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.1,
+      "offset_x" : 0.17,
       "title" : "18c2 audio",
       "offset_y" : 0.5,
       "pre_time" : 0.081,
@@ -589,7 +589,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.1,
+      "offset_x" : 0.17,
       "title" : "18c3 audio",
       "offset_y" : 0.5,
       "pre_time" : 0.161,
@@ -604,7 +604,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.1,
+      "offset_x" : 0.17,
       "title" : "18c4 audio",
       "offset_y" : 0.5,
       "pre_time" : 0.241,
@@ -799,7 +799,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.46,
+    "offset_x" : 0.27,
     "title" : "28a",
     "offset_y" : 0.5,
     "pre_time" : 0.795,
@@ -814,7 +814,7 @@
     "loop" : 0
     },
       {
-      "offset_x" : 0.46,
+      "offset_x" : 0.27,
       "title" : "28a audio",
       "offset_y" : 0.5,
       "pre_time" : 0.795,
@@ -829,7 +829,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.46,
+    "offset_x" : 0.27,
     "title" : "28b",
     "offset_y" : 0.5,
     "pre_time" : 1.235,
@@ -844,7 +844,7 @@
     "loop" : 1
     },
     {
-    "offset_x" : 0.333,
+    "offset_x" : 0.5,
     "title" : "31a4",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
@@ -859,10 +859,10 @@
     "loop" : 0
     },
       {
-      "offset_x" : 0.333,
+      "offset_x" : 0.5,
       "title" : "31a4 audio",
       "offset_y" : 0.5,
-      "pre_time" : 0.001,
+      "pre_time" : 1.001,
       "type" : "audio",
       "path" : "31 Lvl 3 Travel & Atmos (NS)_converted.m4a",
       "trigger" : 0,
@@ -874,7 +874,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.333,
+    "offset_x" : 0.233,
     "title" : "32",
     "offset_y" : 0.5,
     "pre_time" : 0.40,
@@ -889,7 +889,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.333,
+    "offset_x" : 0.233,
     "title" : "41",
     "offset_y" : 0.5,
     "pre_time" : 0.50,
@@ -904,7 +904,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 1.0,
+    "offset_x" : 0.899,
     "title" : "42",
     "offset_y" : 0.5,
     "pre_time" : 0.40,
@@ -919,7 +919,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.666,
+    "offset_x" : 0.566,
     "title" : "33",
     "offset_y" : 0.5,
     "pre_time" : 0.40,
@@ -934,7 +934,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.666,
+    "offset_x" : 0.566,
     "title" : "39",
     "offset_y" : 0.5,
     "pre_time" : 0.49,
@@ -949,7 +949,7 @@
     "loop" : 0
     },
     {
-    "offset_x" : 0.666,
+    "offset_x" : 0.566,
     "title" : "38",
     "offset_y" : 0.5,
     "pre_time" : 0.74,
@@ -964,7 +964,7 @@
     "loop" : 0
     },
       {
-      "offset_x" : 0.4,
+      "offset_x" : 0.40,
       "title" : "45turnaround",
       "offset_y" : 0.41,
       "pre_time" : 1.63,
@@ -979,7 +979,7 @@
       "loop" : 1
       },
       {
-      "offset_x" : 0.4,
+      "offset_x" : 0.40,
       "title" : "45turnaroundblank",
       "offset_y" : 0.41,
       "pre_time" : 1.6299,
@@ -994,7 +994,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.9,
+      "offset_x" : 0.90,
       "title" : "45blank",
       "offset_y" : 0.41,
       "pre_time" : 1.63,
@@ -1009,7 +1009,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.9,
+      "offset_x" : 0.90,
       "title" : "45 audio",
       "offset_y" : 0.41,
       "pre_time" : 1.63,
@@ -1024,7 +1024,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.9,
+    "offset_x" : 0.90,
     "title" : "46a",
     "offset_y" : 0.31,
     "pre_time" : 1.68,
@@ -1039,7 +1039,7 @@
     "loop" : 1
     },
     {
-    "offset_x" : 0.9,
+    "offset_x" : 0.90,
     "title" : "46b",
     "offset_y" : 0.58,
     "pre_time" : 1.68,
@@ -1054,7 +1054,7 @@
     "loop" : 0
     },
       {
-      "offset_x" : 0.9,
+      "offset_x" : 0.90,
       "title" : "46c",
       "offset_y" : 0.58,
       "pre_time" : 2.02,
@@ -1069,7 +1069,7 @@
       "loop" : 1
       },
       {
-      "offset_x" : 0.9,
+      "offset_x" : 0.90,
       "title" : "46a2",
       "offset_y" : 0.31,
       "pre_time" : 2.02,
@@ -1144,7 +1144,7 @@
     "loop" : 1
     },
     {
-    "offset_x" : 0.5,
+    "offset_x" : 0.90,
     "title" : "49a",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
@@ -1159,7 +1159,7 @@
     "loop" : 0
     },
       {
-      "offset_x" : 0.5,
+      "offset_x" : 0.90,
       "title" : "49a audio",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
@@ -1174,7 +1174,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 1.0,
+    "offset_x" : 0.40,
     "title" : "50a",
     "offset_y" : 0.5,
     "pre_time" : 0.001,
@@ -1190,7 +1190,7 @@
     },
 
       {
-      "offset_x" : 1.0,
+      "offset_x" : 0.40,
       "title" : "51 audio",
       "offset_y" : 0.5,
       "pre_time" : 0.001,
@@ -1206,7 +1206,7 @@
       },
               
     {
-    "offset_x" : 0.4,
+    "offset_x" : 0.90,
     "title" : "53",
     "offset_y" : 0.5,
     "pre_time" : 0.60,
@@ -1221,7 +1221,7 @@
     "loop" : 0
     },
       {
-      "offset_x" : 0.5,
+      "offset_x" : 0.90,
       "title" : "53black",
       "offset_y" : 0.5,
       "pre_time" : 0.595,
@@ -1236,7 +1236,7 @@
       "loop" : 0
       },
       {
-      "offset_x" : 0.4,
+      "offset_x" : 0.40,
       "title" : "53 audio",
       "offset_y" : 0.5,
       "pre_time" : 0.60,
@@ -1251,7 +1251,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.25,
+    "offset_x" : 0.5,
     "title" : "64",
     "offset_y" : 0.5,
     "pre_time" : 1.25,
@@ -1266,7 +1266,7 @@
     "loop" : 0
     },
       {
-      "offset_x" : 0.25,
+      "offset_x" : 0.5,
       "title" : "64 audio",
       "offset_y" : 0.5,
       "pre_time" : 1.25,
@@ -1386,18 +1386,18 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.35,
+    "offset_x" : 0.5,
     "title" : "71a",
     "offset_y" : 0.5,
     "pre_time" : 0.97,
     "type" : "movieaudio",
     "path" : "FBN CLIP 71_a 2_converted_sync.m4v",
     "trigger" : 1,
-    "zoom" : 0.5565,
-    "scroll_dx" : 0.3,
+    "zoom" : 0.3565,
+    "scroll_dx" : 0.0,
     "fadeout_time" : 0.05,
     "fadein_time" : 0.16,
-    "scroll_dy" : 0.3,
+    "scroll_dy" : 0.0,
     "loop" : 1
     },
     {

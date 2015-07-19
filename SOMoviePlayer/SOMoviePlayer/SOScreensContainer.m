@@ -29,6 +29,8 @@
 @property (strong, nonatomic) UIButton *nextButton;
 @property (strong, nonatomic) UIViewController *pauseViewController;
 @property (strong, nonatomic) SOTouchView *touchView;
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+
 
 -(void)onMotionManagerReset:(NSNotification *)notification;
 
@@ -112,6 +114,13 @@
     [self.nextButton setHidden:YES];
 #endif
     
+    
+    NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 Shake SFX_converted" ofType:@"m4a"]];
+    
+    
+    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:NULL];
+    [[self audioPlayer] setNumberOfLoops:0];
+
 }
 -(void)dealloc{
     DLog(@"");
@@ -256,11 +265,7 @@
 }
 -(void)playShakeSound{
 
-    SystemSoundID completeSound;
-    NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 Shake SFX_converted" ofType:@"m4a"]];
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
-    AudioServicesPlaySystemSound (completeSound);
-
+    [self.audioPlayer play];
 }
 -(void)onNextButton:(id)sender{
 
