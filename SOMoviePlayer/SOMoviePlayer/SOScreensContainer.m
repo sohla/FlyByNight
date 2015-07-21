@@ -14,7 +14,7 @@
 #import "SOAppDelegate.h"
 #import "SOCameraViewController.h"
 #import "SOTouchView.h"
-
+#import "DeviceUtil.h"
 
 
 @interface SOScreensContainer ()
@@ -301,9 +301,14 @@
         float pre_time = [[SOFloatTransformer transformValue:[NSNumber numberWithFloat:cueModel.pre_time]
                                              valWithPropName:@"pre_time"] floatValue];
         
-        if([cueModel.type isEqualToString:@"cam"]){
+        if([cueModel.type isEqualToString:@"cam"] && ![DeviceUtil isAnIPod]){
 
             [self performSelector:@selector(playCam:) withObject:cueModel afterDelay:pre_time];
+            
+            
+        }else if([cueModel.type isEqualToString:@"cam"] && [DeviceUtil isAnIPod]){
+            
+            // don't do anything
             
         }else if([cueModel.type isEqualToString:@"day"]){
 
