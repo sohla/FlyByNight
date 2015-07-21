@@ -7,6 +7,7 @@
 //
 
 #import "SOMotionManager.h"
+#import "DeviceUtil.h"
 
 @interface SOMotionManager ()
 
@@ -74,9 +75,20 @@
     
     if ([self.motionManager isDeviceMotionAvailable]) {
         
-        DLog(@"Device Motion : CMAttitudeReferenceFrameXArbitraryCorrectedZVertical");
         
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
+        if([DeviceUtil isAnIPod]){
+
+            DLog(@"Device is an iPod");
+            [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+            DLog(@"Device Motion : CMAttitudeReferenceFrameXArbitraryZVertical");
+
+        }else{
+
+            [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
+            DLog(@"Device Motion : CMAttitudeReferenceFrameXArbitraryCorrectedZVertical");
+
+        }
+        
 
         
 //        self.firstAttitude = [self.motionManager.deviceMotion.attitude copy];

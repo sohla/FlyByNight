@@ -279,7 +279,7 @@
     "offset_y" : 0.5,
     "pre_time" : 0.001,
     "type" : "movieaudio",
-    "path" : "FBN CLIP 10_a 2_converted_sync.m4v",
+    "path" : "FBN CLIP 10_a 3_converted_sync.m4v",
     "trigger" : 1,
     "zoom" : 0.3565,
     "scroll_dx" : 0,
@@ -784,7 +784,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.27,
+    "offset_x" : 0.5,
     "title" : "28a",
     "offset_y" : 0.5,
     "pre_time" : 0.795,
@@ -792,10 +792,10 @@
     "path" : "FBN CLIP 28_a 3_converted_sync.m4v",
     "trigger" : 0,
     "zoom" : 0.6765,
-    "scroll_dx" : 0.3,
+    "scroll_dx" : 0,
     "fadeout_time" : 0.01,
     "fadein_time" : 0.05,
-    "scroll_dy" : 0.3,
+    "scroll_dy" : 0,
     "loop" : 0
     },
       {
@@ -814,7 +814,7 @@
       "loop" : 0
       },
     {
-    "offset_x" : 0.27,
+    "offset_x" : 0.5,
     "title" : "28b",
     "offset_y" : 0.5,
     "pre_time" : 1.235,
@@ -822,10 +822,10 @@
     "path" : "FBN CLIP 28_b 2_converted_sync.m4v",
     "trigger" : 1,
     "zoom" : 0.6765,
-    "scroll_dx" : 0.3,
+    "scroll_dx" : 0,
     "fadeout_time" : 0.05,
     "fadein_time" : 0.01,
-    "scroll_dy" : 0.3,
+    "scroll_dy" : 0,
     "loop" : 1
     },
     {
@@ -1139,7 +1139,7 @@
     "zoom" : 0.713,
     "scroll_dx" : 1.0,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
+    "fadein_time" : 0.33,
     "scroll_dy" : 0.5,
     "loop" : 0
     },
@@ -1169,7 +1169,7 @@
     "zoom" : 0.713,
     "scroll_dx" : 1.0,
     "fadeout_time" : 0.08,
-    "fadein_time" : 0.05,
+    "fadein_time" : 0.33,
     "scroll_dy" : 0.5,
     "loop" : 0
     },
@@ -1481,7 +1481,7 @@
     "offset_y" : 0.5,
     "pre_time" : 0.55,
     "type" : "movie",
-    "path" : "TITLE CARD - follow the building around_converted.m4v",
+    "path" : "TITLE CARD 07 - follow the building around to_converted.m4v",
     "trigger" : 0,
     "zoom" : 0.5765,
     "scroll_dx" : 0,
