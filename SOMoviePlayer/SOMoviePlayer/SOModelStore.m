@@ -59,7 +59,7 @@
                 
                 NSMutableArray *assetsUsed = [[NSMutableArray alloc] init];
 //                DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"cues"]);
-            
+
                 NSArray *cueTitles = [self.sessionModel.beacons   valueForKeyPath:@"cues"];
                 
                 [cueTitles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
