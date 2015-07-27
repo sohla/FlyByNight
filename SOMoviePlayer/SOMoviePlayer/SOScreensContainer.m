@@ -316,7 +316,7 @@
         }else if([cueModel.type isEqualToString:@"night"]){
 
             // check time
-            if(currentHour > 18 || currentHour < 6){
+            if(currentHour > 17 || currentHour < 6){
                 [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
             }
             
