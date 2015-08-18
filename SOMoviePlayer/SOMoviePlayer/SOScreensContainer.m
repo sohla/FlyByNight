@@ -14,6 +14,8 @@
 #import "SOAppDelegate.h"
 #import "SOCameraViewController.h"
 #import "SOTouchView.h"
+#import "SOColorPickViewController.h"
+
 
 #define kOffset 220
 
@@ -26,6 +28,7 @@
 @property (weak, nonatomic) SOCueModel *selectedCueModel;
 @property (assign, nonatomic) SOBeaconModel *currentBeaconModel;
 @property (strong, nonatomic) SOCameraViewController *cvc;
+@property (strong,nonatomic) SOColorPickViewController *cpvc;
 @property (strong, nonatomic) UIButton *nextButton;
 @property (strong, nonatomic) UIViewController *pauseViewController;
 @property (strong, nonatomic) SOTouchView *touchView;
@@ -197,6 +200,7 @@
     [self.view bringSubviewToFront:svc.view];
     [self.view bringSubviewToFront:self.transport.view];
     [self.view bringSubviewToFront:self.touchView];
+    [self.view bringSubviewToFront:self.nextButton];
     
     if([cueModel.type isEqualToString:@"audio"]){
         [svc.view setHidden:YES];
@@ -215,7 +219,6 @@
     }
 
     
-    [self.view bringSubviewToFront:self.nextButton];
 }
 
 -(void)stopCue:(SOCueModel*)cueModel{
@@ -359,9 +362,9 @@
             [self performSelector:@selector(playCue:) withObject:cueModel afterDelay:pre_time];
             [self performSelector:@selector(endReached:) withObject:cueModel afterDelay:pre_time + 5.0];
         
-        }else if([cueModel.title isEqualToString:@"socialPage"]){
+        }else if([cueModel.title isEqualToString:@"color"]){
             
-            [self performSelector:@selector(socialReached:) withObject:cueModel afterDelay:pre_time];
+            [self performSelector:@selector(colorPickCue:) withObject:cueModel afterDelay:pre_time];
         
         }else{
             
@@ -390,14 +393,32 @@
                              [self.cvc.view removeFromSuperview];
                              self.cvc = nil;
                          }];
+    }
 
-        
-        
+    if(self.cpvc){
+        [self.cpvc.view removeFromSuperview];
+        self.cpvc = nil;
     }
 }
--(void)socialReached:(SOCueModel *)cueModel{
+-(void)colorPickCue:(SOCueModel *)cueModel{
  
     DLog(@"Social Page");
+
+    self.cpvc = [[SOColorPickViewController alloc] initWithNibName:@"SOColorPickViewController" bundle:nil];
+    [self.view addSubview:self.cpvc.view];
+    
+    [self.view bringSubviewToFront:self.cpvc.view];
+    [self.view bringSubviewToFront:self.transport.view];
+    [self.view bringSubviewToFront:self.touchView];
+    [self.view bringSubviewToFront:self.nextButton];
+    
+    if(cueModel.trigger){
+        DLog(@"WE CAN TRIGGER");
+        [self nextButtonOn:YES withDelay:cueModel.trigger];
+    }else{
+    }
+
+
 
 }
 

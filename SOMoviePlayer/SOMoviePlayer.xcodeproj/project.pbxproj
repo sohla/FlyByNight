@@ -38,6 +38,10 @@
 		F029C9301AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
 		F02B8B411B5E7911002F0879 /* TITLE CARD 07 - follow the building around to_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F02B8B401B5E7911002F0879 /* TITLE CARD 07 - follow the building around to_converted.m4v */; };
 		F02B8B4D1B5E7B84002F0879 /* FBN CLIP 10_a 3_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F02B8B4C1B5E7B84002F0879 /* FBN CLIP 10_a 3_converted_sync.m4v */; };
+		F02FFBE71B836F9F0047D0C5 /* SOColorPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02FFBE51B836F9F0047D0C5 /* SOColorPickViewController.m */; };
+		F02FFBE81B836F9F0047D0C5 /* SOColorPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02FFBE51B836F9F0047D0C5 /* SOColorPickViewController.m */; };
+		F02FFBE91B836F9F0047D0C5 /* SOColorPickViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FFBE61B836F9F0047D0C5 /* SOColorPickViewController.xib */; };
+		F02FFBEA1B836F9F0047D0C5 /* SOColorPickViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FFBE61B836F9F0047D0C5 /* SOColorPickViewController.xib */; };
 		F03392ED19382C4E004FDB33 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
 		F0359DE21B5BCBC4005D35C9 /* FBN CLIP 13_a 2_converted_sync.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0359DE11B5BCBC4005D35C9 /* FBN CLIP 13_a 2_converted_sync.m4v */; };
 		F0359DE41B5BCF68005D35C9 /* 07 (NS) +3db_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F0359DE31B5BCF68005D35C9 /* 07 (NS) +3db_converted.m4a */; };
@@ -369,6 +373,9 @@
 		F029C92E1AF70487004DB423 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F02B8B401B5E7911002F0879 /* TITLE CARD 07 - follow the building around to_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD 07 - follow the building around to_converted.m4v"; sourceTree = "<group>"; };
 		F02B8B4C1B5E7B84002F0879 /* FBN CLIP 10_a 3_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 10_a 3_converted_sync.m4v"; sourceTree = "<group>"; };
+		F02FFBE41B836F9F0047D0C5 /* SOColorPickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOColorPickViewController.h; sourceTree = "<group>"; };
+		F02FFBE51B836F9F0047D0C5 /* SOColorPickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOColorPickViewController.m; sourceTree = "<group>"; };
+		F02FFBE61B836F9F0047D0C5 /* SOColorPickViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOColorPickViewController.xib; sourceTree = "<group>"; };
 		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F0359DE11B5BCBC4005D35C9 /* FBN CLIP 13_a 2_converted_sync.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FBN CLIP 13_a 2_converted_sync.m4v"; sourceTree = "<group>"; };
 		F0359DE31B5BCF68005D35C9 /* 07 (NS) +3db_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "07 (NS) +3db_converted.m4a"; sourceTree = "<group>"; };
@@ -897,6 +904,8 @@
 				F0B8DBF4198507DC00976135 /* SOBeaconViewController.m */,
 				F0B8DCCC1985382900976135 /* SOCameraViewController.h */,
 				F0B8DCCD1985382900976135 /* SOCameraViewController.m */,
+				F02FFBE41B836F9F0047D0C5 /* SOColorPickViewController.h */,
+				F02FFBE51B836F9F0047D0C5 /* SOColorPickViewController.m */,
 				F037A5DE1B496CCC006521BB /* SOCalibrationViewController.h */,
 				F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */,
 				F04C40DC1AF0682A00BDCFE6 /* SOLogger.h */,
@@ -909,6 +918,7 @@
 				F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */,
 				F09898DE1B5D2F820041755F /* DeviceUtil.h */,
 				F09898DF1B5D2F820041755F /* DeviceUtil.m */,
+				F02FFBE61B836F9F0047D0C5 /* SOColorPickViewController.xib */,
 				F037A5E01B496CCC006521BB /* SOCalibrationViewController.xib */,
 				F0B8DCCE1985382900976135 /* SOCameraViewController.xib */,
 				F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */,
@@ -1275,6 +1285,7 @@
 				F0359DEC1B5BD2C4005D35C9 /* 64 Lvl1 (NS) +1.5_converted.m4a in Resources */,
 				F04409101B29B3F0004F4326 /* TITLE CARD TURN AROUND 3_converted.m4v in Resources */,
 				F0FD8490193DFAEA00F5DD2F /* SOFloatPropViewController.xib in Resources */,
+				F02FFBE91B836F9F0047D0C5 /* SOColorPickViewController.xib in Resources */,
 				F08D51021B5551C700062D4E /* 68 Lvl7 (NS)_converted.m4a in Resources */,
 				F08D50A21B54138500062D4E /* 11a Riverside NS _converted.m4a in Resources */,
 				F04409181B29B8BF004F4326 /* TITLE CARD LOOK AROUND_converted.m4v in Resources */,
@@ -1364,6 +1375,7 @@
 				F01DE5321987A01900DE7D48 /* data_2014729_1525.json in Resources */,
 				F066F3791B0EB8FB00C85727 /* data_220515.json in Resources */,
 				F0B8DC7C1985121400976135 /* data.json in Resources */,
+				F02FFBEA1B836F9F0047D0C5 /* SOColorPickViewController.xib in Resources */,
 				F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
 				F0B8DC941985121400976135 /* dataT.json in Resources */,
 				F037A5E41B496CCC006521BB /* SOCalibrationViewController.xib in Resources */,
@@ -1407,6 +1419,7 @@
 				F0C2DF1B1939FD1B00EAB7F9 /* SOCueModel.m in Sources */,
 				F068CE941938065A009B9297 /* SOScreenTransport.m in Sources */,
 				F0C2DF0D1939FCBC00EAB7F9 /* JSONModel+CoreData.m in Sources */,
+				F02FFBE71B836F9F0047D0C5 /* SOColorPickViewController.m in Sources */,
 				F037A5E71B497162006521BB /* SOGridView.m in Sources */,
 				F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */,
 				F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */,
@@ -1433,6 +1446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0B8DBFE1985121400976135 /* SOBeaconViewController.m in Sources */,
+				F02FFBE81B836F9F0047D0C5 /* SOColorPickViewController.m in Sources */,
 				F0B8DBFF1985121400976135 /* NSArray+JSONModel.m in Sources */,
 				F0B8DC001985121400976135 /* JSONModelError.m in Sources */,
 				F0B8DC011985121400976135 /* SOSessionModel.m in Sources */,

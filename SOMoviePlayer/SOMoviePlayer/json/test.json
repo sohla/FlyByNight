@@ -18,7 +18,7 @@
                "threshold" : 2.3,
                "action" : "post",
                  "prox" : 2,
-               "cues" : [ "test2"]
+               "cues" : [ "color"]
                  
                  
                  },{
@@ -57,7 +57,7 @@
               "fadeout_time"       : 0.2
               },{
               
-              "title"    : "test2",
+              "title"    : "color",
               "path"     : "burstTest2.mov",
               "type"      : "moviepan",
               "loop"    : 1,
