@@ -35,5 +35,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.view];
+    [self.view setBackgroundColor:
+     [UIColor colorWithHue:(point.x / self.view.frame.size.width)
+                saturation:(point.y / self.view.frame.size.height)
+                brightness:1.0
+                     alpha:1.0]];
+    
+}
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
 
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.view];
+    [self.view setBackgroundColor:
+     [UIColor colorWithHue:(point.x / self.view.frame.size.width)
+                saturation:(point.y / self.view.frame.size.height)
+                brightness:1.0
+                     alpha:1.0]];
+
+}
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+}
 @end

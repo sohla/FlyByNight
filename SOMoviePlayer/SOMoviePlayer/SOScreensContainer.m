@@ -81,7 +81,7 @@
     
     _pauseViewController = [sb instantiateViewControllerWithIdentifier:@"pauseVCID"];
     [self.pauseViewController.view setFrame:self.view.frame];
-    [self.view addSubview:self.pauseViewController.view];
+//    [self.view addSubview:self.pauseViewController.view];
     [self.pauseViewController.view setAlpha:0.0f];
     [self.pauseViewController.view setTransform:CGAffineTransformMakeTranslation(-self.view.frame.size.width, 0.0)];
      
@@ -89,7 +89,7 @@
     
     CGRect touchRect = CGRectInset(self.view.frame, 30.0, 30.0);
     _touchView = [[SOTouchView alloc] initWithFrame:touchRect];
-    [self.view addSubview:self.touchView];
+//    [self.view addSubview:self.touchView];
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState]){
         [self addChildViewController:self.transport];
@@ -405,8 +405,10 @@
     DLog(@"Social Page");
 
     self.cpvc = [[SOColorPickViewController alloc] initWithNibName:@"SOColorPickViewController" bundle:nil];
+    [self.cpvc.view setFrame:self.view.frame];
     [self.view addSubview:self.cpvc.view];
-    
+
+
     [self.view bringSubviewToFront:self.cpvc.view];
     [self.view bringSubviewToFront:self.transport.view];
     [self.view bringSubviewToFront:self.touchView];
@@ -767,6 +769,14 @@
             [self.screenViewControllers removeObjectForKey:cueModel.title];
         }];
     }];
+
+    //• urgh!
+    if(self.cpvc){
+        [self.cpvc.view removeFromSuperview];
+        self.cpvc = nil;
+    }
+
+    
     [self triggerBeacon:[self.modelStore beaconModelWithMinor:beaconModel.minor]];
     
 }
