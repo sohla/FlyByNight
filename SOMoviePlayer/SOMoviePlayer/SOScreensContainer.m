@@ -15,7 +15,7 @@
 #import "SOCameraViewController.h"
 #import "SOTouchView.h"
 
-
+#define kOffset 220
 
 @interface SOScreensContainer ()
 
@@ -97,18 +97,20 @@
     }
 
     
-    CGFloat size = 40.0;
-    CGRect rect = CGRectMake(0.0, 0.0, size*2, size);
+    CGFloat size = 50.0;
+    CGRect rect = CGRectMake(0.0, 0.0, size*4, size);
     _nextButton = [[UIButton alloc] initWithFrame:rect];
-    CGPoint p = {self.view.center.x, self.view.frame.size.height - size};
+    CGPoint p = {self.view.center.x, self.view.center.y};
     [self.nextButton setCenter:p];
-    [self.nextButton setTitle:@"tap" forState:UIControlStateNormal];
-    [self.nextButton setTitleColor:[UIColor colorWithRed:0.839 green:0.788 blue:0.518 alpha:1] forState:UIControlStateNormal];
-    [self.nextButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.7]];
-    [self.nextButton .layer setCornerRadius:size/2.0];
+    [self.nextButton setTitle:@"NEXT   ✓" forState:UIControlStateNormal];
+    [self.nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.nextButton setBackgroundColor:[[UIColor greenColor] colorWithAlphaComponent:0.7]];
+    [self.nextButton.layer setCornerRadius:size/2.0];
     [self.nextButton addTarget:self action:@selector(onNextButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
-    self.nextButton.alpha = 0.0f;
+    [self.nextButton setAlpha:0.0];
+//    [self.nextButton.layer setAnchorPoint:CGPointMake(0,0)];
+    [self.nextButton setTransform:CGAffineTransformMakeTranslation(0.0, -kOffset)];
     
 #if !TARGET_IPHONE_SIMULATOR
     [self.nextButton setHidden:YES];
@@ -232,22 +234,55 @@
     if(isOn){
         
         self.nextButton.alpha = 0.0f;
+        [self.nextButton setTransform:CGAffineTransformMakeTranslation(0.0, -kOffset)];
+        [self.nextButton setTransform:CGAffineTransformRotate(self.nextButton.transform, 0.2)];
 
-        [UIView animateWithDuration:1.0f delay:delay options:0 animations:^{
-            self.nextButton.alpha = 1.0f;
-        } completion:^(BOOL finished) {
-            self.nextButton.selected = YES;
-        }];
+        [UIView animateWithDuration:1.0f
+                              delay:0.0
+             usingSpringWithDamping:0.3
+              initialSpringVelocity:0.5
+                            options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                                self.nextButton.alpha = 1.0f;
+                                [self.nextButton setTransform:CGAffineTransformMakeTranslation(0.0, 0.0)];
+                                [self.nextButton setTransform:CGAffineTransformRotate(self.nextButton.transform, 0.0)];
+                                
+                            } completion:^(BOOL finished) {
+                                self.nextButton.selected = YES;
+                                
+                            }];
+        
+        
+
         
     }else{
 
         self.nextButton.alpha = 1.0f;
+        [self.nextButton setTransform:CGAffineTransformMakeTranslation(0.0, 0.0)];
+        [self.nextButton setTransform:CGAffineTransformRotate(self.nextButton.transform, 0.0)];
+
         self.nextButton.selected = NO;
         
-        [UIView animateWithDuration:0.4f animations:^{
-            self.nextButton.alpha = 0.0f;
+        
+        [UIView animateWithDuration:0.5f
+                              delay:0.0
+             usingSpringWithDamping:0.9
+               initialSpringVelocity:0.5
+                            options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                                self.nextButton.alpha = 0.7f;
+                                [self.nextButton setTransform:CGAffineTransformMakeTranslation(0.0, kOffset)];
+                                [self.nextButton setTransform:CGAffineTransformRotate(self.nextButton.transform, 0.2)];
 
-        }];
+                                
+                            } completion:^(BOOL finished) {
+                                [self.nextButton setTransform:CGAffineTransformMakeTranslation(0.0, -kOffset)];
+
+                                [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
+
+                            }];
+        
+        
+        
+
 
     }
 }
@@ -270,7 +305,6 @@
 -(void)onNextButton:(id)sender{
 
     DLog(@"");
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTransportNext object:nil];
     [self playShakeSound];
     [self nextButtonOn:NO withDelay:0.0f];
 

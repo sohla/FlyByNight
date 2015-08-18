@@ -18,7 +18,7 @@
                "threshold" : 2.3,
                "action" : "post",
                  "prox" : 2,
-               "cues" : [ "test1"]
+               "cues" : [ "test2"]
                  
                  
                  },{
@@ -43,7 +43,7 @@
               "path"     : "checkTest.mov",
               "type"      : "movie",
               "loop"    : 0,
-              "trigger"    : 0,
+              "trigger"    : 1,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
