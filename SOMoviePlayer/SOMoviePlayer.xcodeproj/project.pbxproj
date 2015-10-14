@@ -58,6 +58,9 @@
 		F09898E01B5D2F820041755F /* DeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F09898DF1B5D2F820041755F /* DeviceUtil.m */; };
 		F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOBeaconModel.m */; };
 		F09FEC701B5B26A200623A0F /* data_190715.json in Resources */ = {isa = PBXBuildFile; fileRef = F09FEC6F1B5B26A200623A0F /* data_190715.json */; };
+		F0A939C91BCDE1D400A34481 /* FinalAssetsM4A in Resources */ = {isa = PBXBuildFile; fileRef = F0A939C71BCDE1D400A34481 /* FinalAssetsM4A */; settings = {ASSET_TAGS = (); }; };
+		F0A939CA1BCDE1D400A34481 /* FinalAssetsM4V in Resources */ = {isa = PBXBuildFile; fileRef = F0A939C81BCDE1D400A34481 /* FinalAssetsM4V */; settings = {ASSET_TAGS = (); }; };
+		F0A939CC1BCDE1E500A34481 /* testMovies in Resources */ = {isa = PBXBuildFile; fileRef = F0A939CB1BCDE1E500A34481 /* testMovies */; settings = {ASSET_TAGS = (); }; };
 		F0AECCC618B171DB00263C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC518B171DB00263C32 /* Foundation.framework */; };
 		F0AECCC818B171DB00263C32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC718B171DB00263C32 /* CoreGraphics.framework */; };
 		F0AECCCA18B171DB00263C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECCC918B171DB00263C32 /* UIKit.framework */; };
@@ -279,6 +282,9 @@
 		F09B75F6197BD5F900C4356A /* SOBeaconModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOBeaconModel.h; sourceTree = "<group>"; };
 		F09B75F7197BD5F900C4356A /* SOBeaconModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOBeaconModel.m; sourceTree = "<group>"; };
 		F09FEC6F1B5B26A200623A0F /* data_190715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_190715.json; sourceTree = "<group>"; };
+		F0A939C71BCDE1D400A34481 /* FinalAssetsM4A */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FinalAssetsM4A; sourceTree = "<group>"; };
+		F0A939C81BCDE1D400A34481 /* FinalAssetsM4V */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FinalAssetsM4V; sourceTree = "<group>"; };
+		F0A939CB1BCDE1E500A34481 /* testMovies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testMovies; sourceTree = "<group>"; };
 		F0AECCC218B171DB00263C32 /* FlyByNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyByNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCC518B171DB00263C32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0AECCC718B171DB00263C32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -562,6 +568,9 @@
 		F0AECCCC18B171DB00263C32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F0A939CB1BCDE1E500A34481 /* testMovies */,
+				F0A939C71BCDE1D400A34481 /* FinalAssetsM4A */,
+				F0A939C81BCDE1D400A34481 /* FinalAssetsM4V */,
 				F03392EB19382C3D004FDB33 /* json */,
 				F04417D618BD2D7900572780 /* default.png */,
 				F04417D718BD2D7900572780 /* default@2x.png */,
@@ -837,7 +846,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A939C91BCDE1D400A34481 /* FinalAssetsM4A in Resources */,
 				F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */,
+				F0A939CA1BCDE1D400A34481 /* FinalAssetsM4V in Resources */,
 				F07F161A1951017D00E36A70 /* allCues.json in Resources */,
 				F08D507A1B53F00F00062D4E /* data_140715.json in Resources */,
 				F044090A1B29B311004F4326 /* data_110615.json in Resources */,
@@ -852,6 +863,7 @@
 				F0B8DCD619866F9D00976135 /* test.json in Resources */,
 				F0AECCD018B171DB00263C32 /* InfoPlist.strings in Resources */,
 				F03392ED19382C4E004FDB33 /* data.json in Resources */,
+				F0A939CC1BCDE1E500A34481 /* testMovies in Resources */,
 				F066F3781B0EB8FB00C85727 /* data_220515.json in Resources */,
 				F029C92F1AF70487004DB423 /* Images.xcassets in Resources */,
 				F0FE3DEB1944A00D0029DAEF /* dataT.json in Resources */,
