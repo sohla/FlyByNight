@@ -171,8 +171,8 @@
     NSDate	*now = [NSDate date];
 	NSCalendar *currentCalendar = [NSCalendar currentCalendar];
 	NSDateComponents *comp = [currentCalendar components:
-							  (NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|
-							   NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit)
+							  (NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|
+							   NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond)
 												fromDate:now];
     
     
