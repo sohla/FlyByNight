@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4032AC0C205CAF7C657848B19499BED9CD3C75F7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4032AC0C205CAF7C657848B19499BED9CD3C75F7" : 0,
+    "35B5C9A93714EC9BEB56BAE809C5551E5C66E52D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "01B4D067-F5B4-4723-A765-587A6C3245CB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4032AC0C205CAF7C657848B19499BED9CD3C75F7" : "SOMoviePlayer",
+    "35B5C9A93714EC9BEB56BAE809C5551E5C66E52D" : "CocoaLumberjack"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SOMoviePlayer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SOMoviePlayer\/SOMoviePlayer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CocoaLumberjack\/CocoaLumberjack.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "35B5C9A93714EC9BEB56BAE809C5551E5C66E52D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:sohla\/SOMoviePlayer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4032AC0C205CAF7C657848B19499BED9CD3C75F7"
+    }
+  ]
+}
