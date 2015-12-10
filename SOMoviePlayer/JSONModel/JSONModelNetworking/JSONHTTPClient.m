@@ -128,13 +128,18 @@ static NSString* requestContentType = nil;
     }
     
     NSAssert([value isKindOfClass:[NSString class]], @"request parameters can be only of NSString or NSNumber classes. '%@' is of class %@.", value, [value class]);
-        
-    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                 NULL,
-                                                                                 (__bridge CFStringRef) value,
-                                                                                 NULL,
-                                                                                 (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                 kCFStringEncodingUTF8));
+    
+    
+    NSString *aString = (NSString*)value;
+    
+    return [aString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"]];
+    
+//    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+//                                                                                 NULL,
+//                                                                                 (__bridge CFStringRef) value,
+//                                                                                 NULL,
+//                                                                                 (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+//                                                                                 kCFStringEncodingUTF8));
 }
 
 #pragma mark - networking worker methods
@@ -175,23 +180,31 @@ static NSString* requestContentType = nil;
     }
     
     //prepare output
-	NSHTTPURLResponse* response = nil;
+	__block NSHTTPURLResponse* blockResponse = nil;
+    __block NSData *blockData = nil;
     
+    [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+        blockData = data;
+        blockResponse = (NSHTTPURLResponse*)response;//err?
+        
+        if (error != nil) {
+            NSError* errObj = *err;
+            *err = [JSONModelError errorWithDomain:errObj.domain code:errObj.code userInfo:errObj.userInfo];
+        }
+
+    }];
     //fire the request
-	NSData *responseData = [NSURLConnection sendSynchronousRequest: request
-                                                 returningResponse: &response
-                                                             error: err];
+//	NSData *responseData = [NSURLConnection sendSynchronousRequest: request
+//                                                 returningResponse: &response
+//                                                             error: err];
     //convert an NSError to a JSONModelError
-    if (*err != nil) {
-        NSError* errObj = *err;
-        *err = [JSONModelError errorWithDomain:errObj.domain code:errObj.code userInfo:errObj.userInfo];
-    }
     
     //turn off network indicator
     if (doesControlIndicator) dispatch_async(dispatch_get_main_queue(), ^{[self setNetworkIndicatorVisible:NO];});
     
     //if not OK status set the err to a JSONModelError instance
-	if (response.statusCode >= 300 || response.statusCode < 200) {
+	if (blockResponse.statusCode >= 300 || blockResponse.statusCode < 200) {
         //create a new error
         if (*err==nil) *err = [JSONModelError errorBadResponse];
     }
@@ -199,16 +212,16 @@ static NSString* requestContentType = nil;
     //if there was an error, include the HTTP response and return
     if (*err) {
         //assign the response to the JSONModel instance
-        [*err setHttpResponse: [response copy]];
+        [*err setHttpResponse: [blockResponse copy]];
 
         //empty respone, return nil instead
-        if ([responseData length]<1) {
+        if ([blockData length]<1) {
             return nil;
         }
     }
     
     //return the data fetched from web
-    return responseData;
+    return blockData;
 }
 
 +(NSData*)syncRequestDataFromURL:(NSURL*)url method:(NSString*)method params:(NSDictionary*)params headers:(NSDictionary*)headers etag:(NSString**)etag error:(JSONModelError**)err
