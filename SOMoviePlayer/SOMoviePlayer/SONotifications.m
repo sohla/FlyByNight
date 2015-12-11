@@ -27,8 +27,6 @@ NSString* const kContinueCue = @"kContinueCue";
 NSString* const kPauseCue = @"kPauseCue";
 NSString* const kGotoCues = @"kGotoCues";
 
-NSString* const kResetBeacons = @"kResetBeacons";
-NSString* const kBeaconsRangingOn = @"kBeaconsRangingOn";
 NSString* const kLogBatteryLevel = @"kLogBatteryLevel";
 
 

@@ -10,7 +10,6 @@
 #import "SONotifications.h"
 #import "SOFloatTransformer.h"
 #import "SOScreensContainer.h"
-#import "SOBeaconsProtocol.h"
 #import "SOCalibrationViewController.h"
 
 #define kMaxAssetImages 5
@@ -25,12 +24,8 @@
 @property CLLocationManager *locationManager;
 @property NSMutableDictionary *rangedRegions;
 @property NSMutableDictionary *beacons;
-@property NSMutableArray *triggeredBeacons;
-@property (nonatomic) int currentBeacon;
-@property (strong, nonatomic) SOBeaconViewController *bvc ;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
-@property (assign, nonatomic) id<SOBeaconsProtocol> delegate;
 
 
 @property (retain, nonatomic) SOCalibrationViewController *calibrationVC;
@@ -93,59 +88,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - Beacons
-
--(void)setupBeaconManager{
-    
-    self.currentBeacon = 0;
-    
-    self.beacons = [[NSMutableDictionary alloc] init];
-    
-    self.triggeredBeacons = [[NSMutableArray alloc] init];
-    
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    
-    // Populate the regions we will range once.
-    self.rangedRegions = [[NSMutableDictionary alloc] init];
-    
-    NSArray *supportedProximityUUIDs = @[[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"]];
-    
-    for (NSUUID *uuid in supportedProximityUUIDs){
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[uuid UUIDString]];
-        self.rangedRegions[region] = [NSArray array];
-    }
-    
-}
-
--(void)startRangingBeacons{
-    DLog(@"");
-    for (CLBeaconRegion *region in self.rangedRegions){
-        [self.locationManager startRangingBeaconsInRegion:region];
-    }
- 
-}
--(void)stopRangingBeacons{
-    DLog(@"");
-    
-    for (CLBeaconRegion *region in self.rangedRegions){
-        [self.locationManager stopRangingBeaconsInRegion:region];
-    }
-    
-}
-//// Override to allow orientations other than the default portrait orientation.
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-//    // Return YES for supported orientations
-//    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft );
-//}
-//
-//-(NSUInteger)supportedInterfaceOrientations
-//{
-//    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight ;
-//}
-//-(BOOL)shouldAutorotate{
-//    return YES;
-//}
 
 #pragma mark - Notifications
 
@@ -167,15 +109,6 @@
 												 name:kTransportForward
 											   object:nil];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(onResetBeacons:)
-												 name:kResetBeacons
-											   object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(onBeaconsRangingOn:)
-												 name:kBeaconsRangingOn
-											   object:nil];
 
     
 }
@@ -193,13 +126,6 @@
                                                     name:kTransportBack
                                                   object:nil];
 
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kResetBeacons
-                                                  object:nil];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:kBeaconsRangingOn
-                                                  object:nil];
 }
 
 -(void)onTransportForward:(NSNotification *)notification{
@@ -215,30 +141,6 @@
     
 }
 
--(void)onResetBeacons:(NSNotification *)notification{
-    
-    DLog(@"RESET");
-    [self.triggeredBeacons removeAllObjects];
-    self.currentBeacon = 0;
-    
-    [self.delegate currentBeacon:[NSNumber numberWithInt:0]];
-    
-}
-
--(void)onBeaconsRangingOn:(NSNotification *)notification{
-
-    UISwitch *sw = (UISwitch*)[notification object];
-    
-    if(sw.isOn){
-        [self startRangingBeacons];
-    }else{
-        [self stopRangingBeacons];
-    }
-    
-    [[NSUserDefaults standardUserDefaults] setObject:@(sw.isOn)  forKey:kLastBeaconRangingState];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
-}
 
 -(NSArray*)getAllBundleFilesForTypes:(NSArray*)types{
     
@@ -304,8 +206,6 @@
 
     [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:kResetBeacons object:nil];
-
     SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
     controller.modelStore = self.modelStore;
     [self.navigationController pushViewController:controller animated:NO];
@@ -323,11 +223,6 @@
 
 }
 
-- (IBAction)onBeacon:(id)sender {
-
-    [self presentViewController:self.bvc animated:YES completion:nil];
-
-}
 - (IBAction)onEdit:(id)sender {
     
     BOOL state = ![[NSUserDefaults standardUserDefaults] boolForKey:kLastEditState];
@@ -352,96 +247,6 @@
     }
 
 }
-#pragma mark - Location manager delegate
-
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
-    
-    
-    self.rangedRegions[region] = beacons;
-    [self.beacons removeAllObjects];
-    
-    NSMutableArray *allBeacons = [NSMutableArray array];
-    NSMutableArray *cleanBeacons = [NSMutableArray array];
-    
-    for (NSArray *regionResult in [self.rangedRegions allValues]){
-        [allBeacons addObjectsFromArray:regionResult];
-    }
-    
-    [allBeacons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        CLBeacon *beacon = (CLBeacon*)obj;
-        
-        NSString *s = [NSString stringWithFormat:@"Minor : %@  Prox : %ld  Rssi : %ld",
-                                    [beacon minor],
-                                   (long)[beacon proximity],
-                       (long)[beacon rssi]];
-        
-        [cleanBeacons addObject:s];
-        
-    }];
-    
-    if(self.delegate){
-        if([self.delegate respondsToSelector:@selector(currentBeacons:)]){
-            [self.delegate currentBeacons:cleanBeacons];
-            
-        }
-    
-    }
-    
-    NSSortDescriptor *rssiSD = [NSSortDescriptor sortDescriptorWithKey: @"rssi" ascending: NO];
-    NSArray *closest = [allBeacons sortedArrayUsingDescriptors:@[rssiSD]];
-    CLBeacon *beacon = [closest firstObject];
-    NSNumber *closestMinor = beacon.minor;
-    CLLocationAccuracy distance = beacon.accuracy;
-    CLProximity prox = beacon.proximity;
-    NSString *proxStr = @"-";
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    NSArray *proxs = @[@"unknown",@"Immediate",@"Near",@"Far"];
-    proxStr = proxs[prox];
-    
-    if(closestMinor != NULL){
-        
-        if([self.triggeredBeacons indexOfObject:closestMinor] == NSNotFound){
-            
-            if(distance > 0.0f){
-
-                if(prox == CLProximityFar || prox == CLProximityNear){
-                    
-                    // must be NEXT minor
-                   // if([closestMinor intValue] == self.currentBeacon + 1){
-                    
-                    SOBeaconModel *beaconModel = [self.modelStore beaconModelWithMinor:[closestMinor intValue]];
-
-                    if(beaconModel.prox >= prox){
-                        
-                        self.currentBeacon = [closestMinor intValue];
-                        
-                        [self.triggeredBeacons addObject:closestMinor];
-                        
-                        NSLog(@"TRIGGER %@ %@",proxStr,closestMinor);
-                        
-                        [self.delegate currentBeacon:closestMinor];
-                        
-                        [[NSNotificationCenter defaultCenter] postNotificationName:kTransportCue object:closestMinor];
-                        
-                        
-                    }
-                }
-            }
-        }else{
-            
-        }
-        
-        
-    }else{
-        
-        
-    }
-    
-}
-
-
 
 
 

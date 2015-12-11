@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SONotifications.h"
-#import "SOBeaconsProtocol.h"
-@interface SOScreenTransport : UIViewController <SOBeaconsProtocol>
+@interface SOScreenTransport : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedLabel;
 @property (strong, nonatomic) IBOutlet UIButton* editButton;

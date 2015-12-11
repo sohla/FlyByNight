@@ -12,7 +12,6 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 #import "SOModelStore.h"
-#import "SOBeaconViewController.h"
 
 @interface SOMasterViewController : UITableViewController 
 
