@@ -513,10 +513,10 @@
 		F0AECCC518B171DB00263C32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0AECCC718B171DB00263C32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F0AECCC918B171DB00263C32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		F0AECCCD18B171DB00263C32 /* SOMoviePlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOMoviePlayer-Info.plist"; sourceTree = "<group>"; };
+		F0AECCCD18B171DB00263C32 /* FlyByNight-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlyByNight-Info.plist"; sourceTree = "<group>"; };
 		F0AECCCF18B171DB00263C32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F0AECCD118B171DB00263C32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F0AECCD318B171DB00263C32 /* SOMoviePlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SOMoviePlayer-Prefix.pch"; sourceTree = "<group>"; };
+		F0AECCD318B171DB00263C32 /* FlyByNight-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlyByNight-Prefix.pch"; sourceTree = "<group>"; };
 		F0AECCD418B171DB00263C32 /* SOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOAppDelegate.h; sourceTree = "<group>"; };
 		F0AECCD518B171DB00263C32 /* SOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOAppDelegate.m; sourceTree = "<group>"; };
 		F0AECCD818B171DB00263C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -824,7 +824,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C2DEF11939FCBC00EAB7F9 /* JSONModel */,
-				F0AECCCB18B171DB00263C32 /* SOMoviePlayer */,
+				F0AECCCB18B171DB00263C32 /* source */,
 				F0AECCED18B171DC00263C32 /* SOMoviePlayerTests */,
 				F0AECCC418B171DB00263C32 /* Frameworks */,
 				F0AECCC318B171DB00263C32 /* Products */,
@@ -867,7 +867,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F0AECCCB18B171DB00263C32 /* SOMoviePlayer */ = {
+		F0AECCCB18B171DB00263C32 /* source */ = {
 			isa = PBXGroup;
 			children = (
 				F0AECCD418B171DB00263C32 /* SOAppDelegate.h */,
@@ -922,6 +922,7 @@
 				F0C2DF181939FCFF00EAB7F9 /* Models */,
 				F0AECCCC18B171DB00263C32 /* Supporting Files */,
 			);
+			name = source;
 			path = SOMoviePlayer;
 			sourceTree = "<group>";
 		};
@@ -934,10 +935,10 @@
 				F03392EB19382C3D004FDB33 /* json */,
 				F04417D618BD2D7900572780 /* default.png */,
 				F04417D718BD2D7900572780 /* default@2x.png */,
-				F0AECCCD18B171DB00263C32 /* SOMoviePlayer-Info.plist */,
+				F0AECCCD18B171DB00263C32 /* FlyByNight-Info.plist */,
 				F0AECCCE18B171DB00263C32 /* InfoPlist.strings */,
 				F0AECCD118B171DB00263C32 /* main.m */,
-				F0AECCD318B171DB00263C32 /* SOMoviePlayer-Prefix.pch */,
+				F0AECCD318B171DB00263C32 /* FlyByNight-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1038,9 +1039,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F0AECCC118B171DB00263C32 /* SOMoviePlayer */ = {
+		F0AECCC118B171DB00263C32 /* FlyByNight */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0AECCF718B171DC00263C32 /* Build configuration list for PBXNativeTarget "SOMoviePlayer" */;
+			buildConfigurationList = F0AECCF718B171DC00263C32 /* Build configuration list for PBXNativeTarget "FlyByNight" */;
 			buildPhases = (
 				F0AECCBE18B171DB00263C32 /* Sources */,
 				F0AECCBF18B171DB00263C32 /* Frameworks */,
@@ -1051,7 +1052,7 @@
 			dependencies = (
 				F04409041B293F18004F4326 /* PBXTargetDependency */,
 			);
-			name = SOMoviePlayer;
+			name = FlyByNight;
 			productName = SOMoviePlayer;
 			productReference = F0AECCC218B171DB00263C32 /* FlyByNight.temp_caseinsensitive_rename.app */;
 			productType = "com.apple.product-type.application";
@@ -1074,9 +1075,9 @@
 			productReference = F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F0B8DBFC1985121400976135 /* SOMoviePlayerNoAssets */ = {
+		F0B8DBFC1985121400976135 /* FlyByNightNoAssets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0B8DCC61985121400976135 /* Build configuration list for PBXNativeTarget "SOMoviePlayerNoAssets" */;
+			buildConfigurationList = F0B8DCC61985121400976135 /* Build configuration list for PBXNativeTarget "FlyByNightNoAssets" */;
 			buildPhases = (
 				F0B8DBFD1985121400976135 /* Sources */,
 				F0B8DC1A1985121400976135 /* Frameworks */,
@@ -1086,7 +1087,7 @@
 			);
 			dependencies = (
 			);
-			name = SOMoviePlayerNoAssets;
+			name = FlyByNightNoAssets;
 			productName = SOMoviePlayer;
 			productReference = F0B8DCC91985121400976135 /* SOMoviePlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -1128,9 +1129,9 @@
 			);
 			projectRoot = "";
 			targets = (
-				F0AECCC118B171DB00263C32 /* SOMoviePlayer */,
+				F0AECCC118B171DB00263C32 /* FlyByNight */,
 				F0AECCE518B171DC00263C32 /* SOMoviePlayerTests */,
-				F0B8DBFC1985121400976135 /* SOMoviePlayerNoAssets */,
+				F0B8DBFC1985121400976135 /* FlyByNightNoAssets */,
 			);
 		};
 /* End PBXProject section */
@@ -1483,7 +1484,7 @@
 		};
 		F0AECCEC18B171DC00263C32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F0AECCC118B171DB00263C32 /* SOMoviePlayer */;
+			target = F0AECCC118B171DB00263C32 /* FlyByNight */;
 			targetProxy = F0AECCEB18B171DC00263C32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1596,8 +1597,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
-				INFOPLIST_FILE = "SOMoviePlayer/SOMoviePlayer-Info.plist";
+				GCC_PREFIX_HEADER = "SOMoviePlayer/FlyByNight-Prefix.pch";
+				INFOPLIST_FILE = "SOMoviePlayer/FlyByNight-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
@@ -1619,8 +1620,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SOMoviePlayer/SOMoviePlayer-Prefix.pch";
-				INFOPLIST_FILE = "SOMoviePlayer/SOMoviePlayer-Info.plist";
+				GCC_PREFIX_HEADER = "SOMoviePlayer/FlyByNight-Prefix.pch";
+				INFOPLIST_FILE = "SOMoviePlayer/FlyByNight-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
@@ -1729,7 +1730,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0AECCF718B171DC00263C32 /* Build configuration list for PBXNativeTarget "SOMoviePlayer" */ = {
+		F0AECCF718B171DC00263C32 /* Build configuration list for PBXNativeTarget "FlyByNight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0AECCF818B171DC00263C32 /* Debug */,
@@ -1747,7 +1748,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0B8DCC61985121400976135 /* Build configuration list for PBXNativeTarget "SOMoviePlayerNoAssets" */ = {
+		F0B8DCC61985121400976135 /* Build configuration list for PBXNativeTarget "FlyByNightNoAssets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0B8DCC71985121400976135 /* Debug */,
