@@ -509,7 +509,7 @@
 		F0A93A481BCDE37E00A34481 /* TITLE CARD PAUSE SCREEN_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD PAUSE SCREEN_converted.m4v"; sourceTree = "<group>"; };
 		F0A93A491BCDE37E00A34481 /* TITLE CARD TURN AROUND 3_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD TURN AROUND 3_converted.m4v"; sourceTree = "<group>"; };
 		F0A93A4A1BCDE37E00A34481 /* TITLE CARD TURN AROUND_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD TURN AROUND_converted.m4v"; sourceTree = "<group>"; };
-		F0AECCC218B171DB00263C32 /* FlyByNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyByNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0AECCC218B171DB00263C32 /* FlyByNight.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyByNight.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCC518B171DB00263C32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0AECCC718B171DB00263C32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F0AECCC918B171DB00263C32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -835,7 +835,7 @@
 		F0AECCC318B171DB00263C32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F0AECCC218B171DB00263C32 /* FlyByNight.app */,
+				F0AECCC218B171DB00263C32 /* FlyByNight.temp_caseinsensitive_rename.app */,
 				F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */,
 				F0B8DCC91985121400976135 /* SOMoviePlayer.app */,
 			);
@@ -1053,7 +1053,7 @@
 			);
 			name = SOMoviePlayer;
 			productName = SOMoviePlayer;
-			productReference = F0AECCC218B171DB00263C32 /* FlyByNight.app */;
+			productReference = F0AECCC218B171DB00263C32 /* FlyByNight.temp_caseinsensitive_rename.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F0AECCE518B171DC00263C32 /* SOMoviePlayerTests */ = {
@@ -1109,7 +1109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F0AECCBD18B171DB00263C32 /* Build configuration list for PBXProject "SOMoviePlayer" */;
+			buildConfigurationList = F0AECCBD18B171DB00263C32 /* Build configuration list for PBXProject "FlyByNight" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1601,7 +1601,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = FlyByNight;
+				PRODUCT_NAME = FlyByNight.temp_caseinsensitive_rename;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1624,7 +1624,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = FlyByNight;
+				PRODUCT_NAME = FlyByNight.temp_caseinsensitive_rename;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1720,7 +1720,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F0AECCBD18B171DB00263C32 /* Build configuration list for PBXProject "SOMoviePlayer" */ = {
+		F0AECCBD18B171DB00263C32 /* Build configuration list for PBXProject "FlyByNight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0AECCF518B171DC00263C32 /* Debug */,
