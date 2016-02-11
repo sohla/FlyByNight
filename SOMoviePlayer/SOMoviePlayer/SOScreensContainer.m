@@ -86,7 +86,7 @@
      
     
     
-    CGRect touchRect = CGRectInset(self.view.frame, 0.0, 0.0);
+    CGRect touchRect = CGRectInset(self.view.frame, 30.0, 30.0);
     _touchView = [[SOTouchView alloc] initWithFrame:touchRect];
     [self.view addSubview:self.touchView];
     
