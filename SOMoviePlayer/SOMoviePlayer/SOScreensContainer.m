@@ -63,7 +63,9 @@
     
     _screenViewControllers = [[NSMutableDictionary alloc] init];
     
-    [self.view setBackgroundColor:[UIColor blackColor]];
+//    [self.view setFrame:CGRectMake(0, 0, 320.0, 568.0)];
+
+    [self.view setBackgroundColor:[UIColor greenColor]];
     
     //motion
     [self addDisplayLink];
@@ -84,7 +86,7 @@
      
     
     
-    CGRect touchRect = CGRectInset(self.view.frame, 30.0, 30.0);
+    CGRect touchRect = CGRectInset(self.view.frame, 0.0, 0.0);
     _touchView = [[SOTouchView alloc] initWithFrame:touchRect];
     [self.view addSubview:self.touchView];
     

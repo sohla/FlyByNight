@@ -57,7 +57,7 @@
                         <constraint firstAttribute="height" constant="21" id="DxY-LE-h3m"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -66,22 +66,15 @@
                 <constraint firstItem="zYQ-zc-5QV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2Ek-D0-d2T"/>
                 <constraint firstItem="zYQ-zc-5QV" firstAttribute="top" secondItem="e8G-GF-YYg" secondAttribute="bottom" constant="8" id="3tP-f4-u26"/>
                 <constraint firstAttribute="bottom" secondItem="hy8-b3-s3u" secondAttribute="bottom" constant="20" id="40m-qp-qav"/>
-                <constraint firstAttribute="centerY" secondItem="hy8-b3-s3u" secondAttribute="centerY" constant="-228.5" id="BSn-lU-m2c"/>
                 <constraint firstAttribute="bottom" secondItem="KVp-cf-TZL" secondAttribute="bottom" constant="20" id="Exq-MX-iIe"/>
                 <constraint firstAttribute="centerX" secondItem="hy8-b3-s3u" secondAttribute="centerX" id="LTV-YW-jOk"/>
-                <constraint firstAttribute="centerY" secondItem="hy8-b3-s3u" secondAttribute="centerY" constant="-228.5" id="Lv8-dI-Ubt"/>
                 <constraint firstItem="e8G-GF-YYg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TQ7-k0-ipL"/>
                 <constraint firstAttribute="trailing" secondItem="zYQ-zc-5QV" secondAttribute="trailing" constant="8" id="VlF-OP-UaT"/>
                 <constraint firstAttribute="trailing" secondItem="KVp-cf-TZL" secondAttribute="trailing" constant="26" id="ZIQ-CK-F6e"/>
                 <constraint firstAttribute="trailing" secondItem="e8G-GF-YYg" secondAttribute="trailing" id="bG4-bs-HLC"/>
                 <constraint firstItem="e8G-GF-YYg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="egU-WC-pCf"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="BSn-lU-m2c"/>
-                    <exclude reference="Lv8-dI-Ubt"/>
-                </mask>
-            </variation>
+            <point key="canvasLocation" x="283" y="265"/>
         </view>
     </objects>
 </document>

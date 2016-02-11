@@ -68,12 +68,14 @@
         // create our screens manager
         SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
         controller.modelStore = self.modelStore;
+        [[controller view] setFrame:CGRectMake(0, 0, 320.0, 568.0)];
 
         
+        
         // start
-        int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
-        [self.navigationController pushViewController:controller animated:NO];
-        [controller triggerBeacon:[self.modelStore beaconModelWithMinor:start]];
+//        int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
+//        [self.navigationController pushViewController:controller animated:NO];
+//        [controller triggerBeacon:[self.modelStore beaconModelWithMinor:start]];
 
         [self.view setHidden:NO];
         [self.navigationController.view setHidden:NO];
