@@ -29,8 +29,6 @@
 		F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */; };
 		F01DE5311987A01900DE7D48 /* data_2014729_1525.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5301987A01900DE7D48 /* data_2014729_1525.json */; };
 		F01DE5321987A01900DE7D48 /* data_2014729_1525.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5301987A01900DE7D48 /* data_2014729_1525.json */; };
-		F029C92F1AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
-		F029C9301AF70487004DB423 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F029C92E1AF70487004DB423 /* Images.xcassets */; };
 		F03392ED19382C4E004FDB33 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F03392EC19382C4E004FDB33 /* data.json */; };
 		F037A5E11B496CCC006521BB /* SOCalibrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */; };
 		F037A5E21B496CCC006521BB /* SOCalibrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */; };
@@ -53,6 +51,7 @@
 		F068CE941938065A009B9297 /* SOScreenTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = F068CE921938065A009B9297 /* SOScreenTransport.m */; };
 		F072F5E819315DBD009EC2F5 /* SOMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F072F5E719315DBD009EC2F5 /* SOMotionManager.m */; };
 		F07F161A1951017D00E36A70 /* allCues.json in Resources */ = {isa = PBXBuildFile; fileRef = F07F16191951017D00E36A70 /* allCues.json */; };
+		F084802F1C1BB43A00B407CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F084802E1C1BB43A00B407CE /* Images.xcassets */; };
 		F08D50751B53A0C400062D4E /* data_130715.json in Resources */ = {isa = PBXBuildFile; fileRef = F08D50741B53A0C400062D4E /* data_130715.json */; };
 		F08D507A1B53F00F00062D4E /* data_140715.json in Resources */ = {isa = PBXBuildFile; fileRef = F08D50791B53F00F00062D4E /* data_140715.json */; };
 		F09898E01B5D2F820041755F /* DeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F09898DF1B5D2F820041755F /* DeviceUtil.m */; };
@@ -360,7 +359,6 @@
 		F013B4631AF1EB6500D43B8D /* data_2014729_1525m4a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_1525m4a.json; sourceTree = "<group>"; };
 		F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_12111.json; sourceTree = "<group>"; };
 		F01DE5301987A01900DE7D48 /* data_2014729_1525.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_1525.json; sourceTree = "<group>"; };
-		F029C92E1AF70487004DB423 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F037A5DE1B496CCC006521BB /* SOCalibrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCalibrationViewController.h; sourceTree = "<group>"; };
 		F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCalibrationViewController.m; sourceTree = "<group>"; };
@@ -385,6 +383,7 @@
 		F072F5E619315DBD009EC2F5 /* SOMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOMotionManager.h; sourceTree = "<group>"; };
 		F072F5E719315DBD009EC2F5 /* SOMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOMotionManager.m; sourceTree = "<group>"; };
 		F07F16191951017D00E36A70 /* allCues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allCues.json; sourceTree = "<group>"; };
+		F084802E1C1BB43A00B407CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F08D50741B53A0C400062D4E /* data_130715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_130715.json; sourceTree = "<group>"; };
 		F08D50791B53F00F00062D4E /* data_140715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_140715.json; sourceTree = "<group>"; };
 		F09898DE1B5D2F820041755F /* DeviceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtil.h; sourceTree = "<group>"; };
@@ -910,7 +909,7 @@
 				F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */,
 				F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */,
 				F0AECCD718B171DB00263C32 /* Main.storyboard */,
-				F029C92E1AF70487004DB423 /* Images.xcassets */,
+				F084802E1C1BB43A00B407CE /* Images.xcassets */,
 				F0C2DF181939FCFF00EAB7F9 /* Models */,
 				F0AECCCC18B171DB00263C32 /* Supporting Files */,
 			);
@@ -1249,6 +1248,7 @@
 				F0A93A7D1BCDE37E00A34481 /* FBN CLIP 26a_a 4_converted.m4v in Resources */,
 				F0A93AAB1BCDE37E00A34481 /* TITLE CARD 02 - FOLLOW ME_converted.m4v in Resources */,
 				F0A93A761BCDE37E00A34481 /* FBN CLIP 19 4th PASS_converted_sync.m4v in Resources */,
+				F084802F1C1BB43A00B407CE /* Images.xcassets in Resources */,
 				F0A93A741BCDE37E00A34481 /* FBN CLIP 18_c 3_converted.m4v in Resources */,
 				F0A93AAA1BCDE37E00A34481 /* TITLE CARD - white background_converted.m4v in Resources */,
 				F0A93A6A1BCDE37E00A34481 /* FBN CLIP 10_a 2_converted_sync.m4v in Resources */,
@@ -1315,7 +1315,6 @@
 				F0A93A551BCDE37E00A34481 /* 13a Riverside_converted.m4a in Resources */,
 				F066F3781B0EB8FB00C85727 /* data_220515.json in Resources */,
 				F0A93A8C1BCDE37E00A34481 /* FBN CLIP 46_c 3_converted_sync.m4v in Resources */,
-				F029C92F1AF70487004DB423 /* Images.xcassets in Resources */,
 				F0FE3DEB1944A00D0029DAEF /* dataT.json in Resources */,
 				F0A93A8A1BCDE37E00A34481 /* FBN CLIP 46_a 2_converted_sync.m4v in Resources */,
 				F04EFB731B2BF4970085938B /* data_130615.json in Resources */,
@@ -1363,7 +1362,6 @@
 				F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
 				F0B8DC941985121400976135 /* dataT.json in Resources */,
 				F037A5E41B496CCC006521BB /* SOCalibrationViewController.xib in Resources */,
-				F029C9301AF70487004DB423 /* Images.xcassets in Resources */,
 				F00AA99D1B1BE3C6003927F5 /* data_010615.json in Resources */,
 				F0B8DC9C1985121400976135 /* Main.storyboard in Resources */,
 				F0B8DC9E1985121400976135 /* default.png in Resources */,
@@ -1588,7 +1586,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOMoviePlayer/FlyByNight-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/FlyByNight-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FlyByNight.temp_caseinsensitive_rename;
@@ -1611,7 +1609,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOMoviePlayer/FlyByNight-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/FlyByNight-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FlyByNight.temp_caseinsensitive_rename;
