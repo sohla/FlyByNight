@@ -188,7 +188,6 @@
 		F0AECCF418B171DC00263C32 /* SOMoviePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */; };
 		F0AECD0218B1785500263C32 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0118B1785500263C32 /* MediaPlayer.framework */; };
 		F0AECD0E18B1882B00263C32 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AECD0D18B1882B00263C32 /* CoreMotion.framework */; };
-		F0B8DBF7198507DC00976135 /* SOBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */; };
 		F0B8DBF919850B3400976135 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DBF819850B3400976135 /* CoreLocation.framework */; };
 		F0B8DBFB19850B3D00976135 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */; };
 		F0B8DBFF1985121400976135 /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEFF1939FCBC00EAB7F9 /* NSArray+JSONModel.m */; };
@@ -235,7 +234,6 @@
 		F0B8DC941985121400976135 /* dataT.json in Resources */ = {isa = PBXBuildFile; fileRef = F0FE3DEA1944A00D0029DAEF /* dataT.json */; };
 		F0B8DC9C1985121400976135 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AECCD718B171DB00263C32 /* Main.storyboard */; };
 		F0B8DC9E1985121400976135 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F04417D618BD2D7900572780 /* default.png */; };
-		F0B8DCAD1985121400976135 /* SOBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */; };
 		F0B8DCCF1985382900976135 /* SOCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B8DCCD1985382900976135 /* SOCameraViewController.m */; };
 		F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B8DCCE1985382900976135 /* SOCameraViewController.xib */; };
 		F0B8DCD2198538B800976135 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8DCD1198538B800976135 /* CoreVideo.framework */; };
@@ -528,7 +526,6 @@
 		F0AECCF318B171DC00263C32 /* SOMoviePlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOMoviePlayerTests.m; sourceTree = "<group>"; };
 		F0AECD0118B1785500263C32 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F0AECD0D18B1882B00263C32 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOBeaconViewController.xib; sourceTree = "<group>"; };
 		F0B8DBF819850B3400976135 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F0B8DBFA19850B3D00976135 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		F0B8DCC91985121400976135 /* SOMoviePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOMoviePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -905,7 +902,6 @@
 				F09898DF1B5D2F820041755F /* DeviceUtil.m */,
 				F037A5E01B496CCC006521BB /* SOCalibrationViewController.xib */,
 				F0B8DCCE1985382900976135 /* SOCameraViewController.xib */,
-				F0B8DBF5198507DC00976135 /* SOBeaconViewController.xib */,
 				F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */,
 				F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */,
 				F0AECCD718B171DB00263C32 /* Main.storyboard */,
@@ -1325,7 +1321,6 @@
 				F0A93A661BCDE37E00A34481 /* 67 Lift (NS)_converted.m4a in Resources */,
 				F013B4641AF1EB6500D43B8D /* data_2014729_1525m4a.json in Resources */,
 				F0A93A851BCDE37E00A34481 /* FBN CLIP 39_a 3_converted_sync.m4v in Resources */,
-				F0B8DBF7198507DC00976135 /* SOBeaconViewController.xib in Resources */,
 				F0A93AAF1BCDE37E00A34481 /* TITLE CARD 06 - Now we return to the start_converted.m4v in Resources */,
 				F0A93A4C1BCDE37E00A34481 /* 00 TC Atmos (loop)_converted.m4a in Resources */,
 				F0A93A581BCDE37E00A34481 /* 18c Atmos_converted.m4a in Resources */,
@@ -1365,7 +1360,6 @@
 				F00AA99D1B1BE3C6003927F5 /* data_010615.json in Resources */,
 				F0B8DC9C1985121400976135 /* Main.storyboard in Resources */,
 				F0B8DC9E1985121400976135 /* default.png in Resources */,
-				F0B8DCAD1985121400976135 /* SOBeaconViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

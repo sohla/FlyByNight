@@ -10,7 +10,6 @@
 
 
 #define kLastEditState @"kLastEditState"
-#define kLastBeaconRangingState @"kLastBeaconRangingState"
 
 
 @interface SONotifications : NSObject

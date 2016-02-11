@@ -44,15 +44,15 @@
                         <action selector="onExit:" destination="-1" eventType="touchUpInside" id="yHX-Yo-LID"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8G-GF-YYg" customClass="SOGridView">
-                    <rect key="frame" x="8" y="8" width="584" height="424"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8G-GF-YYg" customClass="SOGridView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="EiQ-ZL-N5G"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYQ-zc-5QV">
-                    <rect key="frame" x="8" y="440" width="584" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYQ-zc-5QV">
+                    <rect key="frame" x="8" y="208" width="584" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="DxY-LE-h3m"/>
                     </constraints>
