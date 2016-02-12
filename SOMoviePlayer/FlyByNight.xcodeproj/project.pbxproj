@@ -55,7 +55,7 @@
 		F08D50751B53A0C400062D4E /* data_130715.json in Resources */ = {isa = PBXBuildFile; fileRef = F08D50741B53A0C400062D4E /* data_130715.json */; };
 		F08D507A1B53F00F00062D4E /* data_140715.json in Resources */ = {isa = PBXBuildFile; fileRef = F08D50791B53F00F00062D4E /* data_140715.json */; };
 		F09898E01B5D2F820041755F /* DeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F09898DF1B5D2F820041755F /* DeviceUtil.m */; };
-		F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOBeaconModel.m */; };
+		F09B75F8197BD5F900C4356A /* SOSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOSceneModel.m */; };
 		F09FEC701B5B26A200623A0F /* data_190715.json in Resources */ = {isa = PBXBuildFile; fileRef = F09FEC6F1B5B26A200623A0F /* data_190715.json */; };
 		F0A939D61BCDE37400A34481 /* burstTest.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0A939D01BCDE37400A34481 /* burstTest.mov */; };
 		F0A939D71BCDE37400A34481 /* burstTest2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0A939D11BCDE37400A34481 /* burstTest2.mov */; };
@@ -210,7 +210,7 @@
 		F0B8DC101985121400976135 /* SOCueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */; };
 		F0B8DC111985121400976135 /* SOScreenTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = F068CE921938065A009B9297 /* SOScreenTransport.m */; };
 		F0B8DC121985121400976135 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF41939FCBC00EAB7F9 /* JSONModel+CoreData.m */; };
-		F0B8DC131985121400976135 /* SOBeaconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOBeaconModel.m */; };
+		F0B8DC131985121400976135 /* SOSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOSceneModel.m */; };
 		F0B8DC141985121400976135 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEF61939FCBC00EAB7F9 /* JSONModel.m */; };
 		F0B8DC151985121400976135 /* SOModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */; };
 		F0B8DC161985121400976135 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF0C1939FCBC00EAB7F9 /* JSONValueTransformer.m */; };
@@ -349,15 +349,15 @@
 		F00504261AEE6312009C9BEC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F00504281AEE6322009C9BEC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = GoogleAnalytics/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		F00AA99B1B1BE3C6003927F5 /* data_010615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_010615.json; sourceTree = "<group>"; };
+		F00AA99B1B1BE3C6003927F5 /* data_010615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_010615.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F013B39A1AF1A90700D43B8D /* SOPauseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPauseViewController.h; sourceTree = "<group>"; };
 		F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPauseViewController.m; sourceTree = "<group>"; };
 		F013B39E1AF1A99800D43B8D /* SOTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOTouchView.h; sourceTree = "<group>"; };
 		F013B39F1AF1A99800D43B8D /* SOTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOTouchView.m; sourceTree = "<group>"; };
-		F013B4631AF1EB6500D43B8D /* data_2014729_1525m4a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_1525m4a.json; sourceTree = "<group>"; };
-		F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_12111.json; sourceTree = "<group>"; };
-		F01DE5301987A01900DE7D48 /* data_2014729_1525.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_2014729_1525.json; sourceTree = "<group>"; };
-		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		F013B4631AF1EB6500D43B8D /* data_2014729_1525m4a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_2014729_1525m4a.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_2014729_12111.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F01DE5301987A01900DE7D48 /* data_2014729_1525.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_2014729_1525.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F037A5DE1B496CCC006521BB /* SOCalibrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCalibrationViewController.h; sourceTree = "<group>"; };
 		F037A5DF1B496CCC006521BB /* SOCalibrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCalibrationViewController.m; sourceTree = "<group>"; };
 		F037A5E01B496CCC006521BB /* SOCalibrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOCalibrationViewController.xib; sourceTree = "<group>"; };
@@ -365,7 +365,7 @@
 		F037A5E61B497162006521BB /* SOGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOGridView.m; sourceTree = "<group>"; };
 		F043DE511922F79C00306847 /* SOScreenViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreenViewControllerProtocol.h; sourceTree = "<group>"; };
 		F04408E21B293E42004F4326 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../../CocoaLumberjack/Lumberjack.xcodeproj; sourceTree = "<group>"; };
-		F04409091B29B311004F4326 /* data_110615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_110615.json; sourceTree = "<group>"; };
+		F04409091B29B311004F4326 /* data_110615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_110615.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F04417A118BA0C2400572780 /* SONotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SONotifications.h; sourceTree = "<group>"; };
 		F04417A218BA0C2400572780 /* SONotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SONotifications.m; sourceTree = "<group>"; };
 		F04417BB18BC2FA400572780 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -374,21 +374,21 @@
 		F04417D718BD2D7900572780 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		F04C40DC1AF0682A00BDCFE6 /* SOLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOLogger.h; sourceTree = "<group>"; };
 		F04C40DD1AF0682A00BDCFE6 /* SOLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOLogger.m; sourceTree = "<group>"; };
-		F04EFB721B2BF4970085938B /* data_130615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_130615.json; sourceTree = "<group>"; };
-		F066F3771B0EB8FB00C85727 /* data_220515.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_220515.json; sourceTree = "<group>"; };
+		F04EFB721B2BF4970085938B /* data_130615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_130615.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F066F3771B0EB8FB00C85727 /* data_220515.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_220515.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F068CE911938065A009B9297 /* SOScreenTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOScreenTransport.h; sourceTree = "<group>"; };
 		F068CE921938065A009B9297 /* SOScreenTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOScreenTransport.m; sourceTree = "<group>"; };
 		F072F5E619315DBD009EC2F5 /* SOMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOMotionManager.h; sourceTree = "<group>"; };
 		F072F5E719315DBD009EC2F5 /* SOMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOMotionManager.m; sourceTree = "<group>"; };
 		F07F16191951017D00E36A70 /* allCues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allCues.json; sourceTree = "<group>"; };
 		F084802E1C1BB43A00B407CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F08D50741B53A0C400062D4E /* data_130715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_130715.json; sourceTree = "<group>"; };
-		F08D50791B53F00F00062D4E /* data_140715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_140715.json; sourceTree = "<group>"; };
+		F08D50741B53A0C400062D4E /* data_130715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_130715.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F08D50791B53F00F00062D4E /* data_140715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_140715.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F09898DE1B5D2F820041755F /* DeviceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtil.h; sourceTree = "<group>"; };
 		F09898DF1B5D2F820041755F /* DeviceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUtil.m; sourceTree = "<group>"; };
-		F09B75F6197BD5F900C4356A /* SOBeaconModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOBeaconModel.h; sourceTree = "<group>"; };
-		F09B75F7197BD5F900C4356A /* SOBeaconModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOBeaconModel.m; sourceTree = "<group>"; };
-		F09FEC6F1B5B26A200623A0F /* data_190715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_190715.json; sourceTree = "<group>"; };
+		F09B75F6197BD5F900C4356A /* SOSceneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SOSceneModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F09B75F7197BD5F900C4356A /* SOSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SOSceneModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F09FEC6F1B5B26A200623A0F /* data_190715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_190715.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F0A939D01BCDE37400A34481 /* burstTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = burstTest.mov; sourceTree = "<group>"; };
 		F0A939D11BCDE37400A34481 /* burstTest2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = burstTest2.mov; sourceTree = "<group>"; };
 		F0A939D21BCDE37400A34481 /* checkTest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = checkTest.mov; sourceTree = "<group>"; };
@@ -516,9 +516,9 @@
 		F0AECCD518B171DB00263C32 /* SOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOAppDelegate.m; sourceTree = "<group>"; };
 		F0AECCD818B171DB00263C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0AECCDA18B171DB00263C32 /* SOMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOMasterViewController.h; sourceTree = "<group>"; };
-		F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOMasterViewController.m; sourceTree = "<group>"; };
-		F0AECCDD18B171DB00263C32 /* SOScreensContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOScreensContainer.h; sourceTree = "<group>"; };
-		F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOScreensContainer.m; sourceTree = "<group>"; };
+		F0AECCDB18B171DB00263C32 /* SOMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SOMasterViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F0AECCDD18B171DB00263C32 /* SOScreensContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SOScreensContainer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F0AECCDE18B171DC00263C32 /* SOScreensContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SOScreensContainer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F0AECCE618B171DC00263C32 /* SOMoviePlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SOMoviePlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AECCE718B171DC00263C32 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F0AECCEF18B171DC00263C32 /* SOMoviePlayerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOMoviePlayerTests-Info.plist"; sourceTree = "<group>"; };
@@ -535,9 +535,9 @@
 		F0B8DCCE1985382900976135 /* SOCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOCameraViewController.xib; sourceTree = "<group>"; };
 		F0B8DCD1198538B800976135 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		F0B8DCD3198538C000976135 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		F0B8DCD519866F9D00976135 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
-		F0C2DEED1939F51100EAB7F9 /* SOModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOModelStore.h; sourceTree = "<group>"; };
-		F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOModelStore.m; sourceTree = "<group>"; };
+		F0B8DCD519866F9D00976135 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = test.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F0C2DEED1939F51100EAB7F9 /* SOModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SOModelStore.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F0C2DEEE1939F51100EAB7F9 /* SOModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SOModelStore.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F0C2DEF31939FCBC00EAB7F9 /* JSONModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+CoreData.h"; sourceTree = "<group>"; };
 		F0C2DEF41939FCBC00EAB7F9 /* JSONModel+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+CoreData.m"; sourceTree = "<group>"; };
 		F0C2DEF51939FCBC00EAB7F9 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
@@ -563,7 +563,7 @@
 		F0C2DF0C1939FCBC00EAB7F9 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
 		F0C2DF191939FD1B00EAB7F9 /* SOCueModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCueModel.h; sourceTree = "<group>"; };
 		F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCueModel.m; sourceTree = "<group>"; };
-		F0C2DF1C193A005B00EAB7F9 /* SOSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSessionModel.h; sourceTree = "<group>"; };
+		F0C2DF1C193A005B00EAB7F9 /* SOSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SOSessionModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSessionModel.m; sourceTree = "<group>"; };
 		F0FD8487193DE95400F5DD2F /* SOPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPropertiesViewController.h; sourceTree = "<group>"; };
 		F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPropertiesViewController.m; sourceTree = "<group>"; };
@@ -571,7 +571,7 @@
 		F0FD848C193DFAEA00F5DD2F /* SOFloatPropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOFloatPropViewController.h; sourceTree = "<group>"; };
 		F0FD848D193DFAEA00F5DD2F /* SOFloatPropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOFloatPropViewController.m; sourceTree = "<group>"; };
 		F0FD848E193DFAEA00F5DD2F /* SOFloatPropViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOFloatPropViewController.xib; sourceTree = "<group>"; };
-		F0FE3DEA1944A00D0029DAEF /* dataT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dataT.json; sourceTree = "<group>"; };
+		F0FE3DEA1944A00D0029DAEF /* dataT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = dataT.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F0FE3DEC1944A1C40029DAEF /* SOFloatTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOFloatTransformer.h; sourceTree = "<group>"; };
 		F0FE3DED1944A1C40029DAEF /* SOFloatTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOFloatTransformer.m; sourceTree = "<group>"; };
 		F0FE7403191E3037008B7E45 /* SOScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOScreenView.h; sourceTree = "<group>"; };
@@ -1014,8 +1014,8 @@
 			children = (
 				F0C2DF191939FD1B00EAB7F9 /* SOCueModel.h */,
 				F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */,
-				F09B75F6197BD5F900C4356A /* SOBeaconModel.h */,
-				F09B75F7197BD5F900C4356A /* SOBeaconModel.m */,
+				F09B75F6197BD5F900C4356A /* SOSceneModel.h */,
+				F09B75F7197BD5F900C4356A /* SOSceneModel.m */,
 				F0C2DF1C193A005B00EAB7F9 /* SOSessionModel.h */,
 				F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */,
 			);
@@ -1395,7 +1395,7 @@
 				F068CE941938065A009B9297 /* SOScreenTransport.m in Sources */,
 				F0C2DF0D1939FCBC00EAB7F9 /* JSONModel+CoreData.m in Sources */,
 				F037A5E71B497162006521BB /* SOGridView.m in Sources */,
-				F09B75F8197BD5F900C4356A /* SOBeaconModel.m in Sources */,
+				F09B75F8197BD5F900C4356A /* SOSceneModel.m in Sources */,
 				F0C2DF0E1939FCBC00EAB7F9 /* JSONModel.m in Sources */,
 				F0C2DEEF1939F51100EAB7F9 /* SOModelStore.m in Sources */,
 				F013B39C1AF1A90700D43B8D /* SOPauseViewController.m in Sources */,
@@ -1443,7 +1443,7 @@
 				F0B8DC111985121400976135 /* SOScreenTransport.m in Sources */,
 				F0B8DC121985121400976135 /* JSONModel+CoreData.m in Sources */,
 				F037A5E81B497162006521BB /* SOGridView.m in Sources */,
-				F0B8DC131985121400976135 /* SOBeaconModel.m in Sources */,
+				F0B8DC131985121400976135 /* SOSceneModel.m in Sources */,
 				F0B8DC141985121400976135 /* JSONModel.m in Sources */,
 				F0B8DC151985121400976135 /* SOModelStore.m in Sources */,
 				F013B39D1AF1A90700D43B8D /* SOPauseViewController.m in Sources */,

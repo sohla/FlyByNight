@@ -1,5 +1,5 @@
 //
-//  SOBeaconModel.h
+//  SOSceneModel.h
 //  SOMoviePlayer
 //
 //  Created by Stephen OHara on 20/07/2014.
@@ -8,10 +8,10 @@
 
 #import "JSONModel.h"
 
-@protocol SOBeaconModel
+@protocol SOSceneModel
 @end
 
-@interface SOBeaconModel : JSONModel
+@interface SOSceneModel : JSONModel
 
 
 @property (assign, nonatomic) int minor;

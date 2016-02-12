@@ -58,9 +58,9 @@
                 //** get all used assets
                 
                 NSMutableArray *assetsUsed = [[NSMutableArray alloc] init];
-//                DLog(@"%@",[self.sessionModel.beacons   valueForKeyPath:@"cues"]);
+//                DLog(@"%@",[self.sessionModel.scenes   valueForKeyPath:@"cues"]);
 
-                NSArray *cueTitles = [self.sessionModel.beacons   valueForKeyPath:@"cues"];
+                NSArray *cueTitles = [self.sessionModel.scenes   valueForKeyPath:@"cues"];
                 
                 [cueTitles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                    
@@ -80,7 +80,7 @@
                 DLog(@"%@",assetsUsed);
                 
                 completionBlock();
-//                DLog(@"%@",[self beaconModelWithMinor:2]);
+//                DLog(@"%@",[self sceneModelWithMinor:2]);
                 
                 //DLog(@"%@",[self cueModelWithTitle:@"drinking tap"]);
             }
@@ -112,19 +112,19 @@
 }
 
 
--(SOBeaconModel*)beaconModelWithMinor:(int)minor{
+-(SOSceneModel*)sceneModelWithMinor:(int)minor{
     
-    NSArray *minors = [self.sessionModel.beacons   valueForKeyPath:@"minor"];
-    __block SOBeaconModel *beacon;
+    NSArray *minors = [self.sessionModel.scenes   valueForKeyPath:@"minor"];
+    __block SOSceneModel *scene;
     [minors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         if([obj integerValue] == minor){
-            beacon = self.sessionModel.beacons[idx];
+            scene = self.sessionModel.scenes[idx];
         }
         
     }];
     
-    return beacon;
+    return scene;
     
     
 }

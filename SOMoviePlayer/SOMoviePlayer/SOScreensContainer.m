@@ -24,7 +24,7 @@
 
 @property (strong, nonatomic) SOScreenTransport         *transport;
 @property (weak, nonatomic) SOCueModel *selectedCueModel;
-@property (assign, nonatomic) SOBeaconModel *currentBeaconModel;
+@property (assign, nonatomic) SOSceneModel *currentSceneModel;
 @property (strong, nonatomic) SOCameraViewController *cvc;
 @property (strong, nonatomic) UIButton *nextButton;
 @property (strong, nonatomic) UIViewController *pauseViewController;
@@ -278,9 +278,9 @@
 
 }
 
-#pragma mark - Beacon
+#pragma mark - Scene
 
--(void)triggerBeacon:(SOBeaconModel*)beaconModel{
+-(void)triggerScene:(SOSceneModel*)sceneModel{
     
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:[NSDate date]];
@@ -290,12 +290,12 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
     
-    DLog(@"• TRIGGER %d",beaconModel.minor);
+    DLog(@"• TRIGGER %d",sceneModel.minor);
     
-    self.currentBeaconModel = beaconModel;
+    self.currentSceneModel = sceneModel;
     
     // if we are a movie
-    [beaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [sceneModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
         DLog(@"cueing : %@",cueModel.path);
@@ -546,7 +546,7 @@
     }];
     
     // kill any future cues
-    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.currentSceneModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         __block SOCueModel *cueModel = [weakSelf.modelStore cueModelWithTitle:obj];
         [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf
                                                  selector:@selector(playCue:)
@@ -618,7 +618,7 @@
 -(void)onContinueCue:(NSNotification *)notification{
     
     // re-start where we are
-    [self triggerBeacon:self.currentBeaconModel];
+    [self triggerScene:self.currentSceneModel];
     [self.view bringSubviewToFront:self.touchView];
     [self.pauseViewController.view setAlpha:1.0];
 
@@ -695,7 +695,7 @@
 
 -(void)onTransportNext:(NSNotification *)notification{
 
-    NSNumber *minor = [NSNumber numberWithInt:self.currentBeaconModel.minor + 1];
+    NSNumber *minor = [NSNumber numberWithInt:self.currentSceneModel.minor + 1];
     [[NSNotificationCenter defaultCenter] postNotificationName:kTransportCue object:minor];
     
 }
@@ -704,17 +704,17 @@
 
     NSNumber *minor = (NSNumber*)[notification object];
     
-    SOBeaconModel *beaconModel = [self.modelStore beaconModelWithMinor:[minor intValue]];
+    SOSceneModel *sceneModel = [self.modelStore sceneModelWithMinor:[minor intValue]];
     
     // kill all running cues
-    [self.currentBeaconModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.currentSceneModel.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         __block SOCueModel *cueModel = [self.modelStore cueModelWithTitle:obj];
         [[self.screenViewControllers objectForKey:cueModel.title] stopWithcompletionBlock:^{
             DLog(@"killing : %@",cueModel.title);
             [self.screenViewControllers removeObjectForKey:cueModel.title];
         }];
     }];
-    [self triggerBeacon:[self.modelStore beaconModelWithMinor:beaconModel.minor]];
+    [self triggerScene:[self.modelStore sceneModelWithMinor:sceneModel.minor]];
     
 }
 

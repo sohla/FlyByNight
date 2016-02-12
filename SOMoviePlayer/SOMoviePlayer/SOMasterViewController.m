@@ -23,7 +23,7 @@
 
 @property CLLocationManager *locationManager;
 @property NSMutableDictionary *rangedRegions;
-@property NSMutableDictionary *beacons;
+@property NSMutableDictionary *scenes;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 
@@ -75,7 +75,7 @@
         // start
 //        int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
 //        [self.navigationController pushViewController:controller animated:NO];
-//        [controller triggerBeacon:[self.modelStore beaconModelWithMinor:start]];
+//        [controller triggerScene:[self.modelStore sceneModelWithMinor:start]];
 
         [self.view setHidden:NO];
         [self.navigationController.view setHidden:NO];
@@ -178,24 +178,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.modelStore.sessionModel.beacons.count;
+    return self.modelStore.sessionModel.scenes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    // get the beacon with minor id
-    SOBeaconModel *beacon = [self.modelStore beaconModelWithMinor:(int)indexPath.row+1];
+    // get the scene with minor id
+    SOSceneModel *scene = [self.modelStore sceneModelWithMinor:(int)indexPath.row+1];
     
     __block NSString *title = @"";
     __block SOMasterViewController *weakSelf = self;
-     [beacon.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+     [scene.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
          title = [[title stringByAppendingString:[[weakSelf.modelStore cueModelWithTitle:obj] title]] stringByAppendingString:@" | "];
      }];
         
     cell.textLabel.text = [NSString stringWithFormat:@"Chapter %d  :  %@",
-                           beacon.minor,
+                           scene.minor,
                            title
                            ];
     
@@ -212,7 +212,7 @@
     controller.modelStore = self.modelStore;
     [self.navigationController pushViewController:controller animated:NO];
 
-    [controller triggerBeacon:[self.modelStore beaconModelWithMinor:(int)indexPath.row+1]];
+    [controller triggerScene:[self.modelStore sceneModelWithMinor:(int)indexPath.row+1]];
 
 }
 

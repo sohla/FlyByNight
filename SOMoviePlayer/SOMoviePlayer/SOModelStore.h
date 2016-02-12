@@ -19,7 +19,7 @@
 -(void)saveLatest;
 -(void)loadCuesWithCompletionBlock:(void(^)())completionBlock;
 
--(SOBeaconModel*)beaconModelWithMinor:(int)minor;
+-(SOSceneModel*)sceneModelWithMinor:(int)minor;
 -(SOCueModel*)cueModelAtIndex:(int)index;
 -(SOCueModel*)cueModelWithTitle:(NSString*)title;
 

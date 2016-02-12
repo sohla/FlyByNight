@@ -801,7 +801,7 @@
 
 
   ],
-  "beacons" : [
+  "scenes" : [
     {
         "action" : "pre",
         "minor" : 1,
