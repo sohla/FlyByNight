@@ -36,7 +36,6 @@
 		F00504421AEE692C009C9BEC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00504221AEE62F4009C9BEC /* CoreData.framework */; };
 		F00AA99C1B1BE3C6003927F5 /* data_010615.json in Resources */ = {isa = PBXBuildFile; fileRef = F00AA99B1B1BE3C6003927F5 /* data_010615.json */; };
 		F00AA99D1B1BE3C6003927F5 /* data_010615.json in Resources */ = {isa = PBXBuildFile; fileRef = F00AA99B1B1BE3C6003927F5 /* data_010615.json */; };
-		F00D4E651C6D5FCF003DED3D /* fbn_brisbane_cue_02_2x.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00D4E641C6D5FCF003DED3D /* fbn_brisbane_cue_02_2x.mov */; };
 		F013B39C1AF1A90700D43B8D /* SOPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */; };
 		F013B39D1AF1A90700D43B8D /* SOPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */; };
 		F013B3A01AF1A99800D43B8D /* SOTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39F1AF1A99800D43B8D /* SOTouchView.m */; };
@@ -273,7 +272,6 @@
 		F00504281AEE6322009C9BEC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F005042A1AEE6339009C9BEC /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = GoogleAnalytics/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		F00AA99B1B1BE3C6003927F5 /* data_010615.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_010615.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
-		F00D4E641C6D5FCF003DED3D /* fbn_brisbane_cue_02_2x.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_02_2x.mov; sourceTree = "<group>"; };
 		F013B39A1AF1A90700D43B8D /* SOPauseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPauseViewController.h; sourceTree = "<group>"; };
 		F013B39B1AF1A90700D43B8D /* SOPauseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPauseViewController.m; sourceTree = "<group>"; };
 		F013B39E1AF1A99800D43B8D /* SOTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOTouchView.h; sourceTree = "<group>"; };
@@ -457,7 +455,6 @@
 			isa = PBXGroup;
 			children = (
 				F00471F31C6D5BCF00366BFB /* fbn_brisbane_cue_01_2.mov */,
-				F00D4E641C6D5FCF003DED3D /* fbn_brisbane_cue_02_2x.mov */,
 				F00471F41C6D5BCF00366BFB /* fbn_brisbane_cue_02_2.mov */,
 				F00471F51C6D5BCF00366BFB /* fbn_brisbane_cue_08_2.mov */,
 				F00471F61C6D5BCF00366BFB /* fbn_brisbane_cue_09_2.mov */,
@@ -913,7 +910,6 @@
 				F00472011C6D5BCF00366BFB /* fbn_brisbane_cue_09_2.mov in Resources */,
 				F0A939DA1BCDE37400A34481 /* stripeTest.mov in Resources */,
 				F08D507A1B53F00F00062D4E /* data_140715.json in Resources */,
-				F00D4E651C6D5FCF003DED3D /* fbn_brisbane_cue_02_2x.mov in Resources */,
 				F044090A1B29B311004F4326 /* data_110615.json in Resources */,
 				F0A939D81BCDE37400A34481 /* checkTest.mov in Resources */,
 				F00472001C6D5BCF00366BFB /* fbn_brisbane_cue_08_2.mov in Resources */,
