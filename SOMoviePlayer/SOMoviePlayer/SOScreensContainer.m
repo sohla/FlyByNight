@@ -50,22 +50,12 @@
     
     [super viewDidLoad];
     
-    
 //    [[NSUserDefaults standardUserDefaults] setObject:@(YES)  forKey:kLastEditState];
 //    [[NSUserDefaults standardUserDefaults] synchronize];
 
-//#if !TARGET_IPHONE_SIMULATOR
-//    self.cvc = [[SOCameraViewController alloc] initWithNibName:@"SOCameraViewController" bundle:nil];
-//    [self.view addSubview:self.cvc.view];
-//#endif
-    
-//    [self.view sendSubviewToBack:self.cvc.view];
-    
     _screenViewControllers = [[NSMutableDictionary alloc] init];
-    
-//    [self.view setFrame:CGRectMake(0, 0, 320.0, 568.0)];
 
-    [self.view setBackgroundColor:[UIColor greenColor]];
+    [self.view setBackgroundColor:[UIColor blackColor]];
     
     //motion
     [self addDisplayLink];
