@@ -96,7 +96,7 @@
     [self.nextButton setCenter:p];
     [self.nextButton setTitle:@"tap" forState:UIControlStateNormal];
     [self.nextButton setTitleColor:[UIColor colorWithRed:0.839 green:0.788 blue:0.518 alpha:1] forState:UIControlStateNormal];
-    [self.nextButton setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.7]];
+    [self.nextButton setBackgroundColor:[[UIColor greenColor] colorWithAlphaComponent:0.7]];
     [self.nextButton .layer setCornerRadius:size/2.0];
     [self.nextButton addTarget:self action:@selector(onNextButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];

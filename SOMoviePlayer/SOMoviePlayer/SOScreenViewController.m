@@ -425,7 +425,7 @@
 
 
     // don't fade if we are looping
-    if(self.cueModel.loop != 1){
+    if(self.cueModel.loop == 0){
         // place a boundry observer to do a fade out
         float fadeTime = self.cueModel.fadeout_time * 10000.0f;
         float fadeValue = (totalTime * 1000.0f) - fadeTime;
@@ -520,19 +520,27 @@
 
 
     
-    if(self.cueModel.loop){
+    if(self.cueModel.loop  == -1){
         
         // lets loop movie for now
         [self fadeIn:0.0 completionBlock:nil];
+        
         AVPlayerItem *p = [notification object];
-        
-//        CMTime duration = [p duration];
-//        CMTime back = CMTimeMakeWithSeconds(1, 1200);
-//        CMTime start = CMTimeSubtract(duration, back);
-        
+
         [p seekToTime:kCMTimeZero];
         [self.avPlayer play];
-   
+
+    }else if(self.cueModel.loop  > 0){
+
+        AVPlayerItem *p = [notification object];
+        CMTime duration = [p duration];
+        CMTime back = CMTimeMake(self.cueModel.loop, 1000);
+        CMTime start = CMTimeSubtract(duration, back);
+
+        DLog(@"lopping...");
+        [p seekToTime:start];
+        [self.avPlayer play];
+
     }else{
         [self destroyPlayer];
         [self.delegate onScreenViewPlayerDidEnd:self];

@@ -71,11 +71,16 @@
         [[controller view] setFrame:CGRectMake(0, 0, 320.0, 568.0)];
 
         
-        
-        // start
-//        int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
-//        [self.navigationController pushViewController:controller animated:NO];
-//        [controller triggerScene:[self.modelStore sceneModelWithMinor:start]];
+//        double delayInSeconds = 1.0;
+//        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+//        
+//        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//           
+//            int start = [[self.modelStore.sessionModel valueForKey:@"start"] intValue];
+//            [self.navigationController pushViewController:controller animated:NO];
+//            [controller triggerScene:[self.modelStore sceneModelWithMinor:start]];
+//
+//        });
 
         [self.view setHidden:NO];
         [self.navigationController.view setHidden:NO];

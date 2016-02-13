@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F00471FE1C6D5BCF00366BFB /* fbn_brisbane_cue_01_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471F31C6D5BCF00366BFB /* fbn_brisbane_cue_01_2.mov */; };
-		F00471FF1C6D5BCF00366BFB /* fbn_brisbane_cue_02_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471F41C6D5BCF00366BFB /* fbn_brisbane_cue_02_2.mov */; };
-		F00472001C6D5BCF00366BFB /* fbn_brisbane_cue_08_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471F51C6D5BCF00366BFB /* fbn_brisbane_cue_08_2.mov */; };
-		F00472011C6D5BCF00366BFB /* fbn_brisbane_cue_09_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471F61C6D5BCF00366BFB /* fbn_brisbane_cue_09_2.mov */; };
-		F00472021C6D5BCF00366BFB /* fbn_brisbane_cue_10_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471F71C6D5BCF00366BFB /* fbn_brisbane_cue_10_2.mov */; };
-		F00472031C6D5BCF00366BFB /* fbn_brisbane_cue_11_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471F81C6D5BCF00366BFB /* fbn_brisbane_cue_11_2.mov */; };
-		F00472041C6D5BCF00366BFB /* fbn_brisbane_cue_12_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471F91C6D5BCF00366BFB /* fbn_brisbane_cue_12_2.mov */; };
-		F00472051C6D5BCF00366BFB /* fbn_brisbane_cue_13_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471FA1C6D5BCF00366BFB /* fbn_brisbane_cue_13_2.mov */; };
-		F00472061C6D5BCF00366BFB /* fbn_brisbane_cue_4.1_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471FB1C6D5BCF00366BFB /* fbn_brisbane_cue_4.1_2.mov */; };
-		F00472071C6D5BCF00366BFB /* fbn_brisbane_cue_4_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471FC1C6D5BCF00366BFB /* fbn_brisbane_cue_4_2.mov */; };
-		F00472081C6D5BCF00366BFB /* fbn_brisbane_cue_5_2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F00471FD1C6D5BCF00366BFB /* fbn_brisbane_cue_5_2.mov */; };
 		F004720A1C6D5C0500366BFB /* apam_1.json in Resources */ = {isa = PBXBuildFile; fileRef = F00472091C6D5C0500366BFB /* apam_1.json */; };
 		F004720B1C6D5C0500366BFB /* apam_1.json in Resources */ = {isa = PBXBuildFile; fileRef = F00472091C6D5C0500366BFB /* apam_1.json */; };
 		F00472101C6D5DCF00366BFB /* 00 TC Atmos (loop)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F004720F1C6D5DCF00366BFB /* 00 TC Atmos (loop)_converted.m4a */; };
@@ -71,6 +60,18 @@
 		F084802F1C1BB43A00B407CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F084802E1C1BB43A00B407CE /* Images.xcassets */; };
 		F08D50751B53A0C400062D4E /* data_130715.json in Resources */ = {isa = PBXBuildFile; fileRef = F08D50741B53A0C400062D4E /* data_130715.json */; };
 		F08D507A1B53F00F00062D4E /* data_140715.json in Resources */ = {isa = PBXBuildFile; fileRef = F08D50791B53F00F00062D4E /* data_140715.json */; };
+		F08D8D3A1C6EA2ED00DA95B5 /* TITLE CARD - Behind You_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D391C6EA2ED00DA95B5 /* TITLE CARD - Behind You_converted.m4v */; };
+		F08D8D4E1C6EA96F00DA95B5 /* fbn_brisbane_cue_01_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D431C6EA96F00DA95B5 /* fbn_brisbane_cue_01_2_converted.m4v */; };
+		F08D8D4F1C6EA96F00DA95B5 /* fbn_brisbane_cue_02_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D441C6EA96F00DA95B5 /* fbn_brisbane_cue_02_2_converted.m4v */; };
+		F08D8D501C6EA96F00DA95B5 /* fbn_brisbane_cue_4_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D451C6EA96F00DA95B5 /* fbn_brisbane_cue_4_2_converted.m4v */; };
+		F08D8D511C6EA96F00DA95B5 /* fbn_brisbane_cue_4.1_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D461C6EA96F00DA95B5 /* fbn_brisbane_cue_4.1_2_converted.m4v */; };
+		F08D8D521C6EA96F00DA95B5 /* fbn_brisbane_cue_5_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D471C6EA96F00DA95B5 /* fbn_brisbane_cue_5_2_converted.m4v */; };
+		F08D8D531C6EA96F00DA95B5 /* fbn_brisbane_cue_08_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D481C6EA96F00DA95B5 /* fbn_brisbane_cue_08_2_converted.m4v */; };
+		F08D8D541C6EA96F00DA95B5 /* fbn_brisbane_cue_09_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D491C6EA96F00DA95B5 /* fbn_brisbane_cue_09_2_converted.m4v */; };
+		F08D8D551C6EA96F00DA95B5 /* fbn_brisbane_cue_10_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D4A1C6EA96F00DA95B5 /* fbn_brisbane_cue_10_2_converted.m4v */; };
+		F08D8D561C6EA96F00DA95B5 /* fbn_brisbane_cue_11_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D4B1C6EA96F00DA95B5 /* fbn_brisbane_cue_11_2_converted.m4v */; };
+		F08D8D571C6EA96F00DA95B5 /* fbn_brisbane_cue_12_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D4C1C6EA96F00DA95B5 /* fbn_brisbane_cue_12_2_converted.m4v */; };
+		F08D8D581C6EA96F00DA95B5 /* fbn_brisbane_cue_13_2_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F08D8D4D1C6EA96F00DA95B5 /* fbn_brisbane_cue_13_2_converted.m4v */; };
 		F09898E01B5D2F820041755F /* DeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F09898DF1B5D2F820041755F /* DeviceUtil.m */; };
 		F09B75F8197BD5F900C4356A /* SOSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B75F7197BD5F900C4356A /* SOSceneModel.m */; };
 		F09FEC701B5B26A200623A0F /* data_190715.json in Resources */ = {isa = PBXBuildFile; fileRef = F09FEC6F1B5B26A200623A0F /* data_190715.json */; };
@@ -252,17 +253,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F00471F31C6D5BCF00366BFB /* fbn_brisbane_cue_01_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_01_2.mov; sourceTree = "<group>"; };
-		F00471F41C6D5BCF00366BFB /* fbn_brisbane_cue_02_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_02_2.mov; sourceTree = "<group>"; };
-		F00471F51C6D5BCF00366BFB /* fbn_brisbane_cue_08_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_08_2.mov; sourceTree = "<group>"; };
-		F00471F61C6D5BCF00366BFB /* fbn_brisbane_cue_09_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_09_2.mov; sourceTree = "<group>"; };
-		F00471F71C6D5BCF00366BFB /* fbn_brisbane_cue_10_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_10_2.mov; sourceTree = "<group>"; };
-		F00471F81C6D5BCF00366BFB /* fbn_brisbane_cue_11_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_11_2.mov; sourceTree = "<group>"; };
-		F00471F91C6D5BCF00366BFB /* fbn_brisbane_cue_12_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_12_2.mov; sourceTree = "<group>"; };
-		F00471FA1C6D5BCF00366BFB /* fbn_brisbane_cue_13_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_13_2.mov; sourceTree = "<group>"; };
-		F00471FB1C6D5BCF00366BFB /* fbn_brisbane_cue_4.1_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_4.1_2.mov; sourceTree = "<group>"; };
-		F00471FC1C6D5BCF00366BFB /* fbn_brisbane_cue_4_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_4_2.mov; sourceTree = "<group>"; };
-		F00471FD1C6D5BCF00366BFB /* fbn_brisbane_cue_5_2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_5_2.mov; sourceTree = "<group>"; };
 		F00472091C6D5C0500366BFB /* apam_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apam_1.json; sourceTree = "<group>"; };
 		F004720F1C6D5DCF00366BFB /* 00 TC Atmos (loop)_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "00 TC Atmos (loop)_converted.m4a"; sourceTree = "<group>"; };
 		F00472121C6D5DDA00366BFB /* 00 Shake SFX_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "00 Shake SFX_converted.m4a"; sourceTree = "<group>"; };
@@ -306,6 +296,18 @@
 		F084802E1C1BB43A00B407CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F08D50741B53A0C400062D4E /* data_130715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_130715.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F08D50791B53F00F00062D4E /* data_140715.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_140715.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F08D8D391C6EA2ED00DA95B5 /* TITLE CARD - Behind You_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD - Behind You_converted.m4v"; sourceTree = "<group>"; };
+		F08D8D431C6EA96F00DA95B5 /* fbn_brisbane_cue_01_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_01_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D441C6EA96F00DA95B5 /* fbn_brisbane_cue_02_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_02_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D451C6EA96F00DA95B5 /* fbn_brisbane_cue_4_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_4_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D461C6EA96F00DA95B5 /* fbn_brisbane_cue_4.1_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_4.1_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D471C6EA96F00DA95B5 /* fbn_brisbane_cue_5_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_5_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D481C6EA96F00DA95B5 /* fbn_brisbane_cue_08_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_08_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D491C6EA96F00DA95B5 /* fbn_brisbane_cue_09_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_09_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D4A1C6EA96F00DA95B5 /* fbn_brisbane_cue_10_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_10_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D4B1C6EA96F00DA95B5 /* fbn_brisbane_cue_11_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_11_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D4C1C6EA96F00DA95B5 /* fbn_brisbane_cue_12_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_12_2_converted.m4v; sourceTree = "<group>"; };
+		F08D8D4D1C6EA96F00DA95B5 /* fbn_brisbane_cue_13_2_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = fbn_brisbane_cue_13_2_converted.m4v; sourceTree = "<group>"; };
 		F09898DE1B5D2F820041755F /* DeviceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtil.h; sourceTree = "<group>"; };
 		F09898DF1B5D2F820041755F /* DeviceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUtil.m; sourceTree = "<group>"; };
 		F09B75F6197BD5F900C4356A /* SOSceneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SOSceneModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -451,20 +453,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F00471F21C6D5BCF00366BFB /* APAMMovies */ = {
+		F00D4E6E1C6E9CCB003DED3D /* APAMMovies */ = {
 			isa = PBXGroup;
 			children = (
-				F00471F31C6D5BCF00366BFB /* fbn_brisbane_cue_01_2.mov */,
-				F00471F41C6D5BCF00366BFB /* fbn_brisbane_cue_02_2.mov */,
-				F00471F51C6D5BCF00366BFB /* fbn_brisbane_cue_08_2.mov */,
-				F00471F61C6D5BCF00366BFB /* fbn_brisbane_cue_09_2.mov */,
-				F00471F71C6D5BCF00366BFB /* fbn_brisbane_cue_10_2.mov */,
-				F00471F81C6D5BCF00366BFB /* fbn_brisbane_cue_11_2.mov */,
-				F00471F91C6D5BCF00366BFB /* fbn_brisbane_cue_12_2.mov */,
-				F00471FA1C6D5BCF00366BFB /* fbn_brisbane_cue_13_2.mov */,
-				F00471FB1C6D5BCF00366BFB /* fbn_brisbane_cue_4.1_2.mov */,
-				F00471FC1C6D5BCF00366BFB /* fbn_brisbane_cue_4_2.mov */,
-				F00471FD1C6D5BCF00366BFB /* fbn_brisbane_cue_5_2.mov */,
+				F08D8D431C6EA96F00DA95B5 /* fbn_brisbane_cue_01_2_converted.m4v */,
+				F08D8D441C6EA96F00DA95B5 /* fbn_brisbane_cue_02_2_converted.m4v */,
+				F08D8D451C6EA96F00DA95B5 /* fbn_brisbane_cue_4_2_converted.m4v */,
+				F08D8D461C6EA96F00DA95B5 /* fbn_brisbane_cue_4.1_2_converted.m4v */,
+				F08D8D471C6EA96F00DA95B5 /* fbn_brisbane_cue_5_2_converted.m4v */,
+				F08D8D481C6EA96F00DA95B5 /* fbn_brisbane_cue_08_2_converted.m4v */,
+				F08D8D491C6EA96F00DA95B5 /* fbn_brisbane_cue_09_2_converted.m4v */,
+				F08D8D4A1C6EA96F00DA95B5 /* fbn_brisbane_cue_10_2_converted.m4v */,
+				F08D8D4B1C6EA96F00DA95B5 /* fbn_brisbane_cue_11_2_converted.m4v */,
+				F08D8D4C1C6EA96F00DA95B5 /* fbn_brisbane_cue_12_2_converted.m4v */,
+				F08D8D4D1C6EA96F00DA95B5 /* fbn_brisbane_cue_13_2_converted.m4v */,
+				F08D8D391C6EA2ED00DA95B5 /* TITLE CARD - Behind You_converted.m4v */,
 			);
 			path = APAMMovies;
 			sourceTree = "<group>";
@@ -626,7 +629,7 @@
 		F0AECCCC18B171DB00263C32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F00471F21C6D5BCF00366BFB /* APAMMovies */,
+				F00D4E6E1C6E9CCB003DED3D /* APAMMovies */,
 				F0A939CF1BCDE37400A34481 /* testMovies */,
 				F03392EB19382C3D004FDB33 /* json */,
 				F04417D618BD2D7900572780 /* default.png */,
@@ -903,49 +906,50 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F08D8D4F1C6EA96F00DA95B5 /* fbn_brisbane_cue_02_2_converted.m4v in Resources */,
 				F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */,
+				F08D8D511C6EA96F00DA95B5 /* fbn_brisbane_cue_4.1_2_converted.m4v in Resources */,
+				F08D8D4E1C6EA96F00DA95B5 /* fbn_brisbane_cue_01_2_converted.m4v in Resources */,
 				F0A939D61BCDE37400A34481 /* burstTest.mov in Resources */,
 				F0A939D71BCDE37400A34481 /* burstTest2.mov in Resources */,
 				F07F161A1951017D00E36A70 /* allCues.json in Resources */,
-				F00472011C6D5BCF00366BFB /* fbn_brisbane_cue_09_2.mov in Resources */,
 				F0A939DA1BCDE37400A34481 /* stripeTest.mov in Resources */,
 				F08D507A1B53F00F00062D4E /* data_140715.json in Resources */,
 				F044090A1B29B311004F4326 /* data_110615.json in Resources */,
 				F0A939D81BCDE37400A34481 /* checkTest.mov in Resources */,
-				F00472001C6D5BCF00366BFB /* fbn_brisbane_cue_08_2.mov in Resources */,
 				F0A939D91BCDE37400A34481 /* noiseTest.mov in Resources */,
-				F00472051C6D5BCF00366BFB /* fbn_brisbane_cue_13_2.mov in Resources */,
-				F00472081C6D5BCF00366BFB /* fbn_brisbane_cue_5_2.mov in Resources */,
-				F00472041C6D5BCF00366BFB /* fbn_brisbane_cue_12_2.mov in Resources */,
 				F084802F1C1BB43A00B407CE /* Images.xcassets in Resources */,
 				F00472131C6D5DDA00366BFB /* 00 Shake SFX_converted.m4a in Resources */,
 				F00AA99C1B1BE3C6003927F5 /* data_010615.json in Resources */,
+				F08D8D551C6EA96F00DA95B5 /* fbn_brisbane_cue_10_2_converted.m4v in Resources */,
 				F01DE5311987A01900DE7D48 /* data_2014729_1525.json in Resources */,
 				F0A939DB1BCDE37400A34481 /* testsig.m4v in Resources */,
+				F08D8D541C6EA96F00DA95B5 /* fbn_brisbane_cue_09_2_converted.m4v in Resources */,
 				F004720A1C6D5C0500366BFB /* apam_1.json in Resources */,
-				F00472021C6D5BCF00366BFB /* fbn_brisbane_cue_10_2.mov in Resources */,
 				F09FEC701B5B26A200623A0F /* data_190715.json in Resources */,
 				F08D50751B53A0C400062D4E /* data_130715.json in Resources */,
-				F00472061C6D5BCF00366BFB /* fbn_brisbane_cue_4.1_2.mov in Resources */,
-				F00472031C6D5BCF00366BFB /* fbn_brisbane_cue_11_2.mov in Resources */,
 				F037A5E31B496CCC006521BB /* SOCalibrationViewController.xib in Resources */,
 				F0FD848B193DE95400F5DD2F /* SOPropertiesViewController.xib in Resources */,
 				F00472101C6D5DCF00366BFB /* 00 TC Atmos (loop)_converted.m4a in Resources */,
 				F04417D918BD2D7900572780 /* default@2x.png in Resources */,
+				F08D8D561C6EA96F00DA95B5 /* fbn_brisbane_cue_11_2_converted.m4v in Resources */,
 				F0FD8490193DFAEA00F5DD2F /* SOFloatPropViewController.xib in Resources */,
+				F08D8D581C6EA96F00DA95B5 /* fbn_brisbane_cue_13_2_converted.m4v in Resources */,
 				F0B8DCD619866F9D00976135 /* test.json in Resources */,
-				F00472071C6D5BCF00366BFB /* fbn_brisbane_cue_4_2.mov in Resources */,
 				F0AECCD018B171DB00263C32 /* InfoPlist.strings in Resources */,
 				F03392ED19382C4E004FDB33 /* data.json in Resources */,
+				F08D8D531C6EA96F00DA95B5 /* fbn_brisbane_cue_08_2_converted.m4v in Resources */,
+				F08D8D521C6EA96F00DA95B5 /* fbn_brisbane_cue_5_2_converted.m4v in Resources */,
 				F066F3781B0EB8FB00C85727 /* data_220515.json in Resources */,
 				F0FE3DEB1944A00D0029DAEF /* dataT.json in Resources */,
+				F08D8D3A1C6EA2ED00DA95B5 /* TITLE CARD - Behind You_converted.m4v in Resources */,
 				F04EFB731B2BF4970085938B /* data_130615.json in Resources */,
 				F0AECCD918B171DB00263C32 /* Main.storyboard in Resources */,
-				F00471FF1C6D5BCF00366BFB /* fbn_brisbane_cue_02_2.mov in Resources */,
 				F04417D818BD2D7900572780 /* default.png in Resources */,
-				F00471FE1C6D5BCF00366BFB /* fbn_brisbane_cue_01_2.mov in Resources */,
 				F013B4641AF1EB6500D43B8D /* data_2014729_1525m4a.json in Resources */,
+				F08D8D571C6EA96F00DA95B5 /* fbn_brisbane_cue_12_2_converted.m4v in Resources */,
 				F01DE52E19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
+				F08D8D501C6EA96F00DA95B5 /* fbn_brisbane_cue_4_2_converted.m4v in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1197,7 +1201,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOMoviePlayer/FlyByNight-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/FlyByNight-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FlyByNight.temp_caseinsensitive_rename;
@@ -1219,7 +1223,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOMoviePlayer/FlyByNight-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/FlyByNight-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FlyByNight.temp_caseinsensitive_rename;

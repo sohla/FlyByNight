@@ -10,7 +10,7 @@
                  "threshold" : 2.3,
                  "action" : "pre",
                  "prox" : 1,
-                 "cues" : [ "test1"]
+                 "cues" : [ "title card"]
                
                },{
                
@@ -18,20 +18,20 @@
                "threshold" : 2.3,
                "action" : "post",
                  "prox" : 2,
-               "cues" : [ "test2"]
+               "cues" : [ "glass of water","behind you","jumping"]
                  
                  
-                 },{
-                 
-                 "minor" : 3,
-                 "threshold" : 2.3,
-                 "action" : "post",
-                 "prox" : 2,
-                 "cues" : [ "test3"]
-                 
-            
-                 }
-               
+                
+                },{
+                
+                "minor" : 3,
+                "threshold" : 2.3,
+                "action" : "post",
+                "prox" : 2,
+                "cues" : [ "jumping"]
+                
+                
+                }
                
                ],
     
@@ -39,11 +39,11 @@
     "cues" : [
               
               {
-              "title"    : "test1",
-              "path"     : "fbn_brisbane_cue_02_2x.mov",
+              "title"    : "title card",
+              "path"     : "fbn_brisbane_cue_01_2_converted.m4v",
               "type"      : "movie",
-              "loop"    : 1,
-              "trigger"    : 0,
+              "loop"    : 5000,
+              "trigger"    : 1,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -55,13 +55,32 @@
               "pre_time"       : 0.001,
               "fadein_time"       : 0.4,
               "fadeout_time"       : 0.2
+              
               },{
               
-              "title"    : "test2",
-              "path"     : "burstTest2.mov",
+              "title"    : "glass of water",
+              "path"     : "fbn_brisbane_cue_02_2_converted.m4v",
               "type"      : "moviepan",
-              "loop"    : 1,
-              "trigger"    : 1,
+              "loop"    : 0,
+              "trigger"    : 0,
+             
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.2
+              },{
+              
+              "title"    : "behind you",
+              "path"     : "TITLE CARD - Behind You_converted.m4v",
+              "type"      : "movie",
+              "loop"    : -1,
+              "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
@@ -69,29 +88,30 @@
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
-              
-              "pre_time"       : 0.001,
-              "fadein_time"       : 0.05,
+        
+              "pre_time"       : 0.71,
+              "fadein_time"       : 0.2,
               "fadeout_time"       : 0.05
+
               },{
-              
-              "title"    : "test3",
-              "path"     : "stripeTest.mov",
+               
+              "title"    : "jumping",
+              "path"     : "fbn_brisbane_cue_4_2_converted.m4v",
               "type"      : "movie",
-              "loop"    : 1,
-              "trigger"    : 0,
-             
+              "loop"    : 11000,
+              "trigger"    : 1,
+              
               "zoom"      : 0.3565,
-              "offset_x"      : 0.8,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.001,
-              "fadein_time"       : 0.05,
+              "pre_time"       : 0.01,
+              "fadein_time"       : 0.2,
               "fadeout_time"       : 0.05
-
+              
               
               
           }
@@ -100,7 +120,7 @@
             ]
     ,
     
-    "start" : 1
+    "start" : 2
     
     
 }
