@@ -162,6 +162,7 @@
 		F0C2DF171939FCBC00EAB7F9 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF0C1939FCBC00EAB7F9 /* JSONValueTransformer.m */; };
 		F0C2DF1B1939FD1B00EAB7F9 /* SOCueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */; };
 		F0C2DF1E193A005B00EAB7F9 /* SOSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */; };
+		F0DD17A31C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0DD17A21C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v */; };
 		F0FD848A193DE95400F5DD2F /* SOPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */; };
 		F0FD848B193DE95400F5DD2F /* SOPropertiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */; };
 		F0FD848F193DFAEA00F5DD2F /* SOFloatPropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD848D193DFAEA00F5DD2F /* SOFloatPropViewController.m */; };
@@ -380,6 +381,7 @@
 		F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCueModel.m; sourceTree = "<group>"; };
 		F0C2DF1C193A005B00EAB7F9 /* SOSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SOSessionModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSessionModel.m; sourceTree = "<group>"; };
+		F0DD17A21C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD - This Way_converted.m4v"; sourceTree = "<group>"; };
 		F0FD8487193DE95400F5DD2F /* SOPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPropertiesViewController.h; sourceTree = "<group>"; };
 		F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPropertiesViewController.m; sourceTree = "<group>"; };
 		F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOPropertiesViewController.xib; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				F08D8D4C1C6EA96F00DA95B5 /* fbn_brisbane_cue_12_2_converted.m4v */,
 				F08D8D4D1C6EA96F00DA95B5 /* fbn_brisbane_cue_13_2_converted.m4v */,
 				F08D8D391C6EA2ED00DA95B5 /* TITLE CARD - Behind You_converted.m4v */,
+				F0DD17A21C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v */,
 			);
 			path = APAMMovies;
 			sourceTree = "<group>";
@@ -946,6 +949,7 @@
 				F04EFB731B2BF4970085938B /* data_130615.json in Resources */,
 				F0AECCD918B171DB00263C32 /* Main.storyboard in Resources */,
 				F04417D818BD2D7900572780 /* default.png in Resources */,
+				F0DD17A31C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v in Resources */,
 				F013B4641AF1EB6500D43B8D /* data_2014729_1525m4a.json in Resources */,
 				F08D8D571C6EA96F00DA95B5 /* fbn_brisbane_cue_12_2_converted.m4v in Resources */,
 				F01DE52E19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
