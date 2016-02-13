@@ -131,7 +131,7 @@
               "trigger"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.41,
+              "offset_x"      : 0.91,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -150,10 +150,10 @@
               "trigger"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.41,
+              "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
+              "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.51,
@@ -176,7 +176,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.52,
+              "pre_time"       : 0.53,
               "fadein_time"       : 0.12,
               "fadeout_time"       : 0.3
               
@@ -188,14 +188,14 @@
               "loop"    : 4000,
               "trigger"    : 1,
               
-              "zoom"      : 0.3565,
+              "zoom"      : 0.5565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 0.0,
+              "scroll_dx"      : 0.7,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 1.89,
+              "pre_time"       : 1.90,
               "fadein_time"       : 0.26,
               "fadeout_time"       : 0.05
 
@@ -207,14 +207,14 @@
               "loop"    : -1,
               "trigger"    : 0,
               
-              "zoom"      : 0.5565,
-              "offset_x"      : 0.5,
+              "zoom"      : 0.3565,
+              "offset_x"      : 1.0,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 0.7,
               "scroll_dy"      : 0.5,
               
-              "pre_time"       : 1.90,
+              "pre_time"       : 1.91,
               "fadein_time"       : 0.26,
               "fadeout_time"       : 0.05
               
@@ -283,7 +283,7 @@
             ]
     ,
     
-    "start" : 4
+    "start" : 1
     
     
 }
