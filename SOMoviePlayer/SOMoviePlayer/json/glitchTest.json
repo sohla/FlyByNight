@@ -40,8 +40,8 @@
               
               {
               "title"    : "test1",
-              "path"     : "FBNApam_cue_8_3_converted_sync.mov",
-              "type"      : "movieaudio",
+              "path"     : "FBNApam_cue_4.1_2_music_converted.m4a",
+              "type"      : "audio",
               "loop"    : 1,
               "trigger"    : 0,
              

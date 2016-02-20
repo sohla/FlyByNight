@@ -17,7 +17,7 @@
                "threshold" : 2.3,
                "action" : "post",
                  "prox" : 2,
-               "cues" : [ "glass of water","black background","behind you","background ocean" ,"jumping"]
+               "cues" : [ "glass of water","behind you","background ocean" ,"jumping"]
                  
                 },{
                 
@@ -25,7 +25,7 @@
                 "threshold" : 2.3,
                 "action" : "post",
                 "prox" : 2,
-                "cues" : [ "move to stairs","move to stairs music","this way","foot prints","foot prints music","white wall","white wall music"]
+                "cues" : [ "move to stairs","move to stairs music","this way","foot prints","foot prints music","white wall"]
                 
                 },{
                 
@@ -33,7 +33,7 @@
                 "threshold" : 2.3,
                 "action" : "post",
                 "prox" : 2,
-                "cues" : ["final throws","final throws music","into the pipe"]
+                "cues" : ["final throws","final throws music","into the pipe","to be continued"]
 
                 }],
     
@@ -60,9 +60,9 @@
               },{
               
               "title"    : "background cafe",
-              "path"     : "FBNApam_cue_01_BackgroundCafe.m4a",
+              "path"     : "FBNApam_cue_01_background_converted.m4a",
               "type"      : "audio",
-              "loop"    : 0,
+              "loop"    : -1,
               "trigger"    : 0,
               
               "zoom"      : 0.3565,
@@ -79,21 +79,21 @@
               },{
               
               "title"    : "glass of water",
-              "path"     : "FBNApam_cue_2_2_converted_sync.mov",
+              "path"     : "FBNApam_cue_02_4_converted_sync_converted.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
               "trigger"    : 0,
              
               "zoom"      : 0.3565,
               "offset_x"      : 0.5,
-              "offset_y"      : 0.6206896,
+              "offset_y"      : 0.5,
               
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 1.0,
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.001
+              "fadeout_time"       : 0.01
               },{
               
               "title"    : "black background",
@@ -109,7 +109,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.673,
+              "pre_time"       : 0.669,
               "fadein_time"       : 0.0001,
               "fadeout_time"       : 0.05
               },{
@@ -127,14 +127,14 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
         
-              "pre_time"       : 0.6731,
+              "pre_time"       : 0.670,
               "fadein_time"       : 0.0001,
               "fadeout_time"       : 0.05
 
               },{
               
               "title"    : "background ocean",
-              "path"     : "FBNApam_cue_4_2_BackgroundOcean.m4a",
+              "path"     : "FBNApam_cue_4_2_background_converted.m4a",
               "type"      : "audio",
               "loop"    : -1,
               "trigger"    : 0,
@@ -146,14 +146,14 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.6731,
+              "pre_time"       : 0.68,
               "fadein_time"       : 0.0001,
               "fadeout_time"       : 0.05
               
               },{
                
               "title"    : "jumping",
-              "path"     : "fbn_brisbane_cue_4_2_converted_sync.mov",
+              "path"     : "FBNApam_cue_4_2_sync_converted.m4v",
               "type"      : "movieaudio",
               "loop"    : 11000,
               "trigger"    : 1,
@@ -192,7 +192,7 @@
               },{
               
               "title"    : "move to stairs music",
-              "path"     : "FBNApam_cue_4.1_2_audio.m4a",
+              "path"     : "FBNApam_cue_4.1_2_music_converted.m4a",
               "type"      : "audio",
               "loop"    : 0,
               "trigger"    : 0,
@@ -248,7 +248,7 @@
               },{
               
               "title"    : "foot prints music",
-              "path"     : "FBNApam_cue_5_2_audio.m4a",
+              "path"     : "FBNApam_cue_5_2_music_converted.m4a",
               "type"      : "audio",
               "loop"    : 0,
               "trigger"    : 0,
@@ -267,7 +267,7 @@
               },{
               
               "title"    : "white wall",
-              "path"     : "FBNApam_cue_8_3_converted_sync.mov",
+              "path"     : "FBNApam_cue_8_3_converted_sync_converted.m4v",
               "type"      : "movieaudio",
               "loop"    : 6300,
               "trigger"    : 1,
@@ -324,7 +324,7 @@
               },{
               
               "title"    : "final throws",
-              "path"     : "FBNApam_cue_9_3_converted_sync.mov",
+              "path"     : "FBNApam_cue_9_3_converted_sync_converted.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
               "trigger"    : 0,
@@ -361,7 +361,7 @@
               },{
               
               "title"    : "into the pipe",
-              "path"     : "FBNApam_cue_10_2_converted_sync.mov",
+              "path"     : "FBNApam_cue_10_2_converted_sync_converted.m4v",
               "type"      : "movieaudio",
               "loop"    : 0,
               "trigger"    : 0,
@@ -380,7 +380,7 @@
               },{
               
               "title"    : "to be continued",
-              "path"     : "fbn_brisbane_cue_10_2_converted.m4v",
+              "path"     : "fbn_brisbane_cue_11_2_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
               "trigger"    : 0,
@@ -392,7 +392,7 @@
               "scroll_dx"      : 0.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.82,
+              "pre_time"       : 0.89,
               "fadein_time"       : 0.04,
               "fadeout_time"       : 0.05
 
@@ -403,7 +403,7 @@
             ]
     ,
     
-    "start" : 2
+    "start" : 4
     
     
 }
