@@ -31,7 +31,8 @@
     
     [DDLog addLogger:fileLogger];
     
-    
+    DDLogInfo(@"log file at: %@", [[fileLogger currentLogFileInfo] filePath]);
+
     // Install notification to report batterly level from anywhere
     //
     [[NSNotificationCenter defaultCenter] addObserver:self

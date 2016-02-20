@@ -212,7 +212,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
+    
+//  ?? why the hell would i want to reset the location manager
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kMotionManagerReset object:nil];
 
     SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
     controller.modelStore = self.modelStore;

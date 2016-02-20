@@ -12,26 +12,7 @@
                  "prox" : 2,
                  "cues" : [ "test1"]
                
-               },{
-               
-               "minor" : 2,
-               "threshold" : 2.3,
-               "action" : "post",
-                 "prox" : 2,
-               "cues" : [ "test1"]
-                 
-                 
-                 },{
-                 
-                 "minor" : 3,
-                 "threshold" : 2.3,
-                 "action" : "post",
-                 "prox" : 2,
-                 "cues" : [ "test3"]
-                 
-            
-                 }
-               
+               }
                
                ],
     

@@ -31,6 +31,15 @@
 		F013B3A11AF1A99800D43B8D /* SOTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = F013B39F1AF1A99800D43B8D /* SOTouchView.m */; };
 		F013B4641AF1EB6500D43B8D /* data_2014729_1525m4a.json in Resources */ = {isa = PBXBuildFile; fileRef = F013B4631AF1EB6500D43B8D /* data_2014729_1525m4a.json */; };
 		F013B4651AF1EB6500D43B8D /* data_2014729_1525m4a.json in Resources */ = {isa = PBXBuildFile; fileRef = F013B4631AF1EB6500D43B8D /* data_2014729_1525m4a.json */; };
+		F01645061C77301C008B3AC8 /* FBNApam_cue_4.1_2_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F01645051C77301C008B3AC8 /* FBNApam_cue_4.1_2_audio.m4a */; };
+		F01645101C77315B008B3AC8 /* FBNApam_cue_5_2_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F016450F1C77315B008B3AC8 /* FBNApam_cue_5_2_audio.m4a */; };
+		F01645121C7738B3008B3AC8 /* FBNApam_cue_8_3_converted_sync.mov in Resources */ = {isa = PBXBuildFile; fileRef = F01645111C7738B3008B3AC8 /* FBNApam_cue_8_3_converted_sync.mov */; };
+		F01645141C773B6C008B3AC8 /* FBNApam_cue_8_2_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F01645131C773B6C008B3AC8 /* FBNApam_cue_8_2_audio.m4a */; };
+		F01645161C773DAD008B3AC8 /* FBNApam_cue_9_3_converted_sync.mov in Resources */ = {isa = PBXBuildFile; fileRef = F01645151C773DAD008B3AC8 /* FBNApam_cue_9_3_converted_sync.mov */; };
+		F01645181C773E07008B3AC8 /* 13b Riverside (NS)_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F01645171C773E07008B3AC8 /* 13b Riverside (NS)_converted.m4a */; };
+		F016451A1C773F01008B3AC8 /* FBNApam_cue_10_2_converted_sync.mov in Resources */ = {isa = PBXBuildFile; fileRef = F01645191C773F01008B3AC8 /* FBNApam_cue_10_2_converted_sync.mov */; };
+		F016451C1C77408C008B3AC8 /* FBNApam_cue_09_2_audio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F016451B1C77408C008B3AC8 /* FBNApam_cue_09_2_audio.m4a */; };
+		F01645221C77463A008B3AC8 /* FBNApam_cue_2_2_converted_sync.mov in Resources */ = {isa = PBXBuildFile; fileRef = F01645211C77463A008B3AC8 /* FBNApam_cue_2_2_converted_sync.mov */; };
 		F01DE52E19873A7500DE7D48 /* data_2014729_12111.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */; };
 		F01DE52F19873A7500DE7D48 /* data_2014729_12111.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */; };
 		F01DE5311987A01900DE7D48 /* data_2014729_1525.json in Resources */ = {isa = PBXBuildFile; fileRef = F01DE5301987A01900DE7D48 /* data_2014729_1525.json */; };
@@ -162,7 +171,13 @@
 		F0C2DF171939FCBC00EAB7F9 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF0C1939FCBC00EAB7F9 /* JSONValueTransformer.m */; };
 		F0C2DF1B1939FD1B00EAB7F9 /* SOCueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */; };
 		F0C2DF1E193A005B00EAB7F9 /* SOSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */; };
+		F0D08F931C7877BC00D9BACA /* glitchTest.json in Resources */ = {isa = PBXBuildFile; fileRef = F0D08F921C7877BC00D9BACA /* glitchTest.json */; };
+		F0D08F9D1C787AF000D9BACA /* FBNApam_cue_4.1_2_music_converted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F0D08F9C1C787AF000D9BACA /* FBNApam_cue_4.1_2_music_converted.m4a */; };
+		F0D7D4EE1C75F2C9009383B9 /* FBNApam_cue_01_BackgroundCafe.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F0D7D4EC1C75F2C9009383B9 /* FBNApam_cue_01_BackgroundCafe.m4a */; };
+		F0D7D4F21C760690009383B9 /* fbn_brisbane_cue_4_2_converted_sync.mov in Resources */ = {isa = PBXBuildFile; fileRef = F0D7D4F11C760690009383B9 /* fbn_brisbane_cue_4_2_converted_sync.mov */; };
+		F0D7D4F41C7606C4009383B9 /* FBNApam_cue_4_2_BackgroundOcean.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F0D7D4F31C7606C4009383B9 /* FBNApam_cue_4_2_BackgroundOcean.m4a */; };
 		F0DD17A31C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0DD17A21C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v */; };
+		F0ECDA8A1C7291AB00582AA4 /* TITLE CARD - black background_converted.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F0ECDA891C7291AB00582AA4 /* TITLE CARD - black background_converted.m4v */; };
 		F0FD848A193DE95400F5DD2F /* SOPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */; };
 		F0FD848B193DE95400F5DD2F /* SOPropertiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */; };
 		F0FD848F193DFAEA00F5DD2F /* SOFloatPropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FD848D193DFAEA00F5DD2F /* SOFloatPropViewController.m */; };
@@ -268,6 +283,15 @@
 		F013B39E1AF1A99800D43B8D /* SOTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOTouchView.h; sourceTree = "<group>"; };
 		F013B39F1AF1A99800D43B8D /* SOTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOTouchView.m; sourceTree = "<group>"; };
 		F013B4631AF1EB6500D43B8D /* data_2014729_1525m4a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_2014729_1525m4a.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F01645051C77301C008B3AC8 /* FBNApam_cue_4.1_2_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FBNApam_cue_4.1_2_audio.m4a; sourceTree = "<group>"; };
+		F016450F1C77315B008B3AC8 /* FBNApam_cue_5_2_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FBNApam_cue_5_2_audio.m4a; sourceTree = "<group>"; };
+		F01645111C7738B3008B3AC8 /* FBNApam_cue_8_3_converted_sync.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = FBNApam_cue_8_3_converted_sync.mov; sourceTree = "<group>"; };
+		F01645131C773B6C008B3AC8 /* FBNApam_cue_8_2_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FBNApam_cue_8_2_audio.m4a; sourceTree = "<group>"; };
+		F01645151C773DAD008B3AC8 /* FBNApam_cue_9_3_converted_sync.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = FBNApam_cue_9_3_converted_sync.mov; sourceTree = "<group>"; };
+		F01645171C773E07008B3AC8 /* 13b Riverside (NS)_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "13b Riverside (NS)_converted.m4a"; sourceTree = "<group>"; };
+		F01645191C773F01008B3AC8 /* FBNApam_cue_10_2_converted_sync.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = FBNApam_cue_10_2_converted_sync.mov; sourceTree = "<group>"; };
+		F016451B1C77408C008B3AC8 /* FBNApam_cue_09_2_audio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FBNApam_cue_09_2_audio.m4a; sourceTree = "<group>"; };
+		F01645211C77463A008B3AC8 /* FBNApam_cue_2_2_converted_sync.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = FBNApam_cue_2_2_converted_sync.mov; sourceTree = "<group>"; };
 		F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_2014729_12111.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F01DE5301987A01900DE7D48 /* data_2014729_1525.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data_2014729_1525.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F03392EC19382C4E004FDB33 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; lineEnding = 0; path = data.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
@@ -381,7 +405,13 @@
 		F0C2DF1A1939FD1B00EAB7F9 /* SOCueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCueModel.m; sourceTree = "<group>"; };
 		F0C2DF1C193A005B00EAB7F9 /* SOSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SOSessionModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F0C2DF1D193A005B00EAB7F9 /* SOSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSessionModel.m; sourceTree = "<group>"; };
+		F0D08F921C7877BC00D9BACA /* glitchTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = glitchTest.json; sourceTree = "<group>"; };
+		F0D08F9C1C787AF000D9BACA /* FBNApam_cue_4.1_2_music_converted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FBNApam_cue_4.1_2_music_converted.m4a; sourceTree = "<group>"; };
+		F0D7D4EC1C75F2C9009383B9 /* FBNApam_cue_01_BackgroundCafe.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FBNApam_cue_01_BackgroundCafe.m4a; sourceTree = "<group>"; };
+		F0D7D4F11C760690009383B9 /* fbn_brisbane_cue_4_2_converted_sync.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fbn_brisbane_cue_4_2_converted_sync.mov; sourceTree = "<group>"; };
+		F0D7D4F31C7606C4009383B9 /* FBNApam_cue_4_2_BackgroundOcean.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FBNApam_cue_4_2_BackgroundOcean.m4a; sourceTree = "<group>"; };
 		F0DD17A21C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD - This Way_converted.m4v"; sourceTree = "<group>"; };
+		F0ECDA891C7291AB00582AA4 /* TITLE CARD - black background_converted.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TITLE CARD - black background_converted.m4v"; sourceTree = "<group>"; };
 		F0FD8487193DE95400F5DD2F /* SOPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOPropertiesViewController.h; sourceTree = "<group>"; };
 		F0FD8488193DE95400F5DD2F /* SOPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOPropertiesViewController.m; sourceTree = "<group>"; };
 		F0FD8489193DE95400F5DD2F /* SOPropertiesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SOPropertiesViewController.xib; sourceTree = "<group>"; };
@@ -458,6 +488,19 @@
 		F00D4E6E1C6E9CCB003DED3D /* APAMMovies */ = {
 			isa = PBXGroup;
 			children = (
+				F01645211C77463A008B3AC8 /* FBNApam_cue_2_2_converted_sync.mov */,
+				F0D7D4EC1C75F2C9009383B9 /* FBNApam_cue_01_BackgroundCafe.m4a */,
+				F0D7D4F11C760690009383B9 /* fbn_brisbane_cue_4_2_converted_sync.mov */,
+				F0D7D4F31C7606C4009383B9 /* FBNApam_cue_4_2_BackgroundOcean.m4a */,
+				F01645051C77301C008B3AC8 /* FBNApam_cue_4.1_2_audio.m4a */,
+				F0D08F9C1C787AF000D9BACA /* FBNApam_cue_4.1_2_music_converted.m4a */,
+				F016450F1C77315B008B3AC8 /* FBNApam_cue_5_2_audio.m4a */,
+				F01645111C7738B3008B3AC8 /* FBNApam_cue_8_3_converted_sync.mov */,
+				F01645131C773B6C008B3AC8 /* FBNApam_cue_8_2_audio.m4a */,
+				F01645151C773DAD008B3AC8 /* FBNApam_cue_9_3_converted_sync.mov */,
+				F01645171C773E07008B3AC8 /* 13b Riverside (NS)_converted.m4a */,
+				F016451B1C77408C008B3AC8 /* FBNApam_cue_09_2_audio.m4a */,
+				F01645191C773F01008B3AC8 /* FBNApam_cue_10_2_converted_sync.mov */,
 				F08D8D431C6EA96F00DA95B5 /* fbn_brisbane_cue_01_2_converted.m4v */,
 				F08D8D441C6EA96F00DA95B5 /* fbn_brisbane_cue_02_2_converted.m4v */,
 				F08D8D451C6EA96F00DA95B5 /* fbn_brisbane_cue_4_2_converted.m4v */,
@@ -471,6 +514,7 @@
 				F08D8D4D1C6EA96F00DA95B5 /* fbn_brisbane_cue_13_2_converted.m4v */,
 				F08D8D391C6EA2ED00DA95B5 /* TITLE CARD - Behind You_converted.m4v */,
 				F0DD17A21C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v */,
+				F0ECDA891C7291AB00582AA4 /* TITLE CARD - black background_converted.m4v */,
 			);
 			path = APAMMovies;
 			sourceTree = "<group>";
@@ -490,6 +534,7 @@
 				F01DE52D19873A7500DE7D48 /* data_2014729_12111.json */,
 				F03392EC19382C4E004FDB33 /* data.json */,
 				F0B8DCD519866F9D00976135 /* test.json */,
+				F0D08F921C7877BC00D9BACA /* glitchTest.json */,
 				F00472091C6D5C0500366BFB /* apam_1.json */,
 				F07F16191951017D00E36A70 /* allCues.json */,
 				F0FE3DEA1944A00D0029DAEF /* dataT.json */,
@@ -912,10 +957,13 @@
 				F08D8D4F1C6EA96F00DA95B5 /* fbn_brisbane_cue_02_2_converted.m4v in Resources */,
 				F0B8DCD01985382900976135 /* SOCameraViewController.xib in Resources */,
 				F08D8D511C6EA96F00DA95B5 /* fbn_brisbane_cue_4.1_2_converted.m4v in Resources */,
+				F0D7D4F21C760690009383B9 /* fbn_brisbane_cue_4_2_converted_sync.mov in Resources */,
 				F08D8D4E1C6EA96F00DA95B5 /* fbn_brisbane_cue_01_2_converted.m4v in Resources */,
 				F0A939D61BCDE37400A34481 /* burstTest.mov in Resources */,
+				F0D08F9D1C787AF000D9BACA /* FBNApam_cue_4.1_2_music_converted.m4a in Resources */,
 				F0A939D71BCDE37400A34481 /* burstTest2.mov in Resources */,
 				F07F161A1951017D00E36A70 /* allCues.json in Resources */,
+				F016451A1C773F01008B3AC8 /* FBNApam_cue_10_2_converted_sync.mov in Resources */,
 				F0A939DA1BCDE37400A34481 /* stripeTest.mov in Resources */,
 				F08D507A1B53F00F00062D4E /* data_140715.json in Resources */,
 				F044090A1B29B311004F4326 /* data_110615.json in Resources */,
@@ -927,19 +975,28 @@
 				F08D8D551C6EA96F00DA95B5 /* fbn_brisbane_cue_10_2_converted.m4v in Resources */,
 				F01DE5311987A01900DE7D48 /* data_2014729_1525.json in Resources */,
 				F0A939DB1BCDE37400A34481 /* testsig.m4v in Resources */,
+				F01645141C773B6C008B3AC8 /* FBNApam_cue_8_2_audio.m4a in Resources */,
 				F08D8D541C6EA96F00DA95B5 /* fbn_brisbane_cue_09_2_converted.m4v in Resources */,
 				F004720A1C6D5C0500366BFB /* apam_1.json in Resources */,
 				F09FEC701B5B26A200623A0F /* data_190715.json in Resources */,
 				F08D50751B53A0C400062D4E /* data_130715.json in Resources */,
 				F037A5E31B496CCC006521BB /* SOCalibrationViewController.xib in Resources */,
+				F01645121C7738B3008B3AC8 /* FBNApam_cue_8_3_converted_sync.mov in Resources */,
 				F0FD848B193DE95400F5DD2F /* SOPropertiesViewController.xib in Resources */,
+				F01645181C773E07008B3AC8 /* 13b Riverside (NS)_converted.m4a in Resources */,
 				F00472101C6D5DCF00366BFB /* 00 TC Atmos (loop)_converted.m4a in Resources */,
+				F01645061C77301C008B3AC8 /* FBNApam_cue_4.1_2_audio.m4a in Resources */,
 				F04417D918BD2D7900572780 /* default@2x.png in Resources */,
 				F08D8D561C6EA96F00DA95B5 /* fbn_brisbane_cue_11_2_converted.m4v in Resources */,
 				F0FD8490193DFAEA00F5DD2F /* SOFloatPropViewController.xib in Resources */,
 				F08D8D581C6EA96F00DA95B5 /* fbn_brisbane_cue_13_2_converted.m4v in Resources */,
+				F0D7D4F41C7606C4009383B9 /* FBNApam_cue_4_2_BackgroundOcean.m4a in Resources */,
 				F0B8DCD619866F9D00976135 /* test.json in Resources */,
 				F0AECCD018B171DB00263C32 /* InfoPlist.strings in Resources */,
+				F016451C1C77408C008B3AC8 /* FBNApam_cue_09_2_audio.m4a in Resources */,
+				F0D7D4EE1C75F2C9009383B9 /* FBNApam_cue_01_BackgroundCafe.m4a in Resources */,
+				F01645221C77463A008B3AC8 /* FBNApam_cue_2_2_converted_sync.mov in Resources */,
+				F01645101C77315B008B3AC8 /* FBNApam_cue_5_2_audio.m4a in Resources */,
 				F03392ED19382C4E004FDB33 /* data.json in Resources */,
 				F08D8D531C6EA96F00DA95B5 /* fbn_brisbane_cue_08_2_converted.m4v in Resources */,
 				F08D8D521C6EA96F00DA95B5 /* fbn_brisbane_cue_5_2_converted.m4v in Resources */,
@@ -950,8 +1007,11 @@
 				F0AECCD918B171DB00263C32 /* Main.storyboard in Resources */,
 				F04417D818BD2D7900572780 /* default.png in Resources */,
 				F0DD17A31C6ED2EF00C022BE /* TITLE CARD - This Way_converted.m4v in Resources */,
+				F01645161C773DAD008B3AC8 /* FBNApam_cue_9_3_converted_sync.mov in Resources */,
 				F013B4641AF1EB6500D43B8D /* data_2014729_1525m4a.json in Resources */,
 				F08D8D571C6EA96F00DA95B5 /* fbn_brisbane_cue_12_2_converted.m4v in Resources */,
+				F0D08F931C7877BC00D9BACA /* glitchTest.json in Resources */,
+				F0ECDA8A1C7291AB00582AA4 /* TITLE CARD - black background_converted.m4v in Resources */,
 				F01DE52E19873A7500DE7D48 /* data_2014729_12111.json in Resources */,
 				F08D8D501C6EA96F00DA95B5 /* fbn_brisbane_cue_4_2_converted.m4v in Resources */,
 			);

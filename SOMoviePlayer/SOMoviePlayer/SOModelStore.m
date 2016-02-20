@@ -41,7 +41,8 @@
         
         DLog(@"Loading default data file...");
  //      NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"json"];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"apam_1" ofType:@"json"];
+       NSString *path = [[NSBundle mainBundle] pathForResource:@"apam_1" ofType:@"json"];
+ //       NSString *path = [[NSBundle mainBundle] pathForResource:@"glitchTest" ofType:@"json"];
 
         
         
@@ -126,8 +127,6 @@
     }];
     
     return scene;
-    
-    
 }
 
 -(void)loadJSONCuesWithPath:(NSString*)path completionBlock:(void (^)(NSError *error)) block{
@@ -143,7 +142,6 @@
         block(err);
     }
     
-    
     dispatch_async(kBGQueue, ^{
         
         __block NSError *err;
@@ -154,7 +152,6 @@
         }else{
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                
 
                 _sessionModel = [[SOSessionModel alloc] initWithData:data error:&err];
                 self.currentCueModel = self.sessionModel.cues[0];
@@ -163,7 +160,6 @@
 
             });
         }
-        
     });
 }
 
@@ -176,8 +172,7 @@
 							   NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond)
 												fromDate:now];
     
-    
-	// form string for file name using current date to form unique file name
+    // form string for file name using current date to form unique file name
     NSString* newFileName = [[NSString stringWithFormat:
                               @"%@_%ld%ld%ld_%ld%ld%ld",
                               @"data",
@@ -188,8 +183,6 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:newFileName forKey:kLastFileSaved];
     [[NSUserDefaults standardUserDefaults] synchronize];
-
-
 }
 
 -(void)saveCuesAsJsonWithTitle:(NSString*)title{

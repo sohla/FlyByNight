@@ -10,7 +10,7 @@
                  "threshold" : 2.3,
                  "action" : "pre",
                  "prox" : 2,
-                 "cues" : [ "test1"]
+                 "cues" : [ "test1","test2"]
                
                },{
                
@@ -40,8 +40,8 @@
               
               {
               "title"    : "test1",
-              "path"     : "checkTest.mov",
-              "type"      : "movie",
+              "path"     : "FBNApam_cue_8_3_converted_sync.mov",
+              "type"      : "movieaudio",
               "loop"    : 1,
               "trigger"    : 0,
              
@@ -58,8 +58,8 @@
               },{
               
               "title"    : "test2",
-              "path"     : "burstTest2.mov",
-              "type"      : "moviepan",
+              "path"     : "TITLE CARD - This Way_converted.m4v",
+              "type"      : "movie",
               "loop"    : 1,
               "trigger"    : 1,
              
@@ -70,7 +70,7 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.001,
+              "pre_time"       : 0.05,
               "fadein_time"       : 0.05,
               "fadeout_time"       : 0.05
               },{
