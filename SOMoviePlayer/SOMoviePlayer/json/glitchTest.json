@@ -1,0 +1,106 @@
+{
+ 
+    
+    
+    "scenes" : [
+
+                 {
+                 
+                 "minor" : 1,
+                 "threshold" : 2.3,
+                 "action" : "pre",
+                 "prox" : 2,
+                 "cues" : [ "test1"]
+               
+               },{
+               
+               "minor" : 2,
+               "threshold" : 2.3,
+               "action" : "post",
+                 "prox" : 2,
+               "cues" : [ "test1"]
+                 
+                 
+                 },{
+                 
+                 "minor" : 3,
+                 "threshold" : 2.3,
+                 "action" : "post",
+                 "prox" : 2,
+                 "cues" : [ "test3"]
+                 
+            
+                 }
+               
+               
+               ],
+    
+    
+    "cues" : [
+              
+              {
+              "title"    : "test1",
+              "path"     : "checkTest.mov",
+              "type"      : "movie",
+              "loop"    : 1,
+              "trigger"    : 0,
+             
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.4,
+              "fadeout_time"       : 0.2
+              },{
+              
+              "title"    : "test2",
+              "path"     : "burstTest2.mov",
+              "type"      : "moviepan",
+              "loop"    : 1,
+              "trigger"    : 1,
+             
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+              },{
+              
+              "title"    : "test3",
+              "path"     : "stripeTest.mov",
+              "type"      : "movie",
+              "loop"    : 1,
+              "trigger"    : 0,
+             
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.8,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 1.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.001,
+              "fadein_time"       : 0.05,
+              "fadeout_time"       : 0.05
+
+              
+              
+          }
+
+              
+            ]
+    ,
+    
+    "start" : 1
+    
+    
+}
