@@ -17,7 +17,7 @@
                "threshold" : 2.3,
                "action" : "post",
                  "prox" : 2,
-               "cues" : [ "glass of water","behind you","background ocean" ,"jumping"]
+               "cues" : [ "glass of water","behind you" ,"jumping"]
                  
                 },{
                 
@@ -25,7 +25,7 @@
                 "threshold" : 2.3,
                 "action" : "post",
                 "prox" : 2,
-                "cues" : [ "move to stairs","move to stairs music","this way","foot prints","foot prints music","white wall"]
+                "cues" : [ "move to stairs","this way","foot prints","foot prints music","white wall"]
                 
                 },{
                 
@@ -33,7 +33,7 @@
                 "threshold" : 2.3,
                 "action" : "post",
                 "prox" : 2,
-                "cues" : ["final throws","final throws music","into the pipe","to be continued"]
+                "cues" : ["final throws","final throws music","into the pipe","to be continued","watch full version","credits"]
 
                 }],
     
@@ -93,30 +93,12 @@
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
-              "fadeout_time"       : 0.01
-              },{
-              
-              "title"    : "black background",
-              "path"     : "TITLE CARD - black background_converted.m4v",
-              "type"      : "movie",
-              "loop"    : 0,
-              "trigger"    : 0,
-              
-              "zoom"      : 0.4565,
-              "offset_x"      : 0.5,
-              "offset_y"      : 0.5,
-              
-              "scroll_dx"      : 0.0,
-              "scroll_dy"      : 0.0,
-              
-              "pre_time"       : 0.669,
-              "fadein_time"       : 0.0001,
-              "fadeout_time"       : 0.05
+              "fadeout_time"       : 0.001
               },{
               
               "title"    : "behind you",
-              "path"     : "TITLE CARD - Behind You_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN CLIP 4_2_converted_sync.m4v",
+              "type"      : "movieaudio",
               "loop"    : -1,
               "trigger"    : 0,
              
@@ -127,31 +109,12 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
         
-              "pre_time"       : 0.670,
+              "pre_time"       : 0.68,
               "fadein_time"       : 0.0001,
               "fadeout_time"       : 0.05
 
               },{
               
-              "title"    : "background ocean",
-              "path"     : "FBNApam_cue_4_2_background_converted.m4a",
-              "type"      : "audio",
-              "loop"    : -1,
-              "trigger"    : 0,
-              
-              "zoom"      : 0.3565,
-              "offset_x"      : 0.5,
-              "offset_y"      : 0.5,
-              
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 0.0,
-              
-              "pre_time"       : 0.68,
-              "fadein_time"       : 0.0001,
-              "fadeout_time"       : 0.05
-              
-              },{
-               
               "title"    : "jumping",
               "path"     : "FBNApam_cue_4_2_sync_converted.m4v",
               "type"      : "movieaudio",
@@ -165,7 +128,7 @@
               "scroll_dx"      : 1.0,
               "scroll_dy"      : 0.0,
               
-              "pre_time"       : 0.701,
+              "pre_time"       : 0.71,
               "fadein_time"       : 0.2,
               "fadeout_time"       : 0.05
               
@@ -173,8 +136,8 @@
               },{
               
               "title"    : "move to stairs",
-              "path"     : "fbn_brisbane_cue_4.1_2_converted.m4v",
-              "type"      : "movie",
+              "path"     : "FBN CLIP 4.1_2_converted_sync.m4v",
+              "type"      : "movieaudio",
               "loop"    : 0,
               "trigger"    : 0,
               
@@ -189,24 +152,6 @@
               "fadein_time"       : 0.03,
               "fadeout_time"       : 0.05
               
-              },{
-              
-              "title"    : "move to stairs music",
-              "path"     : "FBNApam_cue_4.1_2_music_converted.m4a",
-              "type"      : "audio",
-              "loop"    : 0,
-              "trigger"    : 0,
-              
-              "zoom"      : 0.3565,
-              "offset_x"      : 0.5,
-              "offset_y"      : 0.5,
-              
-              "scroll_dx"      : 1.0,
-              "scroll_dy"      : 0.0,
-              
-              "pre_time"       : 0.01,
-              "fadein_time"       : 0.03,
-              "fadeout_time"       : 0.05
               },{
               
               "title"    : "this way",
@@ -337,12 +282,12 @@
               "scroll_dy"      : 0.0,
               
               "pre_time"       : 0.01,
-              "fadein_time"       : 0.06,
-              "fadeout_time"       : 0.05
+              "fadein_time"       : 0.16,
+              "fadeout_time"       : 0.20
               },{
               
               "title"    : "final throws music",
-              "path"     : "FBNApam_cue_09_2_audio.m4a",
+              "path"     : "FBNApam_cue_09_2_converted.m4a",
               "type"      : "audio",
               "loop"    : 0,
               "trigger"    : 0,
@@ -396,6 +341,46 @@
               "fadein_time"       : 0.04,
               "fadeout_time"       : 0.05
 
+              
+              },{
+              
+              "title"    : "watch full version",
+              "path"     : "fbn_brisbane_cue_12_2_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              "trigger"    : 0,
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 0.93,
+              "fadein_time"       : 0.04,
+              "fadeout_time"       : 0.05
+              
+              
+              },{
+              
+              "title"    : "credits",
+              "path"     : "fbn_brisbane_cue_13_2_converted.m4v",
+              "type"      : "movie",
+              "loop"    : 0,
+              "trigger"    : 0,
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 1.13,
+              "fadein_time"       : 0.04,
+              "fadeout_time"       : 0.05
+              
              
           }
 
