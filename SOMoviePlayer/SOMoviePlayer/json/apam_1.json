@@ -33,7 +33,7 @@
                 "threshold" : 2.3,
                 "action" : "post",
                 "prox" : 2,
-                "cues" : ["final throws","final throws music","into the pipe","to be continued","watch full version","credits"]
+                "cues" : ["final throws","final throws music","into the pipe","to be continued","watch full version","credits","orgs"]
 
                 }],
     
@@ -365,7 +365,7 @@
               },{
               
               "title"    : "credits",
-              "path"     : "fbn_brisbane_cue_13_2_converted.m4v",
+              "path"     : "FBNApam_13_2_2_converted.m4v",
               "type"      : "movie",
               "loop"    : 0,
               "trigger"    : 0,
@@ -380,6 +380,24 @@
               "pre_time"       : 1.13,
               "fadein_time"       : 0.04,
               "fadeout_time"       : 0.05
+              },{
+              
+              "title"    : "orgs",
+              "path"     : "credits_orgs_converted.m4v",
+              "type"      : "movie",
+              "loop"    : -1,
+              "trigger"    : 0,
+              
+              "zoom"      : 0.3565,
+              "offset_x"      : 0.5,
+              "offset_y"      : 0.5,
+              
+              "scroll_dx"      : 0.0,
+              "scroll_dy"      : 0.0,
+              
+              "pre_time"       : 1.29,
+              "fadein_time"       : 0.04,
+              "fadeout_time"       : 0.05
               
              
           }
@@ -388,7 +406,7 @@
             ]
     ,
     
-    "start" : 4
+    "start" : 1
     
     
 }
