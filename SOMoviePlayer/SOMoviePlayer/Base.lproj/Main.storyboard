@@ -62,7 +62,7 @@
                                 <action selector="onCalibrate:" destination="pGg-6v-bdr" id="9It-oq-grh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="66C-jg-mb6">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Edit" id="66C-jg-mb6">
                             <connections>
                                 <action selector="onEdit:" destination="pGg-6v-bdr" id="7xB-f2-T6i"/>
                             </connections>
