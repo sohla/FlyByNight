@@ -84,12 +84,12 @@
               "loop"    : 0,
               "trigger"    : 0,
              
-              "zoom"      : 0.3565,
+              "zoom"      : 0.5565,
               "offset_x"      : 0.5,
               "offset_y"      : 0.5,
               
-              "scroll_dx"      : 0.0,
-              "scroll_dy"      : 0.0,
+              "scroll_dx"      : 0.4,
+              "scroll_dy"      : 0.4,
               
               "pre_time"       : 0.001,
               "fadein_time"       : 0.05,
