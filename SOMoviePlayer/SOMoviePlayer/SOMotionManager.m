@@ -69,9 +69,7 @@
     }
     
     
-    
-    self.motionManager.deviceMotionUpdateInterval = 0.02;  // 50 Hz
-    
+    self.motionManager.deviceMotionUpdateInterval = 0.033;//30hz
     
     if ([self.motionManager isDeviceMotionAvailable]) {
         

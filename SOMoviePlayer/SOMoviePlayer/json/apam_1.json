@@ -122,7 +122,7 @@
               "trigger"    : 1,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.0,
+              "offset_x"      : 0.992,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
@@ -142,7 +142,7 @@
               "trigger"    : 0,
               
               "zoom"      : 0.3565,
-              "offset_x"      : 0.825431,
+              "offset_x"      : 0.85,
               "offset_y"      : 0.5,
               
               "scroll_dx"      : 1.0,
