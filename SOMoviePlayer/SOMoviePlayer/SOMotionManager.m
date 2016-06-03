@@ -156,6 +156,7 @@
     self.storedYaw = att.yaw;//self.storedYaw - (0.025 * (self.storedYaw - att.yaw));
     self.storedHeading = self.storedHeading - (0.025 * (self.storedHeading - self.heading));
     
+    //[super valueForKey:key];
     
     if([key isEqualToString:@"roll"]){
         return self.storedRoll;

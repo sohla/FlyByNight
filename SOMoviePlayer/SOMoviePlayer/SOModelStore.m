@@ -40,8 +40,8 @@
  //   if(![[NSUserDefaults standardUserDefaults] stringForKey:kLastFileSaved] ) {
         
         DLog(@"Loading default data file...");
- //      NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"json"];
-       NSString *path = [[NSBundle mainBundle] pathForResource:@"apam_1" ofType:@"json"];
+       NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"json"];
+//       NSString *path = [[NSBundle mainBundle] pathForResource:@"apam_1" ofType:@"json"];
  //       NSString *path = [[NSBundle mainBundle] pathForResource:@"glitchTest" ofType:@"json"];
 
         
