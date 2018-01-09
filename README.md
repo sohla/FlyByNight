@@ -1,4 +1,2 @@
-SOMoviePlayer
+FlyByNight
 =============
-
-Basic playback of local files with custom controls
