@@ -36,7 +36,6 @@
 		F037A5E41B496CCC006521BB /* SOCalibrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F037A5E01B496CCC006521BB /* SOCalibrationViewController.xib */; };
 		F037A5E71B497162006521BB /* SOGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = F037A5E61B497162006521BB /* SOGridView.m */; };
 		F037A5E81B497162006521BB /* SOGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = F037A5E61B497162006521BB /* SOGridView.m */; };
-		F04409051B293F26004F4326 /* libCocoaLumberjack-iOS-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F04408F71B293E42004F4326 /* libCocoaLumberjack-iOS-Static.a */; };
 		F044090A1B29B311004F4326 /* data_110615.json in Resources */ = {isa = PBXBuildFile; fileRef = F04409091B29B311004F4326 /* data_110615.json */; };
 		F04417A318BA0C2400572780 /* SONotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F04417A218BA0C2400572780 /* SONotifications.m */; };
 		F04417BC18BC2FA400572780 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04417BB18BC2FA400572780 /* AVFoundation.framework */; };
@@ -585,7 +584,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F04409051B293F26004F4326 /* libCocoaLumberjack-iOS-Static.a in Frameworks */,
 				F00504291AEE6322009C9BEC /* libsqlite3.dylib in Frameworks */,
 				F00504271AEE6312009C9BEC /* libz.dylib in Frameworks */,
 				F00504251AEE6301009C9BEC /* SystemConfiguration.framework in Frameworks */,
@@ -1101,6 +1099,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

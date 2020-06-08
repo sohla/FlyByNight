@@ -7,7 +7,7 @@
 //
 
 #import "SOAppDelegate.h"
-#import "CocoaLumberjack.h"
+//#import "CocoaLumberjack.h"
 
 @interface SOAppDelegate  ()
 
@@ -22,14 +22,14 @@
     // Setup Lumberjack logging
     //
     
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
-     
-    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
-    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
-    
-    [DDLog addLogger:fileLogger];
+//    [DDLog addLogger:[DDASLLogger sharedInstance]];
+//    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+//     
+//    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+//    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+//    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+//    
+//    [DDLog addLogger:fileLogger];
     
     
     // Install notification to report batterly level from anywhere

@@ -16,8 +16,8 @@
 #endif
 
 
-#import "CocoaLumberjack.h"
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+//#import "CocoaLumberjack.h"
+//static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 // DLog is almost a drop-in replacement for NSLog
 // DLog();
@@ -25,10 +25,10 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 // DLog(@"value: %d", x);
 // Unfortunately this doesn't work DLog(aStringVariable); you have to do this instead DLog(@"%@", aStringVariable);
 #ifdef DEBUG
-//#	define DLog(fmt, ...) NSLog((@"%s [Line %d] \n\t" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-# define DLog(fmt, ...) DDLogVerbose((@"%s [Line %d] \n\t" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#	define DLog(...)
+#    define DLog(fmt, ...) NSLog((@"%s [Line %d] \n\t" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+//# define DLog(fmt, ...) DDLogVerbose((@"%s [Line %d] \n\t" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+//#else
+//#    define DLog(...)
 #endif
 
 // ALog always displays output regardless of the DEBUG setting
