@@ -1578,7 +1578,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOMoviePlayer/FlyByNight-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/FlyByNight-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FlyByNight.temp_caseinsensitive_rename;
@@ -1600,7 +1600,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOMoviePlayer/FlyByNight-Prefix.pch";
 				INFOPLIST_FILE = "SOMoviePlayer/FlyByNight-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sohla.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FlyByNight.temp_caseinsensitive_rename;
