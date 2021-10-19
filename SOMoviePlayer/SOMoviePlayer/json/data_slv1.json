@@ -1,0 +1,113 @@
+{
+
+    "cues" : [
+            
+    {
+    "offset_x" : 0.5,
+    "title" : "default",
+    "offset_y" : 0.5,
+    "pre_time" : 0.001,
+    "type" : "movie",
+    "path" : ".m4v",
+    "trigger" : 0,
+    "zoom" : 0.3565,
+    "scroll_dx" : 0.0,
+    "fadeout_time" : 0.08,
+    "fadein_time" : 0.05,
+    "scroll_dy" : 0.0,
+    "loop" : 0
+    },
+    {
+    "offset_x" : 0.5,
+    "title" : "1a",
+    "offset_y" : 0.5,
+    "pre_time" : 0.001,
+    "type" : "movieaudio",
+    "path" : "p1_converted.mp4",
+    "trigger" : 1,
+    "zoom" : 1.6,
+    "scroll_dx" : 1,
+    "fadeout_time" : 0.02,
+    "fadein_time" : 0.14,
+    "scroll_dy" : 1,
+    "loop" : 1
+    },
+    {
+    "offset_x" : 0.0,
+    "title" : "1ab",
+    "offset_y" : 0.5,
+    "pre_time" : 0.001,
+    "type" : "movieaudio",
+    "path" : "p2_converted.mp4",
+    "trigger" : 1,
+    "zoom" : 1.6,
+    "scroll_dx" : 1,
+    "fadeout_time" : 0.02,
+    "fadein_time" : 0.14,
+    "scroll_dy" : 1,
+    "loop" : 1
+    },
+    {
+      "offset_x" : 0.5,
+      "title" : "1a_audio",
+      "offset_y" : 0.5,
+      "pre_time" : 0.001,
+      "type" : "audiopan",
+      "path" : "breathingPencil.wav",
+      "trigger" : 0,
+      "zoom" : 0.3565,
+      "scroll_dx" : 1.0,
+      "fadeout_time" : 0.6,
+      "fadein_time" : 0.001,
+      "scroll_dy" : 0,
+      "loop" : 1
+      },
+    {
+      "offset_x" : 0.9,
+      "title" : "1ab_audio",
+      "offset_y" : 0.5,
+      "pre_time" : 0.001,
+      "type" : "audiopan",
+      "path" : "pecilReflection.wav",
+      "trigger" : 0,
+      "zoom" : 0.3565,
+      "scroll_dx" : 1.0,
+      "fadeout_time" : 0.6,
+      "fadein_time" : 0.001,
+      "scroll_dy" : 0,
+      "loop" : 1
+      }
+
+  ],
+  "scenes" : [
+   {
+   "action" : "pre",
+   "minor" : 1,
+   "threshold" : 2.3,
+   "prox" : 2,
+   "cues" : [
+       "1a",
+       "1ab",
+       "1a_audio",
+       "1ab_audio"
+             ]
+   },
+   {
+   "action" : "next",
+   "minor" : 2,
+   "threshold" : 2.3,
+   "prox" : 2,
+   "cues" : [
+       "1a",
+       "1ab",
+       "1a_audio",
+       "1ab_audio"
+             ]
+   }
+               
+  ],
+
+"start" : 1
+    
+
+}
