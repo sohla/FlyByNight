@@ -25,6 +25,7 @@
 @property NSMutableDictionary *rangedRegions;
 @property NSMutableDictionary *scenes;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *calibrationButton;
 
 
 
@@ -82,6 +83,8 @@
 
     }];
     
+    [self.editButton setTintColor:[UIColor clearColor]];
+    [self.calibrationButton setTintColor:[UIColor clearColor]];
 }
 
 
@@ -168,14 +171,23 @@
     return collect;
     
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    return 160;
+}
 #pragma mark - Table View
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return 1;
 }
 
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    cell.backgroundColor = [UIColor blackColor];
+
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.modelStore.sessionModel.scenes.count;
@@ -193,11 +205,27 @@
      [scene.cues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
          title = [[title stringByAppendingString:[[weakSelf.modelStore cueModelWithTitle:obj] title]] stringByAppendingString:@" | "];
      }];
-        
-    cell.textLabel.text = [NSString stringWithFormat:@"Chapter %d  :  %@",
-                           scene.minor,
-                           title
-                           ];
+
+    NSArray *colors = @[
+        [UIColor systemGreenColor],
+        [UIColor systemOrangeColor],
+        [UIColor systemBlueColor],
+       [UIColor systemPinkColor],
+       [UIColor systemYellowColor]
+    ];
+    UIImageView *imageView = [[UIImageView alloc]  initWithImage:[UIImage imageNamed:scene.image]];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.alpha = 0.5;
+    imageView.clipsToBounds = YES;
+    cell.backgroundView = imageView;
+    cell.backgroundView.frame = CGRectInset(cell.backgroundView.frame, 0.0f, 10.0f);
+    cell.textLabel.textColor = colors[indexPath.row];
+    cell.textLabel.font=[UIFont fontWithName:@"HelveticaNeue" size:64];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", scene.title];
+    
+    UIView *gapView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.backgroundView.frame.size.width, 8.0)];
+    [gapView setBackgroundColor:[UIColor blackColor]];
+    [cell.backgroundView addSubview:gapView];
     
     return cell;
 }

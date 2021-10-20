@@ -81,6 +81,8 @@
   ],
   "scenes" : [
    {
+   "title" : "quiet corner",
+   "image" : "p1",
    "action" : "pre",
    "minor" : 1,
    "threshold" : 2.3,
@@ -93,6 +95,8 @@
              ]
    },
    {
+   "title" : "on country",
+   "image" : "p3",
    "action" : "next",
    "minor" : 2,
    "threshold" : 2.3,
@@ -103,8 +107,51 @@
        "1a_audio",
        "1ab_audio"
              ]
+   },
+   {
+   "title" : "on touch",
+   "image" : "p2",
+   "action" : "next",
+   "minor" : 3,
+   "threshold" : 2.3,
+   "prox" : 2,
+   "cues" : [
+       "1a",
+       "1ab",
+       "1a_audio",
+       "1ab_audio"
+             ]
+   },
+   {
+   "title" : "look up",
+   "image" : "p4",
+   "action" : "next",
+   "minor" : 4,
+   "threshold" : 2.3,
+   "prox" : 2,
+   "cues" : [
+       "1a",
+       "1ab",
+       "1a_audio",
+       "1ab_audio"
+             ]
+   },
+   {
+   "title" : "below",
+   "image" : "p6",
+   "action" : "next",
+   "minor" : 5,
+   "threshold" : 2.3,
+   "prox" : 2,
+   "cues" : [
+       "1a",
+       "1ab",
+       "1a_audio",
+       "1ab_audio"
+             ]
    }
-               
+
+   
   ],
 
 "start" : 1

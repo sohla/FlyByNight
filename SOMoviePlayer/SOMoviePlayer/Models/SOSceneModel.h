@@ -18,6 +18,10 @@
 @property (assign, nonatomic) float threshold;
 @property (strong, nonatomic) NSString *action;
 @property (strong, nonatomic) NSArray *cues;
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *image;
+
+
 
 @property (assign, nonatomic) int prox;
 
