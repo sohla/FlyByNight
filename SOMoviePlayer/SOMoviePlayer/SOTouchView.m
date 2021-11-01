@@ -27,11 +27,9 @@
 
         [self addGestures];
         
-        NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 TC Atmos (loop)_converted" ofType:@"m4a"]];
-
-        
-        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:NULL];
-        [[self audioPlayer] setNumberOfLoops:-1];
+//        NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 TC Atmos (loop)_converted" ofType:@"m4a"]];
+//        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:NULL];
+//        [[self audioPlayer] setNumberOfLoops:-1];
         
 
     }

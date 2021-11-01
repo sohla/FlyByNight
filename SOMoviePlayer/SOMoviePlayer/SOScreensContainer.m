@@ -107,11 +107,9 @@
 #endif
     
     
-    NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 Shake SFX_converted" ofType:@"m4a"]];
-    
-    
-    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:NULL];
-    [[self audioPlayer] setNumberOfLoops:0];
+//    NSURL *audioPath = [NSURL fileURLWithPath: [[NSBundle mainBundle]  pathForResource:@"00 Shake SFX_converted" ofType:@"m4a"]];
+//    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:NULL];
+//    [[self audioPlayer] setNumberOfLoops:0];
 
 }
 -(void)dealloc{

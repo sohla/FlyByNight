@@ -83,8 +83,8 @@
 
     }];
     
-    [self.editButton setTintColor:[UIColor clearColor]];
-    [self.calibrationButton setTintColor:[UIColor clearColor]];
+//    [self.editButton setTintColor:[UIColor clearColor]];
+//    [self.calibrationButton setTintColor:[UIColor clearColor]];
 }
 
 
@@ -238,7 +238,7 @@
 
     SOScreensContainer *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"screenContainer"];
     controller.modelStore = self.modelStore;
-    [self.navigationController pushViewController:controller animated:NO];
+    [self.navigationController pushViewController:controller animated:YES];
 
     [controller triggerScene:[self.modelStore sceneModelWithMinor:(int)indexPath.row+1]];
 
